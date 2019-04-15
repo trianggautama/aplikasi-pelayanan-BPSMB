@@ -196,8 +196,8 @@
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{route('perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
                       </ul>
                     </li>
