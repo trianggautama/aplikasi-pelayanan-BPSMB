@@ -28,6 +28,22 @@ class adminController extends Controller
 
         return view('admin.retribusi_kalibrasi_data');
     }
+     //retribusi kalibrasi
+     public function retribusi_kalibrasi_edit(){
+
+         return view('admin.retribusi_kalibrasi_edit');
+    }
+
+      //retribusi Pengujian
+      public function retribusi_pengujian_index(){
+
+        return view('admin.retribusi_pengujian_data');
+    }
+       //retribusi kalibrasi
+       public function retribusi_pengujian_edit(){
+
+        return view('admin.retribusi_pengujian_edit');
+   }
 
 
 }

@@ -24,5 +24,11 @@ Route::get('/perusahaan_detail','adminController@perusahaan_detail')->name('peru
 
 //Retribusi Kalibrasi
 Route::get('/retribusi_kalibrasi','adminController@retribusi_kalibrasi_index')->name('retribusi_kalibrasi_index');
+Route::get('/retribusi_kalibrasi_edit','adminController@retribusi_kalibrasi_edit')->name('retribusi_kalibrasi_edit');
+
+//Retribusi Pengujian
+Route::get('/retribusi_pengujian','adminController@retribusi_pengujian_index')->name('retribusi_pengujian_index');
+Route::get('/retribusi_pengujian_edit','adminController@retribusi_pengujian_edit')->name('retribusi_pengujian_edit');
+
 
 

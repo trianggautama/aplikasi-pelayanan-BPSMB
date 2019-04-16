@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-header ">
-                <h4>Data Retribusi Kalibrasi</h4>
+                <h4>Data Retribusi Pengujian</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i>Tambah Data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
@@ -26,20 +26,20 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama </th>
-                            <th>Rentang Ukur</th>
+                            <th>Komoditi </th>
                             <th>Biaya</th>
+                            <th>Keterangan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td>1</td>
-                            <td>nama barang</td>
-                            <td>kada tahu jua ini apa </td>
+                            <td>kada tahu jua ini apa</td>
                             <td>Rp.5.000.000</td>
+                            <td> isi keterangan singkat</td>
                             <td class="text-center">
-                            <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('retribusi_pengujian_edit')}}" class="btn btn-inverse-primary"> edit</a>
                                 <a href="" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
@@ -66,16 +66,12 @@
 
                         <div class="md-input-wrapper">
                             <input type="text" class="md-form-control md-static" />
-                            <label>Nama</label>
+                            <label>Komoditi</label>
                         </div>
                         <div class="md-input-wrapper">
                             <input type="text" class="md-form-control md-static" />
-                            <label>Rentang Ukur</label>
+                            <label>Biaya</label>
                         </div>
-                        <div class="md-input-wrapper">
-                                <input type="text" class="md-form-control md-static" />
-                                <label>Biaya</label>
-                            </div>
                             <div class="md-input-wrapper">
                                     <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
                                     <label>Keterangan </label>
@@ -84,7 +80,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save changes</button>
+              <button type="button" class="btn btn-inverse-primary">Save </button>
             </form>
             </div>
           </div>
