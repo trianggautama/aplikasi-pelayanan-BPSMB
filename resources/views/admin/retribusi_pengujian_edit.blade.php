@@ -1,11 +1,7 @@
 @extends('layouts.admin')
-
 @section('title', __('outlet.list'))
-
 @section('content')
 <div class="container-fluid" >
-
-
 <div class="row" >
     <!--input sizes starts-->
     <div class="col-lg-12">
@@ -15,7 +11,6 @@
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
             </div>
-
             <div class="card-block">
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Komoditi</label></div>
