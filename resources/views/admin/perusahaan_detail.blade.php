@@ -25,7 +25,6 @@
                             <img class="img-fluid" src="assets/images/social/profile.jpg" alt="">
                             <div class="profile-hvr m-t-15">
                                 <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
-                                <i class="icofont icofont-ui-delete c-pointer"></i>
                             </div>
                         </div>
                         <div class="card-block">

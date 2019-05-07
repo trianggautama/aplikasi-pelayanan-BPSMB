@@ -203,8 +203,8 @@
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
                             <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat Klaibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat pengujian</a></li>
                         </ul>
