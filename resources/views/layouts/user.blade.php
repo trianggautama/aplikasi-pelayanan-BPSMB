@@ -196,8 +196,7 @@
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="{{route('perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibasri_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li>
                       </ul>
                     </li>

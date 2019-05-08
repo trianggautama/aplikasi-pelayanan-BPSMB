@@ -36,7 +36,14 @@ Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_ed
 
 //MIDLEWARE USER
 
+//dashboard user
 Route::get('/user','userController@index')->name('user_index');
+
+//permohonan kalibrasi
+Route::get('/permohonan_kalibrasi_user','userController@permohonan_kalibrasi')->name('permohonan_kalibasri_user_index');
+Route::get('/permohonan_kalibrasi_tambah','userController@permohonan_kalibrasi_tambah')->name('permohonan_kalibrasi_user_tambah');
+Route::get('/permohonan_kalibrasi_edit','userController@permohonan_kalibrasi_edit')->name('permohonan_kalibrasi_user_edit');
+
 
 
 //MIDLEWARE USER
