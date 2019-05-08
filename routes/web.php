@@ -39,11 +39,15 @@ Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_ed
 //dashboard user
 Route::get('/user','userController@index')->name('user_index');
 
-//permohonan kalibrasi
+//permohonan kalibrasi user
 Route::get('/permohonan_kalibrasi_user','userController@permohonan_kalibrasi')->name('permohonan_kalibasri_user_index');
 Route::get('/permohonan_kalibrasi_tambah','userController@permohonan_kalibrasi_tambah')->name('permohonan_kalibrasi_user_tambah');
 Route::get('/permohonan_kalibrasi_edit','userController@permohonan_kalibrasi_edit')->name('permohonan_kalibrasi_user_edit');
 
+//permohonan pengujian user
+Route::get('/permohonan_pengujian_user','userController@permohonan_pengujian')->name('permohonan_pengujian_user_index');
+Route::get('/permohonan_pengujian_tambah','userController@permohonan_pengujian_tambah')->name('permohonan_pengujian_user_tambah');
+Route::get('/permohonan_pengujian_edit','userController@permohonan_pengujian_edit')->name('permohonan_pengujian_user_edit');
 
 
 //MIDLEWARE USER
