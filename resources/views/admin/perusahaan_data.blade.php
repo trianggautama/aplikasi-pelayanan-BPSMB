@@ -15,7 +15,7 @@
         <div class="card-header ">
                 <h4>Data Perusahaan</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -38,9 +38,8 @@
                             <td>LiangAnggang Banjarbaru</td>
                             <td>0511432123</td>
                             <td>
-                            <a href="{{route('perusahaan_detail')}}" class="btn btn-inverse-warning"> detail</a>
-                                <a href="" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('perusahaan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                            <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
                         </tbody>

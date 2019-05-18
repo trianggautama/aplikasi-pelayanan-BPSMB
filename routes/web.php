@@ -32,3 +32,7 @@ Route::get('/retribusi_pengujian_edit','adminController@retribusi_pengujian_edit
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
