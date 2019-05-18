@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
-    //dashboard
+    //dashboard admin
     public function index(){
 
         return view('admin.index');
@@ -44,6 +44,29 @@ class adminController extends Controller
 
         return view('admin.retribusi_pengujian_edit');
    }
+
+   //permohonan Kalibrasi
+   public function permohonan_kalibrasi_index(){
+
+    return view('admin.permohonan_kalibrasi_data');
+    }
+
+    public function permohonan_kalibrasi_edit(){
+
+    return view('admin.permohonan_kalibrasi_edit');
+    }
+
+     //permohonan pengujian
+   public function permohonan_pengujian_index(){
+
+    return view('admin.permohonan_pengujian_data');
+    }
+
+    public function permohonan_pengujian_edit(){
+
+    return view('admin.permohonan_kalibrasi_edit');
+    }
+
 
 
 }

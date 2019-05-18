@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <title>Aplikai Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
 
      <meta charset="utf-8">
@@ -12,8 +11,6 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
      <!-- Favicon icon -->
-<link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
-<link rel="icon" href="{{asset('assets/images/logo_pemprov.png')}}" type="image/x-icon">
 <link rel="shortcut icon" href="{{asset('vendor/img/logo_pemprov.png')}}" type="image/x-icon">
 <link rel="icon" href="{{asset('vendor/img/logo_pemprov.png')}}" type="image/x-icon">
 
@@ -84,7 +81,7 @@
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                                 <span><img class="img-circle " src="assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
-                                <span>Nama Admin <i class=" icofont icofont-simple-down"></i></span>
+                                <span>Nama User <i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
@@ -160,8 +157,8 @@
                 <div class="user-panel">
                     <div class="f-left image"><img src="assets/images/avatar-1.png" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
-                        <p>Nama Admin</p>
-                        <p class="designation">UX Designer <i class="icofont icofont-caret-down m-l-5"></i></p>
+                        <p>Nama User</p>
+                        <p class="designation">Menu User <i class="icofont icofont-caret-down m-l-5"></i></p>
                     </div>
                 </div>
                 <!-- sidebar profile Menu-->
@@ -197,26 +194,17 @@
                         </a>
                     </li>
                     <li class="nav-level"> Data</li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="{{route('perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibasri_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li>
                       </ul>
                     </li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Transaksi</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat Klaibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Riwayat Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Riwayat pengujian</a></li>
                         </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a class="waves-effect waves-dark" href="basic-table.html">
-                            <i class="icon-list"></i><span> Kelola Admin</span>
-                        </a>
                     </li>
                 </ul>
             </section>

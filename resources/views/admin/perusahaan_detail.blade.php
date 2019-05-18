@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="main-header">
-                    <h4>Profile</h4>
+                    <h4>Data Perusahaan</h4>
                     <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                         <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>
                         </li>
@@ -25,12 +25,13 @@
                             <img class="img-fluid" src="assets/images/social/profile.jpg" alt="">
                             <div class="profile-hvr m-t-15">
                                 <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
-                                <i class="icofont icofont-ui-delete c-pointer"></i>
                             </div>
                         </div>
                         <div class="card-block">
                             <h4 class="f-18 f-normal m-b-10 txt-primary text-center">PT.Indofood</h4>
                             <h5 class="f-14 text-center">Perusahaan Makanan</h5>
+                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">PT. INDOFOOD</h4>
+                            <h5 class="f-14 text-center">Banjarbaru</h5>
                         </div>
                     </div>
                     <!-- end of card-block -->
@@ -65,10 +66,12 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="personal" role="tabpanel">
                             <div class="card">
-                                <div class="card-header"><h5 class="card-header-text">About Me</h5>
-                                    <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
-                                        <i  class="icofont icofont-edit"></i>
+                                <div class="card-header"><h5 class="card-header-text">BIODATA</h5>
+                                <div class="f-right">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
+                                            Cetak Data  <i class="icofont icofont-print"></i>
                                     </button>
+                                    </div>
                                 </div>
                                 <div class="card-block">
                                     <div class="view-info">
@@ -95,7 +98,18 @@
                                                                     <th scope="row">Status</th>
                                                                     <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
                                                                 </tr>
-
+                                                                <tr>
+                                                                    <th scope="row">Email</th>
+                                                                    <td><a href="#!">indofoodkalsel@gmail.com</a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Username</th>
+                                                                    <td>Indofood123 </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Website</th>
+                                                                    <td><a href="#!">www.demo.com</a></td>
+                                                                </tr>
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -172,9 +186,12 @@
                         <div class="tab-pane" id="questions" role="tabpanel">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Project Details</h5>
-                                    <button type="button" class="btn btn-primary waves-effect waves-light f-right">
-                                        + ADD PROJECTS</button>
+                                    <h5 class="card-header-text">RIWAYAT KALIBRASI</h5>
+                                    <div class="f-right">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
+                                            Cetak Data  <i class="icofont icofont-print"></i>
+                                    </button>
+                                    </div>
                                 </div>
                                 <!-- end of card-header  -->
                                 <div class="row">
@@ -184,75 +201,38 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <th class="text-center txt-primary pro-pic">Photo</th>
-                                                        <th class="text-center txt-primary">Client</th>
-                                                        <th class="text-center txt-primary">Start Date</th>
-                                                        <th class="text-center txt-primary">End Date</th>
-                                                        <th class="text-center txt-primary">Status</th>
-                                                        <th class="text-center txt-primary">Action</th>
+                                                        <th class="text-center txt-primary">TARIF KALIBRASI</th>
+                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
+                                                        <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
+                                                        <th class="text-center txt-primary">ESTIMASI</th>
+                                                        <th class="text-center txt-primary">STATUS</th>
+                                                        <th class="text-center txt-primary">Aksi</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
                                                     <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
+                                                        <td>Rp. 5.000.000</td>
+                                                        <td>1 April  2019</td>
+                                                        <td>12 April 2019</td>
+                                                        <td>1 bulan</td>
+                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
                                                         </td>
                                                         <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
                                                                 <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                            <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
+                                                        <td>Rp. 8.000.000</td>
+                                                        <td>15 Juli 2018</td>
+                                                        <td>28 Juli 2018</td>
+                                                        <td>3 Bulan</td>
+                                                        <td class="text-center"><span class="label label-success">Selesai</span>
                                                         </td>
                                                         <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
                                                                 <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -276,9 +256,12 @@
                         <div class="tab-pane" id="members" role="tabpanel">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Project Details</h5>
-                                    <button type="button" class="btn btn-primary waves-effect waves-light f-right">
-                                        + ADD PROJECTS</button>
+                                    <h5 class="card-header-text">RIWAYAT PENGUJIAN</h5>
+                                    <div class="f-right">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
+                                            Cetak Data  <i class="icofont icofont-print"></i>
+                                    </button>
+                                    </div>
                                 </div>
                                 <!-- end of card-header  -->
                                 <div class="row">
@@ -288,117 +271,51 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                        <th class="text-center txt-primary pro-pic">Photo</th>
-                                                        <th class="text-center txt-primary">Client</th>
-                                                        <th class="text-center txt-primary">Start Date</th>
-                                                        <th class="text-center txt-primary">End Date</th>
-                                                        <th class="text-center txt-primary">Status</th>
-                                                        <th class="text-center txt-primary">Action</th>
+                                                    <th class="text-center txt-primary">TARIF KALIBRASI</th>
+                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
+                                                        <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
+                                                        <th class="text-center txt-primary">ESTIMASI</th>
+                                                        <th class="text-center txt-primary">STATUS</th>
+                                                        <th class="text-center txt-primary">Aksi</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
                                                     <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
+                                                        <td>Rp. 5.000.000</td>
+                                                        <td>1 April  2019</td>
+                                                        <td>12 April 2019</td>
+                                                        <td>1 bulan</td>
+                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
                                                         </td>
                                                         <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
                                                                 <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                            <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
+                                                        <td>Rp. 8.000.000</td>
+                                                        <td>15 Juli 2018</td>
+                                                        <td>28 Juli 2018</td>
+                                                        <td>3 Bulan</td>
+                                                        <td class="text-center"><span class="label label-success">Selesai</span>
                                                         </td>
                                                         <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
                                                                 <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
+                                                        <td>Rp. 2.000.000</td>
+                                                        <td>15 September 2016</td>
+                                                        <td>18 September 2016</td>
+                                                        <td>1 Bulan</td>
+                                                        <td class="text-center"><span class="label label-danger">Gagal Uji</span>
                                                         </td>
                                                         <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
                                                                 <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
                                                             </button>
                                                         </td>
                                                     </tr>
