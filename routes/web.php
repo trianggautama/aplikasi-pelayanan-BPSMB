@@ -12,6 +12,7 @@ Route::get('/admin','adminController@index')->name('admin_index');
 //perusahaan
 Route::get('/perusahaan','adminController@perusahaan_index')->name('perusahaan_index');
 Route::get('/perusahaan/detail/{id}','adminController@perusahaan_detail')->name('perusahaan_detail');
+Route::put('/perusahaan/detail/{id}','adminController@perusahaan_update')->name('perusahaan_update');
 
 
 //Retribusi Kalibrasi
