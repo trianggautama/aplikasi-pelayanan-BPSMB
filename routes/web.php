@@ -6,6 +6,7 @@ Route::get('/', function () {
 });
 
 //MIDLEWARE ADMIN
+Route::group(['middleware' => 'admin'], function() {
 Route::get('/admin','adminController@index')->name('admin_index');
 
 //perusahaan
@@ -31,7 +32,7 @@ Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')->name('permohonan_pengujian_edit');
 
 //MIDLEWARE ADMIN
-
+});
 //-------------------------------------------------------------------------------------------------------------------------------//
 
 //MIDLEWARE USER
@@ -53,6 +54,7 @@ Route::get('/permohonan_pengujian_edit','userController@permohonan_pengujian_edi
 //MIDLEWARE USER
 
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'dashboardController@index')->name('home');
