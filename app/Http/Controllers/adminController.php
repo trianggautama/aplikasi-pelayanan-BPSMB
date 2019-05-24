@@ -23,9 +23,11 @@ class adminController extends Controller
         return view('admin.perusahaan_data',compact('Perusahaan'));
     }
 
-    public function perusahaan_detail(){
-
-        return view('admin.perusahaan_detail');
+    public function perusahaan_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $Perusahaan = Perusahaan::find($id);
+        $User = User::find($Perusahaan->id_user);
+        return view('admin.perusahaan_detail',compact('Perusahaan','User'));
     }
 
     //retribusi kalibrasi
