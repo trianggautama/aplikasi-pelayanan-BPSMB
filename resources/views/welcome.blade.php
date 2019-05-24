@@ -28,7 +28,7 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="#">BPSMB Provinsi Kalimantan Selatan</a>
-      <a class="btn btn-sm btn-primary" href="#">Login</a>
+      <a class="btn btn-sm btn-primary" href="{{ route('login') }}">Login</a>
     </div>
   </nav>
 
@@ -41,7 +41,7 @@
           <h1 class="mb-5">Selamat Datang di Website Pelayanan BPSMB Provinsi Kalsel</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <button type="submit" class="btn  btn-primary">Daftar Sekarang</button>
+            <a href="{{ route('register') }}" class="btn  btn-primary">Daftar Sekarang</a>
         </div>
       </div>
     </div>
