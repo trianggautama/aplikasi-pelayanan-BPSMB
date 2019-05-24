@@ -30,6 +30,38 @@ class adminController extends Controller
         return view('admin.perusahaan_detail',compact('Perusahaan','User'));
     }
 
+    public function perusahaan_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $Perusahaan = Perusahaan::findOrFail($id);
+        $User = User::find($Perusahaan->id_user);
+
+        //  $this->validate(request(),[
+        //     'kode_rambu'=>'required',
+        //     'nama_rambu'=>'required',
+        //     'keterangan'=>'required'
+        // ]);
+        $User->name     = $request->name;
+        $User->email    = $request->email;
+        $Password       = Hash::make($request->password);
+        $User->password = $Password;
+        
+        if($request->gambar != null){
+        $FotoExt  = $request->gambar->getClientOriginalExtension();
+        $FotoName = $request->id_user.' - '.$request->nama_perusahaan;
+        $gambar   = $FotoName.'.'.$FotoExt;
+        $request->gambar->move('images/perusahaan', $gambar);
+        $Perusahaan->gambar       = $gambar;
+        }
+
+        $Perusahaan->nama         = $request->nama;
+        $Perusahaan->alamat       = $request->alamat;
+        $Perusahaan->telepon      = $request->telepon;
+
+        $User->update();
+        $Perusahaan->update();
+        return redirect(route('perusahaan_index'))->with('success', 'Data Perusahaan '.$request->nama.' Berhasil di ubah');
+         }
+
     //retribusi kalibrasi
     public function retribusi_kalibrasi_index(){
 
