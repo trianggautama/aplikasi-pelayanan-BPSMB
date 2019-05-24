@@ -22,8 +22,14 @@ Route::put('/perusahaan/detail/{id}','adminController@perusahaan_update')
 //Retribusi Kalibrasi
 Route::get('/retribusi-kalibrasi','adminController@retribusi_kalibrasi_index')
 ->name('retribusi_kalibrasi_index');
-Route::get('/retribusi-kalibrasi/edit','adminController@retribusi_kalibrasi_edit')
+Route::POST('/retribusi-kalibrasi/tambah','adminController@retribusi_kalibrasi_tambah')
+->name('retribusi_kalibrasi_tambah');
+Route::get('/retribusi-kalibrasi/edit/{id}','adminController@retribusi_kalibrasi_edit')
 ->name('retribusi_kalibrasi_edit');
+Route::put('/retribusi-kalibrasi/edit/{id}','adminController@retribusi_kalibrasi_update')
+->name('retribusi_kalibrasi_update');
+Route::get('/retribusi-kalibrasi/hapus/{id}','adminController@retribusi_kalibrasi_hapus')
+->name('retribusi_kalibrasi_hapus');
 
 //Retribusi Pengujian
 Route::get('/retribusi_pengujian','adminController@retribusi_pengujian_index')
