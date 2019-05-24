@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Perusahaan;
+use IDCrypt;
+use Auth;
+use Hash;
 
 class adminController extends Controller
 {
@@ -14,8 +19,8 @@ class adminController extends Controller
 
     //function perusahaan
     public function perusahaan_index(){
-
-        return view('admin.perusahaan_data');
+        $Perusahaan = Perusahaan::with('user')->get();
+        return view('admin.perusahaan_data',compact('Perusahaan'));
     }
 
     public function perusahaan_detail(){
