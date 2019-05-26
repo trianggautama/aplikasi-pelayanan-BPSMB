@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Perusahaan;
+use App\Retribusi_kalibrasi;
+
 use IDCrypt;
 use Auth;
 use Hash;
@@ -64,13 +66,18 @@ class adminController extends Controller
 
     //retribusi kalibrasi
     public function retribusi_kalibrasi_index(){
+        $Kalibrasi = Retribusi_kalibrasi::all();
+        return view('admin.retribusi_kalibrasi_data',compact('Kalibrasi'));
 
-        return view('admin.retribusi_kalibrasi_data');
+        // return view('admin.retribusi_kalibrasi_data');
     }
      //retribusi kalibrasi
-     public function retribusi_kalibrasi_edit(){
+     public function retribusi_kalibrasi_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi = Retribusi_kalibrasi::findOrFail($id);
+        dd($Kalibrasi);
 
-         return view('admin.retribusi_kalibrasi_edit');
+        return view('admin.retribusi_kalibrasi_edit',compact('Kalibrasi'));
     }
 
       //retribusi Pengujian
