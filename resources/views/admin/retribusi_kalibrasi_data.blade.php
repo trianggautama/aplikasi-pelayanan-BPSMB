@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-header ">
-                <h4>Data Retribusi Kalibrasi</h4>
+                <h4>Data Tarif Retribusi Kalibrasi</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i>Tambah Data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
@@ -25,23 +25,30 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
+                            <th>Keterangan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>nama barang</td>
-                            <td>kada tahu jua ini apa </td>
-                            <td>Rp.5.000.000</td>
-                            <td class="text-center">
-                            <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
+                            <?php $no = 0 ?>
+                                @foreach ($Kalibrasi as $d)
+                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$d->nama}}</td>
+                                <td>{{$d->rentang_ukur}}</td>
+                                <td>{{$d->biaya}}</td>
+                                <td>{{$d->keterangan}}</td>
+                                <td class="text-center">
+                                        <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                                        
+                                        <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                                    </td>
+                              </tr>
+                              @endforeach
                         </tr>
                         </tbody>
                     </table>
