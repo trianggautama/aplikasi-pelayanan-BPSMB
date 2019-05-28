@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
+use App\Retribusi_pengujian;
 
 use IDCrypt;
 use Auth;
@@ -126,8 +127,10 @@ class adminController extends Controller
 
       //retribusi Pengujian
       public function retribusi_pengujian_index(){
+        $Pengujian = Retribusi_pengujian::all();
+        return view('admin.retribusi_pengujian_data',compact('Pengujian'));
 
-        return view('admin.retribusi_pengujian_data');
+        // return view('admin.retribusi_pengujian_data');
     }
        //retribusi kalibrasi
        public function retribusi_pengujian_edit(){
