@@ -21,7 +21,6 @@ Route::get('/retribusi_kalibrasi_edit','adminController@retribusi_kalibrasi_edit
 Route::get('/retribusi_pengujian','adminController@retribusi_pengujian_index')->name('retribusi_pengujian_index');
 Route::get('/retribusi_pengujian_edit','adminController@retribusi_pengujian_edit')->name('retribusi_pengujian_edit');
 
-
 //Permohonan Kalibrasi
 Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')->name('permohonan_kalibrasi_index');
 Route::get('/permohonan_kalibrasi_edit','adminController@permohonan_kalibrasi_edit')->name('permohonan_kalibrasi_edit');

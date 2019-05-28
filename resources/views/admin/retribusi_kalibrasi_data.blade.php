@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Retribusi Kalibrasi</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i>Tambah Data</a>
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -39,8 +39,8 @@
                             <td>kada tahu jua ini apa </td>
                             <td>Rp.5.000.000</td>
                             <td class="text-center">
-                            <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-edit"></i></a>
+                            <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
                         </tbody>
