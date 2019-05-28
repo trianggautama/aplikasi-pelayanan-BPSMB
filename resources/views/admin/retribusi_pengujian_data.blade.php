@@ -25,7 +25,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Komoditi </th>
                             <th>Biaya</th>
                             <th>Keterangan</th>
@@ -34,6 +34,7 @@
                         </thead>
                         <tbody>
                         <tr>
+<<<<<<< HEAD
                             <td>1</td>
                             <td>kada tahu jua ini apa</td>
                             <td>Rp.5.000.000</td>
@@ -42,6 +43,20 @@
                             <a href="{{route('retribusi_pengujian_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-edit"></i></a>
                             <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
+=======
+                            <?php $no = 0 ?>
+                                @foreach ($Pengujian as $d)
+                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$d->komoditi}}</td>
+                                <td>{{$d->biaya}}</td>
+                                <td>{{$d->keterangan}}</td>
+                                <td class="text-center">
+                                        <a href="{{ route('retribusi_pengujian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                                        <a href="{{ route('retribusi_pengujian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                                    </td>
+                              </tr>
+                              @endforeach
+>>>>>>> 68de4bc34ada4016884e28f5ea30a1b69777b59c
                         </tr>
                         </tbody>
                     </table>
@@ -63,24 +78,25 @@
               </button>
             </div>
             <div class="modal-body">
-
+                    <form  method="post" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="komoditi" class="md-form-control md-static"/>
                             <label>Komoditi</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="biaya" class="md-form-control md-static"/>
                             <label>Biaya</label>
                         </div>
                             <div class="md-input-wrapper">
-                                    <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                    <textarea name="keterangan" class="md-form-control md-static" cols="2" rows="4"></textarea>
                                     <label>Keterangan </label>
                                 </div>
-
+                                {{csrf_field() }}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save </button>
+              <button type="submit" class="btn btn-inverse-primary">Save </button>
             </form>
             </div>
           </div>

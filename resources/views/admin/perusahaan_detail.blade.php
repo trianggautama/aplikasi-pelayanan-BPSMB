@@ -28,10 +28,7 @@
                             </div>
                         </div>
                         <div class="card-block">
-                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">PT.Indofood</h4>
-                            <h5 class="f-14 text-center">Perusahaan Makanan</h5>
-                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">PT. INDOFOOD</h4>
-                            <h5 class="f-14 text-center">Banjarbaru</h5>
+                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">{{ $Perusahaan->nama }}</h4>
                         </div>
                     </div>
                     <!-- end of card-block -->
@@ -84,15 +81,15 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <th scope="row">Nama Perusahaan</th>
-                                                                    <td>Indofood</td>
+                                                                    <td>{{ $Perusahaan->nama }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
-                                                                    <td> LiangAnggang Kota Banjarbaru</td>
+                                                                    <td> {{ $Perusahaan->alamat }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">No Tlp</th>
-                                                                    <td>051113131454</td>
+                                                                    <td>{{ $Perusahaan->telepon }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Status</th>
@@ -100,15 +97,15 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Email</th>
-                                                                    <td><a href="#!">indofoodkalsel@gmail.com</a></td>
+                                                                    <td>{{ $User->email }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Username</th>
-                                                                    <td>Indofood123 </td>
+                                                                    <td>{{ $User->name }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Website</th>
-                                                                    <td><a href="#!">www.demo.com</a></td>
+                                                                    <td><a href="#!">{{ $Perusahaan->website }}</a></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -143,34 +140,39 @@
                                             </div>
                                         </div>
 
+                                        <form  method="post" action="">
+                                            {{method_field('PUT') }}
+                                            {{ csrf_field() }}
                                         <div class="card-block">
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan</label></div>
-                                                <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama"></div>
+                                                <div class="col-md-10"><input type="text" name="nama" class="form-control" id="InputNormal"  placeholder="Nama" value="{{ $Perusahaan->nama }}"></div>
                                             </div>
                                             <div class="form-group row">
-                                                <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan Perusahaan</label></div>
-                                                <div class="col-md-10"><textarea name="" class="form-control" id="keterangan" ></textarea></div>
-                                                </div>
-                                            <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
-                                                <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Alamat"></div>
+                                                <div class="col-md-10"><input type="text" name="alamat" class="form-control" id="InputNormal"  placeholder="Alamat" value="{{ $Perusahaan->alamat }}"></div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Tlp</label></div>
-                                                <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
+                                                <div class="col-md-10"><input type="text" name="telepon" class="form-control" id="InputNormal"  placeholder="No.Tlp" value="{{ $Perusahaan->telepon }}"></div>
                                             </div>
                                             <div class="form-group row">
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
+                                                    <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Email" value="{{ $User->email }}"></div>
+                                                </div>
+                                            <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username"></div>
+                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username" value="{{ $User->name }}"></div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
                                                 <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
                                             </div>
+                                            {{ csrf_field() }}
                                         </div>
                                         <div class="card-footer text-right">
-                                            <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                                                <button type="submit" class="btn btn-inverse-primary">Ubah</button>
+                                            {{-- <a href="" class="btn btn-inverse-primary">Ubah Data</a> --}}
                                         </div>
                                     </div>
                                 </div>

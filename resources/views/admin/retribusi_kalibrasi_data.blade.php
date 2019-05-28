@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-header ">
-                <h4>Data Retribusi Kalibrasi</h4>
+                <h4>Data Tarif Retribusi Kalibrasi</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
@@ -25,15 +25,17 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
+                            <th>Keterangan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
+<<<<<<< HEAD
                             <td>1</td>
                             <td>nama barang</td>
                             <td>kada tahu jua ini apa </td>
@@ -42,6 +44,21 @@
                             <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-edit"></i></a>
                             <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
+=======
+                            <?php $no = 0 ?>
+                                @foreach ($Kalibrasi as $d)
+                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$d->nama}}</td>
+                                <td>{{$d->rentang_ukur}}</td>
+                                <td>{{$d->biaya}}</td>
+                                <td>{{$d->keterangan}}</td>
+                                <td class="text-center">
+                                        <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                                        <a href="{{ route('retribusi_kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                                    </td>
+                              </tr>
+                              @endforeach
+>>>>>>> 68de4bc34ada4016884e28f5ea30a1b69777b59c
                         </tr>
                         </tbody>
                     </table>
@@ -62,29 +79,32 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <form  method="post" action="" enctype="multipart/form-data">
+                {{ csrf_field() }}
             <div class="modal-body">
-
+                        
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="nama" class="md-form-control md-static" />
                             <label>Nama</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="rentang_ukur" class="md-form-control md-static" />
                             <label>Rentang Ukur</label>
                         </div>
                         <div class="md-input-wrapper">
-                                <input type="text" class="md-form-control md-static" />
+                                <input type="text" name="biaya" class="md-form-control md-static" />
                                 <label>Biaya</label>
                             </div>
                             <div class="md-input-wrapper">
-                                    <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                    <textarea class="md-form-control md-static" name="keterangan" cols="2" rows="4"></textarea>
                                     <label>Keterangan </label>
                                 </div>
+                                {{csrf_field() }}
 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save changes</button>
+              <button type="submit" class="btn btn-inverse-primary">Save changes</button>
             </form>
             </div>
           </div>
