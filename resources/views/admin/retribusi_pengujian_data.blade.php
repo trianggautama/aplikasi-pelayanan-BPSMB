@@ -67,24 +67,25 @@
               </button>
             </div>
             <div class="modal-body">
-
+                    <form  method="post" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="komoditi" class="md-form-control md-static"/>
                             <label>Komoditi</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="biaya" class="md-form-control md-static"/>
                             <label>Biaya</label>
                         </div>
                             <div class="md-input-wrapper">
-                                    <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                    <textarea name="keterangan" class="md-form-control md-static" cols="2" rows="4"></textarea>
                                     <label>Keterangan </label>
                                 </div>
-
+                                {{csrf_field() }}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save </button>
+              <button type="submit" class="btn btn-inverse-primary">Save </button>
             </form>
             </div>
           </div>
