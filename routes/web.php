@@ -36,7 +36,7 @@ Route::get('/retribusi-pengujian','adminController@retribusi_pengujian_index')
 ->name('retribusi_pengujian_index');
 Route::POST('/retribusi-pengujian','adminController@retribusi_pengujian_store')
 ->name('retribusi_pengujian_store');
-Route::get('/retribusi_pengujian_edit','adminController@retribusi_pengujian_edit')
+Route::get('/retribusi-pengujian/edit/{id}','adminController@retribusi_pengujian_edit')
 ->name('retribusi_pengujian_edit');
 
 
