@@ -25,7 +25,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Komoditi </th>
                             <th>Biaya</th>
                             <th>Keterangan</th>
@@ -34,14 +34,18 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>kada tahu jua ini apa</td>
-                            <td>Rp.5.000.000</td>
-                            <td> isi keterangan singkat</td>
-                            <td class="text-center">
-                            <a href="{{route('retribusi_pengujian_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
+                            <?php $no = 0 ?>
+                                @foreach ($Pengujian as $d)
+                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$d->komoditi}}</td>
+                                <td>{{$d->biaya}}</td>
+                                <td>{{$d->keterangan}}</td>
+                                <td class="text-center">
+                                        {{-- <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                                        <a href="{{ route('retribusi_kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a> --}}
+                                    </td>
+                              </tr>
+                              @endforeach
                         </tr>
                         </tbody>
                     </table>
