@@ -38,7 +38,8 @@ Route::POST('/retribusi-pengujian','adminController@retribusi_pengujian_store')
 ->name('retribusi_pengujian_store');
 Route::get('/retribusi-pengujian/edit/{id}','adminController@retribusi_pengujian_edit')
 ->name('retribusi_pengujian_edit');
-
+Route::put('/retribusi-pengujian/edit/{id}','adminController@retribusi_pengujian_update')
+->name('retribusi_pengujian_update');
 
 //Permohonan Kalibrasi
 Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
