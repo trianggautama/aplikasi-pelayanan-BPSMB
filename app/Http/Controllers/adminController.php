@@ -146,9 +146,12 @@ class adminController extends Controller
           return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Tambahkan');
       }//fungsi menambahkan data retribusi pengujian
        
-       public function retribusi_pengujian_edit(){
+       public function retribusi_pengujian_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Pengujian = Retribusi_pengujian::findOrFail($id);
+        // dd($Pengujian);
 
-        return view('admin.retribusi_pengujian_edit');
+        return view('admin.retribusi_pengujian_edit',compact('Pengujian'));
    }
 
    //permohonan Kalibrasi
