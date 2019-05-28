@@ -171,6 +171,14 @@ class adminController extends Controller
        return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data retribusi pengujian
 
+      public function retribusi_pengujian_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Pengujian=Retribusi_pengujian::findOrFail($id);
+        $Pengujian->delete();
+       
+        return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian berhasil di hapus');
+    }//fungsi menghapus data retribusi pengujian
+
    //permohonan Kalibrasi
    public function permohonan_kalibrasi_index(){
 
