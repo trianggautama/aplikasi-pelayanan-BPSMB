@@ -32,8 +32,10 @@ Route::get('/retribusi-kalibrasi/hapus/{id}','adminController@retribusi_kalibras
 ->name('retribusi_kalibrasi_hapus');
 
 //Retribusi Pengujian
-Route::get('/retribusi_pengujian','adminController@retribusi_pengujian_index')
+Route::get('/retribusi-pengujian','adminController@retribusi_pengujian_index')
 ->name('retribusi_pengujian_index');
+Route::POST('/retribusi-pengujian','adminController@retribusi_pengujian_store')
+->name('retribusi_pengujian_store');
 Route::get('/retribusi_pengujian_edit','adminController@retribusi_pengujian_edit')
 ->name('retribusi_pengujian_edit');
 
