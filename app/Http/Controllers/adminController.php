@@ -84,8 +84,8 @@ class adminController extends Controller
 
         $Kalibrasi->save();
        
-          return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data karyawan '.$request->nama.' Berhasil di Tambahkan');
-      }//fungsi menambahkan data rambu
+          return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi '.$request->nama.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data retribusi kalibrasi
      //retribusi kalibrasi
      public function retribusi_kalibrasi_edit($id){
         $id = IDCrypt::Decrypt($id);
@@ -132,7 +132,20 @@ class adminController extends Controller
 
         // return view('admin.retribusi_pengujian_data');
     }
-       //retribusi kalibrasi
+
+        public function retribusi_pengujian_store(Request $request){
+
+        $Pengujian = new Retribusi_pengujian;
+          
+        $Pengujian->komoditi        = $request->komoditi;
+        $Pengujian->biaya           = $request->biaya;
+        $Pengujian->keterangan      = $request->keterangan;
+
+        $Pengujian->save();
+       
+          return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data retribusi pengujian
+       
        public function retribusi_pengujian_edit(){
 
         return view('admin.retribusi_pengujian_edit');
