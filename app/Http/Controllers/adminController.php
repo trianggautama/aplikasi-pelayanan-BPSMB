@@ -114,6 +114,14 @@ class adminController extends Controller
        return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi '.$request->nama.' Berhasil di Ubah');
       }//fungsi mengubah data retribusi kalibrasi
 
+      public function retribusi_kalibrasi_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi=Retribusi_kalibrasi::findOrFail($id);
+        $Kalibrasi->delete();
+       
+        return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi berhasil di hapus');
+    }//fungsi menghapus data retribusi kalibrasi
+
 
 
       //retribusi Pengujian
