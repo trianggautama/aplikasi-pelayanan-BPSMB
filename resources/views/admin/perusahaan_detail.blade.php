@@ -140,7 +140,7 @@
                                             </div>
                                         </div>
 
-                                        <form  method="post" action="" enctype="multipart/form-data">
+                                        <form  method="post" action="">
                                             {{method_field('PUT') }}
                                             {{ csrf_field() }}
                                         <div class="card-block">
