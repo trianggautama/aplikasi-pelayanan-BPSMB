@@ -71,14 +71,50 @@ class adminController extends Controller
 
         // return view('admin.retribusi_kalibrasi_data');
     }
+
+    public function retribusi_kalibrasi_store(Request $request){
+
+        $Kalibrasi = new Retribusi_kalibrasi;
+          
+        $Kalibrasi->nama            = $request->nama;
+        $Kalibrasi->rentang_ukur    = $request->rentang_ukur;
+        $Kalibrasi->biaya           = $request->biaya;
+        $Kalibrasi->keterangan      = $request->keterangan;
+
+        $Kalibrasi->save();
+       
+          return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data karyawan '.$request->nama.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data rambu
      //retribusi kalibrasi
      public function retribusi_kalibrasi_edit($id){
         $id = IDCrypt::Decrypt($id);
         $Kalibrasi = Retribusi_kalibrasi::findOrFail($id);
-        dd($Kalibrasi);
+        // dd($Kalibrasi);
 
         return view('admin.retribusi_kalibrasi_edit',compact('Kalibrasi'));
-    }
+    }//menampilkan halaman edit retribusi kalibrasi
+
+    public function retribusi_kalibrasi_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi = Retribusi_kalibrasi::findOrFail($id);
+
+        $this->validate(request(),[
+           'nama'=>'required',
+           'rentang_ukur'=>'required',
+           'biaya'=>'required',
+           'keterangan'=>'required'
+       ]);
+
+       $Kalibrasi->nama         = $request->nama;
+       $Kalibrasi->rentang_ukur = $request->rentang_ukur;
+       $Kalibrasi->biaya        = $request->biaya;
+       $Kalibrasi->keterangan   = $request->keterangan;
+
+       $Kalibrasi->update();
+       return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi '.$request->nama.' Berhasil di Ubah');
+      }//fungsi mengubah data retribusi kalibrasi
+
+
 
       //retribusi Pengujian
       public function retribusi_pengujian_index(){
