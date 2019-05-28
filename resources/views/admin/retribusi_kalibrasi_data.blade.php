@@ -69,29 +69,32 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <form  method="post" action="" enctype="multipart/form-data">
+                {{ csrf_field() }}
             <div class="modal-body">
-
+                        
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="nama" class="md-form-control md-static" />
                             <label>Nama</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="rentang_ukur" class="md-form-control md-static" />
                             <label>Rentang Ukur</label>
                         </div>
                         <div class="md-input-wrapper">
-                                <input type="text" class="md-form-control md-static" />
+                                <input type="text" name="biaya" class="md-form-control md-static" />
                                 <label>Biaya</label>
                             </div>
                             <div class="md-input-wrapper">
-                                    <textarea class="md-form-control md-static" cols="2" rows="4"></textarea>
+                                    <textarea class="md-form-control md-static" name="keterangan" cols="2" rows="4"></textarea>
                                     <label>Keterangan </label>
                                 </div>
+                                {{csrf_field() }}
 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save changes</button>
+              <button type="submit" class="btn btn-inverse-primary">Save changes</button>
             </form>
             </div>
           </div>
