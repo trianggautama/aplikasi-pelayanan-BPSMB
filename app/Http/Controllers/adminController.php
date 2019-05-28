@@ -153,6 +153,23 @@ class adminController extends Controller
 
         return view('admin.retribusi_pengujian_edit',compact('Pengujian'));
    }
+   public function retribusi_pengujian_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $Pengujian = Retribusi_pengujian::findOrFail($id);
+
+        $this->validate(request(),[
+           'komoditi'=>'required',
+           'biaya'=>'required',
+           'keterangan'=>'required'
+       ]);
+
+       $Pengujian->komoditi     = $request->komoditi;
+       $Pengujian->biaya        = $request->biaya;
+       $Pengujian->keterangan   = $request->keterangan;
+
+       $Pengujian->update();
+       return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data retribusi pengujian
 
    //permohonan Kalibrasi
    public function permohonan_kalibrasi_index(){
