@@ -40,6 +40,8 @@ Route::get('/retribusi-pengujian/edit/{id}','adminController@retribusi_pengujian
 ->name('retribusi_pengujian_edit');
 Route::put('/retribusi-pengujian/edit/{id}','adminController@retribusi_pengujian_update')
 ->name('retribusi_pengujian_update');
+Route::get('/retribusi-pengujian/hapus/{id}','adminController@retribusi_pengujian_hapus')
+->name('retribusi_pengujian_hapus');
 
 //Permohonan Kalibrasi
 Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
