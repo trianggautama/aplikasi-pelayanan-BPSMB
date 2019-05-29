@@ -22,7 +22,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>1</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
@@ -34,17 +34,24 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>UPT PKB</td>
-                            <td>Speedometer</td>
-                            <td>Rp.12.000.000</td>
-                            <td>1 Mei 2019</td>
-                            <td>Merk Cina</td>
-                            <td>125714534</td>
+                            <?php $no = 0 ?>
+                                @foreach ($Pengujian as $d)
+                                
+                            @foreach ($Kalibrasi as $d) 
+                            <td>{{$no = $no + 1}}</td>
+                            <td>{{$d->perusahaan->nama}}</td>
+                            <td>{{$d->retribusi->nama}}</td>
+                            <td>{{$d->retribusi->biaya}}</td>
+                            <td>{{$d->tanggal}}</td>
+                            <td>{{$d->merk}}</td>
+                            <td>{{$d->no_seri}}</td>
                             <td class="text-center">
-                            <a href="{{route('permohonan_kalibrasi_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
+                            {{-- <a href=" {{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
+                            <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a> --}}
+                            <button type="button" class="btn btn-danger"
+                            onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="far fa-trash-alt"></i></b></button>
+                        </td>
+                        @endforeach   
                         </tr>
                         </tbody>
                     </table>
