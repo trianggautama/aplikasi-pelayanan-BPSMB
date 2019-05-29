@@ -15,6 +15,7 @@ class CreatePermohonanKalibrasisTable extends Migration
     {
         Schema::create('permohonan_kalibrasis', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_user');
             $table->bigInteger('id_perusahaan');
             $table->bigInteger('id_retribusi_kalibrasi');
             $table->date('tanggal');
