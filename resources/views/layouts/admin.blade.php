@@ -167,7 +167,7 @@
             <section class="sidebar" id="sidebar-scroll">
 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="assets/images/avatar-1.png" alt="User Image" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{asset('assets/images/avatar-1.png')}} " alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
                         <p>{{ Auth::user()->name }}</p>
                         <p class="designation">Admin <i class="icofont icofont-caret-down m-l-5"></i></p>
