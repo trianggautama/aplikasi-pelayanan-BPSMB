@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Perusahaan;
+use App\Permohonan_kalibrasi;
 
 class userController extends Controller
 {
@@ -14,11 +17,12 @@ class userController extends Controller
         }
 
        //permohonan kalibarsi user
-       public function permohonan_kalibrasi(){
-
-        return view('users.permohonan_kalibrasi_data');
+        public function permohonan_kalibrasi_index(){
+        $id = auth::id();
+        $Kalibrasi     = Permohonan_kalibrasi::where('id_user', $id)->get();
+        // $Kalibrasi->dd();
+        return view('users.permohonan_kalibrasi_data',compact('Kalibrasi'));
         }
-
 
         // tambah permohonan kalibarsi user
         public function permohonan_kalibrasi_tambah(){
