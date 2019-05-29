@@ -65,7 +65,7 @@
                         <li class="bell-notification">
                             <a href="javascript:;" class="media">
                                 <span class="media-left media-icon">
-                                    <img class="img-circle" src="assets/images/avatar-1.png" alt="User Image">
+                                    <img class="img-circle" src="{{asset('assets/images/avatar-1.png')}}" alt="User Image">
                                 </span>
                                 <div class="media-body"><span class="block">Lisa sent you a mail</span><span class="text-muted block-time">2min ago</span></div></a>
                             </li>
@@ -78,12 +78,11 @@
                             <a href="#!" class="drop icon-circle" onclick="javascript:toggleFullScreen()">
                                 <i class="icon-size-fullscreen"></i>
                             </a>
-
                         </li>
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{{asset('assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
                                 <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
@@ -274,8 +273,7 @@
       <script src="{{asset('assets/plugins/classie/classie.js')}}"></script>
       <!-- notification -->
       <script src="{{asset('assets/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
-
-
+      <script src="{{asset('assets/pages/notification.js')}}"></script>
       <!-- custom js -->
       <script src="{{ asset('assets/js/main.min.js') }}"></script>
       <script src="{{ asset('assets/pages/elements.js') }}"></script>
