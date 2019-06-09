@@ -50,8 +50,9 @@
                             <button type="button" class="btn btn-danger"
                             onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="far fa-trash-alt"></i></b></button>
                         </td>
-                        @endforeach   
+                         
                         </tr>
+                        @endforeach  
                         </tbody>
                     </table>
                 </div>
