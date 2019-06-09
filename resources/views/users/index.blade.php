@@ -1,7 +1,5 @@
 @extends('layouts.user')
 
-@section('title', __('outlet.list'))
-
 @section('content')
 
 <div class="container-fluid">
@@ -62,6 +60,18 @@
                         </div>
                     </div>
                 </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>PENGUMUMAN !!!</h5>
+                            </div>
+                            <div class="card-block">
+                                <p>Mohon untuk melengkapi data Profile Perusahaan Anda </p>
+                                <br>
+                                <a href="{{route('edit_profile_perusahaan')}}" class="btn btn-sm btn-inverse-danger"> Disini</a>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
         </div>

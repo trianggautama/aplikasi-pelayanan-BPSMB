@@ -19,7 +19,7 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama </th>
+                            <th>Nama Barang </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
                             <th>Keterangan</th>
@@ -67,7 +67,7 @@
 
                         <div class="md-input-wrapper">
                             <input type="text" name="nama" class="md-form-control md-static" />
-                            <label>Nama</label>
+                            <label>Nama Barang</label>
                         </div>
                         <div class="md-input-wrapper">
                             <input type="text" name="rentang_ukur" class="md-form-control md-static" />

@@ -65,6 +65,9 @@ Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_ed
 Route::get('/user','userController@index')
 ->name('user_index');
 
+Route::get('/edit_perusahaan_profile','userController@edit_profile_perusahaan')
+->name('edit_profile_perusahaan');
+
 //permohonan kalibrasi user
 Route::get('/permohonan-kalibrasi-user','userController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_user_index');
