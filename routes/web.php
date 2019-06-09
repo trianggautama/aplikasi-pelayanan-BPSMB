@@ -68,8 +68,10 @@ Route::get('/user','userController@index')
 //permohonan kalibrasi user
 Route::get('/permohonan-kalibrasi-user','userController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_user_index');
-Route::get('/permohonan_kalibrasi_tambah','userController@permohonan_kalibrasi_tambah')
+Route::get('/permohonan-kalibrasi-tambah','userController@permohonan_kalibrasi_tambah')
 ->name('permohonan_kalibrasi_user_tambah');
+Route::POST('/permohonan-kalibrasi-tambah','userController@permohonan_kalibrasi_store')
+->name('permohonan_kalibrasi_store');
 Route::get('/permohonan_kalibrasi_edit','userController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_user_edit');
 
