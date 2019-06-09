@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 
 <div class="container-fluid">
@@ -35,16 +32,6 @@
                         </thead>
                         <tbody>
                         <tr>
-<<<<<<< HEAD
-                            <td>1</td>
-                            <td>nama barang</td>
-                            <td>kada tahu jua ini apa </td>
-                            <td>Rp.5.000.000</td>
-                            <td class="text-center">
-                            <a href="{{route('retribusi_kalibrasi_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-edit"></i></a>
-                            <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-=======
                             <?php $no = 0 ?>
                                 @foreach ($Kalibrasi as $d)
                                 <td>{{$no = $no + 1}}</td>
@@ -58,7 +45,6 @@
                                     </td>
                               </tr>
                               @endforeach
->>>>>>> 68de4bc34ada4016884e28f5ea30a1b69777b59c
                         </tr>
                         </tbody>
                     </table>
@@ -82,7 +68,7 @@
             <form  method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
             <div class="modal-body">
-                        
+
                         <div class="md-input-wrapper">
                             <input type="text" name="nama" class="md-form-control md-static" />
                             <label>Nama</label>
