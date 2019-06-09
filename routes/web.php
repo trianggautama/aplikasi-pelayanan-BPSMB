@@ -66,8 +66,8 @@ Route::get('/user','userController@index')
 ->name('user_index');
 
 //permohonan kalibrasi user
-Route::get('/permohonan_kalibrasi_user','userController@permohonan_kalibrasi')
-->name('permohonan_kalibasri_user_index');
+Route::get('/permohonan-kalibrasi-user','userController@permohonan_kalibrasi_index')
+->name('permohonan_kalibrasi_user_index');
 Route::get('/permohonan_kalibrasi_tambah','userController@permohonan_kalibrasi_tambah')
 ->name('permohonan_kalibrasi_user_tambah');
 Route::get('/permohonan_kalibrasi_edit','userController@permohonan_kalibrasi_edit')

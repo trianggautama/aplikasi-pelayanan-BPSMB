@@ -7,7 +7,6 @@ use App\User;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
-
 use IDCrypt;
 use Auth;
 use Hash;

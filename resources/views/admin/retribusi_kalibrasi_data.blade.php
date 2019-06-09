@@ -2,12 +2,8 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="main-header">
-
-        </div>
-    </div>
-
+    @include('layouts.alert_sukses')
+    <br>
     <div class="card">
         <div class="card-header ">
                 <h4>Data Tarif Retribusi Kalibrasi</h4>

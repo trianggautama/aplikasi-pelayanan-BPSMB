@@ -1,14 +1,12 @@
 @extends('layouts.user')
 
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
 
         </div>
     </div>
-
     <div class="card">
         <div class="card-header ">
                 <h4>Data Permohonan Pengujian</h4>
@@ -52,6 +50,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection
