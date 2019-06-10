@@ -113,7 +113,6 @@
       </div>
     </div>
   </section>
-
   <!-- Call to Action -->
   <section class="call-to-action text-white text-center">
     <div class="overlay"></div>
