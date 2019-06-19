@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Retribusi Pengujian</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i>Tambah Data</a>
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i> + Tambah Data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -34,6 +34,16 @@
                         </thead>
                         <tbody>
                         <tr>
+<<<<<<< HEAD
+                            <td>1</td>
+                            <td>kada tahu jua ini apa</td>
+                            <td>Rp.5.000.000</td>
+                            <td> isi keterangan singkat</td>
+                            <td class="text-center">
+                            <a href="{{route('retribusi_pengujian_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-edit"></i></a>
+                            <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                            </td>
+=======
                             <?php $no = 0 ?>
                                 @foreach ($Pengujian as $d)
                                 <td>{{$no = $no + 1}}</td>
@@ -46,6 +56,7 @@
                                     </td>
                               </tr>
                               @endforeach
+>>>>>>> 68de4bc34ada4016884e28f5ea30a1b69777b59c
                         </tr>
                         </tbody>
                     </table>

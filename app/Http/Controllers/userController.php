@@ -11,11 +11,16 @@ use Carbon\Carbon;
 
 class userController extends Controller
 {
-    
+
         //dashboard admin
         public function index(){
 
             return view('users.index');
+        }
+
+        public function edit_profile_perusahaan(){
+
+            return view('users.edit_profile_perusahaan');
         }
 
        //permohonan kalibarsi user
@@ -68,18 +73,18 @@ class userController extends Controller
 
         return view('users.permohonan_pengujian_data');
         }
-    
+
         // tambah permohonan pengujian user
         public function permohonan_pengujian_tambah(){
 
             return view('users.permohonan_pengujian_tambah');
         }
-    
-    
+
+
         //edit permohonan pengujjian user
         public function permohonan_pengujian_edit(){
-    
+
         return view('users.permohonan_pengujian_edit');
         }
-    
+
 }

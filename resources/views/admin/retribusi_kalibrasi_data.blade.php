@@ -8,8 +8,8 @@
         <div class="card-header ">
                 <h4>Data Tarif Retribusi Kalibrasi</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icon-arrow-add"></i>Tambah Data</a>
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -19,7 +19,7 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama </th>
+                            <th>Nama Barang </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
                             <th>Keterangan</th>
@@ -64,10 +64,10 @@
             <form  method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
             <div class="modal-body">
-                        
+
                         <div class="md-input-wrapper">
                             <input type="text" name="nama" class="md-form-control md-static" />
-                            <label>Nama</label>
+                            <label>Nama Barang</label>
                         </div>
                         <div class="md-input-wrapper">
                             <input type="text" name="rentang_ukur" class="md-form-control md-static" />
