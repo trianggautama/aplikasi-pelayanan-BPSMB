@@ -85,8 +85,8 @@
 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-inverse-primary">Save changes</button>
+              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-inverse-primary">Simpan Data</button>
             </form>
             </div>
           </div>

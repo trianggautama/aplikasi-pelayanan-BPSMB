@@ -34,16 +34,6 @@
                         </thead>
                         <tbody>
                         <tr>
-<<<<<<< HEAD
-                            <td>1</td>
-                            <td>kada tahu jua ini apa</td>
-                            <td>Rp.5.000.000</td>
-                            <td> isi keterangan singkat</td>
-                            <td class="text-center">
-                            <a href="{{route('retribusi_pengujian_edit')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-edit"></i></a>
-                            <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-=======
                             <?php $no = 0 ?>
                                 @foreach ($Pengujian as $d)
                                 <td>{{$no = $no + 1}}</td>
@@ -56,7 +46,6 @@
                                     </td>
                               </tr>
                               @endforeach
->>>>>>> 68de4bc34ada4016884e28f5ea30a1b69777b59c
                         </tr>
                         </tbody>
                     </table>
@@ -65,7 +54,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -95,8 +83,8 @@
                                 {{csrf_field() }}
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-inverse-primary">Save </button>
+              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-inverse-primary">Simpan</button>
             </form>
             </div>
           </div>

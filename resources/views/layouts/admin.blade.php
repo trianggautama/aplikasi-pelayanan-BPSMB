@@ -273,7 +273,6 @@
       <script src="{{asset('assets/plugins/classie/classie.js')}}"></script>
       <!-- notification -->
       <script src="{{asset('assets/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
-      <script src="{{asset('assets/pages/notification.js')}}"></script>
       <!-- custom js -->
       <script src="{{ asset('assets/js/main.min.js') }}"></script>
       <script src="{{ asset('assets/pages/elements.js') }}"></script>

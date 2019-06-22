@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
 
 <div class="container-fluid">
@@ -34,9 +33,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <?php $no = 0 ?>
-                                @foreach ($Pengujian as $d)
-                                
+                            <?php $no = 0 ?>                                
                             @foreach ($Kalibrasi as $d) 
                             <td>{{$no = $no + 1}}</td>
                             <td>{{$d->perusahaan->nama}}</td>
