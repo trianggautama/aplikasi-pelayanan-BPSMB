@@ -1,16 +1,10 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
-
         </div>
     </div>
-
     <div class="card">
         <div class="card-header ">
                 <h4>Data Retribusi Pengujian</h4>
@@ -22,6 +16,7 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>

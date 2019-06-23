@@ -1,9 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-
 <div class="container-fluid">
-    @include('layouts.alert_sukses')
-    <br>
+    <div class="row">
+        <div class="main-header">
+       
+        </div>
+    </div>
     <div class="card">
         <div class="card-header ">
                 <h4>Data Tarif Retribusi Kalibrasi</h4>
@@ -13,6 +15,8 @@
                     </div>
         </div>
         <div class="card-block">
+        @include('layouts.alert')
+
             <div class="row">
                 <div class="col-sm-12 table-responsive">
                     <table class="table table-hover" id="myTable">
@@ -22,7 +26,6 @@
                             <th>Nama Barang </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
-                            <th>Keterangan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -34,7 +37,6 @@
                                 <td>{{$d->nama}}</td>
                                 <td>{{$d->rentang_ukur}}</td>
                                 <td>{{$d->biaya}}</td>
-                                <td>{{$d->keterangan}}</td>
                                 <td class="text-center">
                                         <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
                                         <a href="{{ route('retribusi_kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
@@ -93,4 +95,5 @@
         </div>
       </div>
     <!-- content-wrapper ends -->
+
 @endsection

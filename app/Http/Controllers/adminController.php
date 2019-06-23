@@ -74,15 +74,18 @@ class adminController extends Controller
 
     public function retribusi_kalibrasi_store(Request $request){
 
+        $this->validate(request(),[
+            'nama'=>'required',
+            'rentang_ukur'=>'required',
+            'biaya'=>'required',
+            'keterangan'=>'required'
+        ]);
         $Kalibrasi = new Retribusi_kalibrasi;
-          
         $Kalibrasi->nama            = $request->nama;
         $Kalibrasi->rentang_ukur    = $request->rentang_ukur;
         $Kalibrasi->biaya           = $request->biaya;
         $Kalibrasi->keterangan      = $request->keterangan;
-
         $Kalibrasi->save();
-       
           return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi '.$request->nama.' Berhasil di Tambahkan');
       }//fungsi menambahkan data retribusi kalibrasi
      //retribusi kalibrasi
@@ -133,7 +136,11 @@ class adminController extends Controller
     }
 
         public function retribusi_pengujian_store(Request $request){
-
+            $this->validate(request(),[
+                'komoditi'=>'required',
+                'biaya'=>'required',
+                'keterangan'=>'required'
+            ]);
         $Pengujian = new Retribusi_pengujian;
           
         $Pengujian->komoditi        = $request->komoditi;

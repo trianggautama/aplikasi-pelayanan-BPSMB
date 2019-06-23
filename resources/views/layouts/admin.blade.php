@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Aplikai Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
 
@@ -256,9 +258,9 @@
 
 </div>
 </div>
-
-      <!-- Required Jqurey -->
-      <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
+</body>
+  <!-- Required Jqurey -->
+  <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
       <script src="{{asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
       <script src="{{asset('assets/plugins/tether/dist/js/tether.min.js')}}"></script>
       <!-- Required Fremwork -->
@@ -279,7 +281,6 @@
       <script src="{{ asset('assets/js/menu.min.js') }}"></script>
       <script src="{{ asset('datatable/jquerrydatatable.min.js') }}"></script>
       <script src="{{ asset('datatable/datatable.js') }}"></script>
-
       <script>
             $(document).ready( function () {
               $('#myTable').DataTable();
@@ -297,6 +298,5 @@
          }
      });
     </script>
-</body>
-
+        @stack('scripts')
 </html>
