@@ -34,7 +34,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <img class="logo-2" src="vendor/img/logo2.png" alt="" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,23 +47,23 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="#">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="about-us.html">About</a>
+                                <a class="nav-link" href="#">About</a>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="false">Pages</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="courses.html">Courses</a>
+                                        <a class="nav-link" href="#">Courses</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="course-details.html">Course Details</a>
+                                        <a class="nav-link" href="#">Course Details</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="elements.html">Elements</a>
+                                        <a class="nav-link" href="#">Elements</a>
                                     </li>
                                 </ul>
                             </li>
@@ -72,15 +72,18 @@
                                     aria-haspopup="true" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="blog.html">Blog</a>
+                                        <a class="nav-link" href="#">Blog</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="single-blog.html">Blog Details</a>
+                                        <a class="nav-link" href="#">Blog Details</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ Route('login') }}">Login</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link search" id="search">
