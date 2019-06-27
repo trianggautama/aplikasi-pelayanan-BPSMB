@@ -21,15 +21,6 @@
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
-            <div class="search_input" id="search_input_box">
-                <div class="container">
-                    <form class="d-flex justify-content-between" method="" action="">
-                        <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
-                        <button type="submit" class="btn"></button>
-                        <span class="ti-close" id="close_search" title="Close Search"></span>
-                    </form>
-                </div>
-            </div>
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
@@ -47,25 +38,13 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="#home">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="#pelayanan">Pelayanan</a>
                             </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Courses</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Course Details</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Elements</a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#retribusi">Info Retribusi</a>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
@@ -85,11 +64,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ Route('login') }}">Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link search" id="search">
-                                    <i class="ti-search"></i>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -98,7 +72,7 @@
     </header>
     <!--================ End Header Menu Area =================-->
 
-    <section class="banner_area">
+    <section class="banner_area" id="home">
         <div class="banner_inner d-flex align-items-center">
             <div class="overlay"></div>
             <div class="container">
@@ -113,8 +87,38 @@
             </div>
         </div>
     </section>
+
+    <section class="about_area section_gap">
+      <div class="container">
+        <div class="row h_blog_item">
+          <div class="col-lg-6">
+            <div class="h_blog_img">
+              <img class="img-fluid" src="vendor/img/about.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="h_blog_text">
+              <div class="h_blog_text_inner left right">
+                <h4>Tentang BPSMB</h4>
+                <p>
+                  Subdue whales void god which living don't midst lesser
+                  yielding over lights whose. Cattle greater brought sixth fly
+                  den dry good tree isn't seed stars were.
+                </p>
+                <p>
+                  Subdue whales void god which living don't midst lesser yieldi
+                  over lights whose. Cattle greater brought sixth fly den dry
+                  good tree isn't seed stars were the boring.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ End About Area =================-->
     <!--================ Start Events Area =================-->
-    <div class="events_area">
+    <div class="events_area" id="pelayanan">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -172,7 +176,7 @@
     </div>
 
 
-    <div class="popular_courses" style="margin-top:100px;">
+    <div class="popular_courses" style="margin-top:100px;" id="retribusi">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">

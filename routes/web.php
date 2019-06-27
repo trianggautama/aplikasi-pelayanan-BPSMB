@@ -55,6 +55,14 @@ Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_edit');
 
+//Data Kalibrasi
+Route::get('/kalibrasi','adminController@kalibrasi_index')
+->name('kalibrasi_index');
+
+//Data Pengujian
+Route::get('/pengujian','adminController@pengujian_index')
+->name('pengujian_index');
+
 //MIDLEWARE ADMIN
 });
 //-------------------------------------------------------------------------------------------------------------------------------//

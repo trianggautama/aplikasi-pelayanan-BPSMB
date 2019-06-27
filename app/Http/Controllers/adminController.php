@@ -207,6 +207,18 @@ class adminController extends Controller
     return view('admin.permohonan_kalibrasi_edit');
     }
 
+    //fungsi kalibrasi data
+    public function kalibrasi_index(){
+    
+    return view('admin.kalibrasi_data');
+    }
+
+    //fungsi pengujian data
+    public function pengujian_index(){
+    
+    return view('admin.pengujian_data');
+    }
+
 
 
 }
