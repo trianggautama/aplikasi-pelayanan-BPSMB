@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Tlp</label></div>
-                        <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
+                        <div class="col-md-10"><input name="telepon" type="text" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
                 </div>
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Website</label></div>
