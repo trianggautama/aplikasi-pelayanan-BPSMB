@@ -60,12 +60,16 @@ Route::get('/kalibrasi','adminController@kalibrasi_index')
 ->name('kalibrasi_index');
 Route::get('/kalibrasi_detail','adminController@kalibrasi_detail')
 ->name('kalibrasi_detail');
+Route::get('/kalibrasi_edit','adminController@kalibrasi_edit')
+->name('kalibrasi_edit');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
 ->name('pengujian_index');
 Route::get('/pengujian_detail','adminController@pengujian_detail')
 ->name('pengujian_detail');
+Route::get('/pengujian_edit','adminController@pengujian_edit')
+->name('pengujian_edit');
 
 //MIDLEWARE ADMIN
 });
