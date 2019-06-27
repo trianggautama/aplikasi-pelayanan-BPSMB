@@ -44,7 +44,7 @@
                             <td>2 Bulan</td>
                             <td> <label for="" class="text-success">Lulus Uji</label></td>
                             <td class="text-center">
-                            <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('kalibrasi_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
                         </tr>
                         </tbody>

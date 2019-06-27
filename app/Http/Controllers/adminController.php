@@ -213,10 +213,20 @@ class adminController extends Controller
     return view('admin.kalibrasi_data');
     }
 
+    public function kalibrasi_detail(){
+    
+    return view('admin.kalibrasi_detail');
+    }
+
     //fungsi pengujian data
     public function pengujian_index(){
     
     return view('admin.pengujian_data');
+    }
+    
+    public function pengujian_detail(){
+    
+    return view('admin.pengujian_detail');
     }
 
 

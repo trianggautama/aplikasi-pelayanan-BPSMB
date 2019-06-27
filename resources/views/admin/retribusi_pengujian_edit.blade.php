@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-@section('title', __('outlet.list'))
 @section('content')
 <div class="container-fluid" >
 <div class="row" >

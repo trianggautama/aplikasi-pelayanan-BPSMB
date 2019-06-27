@@ -12,7 +12,7 @@
         <div class="card-header ">
                 <h4>Data  Pengujian</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -44,7 +44,7 @@
                             <td>1 Bulan</td>
                             <td> <label for="" class="text-warning">dalam proses uji</label></td>
                             <td class="text-center">
-                            <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('pengujian_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
                         </tr>
                         </tbody>
