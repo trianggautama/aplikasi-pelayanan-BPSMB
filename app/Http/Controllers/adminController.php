@@ -28,14 +28,14 @@ class adminController extends Controller
     public function perusahaan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
-        $User = User::find($Perusahaan->id_user);
+        $User = User::find($Perusahaan->user_id);
         return view('admin.perusahaan_detail',compact('Perusahaan','User'));
     }
 
     public function perusahaan_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::findOrFail($id);
-        $User = User::find($Perusahaan->id_user);
+        $User = User::find($Perusahaan->user_id);
 
         //  $this->validate(request(),[
         //     'kode_rambu'=>'required',
@@ -46,10 +46,10 @@ class adminController extends Controller
         $User->email    = $request->email;
         $Password       = Hash::make($request->password);
         $User->password = $Password;
-        
+
         if($request->gambar != null){
         $FotoExt  = $request->gambar->getClientOriginalExtension();
-        $FotoName = $request->id_user.' - '.$request->nama_perusahaan;
+        $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
         $gambar   = $FotoName.'.'.$FotoExt;
         $request->gambar->move('images/perusahaan', $gambar);
         $Perusahaan->gambar       = $gambar;
@@ -121,7 +121,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Kalibrasi=Retribusi_kalibrasi::findOrFail($id);
         $Kalibrasi->delete();
-       
+
         return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi berhasil di hapus');
     }//fungsi menghapus data retribusi kalibrasi
 
@@ -142,16 +142,16 @@ class adminController extends Controller
                 'keterangan'=>'required'
             ]);
         $Pengujian = new Retribusi_pengujian;
-          
+
         $Pengujian->komoditi        = $request->komoditi;
         $Pengujian->biaya           = $request->biaya;
         $Pengujian->keterangan      = $request->keterangan;
 
         $Pengujian->save();
-       
+
           return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Tambahkan');
       }//fungsi menambahkan data retribusi pengujian
-       
+
        public function retribusi_pengujian_edit($id){
         $id = IDCrypt::Decrypt($id);
         $Pengujian = Retribusi_pengujian::findOrFail($id);
@@ -181,7 +181,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Pengujian=Retribusi_pengujian::findOrFail($id);
         $Pengujian->delete();
-       
+
         return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian berhasil di hapus');
     }//fungsi menghapus data retribusi pengujian
 
@@ -209,33 +209,33 @@ class adminController extends Controller
 
     //fungsi kalibrasi data
     public function kalibrasi_index(){
-    
+
     return view('admin.kalibrasi_data');
     }
 
     public function kalibrasi_detail(){
-    
+
     return view('admin.kalibrasi_detail');
     }
 
     public function kalibrasi_edit(){
-    
+
     return view('admin.kalibrasi_edit');
     }
 
     //fungsi pengujian data
     public function pengujian_index(){
-    
+
     return view('admin.pengujian_data');
     }
 
     public function pengujian_detail(){
-    
+
     return view('admin.pengujian_detail');
     }
 
     public function pengujian_edit(){
-    
+
     return view('admin.pengujian_edit');
     }
 
