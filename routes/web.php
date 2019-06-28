@@ -102,7 +102,9 @@ Route::get('/permohonan_pengujian_tambah','userController@permohonan_pengujian_t
 Route::get('/permohonan_pengujian_edit','userController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_user_edit');
 
-
+//LAPORAN
+Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalibrasi')
+->name('nota_permohonan_kalibrasi');
 //MIDLEWARE USER
 
 
