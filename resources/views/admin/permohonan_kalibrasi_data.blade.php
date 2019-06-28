@@ -45,6 +45,7 @@
                             <td class="text-center">
                             {{-- <a href=" {{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
                             <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a> --}}
+                            <a href="" class="btn btn-success">Verifikasi<i class=" "></i></a>
                             <button type="button" class="btn btn-danger"
                             onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="far fa-trash-alt"></i></b></button>
                         </td>
