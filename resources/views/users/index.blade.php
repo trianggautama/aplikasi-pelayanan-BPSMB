@@ -66,9 +66,11 @@
                                 <h5>PENGUMUMAN !!!</h5>
                             </div>
                             <div class="card-block">
-                                <p>Mohon untuk melengkapi data Profile Perusahaan Anda </p>
-                                <br>
-                                <a href="{{route('edit_profile_perusahaan')}}" class="btn btn-sm btn-inverse-danger"> Disini</a>
+                            @if(isset($perusahaan->user_id) && $perusahaan->user_id == $user_id)
+                            <a href="{{ route('perusahaan_detail', ['id' => IDCrypt::Encrypt( $perusahaan->id )])}}" class="btn btn-primary mt-xl-0">Klik Disini Untuk Melihat Detail Profil Anda</a>
+                            @else
+                            <a href="{{ route('perusahaan_tambah')}}" class="btn btn-primary">Klik Disini Untuk Melengkapi Profil Anda</a>
+                            @endif
                             </div>
                         </div>
                     </div>
