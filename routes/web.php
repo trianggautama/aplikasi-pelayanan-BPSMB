@@ -81,8 +81,16 @@ Route::get('/pengujian_edit','adminController@pengujian_edit')
 Route::get('/user','userController@index')
 ->name('user_index');
 
-Route::get('/edit_perusahaan_profile','userController@edit_profile_perusahaan')
-->name('edit_profile_perusahaan');
+Route::get('/perusahaan/tambah','userController@perusahaan_tambah')
+->name('perusahaan_tambah');
+Route::post('/perusahaan/tambah','userController@perusahaan_tambah_store')
+->name('perusahaan_tambah_store');
+Route::get('/perusahaan/detail/{id}','userController@perusahaan_detail')
+->name('perusahaan_detail');
+Route::get('/perusahaan/edit/{id}','userController@perusahaan_edit')
+->name('perusahaan_edit');
+Route::put('/perusahaan/edit/{id}','userController@perusahaan_edit_update')
+->name('perusahaan_edit_update');
 
 //permohonan kalibrasi user
 Route::get('/permohonan-kalibrasi-user','userController@permohonan_kalibrasi_index')
