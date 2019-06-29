@@ -7,8 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\Perusahaan;
-use App\Permohonan_kalibrasi;
 use App\Retribusi_kalibrasi;
+use App\Retribusi_pengujian;
+use App\Permohonan_kalibrasi;
+use App\Permohonan_pengujian;
+
 use Carbon\Carbon;
 // use App\User;
 use IDCrypt;
@@ -76,18 +79,18 @@ class userController extends Controller
         public function perusahaan_update(Request $request, $id){
             $id = IDCrypt::Decrypt($id);
             $perusahaan = Perusahaan::findOrFail($id);
-            $user = User::find($perusahaan->user_id);
+            // $user = User::find($perusahaan->user_id);
 
-            //  $this->validate(request(),[
-            //     'kode_rambu'=>'required',
-            //     'nama_rambu'=>'required',
-            //     'keterangan'=>'required'
-            // ]);
-            $user->name     = $request->name;
-            $user->email    = $request->email;
-            // $user->password    = $request->password;
-            $password       = Hash::make($request->password);
-            $user->password = $password;
+            // //  $this->validate(request(),[
+            // //     'kode_rambu'=>'required',
+            // //     'nama_rambu'=>'required',
+            // //     'keterangan'=>'required'
+            // // ]);
+            // $user->name     = $request->name;
+            // $user->email    = $request->email;
+            // // $user->password    = $request->password;
+            // $password       = Hash::make($request->password);
+            // $user->password = $password;
 
             if($request->gambar != null){
             $FotoExt  = $request->gambar->getClientOriginalExtension();
@@ -101,7 +104,7 @@ class userController extends Controller
             $perusahaan->telepon      = $request->telepon;
             $perusahaan->website      = $request->website;
 
-            $user->update();
+            // $user->update();
             $perusahaan->update();
             return redirect(route('user_index'))->with('success', 'Data Perusahaan '.$request->name.' Berhasil di ubah');
              }
