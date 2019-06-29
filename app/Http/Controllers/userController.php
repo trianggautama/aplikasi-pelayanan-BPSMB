@@ -10,7 +10,7 @@ use App\Perusahaan;
 use App\Permohonan_kalibrasi;
 use App\Retribusi_kalibrasi;
 use Carbon\Carbon;
-use App\User;
+// use App\User;
 use IDCrypt;
 use Hash;
 Use File;
@@ -31,7 +31,7 @@ class userController extends Controller
             //dd($perusahaan);
             if($perusahaan == 0){
                 return view('users.perusahaan_tambah');
-            }   
+            }
                 $perusahaan_data = perusahaan::where('id_user',Auth::user()->id)->first();
                 return view('users.perusahaan_edit',compact('perusahaan_data'));
 
