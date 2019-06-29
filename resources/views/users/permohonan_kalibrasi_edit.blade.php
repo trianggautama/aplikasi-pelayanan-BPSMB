@@ -18,36 +18,44 @@
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
             </div>
+            <form  method="post" action="" enctype="multipart/form-data">
+                {{method_field('PUT') }}
+                {{ csrf_field() }}
 
             <div class="card-block">
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan </label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="terisi otomatis "></div>
+                <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan </label></div>
+                <div class="col-md-10">
+                    <select class="form-control" id="exampleSelect1" name="perusahaan_id">
+                        <option value="{{$perusahaan->id}}" >{{$perusahaan->user->name}}</option>
+                    </select>
+                </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Barang Kalibrasi</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Rentang Ukur"></div>
-                </div>
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Kalibrasi </label></div>
+                        <div class="col-md-10">
+                            <select class="form-control" id="exampleSelect1" name="retribusi_kalibrasi_id">
+                                <option value="{{$retribusi->id}}" >{{$retribusi->nama}}</option>
+                            </select>
+                        </div>
+                        </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Biaya</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Biaya"></div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan (ambil otomatis aja dari carbon)</label></div>
-                    <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" ></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan</label></div>
+                    <div class="col-md-10"><input name="tanggal" type="date" value="{{ $kalibrasi->tanggal }}" class="form-control" id="InputNormal" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Merk</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Merk"></div>
+                    <div class="col-md-10"><input type="text" name="merk" class="form-control" id="InputNormal"  placeholder="Merk" value=" {{ $kalibrasi->merk }}"></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Seri</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="No Seri"></div>
+                    <div class="col-md-10"><input type="text" name="no_seri" class="form-control" id="InputNormal"  placeholder="No Seri" value="{{ $kalibrasi->no_seri }}"></div>
                 </div>
+                {{ csrf_field() }}
             </div>
             <div class="card-footer text-right">
-            <a href="{{route('permohonan_kalibrasi_index')}}" class="btn btn-inverse-danger">Batal</a>
-                <a href="" class="btn btn-inverse-primary">Edit Permohonan</a>
+            <a href="{{route('permohonan_kalibrasi_user_index')}}" class="btn btn-inverse-danger">Batal</a>
+            <button type="submit" name="submit" class="btn btn-primary">Ubah Permohonan</button>
             </div>
         </div>
     </div>

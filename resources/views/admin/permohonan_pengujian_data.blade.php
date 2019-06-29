@@ -39,9 +39,9 @@
                             <td>Rp.12.000.000</td>
                             <td>1 Mei 2019</td>
                             <td>-</td>
-                            <td class="text-center">\
-                            <a href="{{route('permohonan_kalibrasi_edit')}}" class="btn btn-inverse-success"> Verifikasi</a>
-                            <a href="{{route('permohonan_kalibrasi_edit')}}" class="btn btn-inverse-primary"> edit</a>
+                            <td class="text-center">
+                            <a href="{{route('permohonan_pengujian_edit')}}" class="btn btn-inverse-success"> Verifikasi</a>
+                            <a href="{{route('permohonan_pengujian_edit')}}" class="btn btn-inverse-primary"> edit</a>
                                 <a href="" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>

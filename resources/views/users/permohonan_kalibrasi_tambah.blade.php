@@ -20,7 +20,6 @@
             </div>
             <form  method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
-            <input type="hidden" name="id_user" value="{{ Auth::id() }}">
             <div class="card-block">
                 {{-- <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan </label></div>
@@ -29,21 +28,21 @@
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan </label></div>
                 <div class="col-md-10">
-                    <select class="form-control" id="exampleSelect1" name="id_perusahaan">
-                        <option value="{{$Perusahaan->id}}" >{{$Perusahaan->nama}}</option>
+                    <select class="form-control" id="exampleSelect1" name="perusahaan_id">
+                        <option value="{{$perusahaan->id}}" >{{$perusahaan->user->name}}</option>
                     </select>
-                </div> 
-                </div> 
+                </div>
+                </div>
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Barang </label></div>
                 <div class="col-md-10">
-                    <select class="form-control" id="exampleSelect1" name="id_retribusi_kalibrasi">
-                        @foreach ($Kalibrasi as $k)
+                    <select class="form-control" id="exampleSelect1" name="retribusi_kalibrasi_id">
+                        @foreach ($kalibrasi as $k)
                         <option value="{{$k->id}}" >{{$k->nama}}</option>
-                        @endforeach  
+                        @endforeach
                     </select>
-                </div>    
-                </div>                
+                </div>
+                </div>
                 {{-- <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Barang Kalibrasi</label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" value="{{ $Kalibrasi->biaya }}" placeholder="Rentang Ukur"></div>

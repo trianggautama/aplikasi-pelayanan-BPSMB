@@ -11,12 +11,12 @@ Route::get('/admin','adminController@index')
 ->name('admin_index');
 
 //perusahaan
-Route::get('/perusahaan','adminController@perusahaan_index')
-->name('perusahaan_index');
-Route::get('/perusahaan/detail/{id}','adminController@perusahaan_detail')
-->name('perusahaan_detail');
-Route::put('/perusahaan/detail/{id}','adminController@perusahaan_update')
-->name('perusahaan_update');
+Route::get('/admin/perusahaan','adminController@perusahaan_index')
+->name('admin_perusahaan_index');
+Route::get('/admin/perusahaan/detail/{id}','adminController@perusahaan_detail')
+->name('admin_perusahaan_detail');
+Route::put('/admin/perusahaan/detail/{id}','adminController@perusahaan_update')
+->name('admin_perusahaan_update');
 
 
 //Retribusi Kalibrasi
@@ -87,10 +87,8 @@ Route::post('/perusahaan/tambah','userController@perusahaan_tambah_store')
 ->name('perusahaan_tambah_store');
 Route::get('/perusahaan/detail/{id}','userController@perusahaan_detail')
 ->name('perusahaan_detail');
-Route::get('/perusahaan/edit/{id}','userController@perusahaan_edit')
-->name('perusahaan_edit');
-Route::put('/perusahaan/edit/{id}','userController@perusahaan_edit_update')
-->name('perusahaan_edit_update');
+Route::put('/perusahaan/detail/{id}','userController@perusahaan_update')
+->name('perusahaan_update');
 
 //permohonan kalibrasi user
 Route::get('/permohonan-kalibrasi-user','userController@permohonan_kalibrasi_index')
@@ -99,16 +97,21 @@ Route::get('/permohonan-kalibrasi-tambah','userController@permohonan_kalibrasi_t
 ->name('permohonan_kalibrasi_user_tambah');
 Route::POST('/permohonan-kalibrasi-tambah','userController@permohonan_kalibrasi_store')
 ->name('permohonan_kalibrasi_store');
-Route::get('/permohonan_kalibrasi_edit','userController@permohonan_kalibrasi_edit')
+Route::get('/permohonan_kalibrasi_edit/{id}','userController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_user_edit');
+Route::put('/permohonan_kalibrasi_edit/{id}','userController@permohonan_kalibrasi_update')
+->name('permohonan_kalibrasi_user_update');
 
-//permohonan pengujian user
-Route::get('/permohonan_pengujian_user','userController@permohonan_pengujian')
+Route::get('/permohonan-pengujian-user','userController@permohonan_pengujian_index')
 ->name('permohonan_pengujian_user_index');
-Route::get('/permohonan_pengujian_tambah','userController@permohonan_pengujian_tambah')
+Route::get('/permohonan-pengujian-tambah','userController@permohonan_pengujian_tambah')
 ->name('permohonan_pengujian_user_tambah');
-Route::get('/permohonan_pengujian_edit','userController@permohonan_pengujian_edit')
+Route::POST('/permohonan-pengujian-tambah','userController@permohonan_pengujian_store')
+->name('permohonan_pengujian_store');
+Route::get('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_user_edit');
+Route::put('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujian_update')
+->name('permohonan_pengujian_user_update');
 
 //LAPORAN
 Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalibrasi')

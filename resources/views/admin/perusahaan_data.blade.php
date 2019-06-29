@@ -36,16 +36,15 @@
                         <?php $no = 0 ?>
                             @foreach ($Perusahaan as $p)
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{$p->nama}}</td>
+                            <td>{{$p->user->name}}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
                             <td class="text-center">
-                                <a href="{{ route('perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                    
+                                <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
-                            @endforeach    
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
