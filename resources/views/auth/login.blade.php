@@ -17,9 +17,7 @@
                     <div class="md-input-wrapper">
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}  md-form-control md-static" name="email" value="{{ old('email') }}" required autofocus>
                         @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
+                                <p style="color:red">{{ $errors->first('email') }}</p>                           
                         @endif
                         <label>Email</label>
                     </div>
@@ -27,9 +25,7 @@
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}  md-form-control md-static" name="password" required>
 
                         @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
+                        <p style="color:red">{{ $errors->first('password') }}</p>                           
                         @endif
                         <label>Password</label>
                     </div>

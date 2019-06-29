@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
@@ -10,7 +11,6 @@ use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
 use IDCrypt;
 use Auth;
-use Hash;
 
 class adminController extends Controller
 {

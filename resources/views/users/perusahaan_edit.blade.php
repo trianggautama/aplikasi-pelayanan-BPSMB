@@ -13,7 +13,8 @@
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
             </div>
-            <form  method="post" action="" enctype="multipart/form-data">
+            <form  method="post" action="{{ route('perusahaan_update', ['id' => IDCrypt::Encrypt( $perusahaan_data->id)])}}" enctype="multipart/form-data">
+            {{method_field('PUT') }}
                 {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
