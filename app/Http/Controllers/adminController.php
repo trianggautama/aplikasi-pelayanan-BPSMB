@@ -7,6 +7,7 @@ use App\User;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
+use App\Permohonan_kalibrasi;
 use IDCrypt;
 use Auth;
 use Hash;
@@ -28,8 +29,7 @@ class adminController extends Controller
     public function perusahaan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
-        $User = User::find($Perusahaan->user_id);
-        return view('admin.perusahaan_detail',compact('Perusahaan','User'));
+        return view('admin.perusahaan_detail',compact('Perusahaan'));
     }
 
     public function perusahaan_update(Request $request, $id){
@@ -55,13 +55,13 @@ class adminController extends Controller
         $Perusahaan->gambar       = $gambar;
         }
 
-        $Perusahaan->nama         = $request->nama;
         $Perusahaan->alamat       = $request->alamat;
         $Perusahaan->telepon      = $request->telepon;
+        $Perusahaan->website      = $request->website;
 
         $User->update();
         $Perusahaan->update();
-        return redirect(route('perusahaan_index'))->with('success', 'Data Perusahaan '.$request->nama.' Berhasil di ubah');
+        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->nama.' Berhasil di ubah');
          }
 
     //retribusi kalibrasi
@@ -187,8 +187,9 @@ class adminController extends Controller
 
    //permohonan Kalibrasi
    public function permohonan_kalibrasi_index(){
+    $Kalibrasi     = Permohonan_kalibrasi::all();
 
-    return view('admin.permohonan_kalibrasi_data');
+    return view('admin.permohonan_kalibrasi_data',compact('Kalibrasi'));
     }
 
     public function permohonan_kalibrasi_edit(){
