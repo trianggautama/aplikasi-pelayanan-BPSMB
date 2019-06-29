@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permohonan_kalibrasi extends Model
+class Permohonan_pengujian extends Model
 {
-
     public function user(){
         return $this->belongsTo('App\User','user_id');
       }
@@ -16,6 +15,6 @@ class Permohonan_kalibrasi extends Model
       }
 
     public function retribusi(){
-        return $this->belongsTo('App\Retribusi_kalibrasi','retribusi_kalibrasi_id');
+        return $this->belongsTo('App\Retribusi_pengujian','retribusi_pengujian_id');
       }
 }
