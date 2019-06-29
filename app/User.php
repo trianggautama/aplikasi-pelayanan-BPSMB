@@ -44,6 +44,6 @@ class User extends Authenticatable
         return false;
     }
     public function perusahaan(){
-        return $this->hasMany('App\Perusahaan','id_user');
+        return $this->hasMany('App\Perusahaan','user_id');
       }
 }

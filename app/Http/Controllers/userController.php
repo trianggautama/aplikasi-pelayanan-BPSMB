@@ -26,13 +26,15 @@ class userController extends Controller
 
         public function perusahaan_tambah(){
             $user = User::findOrFail(Auth::user()->id);
+            // dd($user);
             $perusahaan = $user->perusahaan;
+            // dd($perusahaan);
             $perusahaan = count($perusahaan);
             //dd($perusahaan);
             if($perusahaan == 0){
                 return view('users.perusahaan_tambah');
             }
-                $perusahaan_data = perusahaan::where('id_user',Auth::user()->id)->first();
+                $perusahaan_data = perusahaan::where('user_id',Auth::user()->id)->first();
                 return view('users.perusahaan_edit',compact('perusahaan_data'));
 
         }

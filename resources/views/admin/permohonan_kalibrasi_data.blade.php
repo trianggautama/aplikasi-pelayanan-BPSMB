@@ -21,7 +21,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>1</th>
+                            <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
@@ -36,7 +36,7 @@
                             <?php $no = 0 ?>                                
                             @foreach ($Kalibrasi as $d) 
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{$d->perusahaan->nama}}</td>
+                            <td>{{$d->perusahaan->user->name}}</td>
                             <td>{{$d->retribusi->nama}}</td>
                             <td>{{$d->retribusi->biaya}}</td>
                             <td>{{$d->tanggal}}</td>
