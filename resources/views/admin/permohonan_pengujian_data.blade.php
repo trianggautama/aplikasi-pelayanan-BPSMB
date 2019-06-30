@@ -22,7 +22,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Pengujian</th>
                             <th>Biaya</th>
@@ -33,18 +33,23 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>UPT PKB</td>
-                            <td>Speedometer</td>
-                            <td>Rp.12.000.000</td>
-                            <td>1 Mei 2019</td>
-                            <td>-</td>
-                            <td class="text-center">
-                            <a href="{{route('permohonan_pengujian_edit')}}" class="btn btn-inverse-success"> Verifikasi</a>
-                            <a href="{{route('permohonan_pengujian_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
+                                <?php $no = 0 ?>
+                                @foreach ($pengujian as $d)
+                                <tr>
+                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$d->perusahaan->user->name}}</td>
+                                <td>{{$d->retribusi->komoditi}}</td>
+                                <td>Rp. {{$d->retribusi->biaya}}</td>
+                                <td>{{$d->created_at->format('d-m-Y')}}</td>
+                                <td>{{$d->keterangan}}</td>
+                                <td class="text-center">
+                                <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"> <i class="icon-eye"></i></i></a>
+                                <a href="" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
+                                <button type="button" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="Hapus"
+                                onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="icon-trash"></i></b></button>
                             </td>
-                        </tr>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
