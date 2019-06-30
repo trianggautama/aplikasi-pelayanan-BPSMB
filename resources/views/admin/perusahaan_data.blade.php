@@ -28,6 +28,7 @@
                             <th>Nama Perusahaan</th>
                             <th>Alamat Perusahaan</th>
                             <th>No Tlp</th>
+                            <th>status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -39,7 +40,14 @@
                             <td>{{$p->user->name}}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
+                            <td>@if($p->status == 0)
+                            <label class="label bg-success">Aktif</label>
+                                @else
+                            <label class="label bg-warning">Banned</label>
+                                @endif
+                            </td>
                             <td class="text-center">
+                                <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a>
                                 <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
