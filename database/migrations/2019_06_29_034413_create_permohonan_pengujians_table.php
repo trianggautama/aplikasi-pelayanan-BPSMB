@@ -18,9 +18,7 @@ class CreatePermohonanPengujiansTable extends Migration
             $table->unsignedbigInteger('user_id');
             $table->unsignedbigInteger('perusahaan_id');
             $table->unsignedbigInteger('retribusi_pengujian_id');
-            $table->date('tanggal');
-            $table->string('merk')->length(100);
-            $table->string('no_seri')->length(100);
+            $table->string('keterangan')->length(100);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('perusahaan_id')->references('id')->on('perusahaans')->onDelete('cascade');
             $table->foreign('retribusi_pengujian_id')->references('id')->on('retribusi_pengujians')->onDelete('cascade');
