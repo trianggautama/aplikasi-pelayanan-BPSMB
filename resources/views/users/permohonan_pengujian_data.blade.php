@@ -21,9 +21,9 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama Perusahaan</th>
-                            <th>Barang Pengujian</th>
+                            <th>Nama Barang</th>
                             <th>Biaya</th>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
@@ -32,17 +32,22 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>UPT PKB</td>
-                            <td>Speedometer</td>
-                            <td>Rp.12.000.000</td>
-                            <td>1 Mei 2019</td>
-                            <td>-</td>
-                            <td class="text-center">\
-                            <a href="{{route('permohonan_pengujian_user_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                            <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
+                            <?php $no = 0 ?>
+                            @foreach ($pengujian as $d)
+                            <td>{{$no = $no + 1}}</td>
+                            <td>{{$d->perusahaan->user->name}}</td>
+                            <td>{{$d->retribusi->komoditi}}</td>
+                            <td>{{$d->retribusi->biaya}}</td>
+                            <td>{{$d->created_at->format('d-m-Y')}}</td>
+                            <td>{{$d->keterangan}}</td>
+                            <td class="text-center">
+                            <a href="{{ route('permohonan_pengujian_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                            {{-- <a href="{{ route('permohonan_pengujian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-edit-alt"></i></a> --}}
+                            {{-- <a href=" {{route('permohonan_pengujian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a> --}}
+                        </td>
+
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
