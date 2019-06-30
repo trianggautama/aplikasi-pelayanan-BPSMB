@@ -9,6 +9,7 @@ use App\Perusahaan;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
+use App\Permohonan_pengujian;
 use IDCrypt;
 use Auth;
 
@@ -199,8 +200,8 @@ class adminController extends Controller
 
      //permohonan pengujian
    public function permohonan_pengujian_index(){
-
-    return view('admin.permohonan_pengujian_data');
+    $pengujian = permohonan_pengujian::all();
+    return view('admin.permohonan_pengujian_data',compact('pengujian'));
     }
 
     public function permohonan_pengujian_edit(){
