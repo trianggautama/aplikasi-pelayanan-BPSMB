@@ -207,15 +207,12 @@ class userController extends Controller
         $pengujian->user_id                 = $user_id;
         $pengujian->perusahaan_id           = $request->perusahaan_id;
         $pengujian->retribusi_pengujian_id  = $request->retribusi_pengujian_id;
-        // $pengujian->tanggal                 = $Date;
-        $pengujian->tanggal                    = $request->tanggal;
-        $pengujian->merk                    = $request->merk;
-        $pengujian->no_seri                 = $request->no_seri;
+        $pengujian->keterangan                    = $request->keterangan;
     // dd($request);
 
         $pengujian->save();
 
-          return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data permohonan pengujian '.$request->merk.' Berhasil di Tambahkan');
+          return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data permohonan pengujian '.$request->keterangan.' Berhasil di Tambahkan');
       }//fungsi menambahkan data permohonan pengujian
 
 
