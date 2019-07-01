@@ -13,7 +13,11 @@
         <div class="card-header ">
                 <h4>Data Permohonan Kalibrasi</h4>
                 <div class="text-right">
+                @if($perusahaan->status == 0)
                         <a class="btn btn-inverse-primary" href="{{route('permohonan_kalibrasi_user_tambah')}}"><i class="icon-arrow-add"></i>Buat Permohonan</a>
+                @else
+                <a class="btn btn-disable btn-danger" href="{{ route('perusahaan_tambah')}}"><i class="icon-arrow-add"></i>Data Anda Belum terverifikasi / belum lengkap</a>
+                @endif
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
                     </div>
         </div>

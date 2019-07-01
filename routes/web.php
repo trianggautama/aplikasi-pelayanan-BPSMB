@@ -54,6 +54,8 @@ Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 ->name('permohonan_pengujian_index');
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_edit');
+Route::get('/halaman_verifikasi','adminController@halaman_verifikasi')
+->name('halaman_verifikasi');
 
 //Data Kalibrasi
 Route::get('/kalibrasi','adminController@kalibrasi_index')

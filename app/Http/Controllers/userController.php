@@ -111,9 +111,10 @@ class userController extends Controller
        //permohonan kalibarsi user
         public function permohonan_kalibrasi_index(){
         $id = auth::id();
+        $perusahaan= perusahaan::where('user_id',$id)->first();
         $kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
         // $kalibrasi->dd();
-        return view('users.permohonan_kalibrasi_data',compact('kalibrasi'));
+        return view('users.permohonan_kalibrasi_data',compact('kalibrasi','perusahaan'));
         }
 
         // tambah permohonan kalibarsi user
@@ -184,8 +185,9 @@ class userController extends Controller
       public function permohonan_pengujian_index(){
         $id = auth::id();
         $pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
+        $perusahaan= perusahaan::where('user_id',$id)->first();
         // $pengujian->dd();
-        return view('users.permohonan_pengujian_data',compact('pengujian'));
+        return view('users.permohonan_pengujian_data',compact('pengujian','perusahaan'));
         }
 
         // tambah permohonan pengujian user

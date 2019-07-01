@@ -44,7 +44,7 @@
                                 <td>{{$d->keterangan}}</td>
                                 <td class="text-center">
                                 <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"> <i class="icon-eye"></i></i></a>
-                                <a href="" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
+                                <a href="{{Route('halaman_verifikasi')}}" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
                                 <button type="button" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="Hapus"
                                 onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="icon-trash"></i></b></button>
                             </td>

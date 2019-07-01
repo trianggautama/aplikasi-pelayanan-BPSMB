@@ -209,6 +209,11 @@ class adminController extends Controller
     return view('admin.permohonan_kalibrasi_edit');
     }
 
+    public function halaman_verifikasi(){
+
+     return view('admin.halaman_verifikasi');
+    }
+
     //fungsi kalibrasi data
     public function kalibrasi_index(){
 
