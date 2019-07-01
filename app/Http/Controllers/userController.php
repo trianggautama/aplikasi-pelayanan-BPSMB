@@ -39,7 +39,6 @@ class userController extends Controller
             }
                 $perusahaan_data = perusahaan::where('user_id',Auth::user()->id)->first();
                 return view('users.perusahaan_edit',compact('perusahaan_data'));
-
         }
 
         public function perusahaan_tambah_store(Request $request){
@@ -201,18 +200,20 @@ class userController extends Controller
         public function permohonan_pengujian_store(Request $request){
 
         $pengujian = new Permohonan_pengujian;
-
-        // $Date = Carbon::now()->toDateString();
+        //dd($request);
+        //$Date = Carbon::now()->toDateString();
         $user_id = auth::id();
         $pengujian->user_id                 = $user_id;
         $pengujian->perusahaan_id           = $request->perusahaan_id;
         $pengujian->retribusi_pengujian_id  = $request->retribusi_pengujian_id;
-        $pengujian->keterangan                    = $request->keterangan;
-    // dd($request);
+        //$pengujian->tanggal              = $Date;
+        //$pengujian->tanggal                 = $request->tanggal;
+        $pengujian->keterangan              = $request->keterangan;
+        // dd($request);
 
         $pengujian->save();
 
-          return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data permohonan pengujian '.$request->keterangan.' Berhasil di Tambahkan');
+          return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data permohonan pengujian '.$request->merk.' Berhasil di Tambahkan');
       }//fungsi menambahkan data permohonan pengujian
 
 
@@ -220,14 +221,13 @@ class userController extends Controller
       public function permohonan_pengujian_edit($id){
         $id = IDCrypt::Decrypt($id);
         $pengujian=permohonan_pengujian::findOrFail($id)->first();
-        $user_id = auth::id();
-        $retribusi = retribusi_pengujian::where('id',$pengujian->retribusi_pengujian_id)->first();
-        $perusahaan = Perusahaan::where('user_id',$user_id)->first();
+        $retribusi= retribusi_pengujian::all();
         // dd($pengujian);
-        return view('users.permohonan_pengujian_edit',compact('pengujian','perusahaan','retribusi'));
+        return view('users.permohonan_pengujian_edit',compact('pengujian','retribusi'));
          }
 
       public function permohonan_pengujian_update(Request $request, $id){
+        //dd('tes');
         $id = IDCrypt::Decrypt($id);
         $pengujian = permohonan_pengujian::findOrFail($id);
 
@@ -238,12 +238,8 @@ class userController extends Controller
     //    ]);
 
 
-        $pengujian->perusahaan_id           = $request->perusahaan_id;
         $pengujian->retribusi_pengujian_id  = $request->retribusi_pengujian_id;
-        // $pengujian->tanggal                 = $Date;
-        $pengujian->tanggal                    = $request->tanggal;
-        $pengujian->merk                    = $request->merk;
-        $pengujian->no_seri                 = $request->no_seri;
+        $pengujian->keterangan              = $request->keterangan;
 
 
         $pengujian->update();
