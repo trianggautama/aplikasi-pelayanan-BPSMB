@@ -83,6 +83,11 @@ Route::get('/pengujian_edit','adminController@pengujian_edit')
 Route::get('/user','userController@index')
 ->name('user_index');
 
+Route::get('/inbox','userController@inbox')
+->name('inbox');
+Route::get('/show_message','userController@show_message')
+->name('show_message');
+
 Route::get('/perusahaan/tambah','userController@perusahaan_tambah')
 ->name('perusahaan_tambah');
 Route::post('/perusahaan/tambah','userController@perusahaan_tambah_store')

@@ -1,7 +1,4 @@
 @extends('layouts.user')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 <div class="container-fluid" >
 

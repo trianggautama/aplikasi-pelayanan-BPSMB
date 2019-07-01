@@ -13,30 +13,30 @@
     <div class="col-lg-4 col-sm-6">
                     <div class="dashboard-primary bg-primary">
                         <div class="sales-primary">
-                            <i class="icon-bubbles"></i>
+                          <i class="icon-envelope-open"></i>
                             <div class="f-right">
-                                <h2 class="counter">4500</h2>
-                                <span>Total Sales</span>
+                                <h2 class="counter">2</h2>
                             </div>
                         </div>
                         <div class="bg-dark-primary">
-                            <p class="week-sales">LAST WEEK'S SALES</p>
-                            <p class="total-sales">432</p>
+                        <a href="{{Route('inbox')}}">
+                            <p class="week-sales">Pesan Baru diterima</p>
+                            <p class="total-sales">2</p>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="bg-success dashboard-success">
                         <div class="sales-success">
-                            <i class="icon-speedometer"></i>
+                        <i class="icon-basket"></i>
                             <div class="f-right">
-                                <h2 class="counter">3521</h2>
-                                <span>Total Sales</span>
+                                <h2 class="counter">5</h2>
                             </div>
                         </div>
                         <div class="bg-dark-success">
-                            <p class="week-sales">LAST WEEK'S SALES</p>
-                            <p class="total-sales ">432</p>
+                            <p class="week-sales">Transaksi Kalibrasi</p>
+                            <p class="total-sales ">5 kali</p>
                         </div>
                     </div>
                 </div>
@@ -45,13 +45,12 @@
                         <div class="sales-warning">
                             <i class="icon-basket-loaded"></i>
                             <div class="f-right">
-                                <h2 class="counter">1085</h2>
-                                <span>New Orders</span>
+                                <h2 class="counter">8</h2>
                             </div>
                         </div>
                         <div class="bg-dark-warning">
-                            <p class="week-sales">LAST WEEK'S SALES</p>
-                            <p class="total-sales">84</p>
+                            <p class="week-sales">Transaksi Pengujian</p>
+                            <p class="total-sales">8 kali</p>
                         </div>
                     </div>
                 </div>

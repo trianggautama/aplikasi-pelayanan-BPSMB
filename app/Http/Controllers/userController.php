@@ -27,6 +27,16 @@ class userController extends Controller
             return view('users.index');
         }
 
+        public function inbox(){
+
+          return view('users.inbox');
+      }
+
+      public function show_message(){
+
+        return view('users.show_message');
+    }
+
         public function perusahaan_tambah(){
             $user = User::findOrFail(Auth::user()->id);
             // dd($user);
