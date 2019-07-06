@@ -15,6 +15,7 @@
         <div class="card-header ">
                 <h4>Data Perusahaan</h4>
                 <div class="text-right">
+                        <a class="btn btn-inverse-primary" href="{{ route('admin_perusahaan_tambah') }}"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
@@ -47,7 +48,21 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a>
+                                @if($p->status==0)
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                        {{method_field('PUT') }}
+                                        {{ csrf_field() }}
+                                        {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}
+                                        <button type="submit" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" name="status" value="1" ><i class="icon-close"></i></i></button>
+                                    </form>
+                                @else
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                        {{method_field('PUT') }}
+                                        {{ csrf_field() }}
+                                        {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}
+                                        <button type="submit" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Aktif" name="status" value="0" ><i class="icofont icofont-check-circled"></i></i></button>
+                                    </form>
+                                @endif
                                 <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
