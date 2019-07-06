@@ -23,8 +23,10 @@ class userController extends Controller
 
         //dashboard admin
         public function index(){
-
-            return view('users.index');
+            $user = User::findOrFail(Auth::user()->id);
+            $perusahaan = $user->perusahaan;
+            $perusahaan = count($perusahaan);
+            return view('users.index',compact('perusahaan'));
         }
 
         public function inbox(){
