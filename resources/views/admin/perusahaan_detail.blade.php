@@ -93,7 +93,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Status</th>
+                                                                    @if($Perusahaan->status==0)
                                                                     <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
+                                                                    @else
+                                                                    <td>    <label class="label bg-danger">Belum Terverifikasi / Banned</label></td>
+                                                                    @endif
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Email</th>
