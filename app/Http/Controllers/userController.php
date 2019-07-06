@@ -25,8 +25,17 @@ class userController extends Controller
         public function index(){
             $user = User::findOrFail(Auth::user()->id);
             $perusahaan = $user->perusahaan;
-            $perusahaan = count($perusahaan);
-            return view('users.index',compact('perusahaan'));
+            // $perusahaan = count($perusahaan);
+            if(isset($perusahaan)){
+              $perusahaans = 0;
+            }
+              $perusahaans = 1;
+            // if($perusahaan == 0){
+            //   $perusahaans = 'Sudah Terverifikasi';
+            //   }
+            //   $perusahaans = 'Belum Terverifikasi';
+
+            return view('users.index',compact('perusahaans'));
         }
 
         public function inbox(){
