@@ -27,6 +27,57 @@ class adminController extends Controller
         return view('admin.perusahaan_data',compact('Perusahaan'));
     }
 
+    public function perusahaan_tambah(){
+        return view('admin.perusahaan_tambah');
+    }
+
+    public function perusahaan_tambah_store(Request $request){
+
+        $User = new User;
+
+        //  $this->validate(request(),[
+        //     'kode_rambu'=>'required',
+        //     'nama_rambu'=>'required',
+        //     'keterangan'=>'required'
+        // ]);
+        $User->name     = $request->name;
+        $User->email    = $request->email;
+        $Password       = Hash::make($request->password);
+        $User->password = $Password;
+
+        $User->save();
+        $user_id = $User->id;
+
+        $Perusahaan = new Perusahaan;
+
+        if($request->gambar != null){
+        $FotoExt  = $request->gambar->getClientOriginalExtension();
+        $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
+        $gambar   = $FotoName.'.'.$FotoExt;
+        $request->gambar->move('images/perusahaan', $gambar);
+        $Perusahaan->gambar       = $gambar;
+        }
+
+        $Perusahaan->alamat       = $request->alamat;
+        $Perusahaan->telepon      = $request->telepon;
+        $Perusahaan->website      = $request->website;
+        $Perusahaan->user_id      = $user_id;
+
+        $Perusahaan->save();
+        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->name.' Berhasil di ubah');
+    }
+
+    public function status_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $perusahaan = perusahaan::findOrFail($id);
+
+
+        $perusahaan->status       = $request->status;
+
+        $perusahaan->update();
+        return redirect(route('admin_perusahaan_index'))->with('success', 'Data status '.$request->name.' Berhasil di ubah');
+         }
+
     public function perusahaan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
@@ -62,7 +113,7 @@ class adminController extends Controller
 
         $User->update();
         $Perusahaan->update();
-        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->nama.' Berhasil di ubah');
+        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->name.' Berhasil di ubah');
          }
 
     //retribusi kalibrasi
