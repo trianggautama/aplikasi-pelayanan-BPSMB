@@ -205,8 +205,13 @@
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
+                            {{-- @if(Auth::user()->perusahaan->status==0) --}}
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li>
+                            {{-- @else --}}
+                            {{-- <li><a class="waves-effect waves-dark" href="#" disabled><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="#" disabled><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li> --}}
+                            {{-- @endif --}}
                       </ul>
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
