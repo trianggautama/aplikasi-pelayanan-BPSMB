@@ -13,6 +13,12 @@ Route::get('/admin','adminController@index')
 //perusahaan
 Route::get('/admin/perusahaan','adminController@perusahaan_index')
 ->name('admin_perusahaan_index');
+Route::put('/admin/perusahaan/{id}', 'adminController@status_update')
+->name('status_update');
+Route::get('/admin/perusahaan/tambah','adminController@perusahaan_tambah')
+->name('admin_perusahaan_tambah');
+Route::post('/admin/perusahaan/tambah','adminController@perusahaan_tambah_store')
+->name('perusahaan_tambah_store');
 Route::get('/admin/perusahaan/detail/{id}','adminController@perusahaan_detail')
 ->name('admin_perusahaan_detail');
 Route::put('/admin/perusahaan/detail/{id}','adminController@perusahaan_update')
