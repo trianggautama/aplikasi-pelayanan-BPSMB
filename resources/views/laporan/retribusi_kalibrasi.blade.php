@@ -9,18 +9,20 @@
         body{
             font-family:sans-serif;
         }
-          table{
+        table{
         border-collapse: collapse;
         width:100%;
       }
          table, th, td{
+        border: 1px solid #708090;
       }
       th{
-        background-color: #708090;
+        background-color: darkslategray;
         text-align: center;
-        color: white;
+        color: aliceblue;
       }
       td{
+        text-align: center;
       }
       br{
           margin-bottom: 5px !important;
@@ -73,7 +75,7 @@
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="{{asset('images/logo_pemprov.png')}}">
+                    <img  class="pemko" src="images/logo_pemprov.png">
             </div>
             <div class="headtext">
                 <h4 style="margin:0px;">PEMERINTAH PROVINSI KALIMANTAN </h4>
@@ -84,12 +86,12 @@
                 <p style="margin:0px;">Telp.(0511)4772237 Fax.(0511)4772237</p>
             </div>
             <br>
-            <hr>
     </div>
+    <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
             <h2 style="text-align:center;">DATA RETRIBUSI KALIBRASI</h2>
-            <table class="table table-hover" id="myTable">
+            <table class="table">
                         <thead>
                         <tr>
                             <th>No</th>
@@ -99,9 +101,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
                                 <?php $no = 0 ?>
                                 @foreach ($retribusi as $r)
+                                <tr>
                                 <td>{{ $no= $no+1 }}</td>
                                 <td>{{ $r->nama }}</td>
                                 <td>{{ $r->rentang_ukur }}</td>

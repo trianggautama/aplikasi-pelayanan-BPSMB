@@ -13,7 +13,8 @@
         border-collapse: collapse;
         width:100%;
       }
-         table, th, td{
+      table, th, td{
+        border: 1px solid #708090;
       }
       th{
         background-color: #708090;
@@ -21,6 +22,7 @@
         color: white;
       }
       td{
+        text-align: center;
       }
       br{
           margin-bottom: 5px !important;
@@ -73,7 +75,7 @@
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="{{asset('images/logo_pemprov.png')}}">
+                    <img  class="pemko" src="images/logo_pemprov.png">
             </div>
             <div class="headtext">
                 <h4 style="margin:0px;">PEMERINTAH PROVINSI KALIMANTAN </h4>
@@ -84,8 +86,9 @@
                 <p style="margin:0px;">Telp.(0511)4772237 Fax.(0511)4772237</p>
             </div>
             <br>
-            <hr>
     </div>
+    <hr style="margin-top:1px;">
+
     <div class="container">
         <div class="isi">
             <h2 style="text-align:center;">DATA RETRIBUSI PENGUJIAN</h2>
@@ -99,12 +102,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
                                 <?php $no = 0 ?>
                                 @foreach ($retribusi as $r)
+                                <tr>
                                 <td>{{ $no= $no+1 }}</td>
                                 <td>{{ $r->komoditi }}</td>
-                                <td>{{ $r->biaya }}</td>
+                                <td>Rp. {{ $r->biaya }}</td>
                                 <td>{{ $r->keterangan }}</td>
                             </tr>
                             @endforeach
