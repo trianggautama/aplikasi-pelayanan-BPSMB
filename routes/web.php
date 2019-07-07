@@ -1,9 +1,9 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //MIDLEWARE ADMIN
 Route::group(['middleware' => 'admin'], function() {
@@ -79,6 +79,24 @@ Route::get('/pengujian_detail','adminController@pengujian_detail')
 Route::get('/pengujian_edit','adminController@pengujian_edit')
 ->name('pengujian_edit');
 
+//laporan perusahaan keseluruhan
+Route::get('/admin/perusahaan/laporan/perusahaan-keseluruhan','adminController@laporan_perusahaan_keseluruhan')
+->name('laporan_perusahaan_keseluruhan');
+
+// laporan perusahaan filter status
+Route::get('/admin/perusahaan/laporan/perusahaan-filter-status','adminController@laporan_perusahaan_filter_status')
+->name('laporan_perusahaan_filter_status');
+Route::post('/admin/perusahaan/laporan/perusahaan-filter-status','adminController@laporan_perusahaan_status')
+->name('laporan_filter_status');
+
+//laporan retribusi kalibrasi
+Route::get('/admin/retribusi-kalibrasi/laporan/retribusi-kalibrasi','adminController@laporan_retribusi_kalibrasi')
+->name('laporan_retribusi_kalibrasi');
+
+//laporan retribusi pengujian
+Route::get('/admin/retribusi_pengujian/laporan/retribusi-pengujian','adminController@laporan_retribusi_pengujian')
+->name('laporan_retribusi_pengujian');
+
 //MIDLEWARE ADMIN
 });
 //-------------------------------------------------------------------------------------------------------------------------------//
@@ -132,6 +150,8 @@ Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalib
 //MIDLEWARE USER
 
 
+Route::get('/', 'welcomeController@index')
+->name('index');
 
 Auth::routes();
 
