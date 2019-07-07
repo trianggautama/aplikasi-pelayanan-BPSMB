@@ -58,11 +58,11 @@
                         <div class="card">
                             <div class="card-header">
                                 @if($perusahaans==0)
-                                <h5>PENGUMUMAN !!! </h5>
-                                @else
                                 <h5>PENGUMUMAN !!! <label class="label bg-danger">Akun Anda Belum Terverifikasi</label></h5>
                                     <br>
                                     <p>Anda Tidak Bisa Melakukan Permohonan Pengujian Ataupun Kalibrasi Sebelum Akun Anda Diverifikasi Oleh Admin </p>
+                                @else
+                                <h5>PENGUMUMAN !!! </h5>
                                 @endif
                             </div>
                             <div class="card-block">
