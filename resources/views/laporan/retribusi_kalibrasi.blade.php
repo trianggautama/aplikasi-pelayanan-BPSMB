@@ -99,19 +99,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
                             <tr>
-                                <td>1</td>
-                                <td>BESARAN MASA :CSIRO AUSTRALIA</td>
-                                <td>1-10 kg</td>
-                                <td>Rp.1.500.000</td>
+                                <?php $no = 0 ?>
+                                @foreach ($retribusi as $r)
+                                <td>{{ $no= $no+1 }}</td>
+                                <td>{{ $r->nama }}</td>
+                                <td>{{ $r->rentang_ukur }}</td>
+                                <td>{{ $r->biaya }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>
