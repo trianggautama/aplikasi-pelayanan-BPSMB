@@ -93,25 +93,27 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                                <th>Nama Komoditi</th>
-                                <th>biaya</th>
-                                <th>Keterangan</th>
+                            <th>Nama Komoditi</th>
+                            <th>biaya</th>
+                            <th>Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
                             <tr>
-                                <td>1</td>
-                                <td>KARET SPESIFIKASI TEKNIS</td>
-                                <td>Rp.1.800.000</td>
-                                <td>Kadar Abu, V M, Kadar Kotoran, Kadar Nitrogen , PR</td>
+                                <?php $no = 0 ?>
+                                @foreach ($retribusi as $r)
+                                <td>{{ $no= $no+1 }}</td>
+                                <td>{{ $r->komoditi }}</td>
+                                <td>{{ $r->biaya }}</td>
+                                <td>{{ $r->keterangan }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>
