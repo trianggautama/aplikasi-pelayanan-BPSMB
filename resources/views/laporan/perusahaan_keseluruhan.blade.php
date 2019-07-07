@@ -100,20 +100,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
                             <tr>
-                                <td>1</td>
-                                <td>Perusahaan 1</td>
-                                <td>Jl.A.yani km 33</td>
-                                <td>0511776655</td>
-                                <td>Aktif</td>
+                                <?php $no = 0 ?>
+                                @foreach ($perusahaan as $p)
+                                <td>{{ $no=$no + 1 }}</td>
+                                <td>{{ $p->user->name }}</td>
+                                <td>{{ $p->alamat }}</td>
+                                <td>{{ $p->telepon }}</td>
+                                <td>
+                                @if($p->status == 0)
+                                    <label class="label bg-warning">Tidak Aktif/Banned</label>
+                                        @else
+                                    <label class="label bg-success">Aktif</label>
+                                @endif
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>
