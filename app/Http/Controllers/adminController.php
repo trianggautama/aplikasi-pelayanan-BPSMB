@@ -10,7 +10,10 @@ use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
 use App\Permohonan_pengujian;
+
+use Carbon\Carbon;
 use IDCrypt;
+use PDF;
 use Auth;
 
 class adminController extends Controller
@@ -296,6 +299,64 @@ class adminController extends Controller
 
     return view('admin.pengujian_edit');
     }
+
+//laporan
+    public function laporan_perusahaan_keseluruhan(){
+        $perusahaan=perusahaan::all();
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.perusahaan_keseluruhan', ['perusahaan' => $perusahaan,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Perusahaan Keseluruhan.pdf');
+       }//mencetak  perusahaan
+
+       public function laporan_perusahaan_filter_status(){
+        // $perusahaan = perusahaan::all();
+        return view('admin.perusahaan_filter_status');
+    }//redirect halaman filter perusahaan
+
+    public function laporan_perusahaan_status(Request $Request){
+
+        $status = $Request->status;
+        $perusahaan = perusahaan::where('status', $status)->get();
+        // dd($perusahaan);
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+        if($status==0){
+            $data='TIDAK AKTIF/BANNED';
+        }else{
+            $data='AKTIF';
+        }
+        // dd($data);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.perusahaan_status', ['perusahaan' => $perusahaan,'tgl'=>$tgl,'data'=>$data]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan perusahaan berdasarkan status.pdf');
+    }//cetak perusahaan berdasarkan status
+
+    public function laporan_retribusi_kalibrasi(){
+        $retribusi=retribusi_kalibrasi::all();
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.retribusi_kalibrasi', ['retribusi' => $retribusi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan retribusi kalibrasi.pdf');
+       }//mencetak  retribusi kalibrasi
+
+    public function laporan_retribusi_pengujian(){
+        $retribusi=retribusi_pengujian::all();
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.retribusi_pengujian', ['retribusi' => $retribusi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan retribusi pengujian.pdf');
+       }//mencetak  retribusi pengujian
 
 
 }
