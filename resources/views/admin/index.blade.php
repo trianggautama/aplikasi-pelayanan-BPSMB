@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 
 <div class="container-fluid">
@@ -66,6 +63,4 @@
             </div>
         </div>
         <!-- 1-3-block row end -->
-
-</div>
 @endsection

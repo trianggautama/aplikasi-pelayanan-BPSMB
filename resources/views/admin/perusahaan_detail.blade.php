@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="card-block">
-                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">{{ $Perusahaan->nama }}</h4>
+                            <h4 class="f-18 f-normal m-b-10 txt-primary text-center">{{ $Perusahaan->user->name }}</h4>
                         </div>
                     </div>
                     <!-- end of card-block -->
@@ -81,7 +81,7 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <th scope="row">Nama Perusahaan</th>
-                                                                    <td>{{ $Perusahaan->nama }}</td>
+                                                                    <td>{{ $Perusahaan->user->name }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
@@ -93,15 +93,15 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Status</th>
+                                                                    @if($Perusahaan->status==0)
                                                                     <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
+                                                                    @else
+                                                                    <td>    <label class="label bg-danger">Belum Terverifikasi / Banned</label></td>
+                                                                    @endif
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Email</th>
-                                                                    <td>{{ $User->email }}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">Username</th>
-                                                                    <td>{{ $User->name }}</td>
+                                                                    <td>{{ $Perusahaan->user->email }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Website</th>
@@ -146,7 +146,7 @@
                                         <div class="card-block">
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan</label></div>
-                                                <div class="col-md-10"><input type="text" name="nama" class="form-control" id="InputNormal"  placeholder="Nama" value="{{ $Perusahaan->nama }}"></div>
+                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Nama" value="{{ $Perusahaan->user->name }}"></div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
@@ -158,15 +158,15 @@
                                             </div>
                                             <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
-                                                    <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Email" value="{{ $User->email }}"></div>
+                                                    <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Email" value="{{ $Perusahaan->user->email }}"></div>
                                                 </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username" value="{{ $User->name }}"></div>
+                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username" value="{{ $Perusahaan->user->name }}"></div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
-                                                <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
+                                                <div class="col-md-10"><input type="password" name="password" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
                                             </div>
                                             {{ csrf_field() }}
                                         </div>

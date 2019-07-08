@@ -80,8 +80,8 @@
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
-                                <span>Nama User <i class=" icofont icofont-simple-down"></i></span>
+                                <span><img class="img-circle " src="{{asset('/assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
+                                <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
@@ -92,7 +92,16 @@
                                     <div class="dropdown-divider m-0"></div>
                                 </li>
                                 <li><a href="lock-screen.html"><i class="icon-lock"></i> Lock Screen</a></li>
-                                <li><a href="#!"><i class="icon-logout"></i> Logout</a></li>
+                                <li><a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{-- {{ __('Logout') }} --}}
+                                    <i class="icon-logout"></i> Logout</a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
 
                             </ul>
                         </li>
@@ -155,10 +164,10 @@
             <section class="sidebar" id="sidebar-scroll">
 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="assets/images/avatar-1.png" alt="User Image" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{asset('/assets/images/avatar-1.png')}}" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
-                        <p>Nama User</p>
-                        <p class="designation">Menu User <i class="icofont icofont-caret-down m-l-5"></i></p>
+                        <p>Dashboard</p>
+                        <p class="designation">Perusahaan <i class="icofont icofont-caret-down m-l-5"></i></p>
                     </div>
                 </div>
                 <!-- sidebar profile Menu-->
@@ -189,15 +198,20 @@
                 <ul class="sidebar-menu">
                     <li class="nav-level">Navigation</li>
                     <li class="active treeview">
-                        <a class="waves-effect waves-dark" href="/admin">
+                        <a class="waves-effect waves-dark" href="/user">
                             <i class="icon-speedometer"></i><span> Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
+                            {{-- @if(Auth::user()->perusahaan->status==0) --}}
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_user_index')}}"><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li>
+                            {{-- @else --}}
+                            {{-- <li><a class="waves-effect waves-dark" href="#" disabled><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="#" disabled><i class="icon-arrow-right"></i> Permohonan Pengujian</a></li> --}}
+                            {{-- @endif --}}
                       </ul>
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Aplikai Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
 
@@ -212,17 +214,18 @@
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="{{route('perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{route('admin_perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
                       </ul>
+
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat Klaibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> riwayat pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Klaibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
                     </li>
 
@@ -256,9 +259,9 @@
 
 </div>
 </div>
-
-      <!-- Required Jqurey -->
-      <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
+</body>
+  <!-- Required Jqurey -->
+  <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
       <script src="{{asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
       <script src="{{asset('assets/plugins/tether/dist/js/tether.min.js')}}"></script>
       <!-- Required Fremwork -->
@@ -273,14 +276,12 @@
       <script src="{{asset('assets/plugins/classie/classie.js')}}"></script>
       <!-- notification -->
       <script src="{{asset('assets/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
-      <script src="{{asset('assets/pages/notification.js')}}"></script>
       <!-- custom js -->
       <script src="{{ asset('assets/js/main.min.js') }}"></script>
       <script src="{{ asset('assets/pages/elements.js') }}"></script>
       <script src="{{ asset('assets/js/menu.min.js') }}"></script>
       <script src="{{ asset('datatable/jquerrydatatable.min.js') }}"></script>
       <script src="{{ asset('datatable/datatable.js') }}"></script>
-
       <script>
             $(document).ready( function () {
               $('#myTable').DataTable();
@@ -298,6 +299,5 @@
          }
      });
     </script>
-</body>
-
+        @stack('scripts')
 </html>

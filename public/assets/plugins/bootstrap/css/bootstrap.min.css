@@ -4137,7 +4137,7 @@ a.tag:hover {
 .alert-success {
     background-color: #dff0d8;
     border-color: #d0e9c6;
-    color: #3c763d
+    color: #3c763dc2
 }
 .alert-success hr {
     border-top-color: #c1e2b3
@@ -4148,7 +4148,7 @@ a.tag:hover {
 .alert-info {
     background-color: #d9edf7;
     border-color: #bcdff1;
-    color: #31708f
+    color: #31708fb9
 }
 .alert-info hr {
     border-top-color: #a6d5ec
@@ -4170,7 +4170,7 @@ a.tag:hover {
 .alert-danger {
     background-color: #f2dede;
     border-color: #ebcccc;
-    color: #a94442
+    color: #ee8583ce
 }
 .alert-danger hr {
     border-top-color: #e4b9b9

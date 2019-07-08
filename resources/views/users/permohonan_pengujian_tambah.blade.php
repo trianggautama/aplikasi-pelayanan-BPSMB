@@ -18,33 +18,41 @@
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
             </div>
-
+            <form  method="post" action="" enctype="multipart/form-data">
+                {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan </label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="terisi otomatis "></div>
+                <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan </label></div>
+                <div class="col-md-10">
+                    <select class="form-control" id="exampleSelect1" name="perusahaan_id">
+                        <option value="{{$perusahaan->id}}" >{{$perusahaan->user->name}}</option>
+                    </select>
+                </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Barang pengujian</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Rentang Ukur"></div>
+                <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Barang Yang Diuji </label></div>
+                <div class="col-md-10">
+                    <select class="form-control" id="exampleSelect1" name="retribusi_pengujian_id">
+                        @foreach ($pengujian as $k)
+                        <option value="{{$k->id}}" >{{$k->komoditi}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Biaya</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Biaya"></div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan (ambil otomatis aja dari carbon)</label></div>
-                    <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" ></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan</label></div>
+                    <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" value="{{ $Date->toDateString() }}" disabled></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>
-                    <div class="col-md-10"><textarea class="form-control" id="exampleTextarea" rows="4"></textarea>
+                    <div class="col-md-10"><textarea name="keterangan" class="form-control" id="exampleTextarea" rows="4"></textarea>
                     </div>
                 </div>
+                {{ csrf_field() }}
             </div>
             <div class="card-footer text-right">
-            <a href="{{route('permohonan_kalibrasi_index')}}" class="btn btn-inverse-danger">Batal</a>
-                <a href="" class="btn btn-inverse-primary">Buat Permohonan</a>
+            <a href="{{route('permohonan_pengujian_index')}}" class="btn btn-inverse-danger">Batal</a>
+            <button type="submit" class="btn btn-inverse-primary">Buat Permohonan</a>
             </div>
         </div>
     </div>

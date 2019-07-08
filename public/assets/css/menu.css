@@ -24,7 +24,7 @@ File: menu.css
   content: initial; }
 
 .main-header-top {
-  background-color: #1b8bf9; }
+  background-color: #135aa1; }
 
 .nav-level {
   padding: 10px 15px !important;
@@ -84,7 +84,7 @@ File: menu.css
 .sidebar-menu > li.active > a {
   color: #fff;
   font-weight: 600;
-  background: #1b8bf9; }
+  background: #135aa1; }
 
 .sidebar-menu .treeview-menu {
   margin: 0 1px;
@@ -92,7 +92,7 @@ File: menu.css
   .sidebar-menu .treeview-menu > li > a {
     color: #666; }
   .sidebar-menu .treeview-menu > li.active > a {
-    color: #1b8bf9;
+    color: #135aa1;
     font-weight: bold; }
 
 .only-sidebar.sidebar-collapse .sidebar .logo .sidebar-toggle {
@@ -189,7 +189,7 @@ header .wrapper {
   max-height: 50px;
   border-radius: 0;
   padding: 0;
-  background-color: #1b8bf9; }
+  background-color: #135aa1; }
 .main-header-top .sidebar-toggle {
   float: left;
   background-color: transparent;

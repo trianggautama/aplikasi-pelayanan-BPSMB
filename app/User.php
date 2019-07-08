@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -43,4 +44,14 @@ class User extends Authenticatable
 
         return false;
     }
+    public function perusahaan(){
+        return $this->hasOne('App\Perusahaan');
+      }
+
+    public function perusahaanlayout(){
+        return $this->hasMany('App\Perusahaan');
+        $user=User::with('perusahaan')->first();
+        dd($user);
+      }
+
 }

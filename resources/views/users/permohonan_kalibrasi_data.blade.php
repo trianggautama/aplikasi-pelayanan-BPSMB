@@ -13,7 +13,11 @@
         <div class="card-header ">
                 <h4>Data Permohonan Kalibrasi</h4>
                 <div class="text-right">
+                @if($perusahaan->status == 0)
                         <a class="btn btn-inverse-primary" href="{{route('permohonan_kalibrasi_user_tambah')}}"><i class="icon-arrow-add"></i>Buat Permohonan</a>
+                @else
+                <a class="btn btn-disable btn-danger" href="{{ route('perusahaan_tambah')}}"><i class="icon-arrow-add"></i>Data Anda Belum terverifikasi / belum lengkap</a>
+                @endif
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
                     </div>
         </div>
@@ -36,22 +40,22 @@
                         <tbody>
                         <tr>
                          <?php $no = 0 ?>
-                            @foreach ($Kalibrasi as $d) 
+                            @foreach ($kalibrasi as $d)
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{$d->perusahaan->nama}}</td>
+                            <td>{{$d->perusahaan->user->name}}</td>
                             <td>{{$d->retribusi->nama}}</td>
                             <td>{{$d->retribusi->biaya}}</td>
                             <td>{{$d->tanggal}}</td>
                             <td>{{$d->merk}}</td>
                             <td>{{$d->no_seri}}</td>
                             <td class="text-center">
-                            {{-- <a href=" {{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
-                            <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a> --}}
-                            <button type="button" class="btn btn-danger"
-                            onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="far fa-trash-alt"></i></b></button>
+                            <a href="{{ route('permohonan_kalibrasi_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
+                            {{-- <a href="{{ route('permohonan_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-edit-alt"></i></a> --}}
+                            {{-- <a href=" {{route('permohonan_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a> --}}
                         </td>
-                        @endforeach   
+
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

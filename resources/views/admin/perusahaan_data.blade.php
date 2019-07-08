@@ -15,7 +15,9 @@
         <div class="card-header ">
                 <h4>Data Perusahaan</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-primary" href="{{ route('admin_perusahaan_tambah') }}"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
+                        <a class="btn btn-inverse-success" href="{{ route('laporan_perusahaan_keseluruhan') }}"><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{ route('laporan_perusahaan_filter_status') }}"><i class="icofont icofont-printer"></i> cetak data berdasarkan status</a>
                     </div>
         </div>
         <div class="card-block">
@@ -28,6 +30,7 @@
                             <th>Nama Perusahaan</th>
                             <th>Alamat Perusahaan</th>
                             <th>No Tlp</th>
+                            <th>status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -36,16 +39,36 @@
                         <?php $no = 0 ?>
                             @foreach ($Perusahaan as $p)
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{$p->nama}}</td>
+                            <td>{{$p->user->name}}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
+                            <td>@if($p->status == 0)
+                            <label class="label bg-warning">Banned</label>
+                                @else
+                            <label class="label bg-success">Aktif</label>
+                                @endif
+                            </td>
                             <td class="text-center">
-                                <a href="{{ route('perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                    
+                                @if($p->status==0)
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                        {{method_field('PUT') }}
+                                        {{ csrf_field() }}
+                                        {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}
+                                        <button type="submit" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Aktif" name="status" value="1" ><i class="icofont icofont-check-circled"></i></i></button>
+                                    </form>
+                                @else
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                        {{method_field('PUT') }}
+                                        {{ csrf_field() }}
+                                        {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}
+                                        <button type="submit" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" name="status" value="0" ><i class="icon-close"></i></i></button>
+                                    </form>
+                                @endif
+                                <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
-                            @endforeach    
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -1,18 +1,22 @@
 @extends('layouts.admin')
 @section('content')
-
 <div class="container-fluid">
-    @include('layouts.alert_sukses')
-    <br>
+    <div class="row">
+        <div class="main-header">
+
+        </div>
+    </div>
     <div class="card">
         <div class="card-header ">
                 <h4>Data Tarif Retribusi Kalibrasi</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{ route('laporan_retribusi_kalibrasi') }}"><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
+        @include('layouts.alert')
+
             <div class="row">
                 <div class="col-sm-12 table-responsive">
                     <table class="table table-hover" id="myTable">
@@ -22,7 +26,6 @@
                             <th>Nama Barang </th>
                             <th>Rentang Ukur</th>
                             <th>Biaya</th>
-                            <th>Keterangan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -34,7 +37,6 @@
                                 <td>{{$d->nama}}</td>
                                 <td>{{$d->rentang_ukur}}</td>
                                 <td>{{$d->biaya}}</td>
-                                <td>{{$d->keterangan}}</td>
                                 <td class="text-center">
                                         <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
                                         <a href="{{ route('retribusi_kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
@@ -85,12 +87,13 @@
 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-inverse-primary">Save changes</button>
+              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-inverse-primary">Simpan Data</button>
             </form>
             </div>
           </div>
         </div>
       </div>
     <!-- content-wrapper ends -->
+
 @endsection
