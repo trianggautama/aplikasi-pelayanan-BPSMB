@@ -27,9 +27,12 @@ class userController extends Controller
             $perusahaan = $user->perusahaan;
             // $perusahaan = count($perusahaan);
             if(isset($perusahaan)){
-              $perusahaans = 1;
+                $perusahaans = 1;
+            }else{
+                $perusahaans = 0;
             }
-              $perusahaans = 0;
+
+
             // if($perusahaan == 0){
             //   $perusahaans = 'Sudah Terverifikasi';
             //   }
@@ -56,8 +59,9 @@ class userController extends Controller
             // $perusahaan = count($perusahaan);
             if(isset($perusahaan)){
                 $perusahaans = 1;
-              }
+              }else{
                 $perusahaans = 0;
+              }
             //dd($perusahaan);
             if($perusahaans == 0){
                 return view('users.perusahaan_tambah');
