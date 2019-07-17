@@ -14,11 +14,11 @@
         width:100%;
       }
          table, th, td{
+            
       }
       th{
-        background-color: #708090;
         text-align: center;
-        color: white;
+        color: black;
       }
       td{
       }
@@ -58,9 +58,7 @@
          width:100%;
      }
      .ttd{
-         margin-left:70%;
          text-align: center;
-         text-transform: uppercase;
      }
      .text-right{
          text-align:right;
@@ -86,49 +84,183 @@
             <br>
     </div>
     <div class="container">
-    <hr style="margin-top:3px;">
-        <div class="isi">
-            <h2 style="text-align:center; margin-bottom:1px;" style="text-decoration:underline"><b>SERTIFIKAT KALIBRASI</b></h2>
+    <hr style="margin-top:3px; margin-bottom:3px;">
+        <div class="isi" style="margin-top:5px;">
+            <h2 style="text-align:center; margin-bottom:1px; margin-top:5px;" style="text-decoration:underline"><b>SERTIFIKAT KALIBRASI</b></h2>
             <p style="text-align:center; margin:0px;">CALIBRATION CERTIFICATE</p>
             <P style="text-align:center; margin:0px;">SERI NOMOR :1778/BPSMB/VIII/2019</P>
-            <p class="text-right" style="margin-right:120px; margin-top:15px; margin-bottom:0px;">Nomor Order :</p>
-            <p class="text-right" style="margin-right:145px; margin-top:0px; margin-bottom:0px;">Halaman :</p>
-            <p class="text-right" style="margin-right:172px; margin-top:0px; margin-bottom:0px;">Page :</p>
+           <table style="width:30%;margin-left:350px; margin-top:20px;">
+           <tr>
+           <td>No.Order</td>
+           <td>:</td>
+           </tr>
+           <tr>
+           <td>Halaman</td>
+           <td>:</td>
+           </tr>
+           <tr>
+           <td>Page</td>
+           <td>:</td>
+           </tr>
+           </table>
             <table>
-            <tr>
-            <td style="width:30%;">IDENTITAS ALAT</td>
-            <td>:THERMOMETER</td>
+            <tr style="padding:2px;">
+            <td><p style="text-decoration:underline;">IDENTITAS ALAT</p></td>
             </tr>
+            <tr style="padding:2px;">
+            <td style="width:30%; text-decoration:underline;">NAMA</td>
+            <td>: THERMOMETER</td>
+            </tr style="padding:2px;">
             <tr>
-            <td style="width:30%;">MERK PABRIK</td>
+            <td style="width:30%; text-decoration:underline;">MERK PABRIK</td>
             <td>: TFA</td>
             </tr>
             <tr>
-            <td style="width:30%;">TYPE/ NOMOR SERI</td>
-            <td>: TFA</td>
+            <td style="width:30%; text-decoration:underline;">TYPE/ NOMOR SERI</td>
+            <td>: 123/12.001</td>
             </tr>
             <tr>
-            <td style="width:30%;">Lain-lain</td>
-            <td>:
+            <td style="width:30%; text-decoration:underline;">Lain-lain </td>
+            <td><br><br>
            <p style=" margin-top:0px; margin-bottom:0px;">: Kapasitas:-</p> <br>
            <p style="margin-left:8px; margin-top:0px; margin-bottom:0px;"> Identitas:-</p>
             </td>
             </tr>
+            <tr>
+            <td><p style="text-decoration:underline;">IDENTITAS PEMILIK</p></td>
+            </tr>
+            <tr>
+            <td style="width:30%; text-decoration:underline;">NAMA</td>
+            <td>: Laboratorium Badan Lingkungan Hidup Kabupaten Barito Kuala kalimantan Tengah</td>
+            </tr>
+            <tr>
+            <td style="width:30%; text-decoration:underline;">ALAMAT</td>
+            <td><p>: Jalan Simpang Pramuka I  Muara Teweh Kalimantan Tengah</p></td>
+            </tr>
             <br>
-            <tr style="height:50px;">
-            <td style="width:30%;">Total</td>
-            <td>: Rp.1.500.000</td>
+            </table>
+            <table>
+            <tr>
+            <td >
+            <div class="ttd">
+                        <h5> <p>Mengetahui</p></h5>
+                      <h5>Kepala Balai Sertifikasi dan Mutu Barang</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                      <h5 style="margin-top:1px;">NIP.19580726 198403 1 007</h5>
+                      </div>
+            </td>
+            <td>
+            <div class="ttd">
+                        <h5> <p>Diterbitkan Tanggal, 1 Agustus 2019</p></h5>
+                      <h5>Deputi Manager Teknik</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline; magin-bottom:1px;">R.O.Suharianto, ST</h5>
+                      <h5 style="margin-top:1px;">NIP.19761027 200604 1 003</h5>
+                      </div>
+            </td>
             </tr>
             </table>
                       <br>
                       <br>
-                      <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
-                      <h5>pimpinan</h5>
-                      <br>
-                      <br>
-                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
-                      </div>
+        <table style="width:40%;margin-left:310px; margin-top:20px;">
+           <tr>
+           <td>Seri</td>
+           <td>:1773/BPSMB/VIII/2019</td>
+           </tr>
+           <tr>
+           <td>No.Order</td>
+           <td>:NA.390</td>
+           </tr>
+           <tr>
+           <td>Halaman</td>
+           <td>:2 dari 2</td>
+           </tr>
+           </table>
+           <h2 style="text-align:center; font-family:serif; text-decoration:underline;">BALAI PENGUJIAN DAN SERTIFIKASI MUTU BARANG</h2>
+           <table style="width:80%;margin-left:20px; margin-top:10px;">
+           <tr>
+           <td>Nama Alat</td>
+           <td>:Termometer</td>
+           </tr>
+           <tr>
+           <td>Merk</td>
+           <td>:TFA</td>
+           </tr>
+           <tr>
+           <td>No. Seri</td>
+           <td>:123/12.001</td>
+           </tr>
+           <tr>
+           <td>Lain-lain / Kapasitas</td>
+           <td>:0-50 Celcius</td>
+           </tr>
+           <tr>
+           <td>Tempat Kalibrasi</td>
+           <td>:Lab Lingkungan BLH Kab.Barito Kuala Utara</td>
+           </tr>
+           <tr>
+           <td>Tanggal Kalibrasi</td>
+           <td>:2-08-2019</td>
+           </tr>
+           </table>
+           <table style="width:80%;margin-left:310px; margin-top:20px;">
+           <tr>
+           <td>Suhu</td>
+           <td>: 25 -+ 1 C</td>
+           </tr>
+           <tr>
+           <td>Kelembaban</td>
+           <td>: 49 -+ 4%</td>
+           </tr>
+           </table>
+           <br>
+           <table style="border: 1px solid #708090; width:80%; margin:auto;" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="border: 1px solid #708090;">Thermometer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #708090; text-align:center;">Alat ('C)</td>
+                        <td style="border: 1px solid #708090; text-align:center;">Standard ('C)</td>
+                        <td style="border: 1px solid #708090; text-align:center;">k</td>
+                        <td style="border: 1px solid #708090; text-align:center;">U95 ('C)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #708090; text-align:center;">20</td>
+                        <td style="border: 1px solid #708090; text-align:center;">19,1</td>
+                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
+                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #708090; text-align:center;">23</td>
+                        <td style="border: 1px solid #708090; text-align:center;">22,4</td>
+                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
+                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #708090; text-align:center;">25</td>
+                        <td style="border: 1px solid #708090; text-align:center;">24,6</td>
+                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
+                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
+                    </tr>
+                    </tfoot>
+            </table>
+            <h5 style="margin-left:70 px;"><b>Catatan: Alat Tersebut di Kalibrasi Dengan Standard : Thermometer Fluke <br>
+            Prosedur : 1k-KAL-25</b></h5>
+            <br><br><br>
+            <h5 style="margin-left:70 px;"><b>Petugas Kalibrasi: R.O Suharianto ,ST</b></h5>
+                <hr>
+                <ul>
+                <li>Hasil Kalibrasi Hanya Berdasarkan Pada alat yang dikalibrasi</li>
+                <li>Dilarang Mengutip/memperbanyak atau mempublikasikan sertifikat tanpa seirin BPSMB</li>
+                <li>Sertifikat ini sah apabila dibubuhi cap BPSMB</li>
+                <li>Hasil kalibrasi yang dilaporkantertelusur kesatuan pengukuran SI melalui PPM-LIPI</li>
+                </ul>
                     </div>
              </div>
          </body>
