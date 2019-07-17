@@ -364,6 +364,13 @@ class adminController extends Controller
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan retribusi pengujian.pdf');
        }//mencetak  retribusi pengujian
+
+       public function sertifikat_pengujian(){
+
+        $pdf =PDF::loadView('laporan.sertifikat_pengujian');
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan retribusi pengujian.pdf');
+       }//mencetak  retribusi pengujian
     
 
 }

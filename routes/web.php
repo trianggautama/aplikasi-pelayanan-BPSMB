@@ -80,6 +80,8 @@ Route::get('/pengujian_detail','adminController@pengujian_detail')
 ->name('pengujian_detail');
 Route::get('/pengujian_edit','adminController@pengujian_edit')
 ->name('pengujian_edit');
+Route::get('/sertifikat_pengujian','adminController@sertifikat_pengujian')
+->name('sertifikat_pengujian');
 
 //laporan perusahaan keseluruhan
 Route::get('/admin/perusahaan/laporan/perusahaan-keseluruhan','adminController@laporan_perusahaan_keseluruhan')
