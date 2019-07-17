@@ -46,21 +46,6 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="#retribusi">Info Retribusi</a>
                             </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ Route('login') }}">Login</a>
                             </li>
@@ -101,15 +86,9 @@
               <div class="h_blog_text_inner left right">
                 <h4>Tentang BPSMB</h4>
                 <p>
-                  Subdue whales void god which living don't midst lesser
-                  yielding over lights whose. Cattle greater brought sixth fly
-                  den dry good tree isn't seed stars were.
+                BPSMB Prov.Kalsel Menjadi Laboratorium yang profesional, Handal dalam pengelolaan kesesuaian mutu, Terpercaya dan diakui secara Nasional maupun Internasional.
                 </p>
-                <p>
-                  Subdue whales void god which living don't midst lesser yieldi
-                  over lights whose. Cattle greater brought sixth fly den dry
-                  good tree isn't seed stars were the boring.
-                </p>
+                <a href="{{Route('login')}}" class="primary-btn rounded-0 mt-3">Mulai</a>
               </div>
             </div>
           </div>
@@ -174,26 +153,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-  </section>
-  <!-- Call to Action -->
-  <section class="call-to-action text-white text-center">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-        </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              </div>
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-              </div>
-=======
 
 
     <div class="popular_courses" style="margin-top:100px;" id="retribusi">
@@ -246,12 +205,11 @@
                     </div>
 
                 </div>
->>>>>>> 467b361c9cc32add68bb8f0a661ce5b73f417cee
             </div>
         </div>
     </div>
 {{-- </div> --}}
-        <div class="container" style="margin-top:50px">
+        <div class="container" style="margin-top:10px">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="main_title">
@@ -301,7 +259,8 @@
         </div>
     </div>
     <!--================ End Popular Courses Area =================-->
-
+                                        <br>
+                                        <br>
     <!--================ Start footer Area  =================-->
     <footer class="footer-area section_gap">
         <div class="container">

@@ -27,9 +27,12 @@ class userController extends Controller
             $perusahaan = $user->perusahaan;
             // $perusahaan = count($perusahaan);
             if(isset($perusahaan)){
-              $perusahaans = 0;
+                $perusahaans = 1;
+            }else{
+                $perusahaans = 0;
             }
-              $perusahaans = 1;
+
+
             // if($perusahaan == 0){
             //   $perusahaans = 'Sudah Terverifikasi';
             //   }
@@ -52,10 +55,15 @@ class userController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             // dd($user);
             $perusahaan = $user->perusahaan;
-            // dd($perusahaan);
-            $perusahaan = count($perusahaan);
+            // // dd($perusahaan);
+            // $perusahaan = count($perusahaan);
+            if(isset($perusahaan)){
+                $perusahaans = 1;
+              }else{
+                $perusahaans = 0;
+              }
             //dd($perusahaan);
-            if($perusahaan == 0){
+            if($perusahaans == 0){
                 return view('users.perusahaan_tambah');
             }
                 $perusahaan_data = perusahaan::where('user_id',Auth::user()->id)->first();
@@ -133,9 +141,15 @@ class userController extends Controller
         public function permohonan_kalibrasi_index(){
         $id = auth::id();
         $perusahaan= perusahaan::where('user_id',$id)->first();
+        if(isset($perusahaan)){
+            $status=1;
+        }else{
+            $status=0;
+        }
+
         $kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
         // $kalibrasi->dd();
-        return view('users.permohonan_kalibrasi_data',compact('kalibrasi','perusahaan'));
+        return view('users.permohonan_kalibrasi_data',compact('kalibrasi','perusahaan','status'));
         }
 
         // tambah permohonan kalibarsi user
@@ -207,8 +221,13 @@ class userController extends Controller
         $id = auth::id();
         $pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
         $perusahaan= perusahaan::where('user_id',$id)->first();
+        if(isset($perusahaan)){
+            $status=1;
+        }else{
+            $status=0;
+        }
         // $pengujian->dd();
-        return view('users.permohonan_pengujian_data',compact('pengujian','perusahaan'));
+        return view('users.permohonan_pengujian_data',compact('pengujian','perusahaan','status'));
         }
 
         // tambah permohonan pengujian user

@@ -32,7 +32,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
                                 <?php $no = 0 ?>
                                 @foreach ($pengujian as $d)
                                 <tr>
@@ -57,6 +56,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection

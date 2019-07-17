@@ -7,7 +7,7 @@
 
         </div>
     </div>
-
+ 
     <div class="card">
         <div class="card-header ">
                 <h4>Data Permohonan Kalibrasi</h4>
@@ -32,19 +32,7 @@
                         <tbody>
                             <?php $no = 0 ?>                                
                             @foreach ($Kalibrasi as $d) 
-                            <tr>
-                            <td>{{$no = $no + 1}}</td>
-                            <td>{{$d->perusahaan->user->name}}</td>
-                            <td>{{$d->retribusi->nama}}</td>
-                            <td>Rp. {{$d->retribusi->biaya}}</td>
-                            <td>{{$d->tanggal}}</td>
-                            <td class="text-center">
-                            <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"> <i class="icon-eye"></i></i></a>
-                            <a href="{{Route('halaman_verifikasi')}}" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
-                            <button type="button" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="Hapus"
-                            onclick="Hapus('{{Crypt::encryptString($d->id)}}')"><b><i class="icon-trash"></i></b></button>
-                        </td>
-                        </tr>
+                           
                         @endforeach   
                         </tbody>
                     </table>

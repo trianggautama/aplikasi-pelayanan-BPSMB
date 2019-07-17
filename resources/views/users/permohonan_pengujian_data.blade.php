@@ -10,7 +10,7 @@
         <div class="card-header ">
                 <h4>Data Permohonan Pengujian</h4>
                 <div class="text-right">
-                @if($perusahaan->status == 0)
+                @if($status == 1)
                     <a class="btn btn-inverse-primary" href="{{route('permohonan_pengujian_user_tambah')}}"><i class="icon-arrow-add"></i>BuaT Permohonan</a>
                 @else
                     <a class="btn btn-disable btn-danger" href="{{ route('perusahaan_tambah')}}"><i class="icon-arrow-add"></i>Data Anda Belum terverifikasi / belum lengkap</a>
