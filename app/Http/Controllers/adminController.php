@@ -358,5 +358,12 @@ class adminController extends Controller
         return $pdf->stream('Laporan retribusi pengujian.pdf');
        }//mencetak  retribusi pengujian
 
+       public function sertifikat_kalibrasi(){
+
+        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi');
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan retribusi pengujian.pdf');
+       }//mencetak  retribusi pengujian
+    
 
 }

@@ -76,8 +76,7 @@
             <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
             <a href="{{Route('kalibrasi_edit')}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
             <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
-            <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Sertifikat</a>
-
+            <a href="{{Route('sertifikat_kalibrasi')}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Input Hasil Uji</a>
         </div>
     </div>
     <!--input sizes ends-->

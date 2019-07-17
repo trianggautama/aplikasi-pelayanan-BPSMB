@@ -70,6 +70,8 @@ Route::get('/kalibrasi_detail','adminController@kalibrasi_detail')
 ->name('kalibrasi_detail');
 Route::get('/kalibrasi_edit','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
+Route::get('/cetak/sertifikat_kalibrasi','adminController@sertifikat_kalibrasi')
+->name('sertifikat_kalibrasi');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
