@@ -12,7 +12,7 @@
                                     <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Email</a></li>
-                                    <li class="breadcrumb-item"><a href="inbox.html">Inbox</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Inbox</a></li>
                                 </ol>
                             </div>
                         </div>
@@ -69,10 +69,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="table-responsive" style="margin-top:10px !important;">
                                                 <table class="table table-hover email-table">
                                                     <tbody class="email-body">
+                                                    @foreach ($inbox as $d)
                                                     <tr class="unread">
                                                         <td>
                                                             <div class="checkbox-fade fade-in-primary checkbox">
@@ -84,28 +85,14 @@
                                                             <i class="icofont icofont-star txt-muted"></i>
                                                             <i class="icofont icofont-disc txt-warning"></i>
                                                         </td>
-                                                        <td><a href="{{Route('show_message')}}" class="email-name">Google Inc</a></td>
-                                                        <td><a href="{{Route('show_message')}}" class="email-name">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a></td>
+                                                        {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
+                                                        <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->subjek }}</a></td>
+                                                        <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->keterangan }}</a></td>
                                                         <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
                                                         <td class="email-time">08:01 AM</td>
 
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="checkbox-fade fade-in-primary checkbox ">
-                                                                <label>
-                                                                    <input type="checkbox" value="">
-                                                                    <span class="cr"><i class="cr-icon icofont icofont-verification-check txt-primary"></i></span>
-                                                                </label>
-                                                            </div>
-                                                            <i class="icofont icofont-star txt-info"></i>
-                                                            <i class="icofont icofont-disc txt-warning"></i>
-                                                        </td>
-                                                        <td><a href="{{Route('show_message')}}" class="email-name">Facebook</a></td>
-                                                        <td><a href="{{Route('show_message')}}" class="email-name">You have 8 pending requests</a></td>
-                                                        <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
-                                                        <td class="email-time">0.3:45 AM</td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
