@@ -230,7 +230,7 @@
                     </li>
 
                     <li class="treeview">
-                        <a class="waves-effect waves-dark" href="basic-table.html">
+                        <a class="waves-effect waves-dark" href="{{route('admin_user_index')}}">
                             <i class="icon-list"></i><span> Kelola Admin</span>
                         </a>
                     </li>
