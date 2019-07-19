@@ -88,7 +88,9 @@
                                                                 <a class="user-mail txt-muted" href="#"><h6>From:admin@gmail.com</h6></a>
 
                                                             <div>
-                                                                <h6 class="email-welcome-txt">{{ $inbox->subjek }}</h6>
+                                                                <p class="email-welcome-txt">Silahkan antar barang ke kantor BPSMB pada : {{ $inbox->tanggal }}</p>
+                                                                <br>
+                                                                <p class="email-welcome-txt"> Pesan : {{ $inbox->subjek }}</p>
                                                                 <p class="email-content">
                                                                     {{ $inbox->keterangan }}
                                                                 </p>
