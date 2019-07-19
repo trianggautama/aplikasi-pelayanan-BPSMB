@@ -21,43 +21,62 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">Nama Perusahaan</th>
-                                            <td>CV. ABDI JAYA PLUS</td>
+                                            <td>{{ $kalibrasi->user->name }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Kalibrasi</th>
-                                            <td> Kalibrasi Aalat ukur kadar abu</td>
+                                            <td>{{ $kalibrasi->permohonan_kalibrasi->retribusi->nama }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Biaya</th>
-                                            <td>Rp.1.500.000</td>
+                                            <td>Rp.{{ $kalibrasi->permohonan_kalibrasi->retribusi->biaya }},-</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Verifikasi</th>
-                                            <td> 15 Juni 2019</td>
+                                            <td> {{ $kalibrasi->created_at->format('d M Y') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Kalibrasi</th>
-                                            <td>28 Juni 2019</td>
+                                            <td>{{ $kalibrasi->tanggal }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Estimasi</th>
-                                            <td>2 bulan</td>
+                                            <td>{{ $kalibrasi->estimasi }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">keterangan uji</th>
-                                            <td><label class="label bg-success">Lulus Uji</label></td>
+                                            <td>
+                                                    @if($kalibrasi->status == 0)
+                                                    <label class="label bg-danger">Gagal Uji</label>
+                                                        @elseif($kalibrasi->status == 2)
+                                                    <label class="label bg-warning">Pending</label>
+                                                        @elseif($kalibrasi->status == 1)
+                                                    <label class="label bg-info">Sedang Diuji</label>
+                                                        @elseif($kalibrasi->status == 3)
+                                                    <label class="label bg-success">Selesai Diuji</label>
+                                                    @endif
+                                                </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Metode Pembayaran</th>
-                                            <td><label class="label bg-warning">Transfer</label></td>
+                                                <td>
+                                                    @if($kalibrasi->metode_pembayaran == 1)
+                                                    <label class="label bg-info">Cash</label>
+                                                    @elseif($kalibrasi->metode_pembayaran == 2)
+                                                    <label class="label bg-success">Transfer</label>
+                                                    @else
+                                                    <label class="label bg-warning">Belum Dibayar</label>
+                                                    @endif
+                                                </td>
+
                                         </tr>
                                         <tr>
                                             <th scope="row">Lain-lain</th>
-                                            <td>-</td>
+                                            <td>{{ $kalibrasi->lainnya }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Keterangan</th>
-                                            <td>-</td>
+                                            <td>{{ $kalibrasi->keterangan }}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -74,7 +93,7 @@
         </div>
         <div class="card-footer text-right">
             <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
-            <a href="{{Route('kalibrasi_edit')}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
+            <a href="{{Route('kalibrasi_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
             <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
             <a href="{{Route('sertifikat_kalibrasi')}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Input Hasil Uji</a>
         </div>
