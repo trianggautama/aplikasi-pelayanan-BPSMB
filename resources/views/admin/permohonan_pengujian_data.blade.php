@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
@@ -13,7 +11,7 @@
         <div class="card-header ">
                 <h4>Data Permohonan Pengujian</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_cetak')}}"><i class="icon-arrow-add"></i>cetak data</a>
                     </div>
         </div>
         <div class="card-block">

@@ -488,4 +488,15 @@ class adminController extends Controller
         return $pdf->stream('Laporan Permohonan Kalibrasi Keseluruhan.pdf');
        }//mencetak  perusahaan
 
+       public function permohonan_pengujian_cetak(){
+        $permohonan_pengujian=permohonan_pengujian::all();
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.permohonan_pengujian', ['permohonan_pengujian' => $permohonan_pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan pengujian Keseluruhan.pdf');
+       }//mencetak  perusahaan
+
 }
