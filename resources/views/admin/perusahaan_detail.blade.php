@@ -22,7 +22,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="card faq-left">
                         <div class="social-profile">
-                            <img class="img-fluid" src="{{asset('/images/perusahaan/'.$Perusahaan->gambar)}}" alt="">
+                            <img class="img-fluid" src="{{asset('/images/admin/'.$Perusahaan->user->foto)}}" alt="">
                             <div class="profile-hvr m-t-15">
                                 <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                             </div>
@@ -93,10 +93,10 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Status</th>
-                                                                    @if($Perusahaan->status==0)
-                                                                    <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
-                                                                    @else
+                                                                    @if($Perusahaan->user->status == 0)
                                                                     <td>    <label class="label bg-danger">Belum Terverifikasi / Banned</label></td>
+                                                                    @else
+                                                                    <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
                                                                     @endif
                                                                 </tr>
                                                                 <tr>
@@ -157,13 +157,13 @@
                                                 <div class="col-md-10"><input type="text" name="telepon" class="form-control" id="InputNormal"  placeholder="No.Tlp" value="{{ $Perusahaan->telepon }}"></div>
                                             </div>
                                             <div class="form-group row">
+                                                <div class="col-md-2"><label for="InputNormal" class="form-control-label">Website</label></div>
+                                                <div class="col-md-10"><input type="text" name="website" class="form-control" id="InputNormal"  placeholder="Website" value="{{ $Perusahaan->website }}"></div>
+                                            </div>
+                                            <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
                                                     <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Email" value="{{ $Perusahaan->user->email }}"></div>
                                                 </div>
-                                            <div class="form-group row">
-                                                <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username" value="{{ $Perusahaan->user->name }}"></div>
-                                            </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
                                                 <div class="col-md-10"><input type="password" name="password" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
