@@ -306,7 +306,31 @@ class userController extends Controller
        return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data retribusi pengujian
 
+      public function kalibrasi_index(){
+        $id = auth::id();
+        $perusahaan= perusahaan::where('user_id',$id)->first();
+        if(isset($perusahaan)){
+            $status=1;
+        }else{
+            $status=0;
+        }
+        $permohonan_kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
+        // $kalibrasi->dd();
+        return view('users.kalibrasi_data',compact('permohonan_kalibrasi','perusahaan','status'));
+        }
 
+        public function pengujian_index(){
+            $id = auth::id();
+            $perusahaan= perusahaan::where('user_id',$id)->first();
+            if(isset($perusahaan)){
+                $status=1;
+            }else{
+                $status=0;
+            }
+            $permohonan_pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
+            // $kalibrasi->dd();
+            return view('users.pengujian_data',compact('permohonan_pengujian','perusahaan','status'));
+            }
 
 
 }

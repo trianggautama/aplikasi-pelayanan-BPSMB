@@ -186,6 +186,15 @@ Route::put('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujia
 //LAPORAN
 Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalibrasi')
 ->name('nota_permohonan_kalibrasi');
+
+//riwayat Kalibrasi
+Route::get('/user/kalibrasi','userController@kalibrasi_index')
+->name('kalibrasi_user_index');
+
+//riwayat pengujian
+Route::get('/user/pengujian','userController@pengujian_index')
+->name('pengujian_user_index');
+
 //MIDLEWARE USER
 
 

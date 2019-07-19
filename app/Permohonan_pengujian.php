@@ -21,4 +21,7 @@ class Permohonan_pengujian extends Model
     public function inbox(){
         return $this->belongsToMany('App\Inbox');
       }
+      public function pengujian(){
+        return $this->hasOne('App\Pengujian');
+      }
 }

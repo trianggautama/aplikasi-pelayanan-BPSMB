@@ -224,7 +224,7 @@
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Klaibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
                     </li>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 @section('content')
 
 <div class="container-fluid">
@@ -22,7 +22,6 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
                             <th>Komoditi</th>
                             <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
@@ -34,29 +33,28 @@
                         </thead>
                         <tbody>
                              <?php $no = 0 ?>
-                            @foreach ($pengujian as $d)
+                            @foreach ($permohonan_pengujian as $d)
                         <tr>
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{ $d->permohonan_pengujian->user->name }}</td>
-                            <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
-                            <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
-                            <td>{{ $d->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->tanggal }}</td>
-                            <td>{{ $d->estimasi }}</td>
+                            <td>{{ $d->retribusi->komoditi }}</td>
+                            <td>Rp. {{ $d->retribusi->biaya }}</td>
+                            <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
+                            <td>{{ $d->pengujian->tanggal }}</td>
+                            <td>{{ $d->pengujian->estimasi }} Minggu</td>
                             <td>
-                                @if($d->status == 0)
+                                @if($d->pengujian->status == 0)
                                 <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->status == 2)
+                                    @elseif($d->pengujian->status == 2)
                                 <label class="label bg-warning">Pending</label>
-                                    @elseif($d->status == 1)
+                                    @elseif($d->pengujian->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
-                                    @elseif($d->status == 3)
+                                    @elseif($d->pengujian->status == 3)
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
                             </td>
                             <td class="text-center">
-                            <a href="{{Route('pengujian_detail',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('pengujian_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
 
                         </tr>
