@@ -290,10 +290,8 @@ class adminController extends Controller
        $inbox->save();
 
        $kalibrasi = new kalibrasi;
-
        $kalibrasi->user_id = $user_id;
        $kalibrasi->permohonan_kalibrasi_id           = $id;
-       $kalibrasi->tanggal_verifikasi = $inbox->tanggal;
        $kalibrasi->status = $status->status;
        $kalibrasi->save();
 
@@ -361,7 +359,6 @@ class adminController extends Controller
 
     $pengujian->user_id = $user_id;
     $pengujian->permohonan_pengujian_id           = $id;
-    $pengujian->tanggal_verifikasi = $inbox->tanggal;
     $pengujian->status = $status->status;
     $pengujian->save();
 
@@ -426,6 +423,8 @@ class adminController extends Controller
             $foto   = $FotoName.'.'.$FotoExt;
             $request->foto->move('images/admin', $foto);
             $user->foto       = $foto;
+            }else {
+                $user->foto  = 'default.jpg';
             }
         $user->name            = $request->name;
         $user->email    = $request->email;
