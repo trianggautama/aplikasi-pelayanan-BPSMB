@@ -103,12 +103,12 @@
                         </thead>
                         <tbody>
                                 <?php $no = 0 ?>
-                                @foreach ($perusahaan as $p)
+                                @foreach ($user as $p)
                                 <tr>
                                 <td>{{ $no + 1 }}</td>
-                                <td>{{ $p->user->name }}</td>
-                                <td>{{ $p->alamat }}</td>
-                                <td>{{ $p->telepon }}</td>
+                                <td>{{ $p->name }}</td>
+                                <td>{{ $p->perusahaan->alamat }}</td>
+                                <td>{{ $p->perusahaan->telepon }}</td>
                                 <td>
                                 @if($p->status == 0)
                                     <label class="label bg-warning">Tidak Aktif/Banned</label>
