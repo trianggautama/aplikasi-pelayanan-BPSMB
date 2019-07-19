@@ -40,7 +40,7 @@
                             <td>{{ $d->permohonan_pengujian->user->name }}</td>
                             <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
                             <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
-                            <td>{{ $d->tanggal_verifikasi }}</td>
+                            <td>{{ $d->created_at->format('d-m-Y') }}</td>
                             <td>{{ $d->tanggal }}</td>
                             <td>{{ $d->estimasi }}</td>
                             <td>
