@@ -7,12 +7,11 @@
 
         </div>
     </div>
-
     <div class="card">
         <div class="card-header ">
                 <h4>Data Permohonan Kalibrasi</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_kalibrasi_cetak')}}"><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">

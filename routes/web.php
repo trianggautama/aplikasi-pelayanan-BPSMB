@@ -60,6 +60,8 @@ Route::put('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifik
 ->name('halaman_verifikasi_kalibrasi_store');
 Route::get('/permohonan-kalibrasi/hapus/{id}','adminController@permohonan_kalibrasi_hapus')
 ->name('permohonan_kalibrasi_hapus');
+Route::get('/permohonan_kalibrasi_cetak','adminController@permohonan_kalibrasi_cetak')
+->name('permohonan_kalibrasi_cetak');
 
 //Permohonan pengujian
 Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
