@@ -14,7 +14,7 @@
         width:100%;
       }
          table, th, td{
-            
+
       }
       th{
         text-align: center;
@@ -109,7 +109,7 @@
             </tr>
             <tr style="padding:2px;">
             <td style="width:30%; text-decoration:underline;">NAMA</td>
-            <td>: THERMOMETER</td>
+            <td>: {{ $hasil->kalibrasi->retribusi->nama }}</td>
             </tr style="padding:2px;">
             <tr>
             <td style="width:30%; text-decoration:underline;">MERK PABRIK</td>

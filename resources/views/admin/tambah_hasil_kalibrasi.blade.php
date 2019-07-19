@@ -11,62 +11,64 @@
                 </div>
             </div>
             <form  method="post" action="" enctype="multipart/form-data">
+                {{method_field('PUT') }}
+                {{ csrf_field() }}
             <div class="card-block">
               <P><b>Alat</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" value=""></div>
+                    <div class="col-md-10"><input type="number" name="alat1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" value=""></div>
+                    <div class="col-md-10"><input type="number" name="alat2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" value=""></div>
+                    <div class="col-md-10"><input type="number" name="alat3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>Standard</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" value=""></div>
+                    <div class="col-md-10"><input type="number" name="standard1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" value=""></div>
+                    <div class="col-md-10"><input type="number" name="standard2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" value=""></div>
+                    <div class="col-md-10"><input type="number" name="standard3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>K</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" value=""></div>
+                    <div class="col-md-10"><input type="number" name="k1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" value=""></div>
+                    <div class="col-md-10"><input type="number" name="k2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" value=""></div>
+                    <div class="col-md-10"><input type="number" name="k3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>U95</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" value=""></div>
+                    <div class="col-md-10"><input type="number" name="u1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" value=""></div>
+                    <div class="col-md-10"><input type="number" name="u2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" value=""></div>
+                    <div class="col-md-10"><input type="number" name="u3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 {{-- {{ csrf_field() }} --}}
             </div>

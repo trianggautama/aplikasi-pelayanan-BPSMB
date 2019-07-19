@@ -9,6 +9,7 @@ use App\Inbox;
 use App\Kalibrasi;
 use App\Pengujian;
 use App\Perusahaan;
+use App\Hasil_kalibrasi;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
@@ -402,10 +403,57 @@ class adminController extends Controller
        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data kalibrasi
 
-    public function hasil_kalibrasi_tambah(){
+    public function hasil_kalibrasi_tambah($id){
 
     return view('admin.tambah_hasil_kalibrasi');
     }
+
+    public function hasil_kalibrasi_store(Request $request, $id){
+
+        // dd($request);
+        $id = IDCrypt::Decrypt($id);
+            $this->validate(request(),[
+                'alat1'=>'required',
+                'alat2'=>'required',
+                'alat3'=>'required',
+                'standard1'=>'required',
+                'standard2'=>'required',
+                'standard3'=>'required',
+                'k1'=>'required',
+                'k2'=>'required',
+                'k3'=>'required',
+                'u1'=>'required',
+                'u2'=>'required',
+                'u3'=>'required'
+            ]);
+        $hasil = new hasil_kalibrasi;
+
+        $hasil->kalibrasi_id  = $id;
+
+        $hasil->alat        = $request->alat1;
+        $hasil->standard    = $request->standard1;
+        $hasil->k           = $request->k1;
+        $hasil->u           = $request->u1;
+        $hasil->save();
+
+        $hasil2 = new hasil_kalibrasi;
+        $hasil2->kalibrasi_id  = $id;
+        $hasil2->alat        = $request->alat2;
+        $hasil2->standard    = $request->standard2;
+        $hasil2->k           = $request->k2;
+        $hasil2->u           = $request->u2;
+        $hasil2->save();
+
+        $hasil3 = new hasil_kalibrasi;
+        $hasil3->kalibrasi_id  = $id;
+        $hasil3->alat        = $request->alat3;
+        $hasil3->standard    = $request->standard3;
+        $hasil3->k           = $request->k3;
+        $hasil3->u           = $request->u3;
+        $hasil3->save();
+
+        return redirect(route('kalibrasi_index'));
+           }
 
     //fungsi pengujian data
     public function pengujian_index(){
@@ -560,12 +608,19 @@ class adminController extends Controller
         return $pdf->stream('Laporan retribusi pengujian.pdf');
        }//mencetak  retribusi pengujian
 
-       public function sertifikat_kalibrasi(){
+       public function sertifikat_kalibrasi($id){
 
-        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi');
+        $id = IDCrypt::Decrypt($id);
+        $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+        // dd($hasil);
+        // dd($hasil);
+        // dd($data);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
-        return $pdf->stream('Laporan retribusi pengujian.pdf');
-       }//mencetak  retribusi pengujian
+        return $pdf->stream('Laporan hasil pengujian.pdf');
+       }//mencetak  hasil pengujian
 
        public function sertifikat_pengujian(){
 

@@ -86,10 +86,12 @@ Route::get('/kalibrasi_edit/{id}','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
 Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
 ->name('kalibrasi_update');
-Route::get('/cetak/sertifikat_kalibrasi','adminController@sertifikat_kalibrasi')
+Route::get('/cetak/sertifikat_kalibrasi/{id}','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
-Route::get('/hasil_kalibrasi/tambah','adminController@hasil_kalibrasi_tambah')
+Route::get('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_tambah')
 ->name('hasil_kalibrasi_tambah');
+Route::put('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_store')
+->name('hasil_kalibrasi_store');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
