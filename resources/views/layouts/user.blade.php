@@ -204,8 +204,8 @@
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Riwayat Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Riwayat pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('kalibrasi_user_index')}}"><i class="icon-arrow-right"></i> Riwayat Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('pengujian_user_index')}}"><i class="icon-arrow-right"></i> Riwayat pengujian</a></li>
                         </ul>
                     </li>
                     @else

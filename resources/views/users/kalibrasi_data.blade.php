@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 @section('content')
 
 <div class="container-fluid">
@@ -10,9 +10,9 @@
 
     <div class="card">
         <div class="card-header ">
-                <h4>Data  Pengujian</h4>
+                <h4>Data  Kalibrasi</h4>
                 <div class="text-right">
-                        <a class="btn btn-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -22,41 +22,39 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
-                            <th>Komoditi</th>
+                            <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
-                            <th>tanggal Pengujian</th>
+                            <th>tanggal Kalibrasi</th>
                             <th>Estimasi</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                             <?php $no = 0 ?>
-                            @foreach ($pengujian as $d)
+                        <?php $no = 0 ?>
+                            @foreach ($permohonan_kalibrasi as $d)
                         <tr>
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{ $d->permohonan_pengujian->user->name }}</td>
-                            <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
-                            <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
-                            <td>{{ $d->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->tanggal }}</td>
-                            <td>{{ $d->estimasi }}</td>
+                            <td>{{ $d->retribusi->nama }}</td>
+                            <td>Rp.{{ $d->retribusi->biaya }},-</td>
+                            <td>{{ $d->kalibrasi->created_at->format('d-m-Y') }}</td>
+                            <td>{{ $d->kalibrasi->tanggal }}</td>
+                            <td>{{ $d->kalibrasi->estimasi }}</td>
                             <td>
-                                @if($d->status == 0)
+                                @if($d->kalibrasi->status == 0)
                                 <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->status == 2)
+                                    @elseif($d->kalibrasi->status == 2)
                                 <label class="label bg-warning">Pending</label>
-                                    @elseif($d->status == 1)
+                                    @elseif($d->kalibrasi->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
-                                    @elseif($d->status == 3)
+                                    @elseif($d->kalibrasi->status == 3)
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
                             </td>
                             <td class="text-center">
-                            <a href="{{Route('pengujian_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
 
                         </tr>

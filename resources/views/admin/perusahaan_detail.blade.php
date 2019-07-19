@@ -204,7 +204,6 @@
                                                     <thead>
                                                     <tr>
                                                         <th class="text-center txt-primary">TARIF KALIBRASI</th>
-                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
                                                         <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
                                                         <th class="text-center txt-primary">ESTIMASI</th>
                                                         <th class="text-center txt-primary">STATUS</th>
@@ -212,32 +211,27 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
+                                                    @foreach($Perusahaan->permohonan_kalibrasi as $p)
                                                     <tr>
-                                                        <td>Rp. 5.000.000</td>
-                                                        <td>1 April  2019</td>
-                                                        <td>12 April 2019</td>
-                                                        <td>1 bulan</td>
-                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
+                                                    <td>Rp.{{ $p->retribusi->biaya }}</td>
+                                                    <td>{{ $p->kalibrasi->tanggal }}</td>
+                                                    <td>{{ $p->kalibrasi->estimasi }}</td>
+                                                    <td>
+                                                        @if($p->kalibrasi->status == 0)
+                                                        <label class="label bg-danger">Ditolak</label>
+                                                            @elseif($p->kalibrasi->status == 2)
+                                                        <label class="label bg-warning">Pending</label>
+                                                            @elseif($p->kalibrasi->status == 1)
+                                                        <label class="label bg-info">Sedang Diuji</label>
+                                                            @elseif($p->kalibrasi->status == 3)
+                                                        <label class="label bg-success">Selesai Diuji</label>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                         <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                                                    </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Rp. 8.000.000</td>
-                                                        <td>15 Juli 2018</td>
-                                                        <td>28 Juli 2018</td>
-                                                        <td>3 Bulan</td>
-                                                        <td class="text-center"><span class="label label-success">Selesai</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                                 <!-- end of table -->
@@ -273,54 +267,35 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                    <th class="text-center txt-primary">TARIF KALIBRASI</th>
-                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
-                                                        <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
-                                                        <th class="text-center txt-primary">ESTIMASI</th>
+                                                    <th class="text-center txt-primary">KOMODITI</th>
+                                                        <th class="text-center txt-primary">TARIF</th>
+                                                        <th class="text-center txt-primary">TANGGAL PENGUJIAN</th>
                                                         <th class="text-center txt-primary">STATUS</th>
                                                         <th class="text-center txt-primary">Aksi</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
+                                                    @foreach($Perusahaan->permohonan_pengujian as $d)
                                                     <tr>
-                                                        <td>Rp. 5.000.000</td>
-                                                        <td>1 April  2019</td>
-                                                        <td>12 April 2019</td>
-                                                        <td>1 bulan</td>
-                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
+                                                    <td>{{ $d->retribusi->komoditi }}</td>
+                                                    <td>Rp. {{ $d->retribusi->biaya }}</td>
+                                                    <td>{{ $d->tanggal }}</td>
+                                                    <td>
+                                                        @if($d->pengujian->status == 0)
+                                                        <label class="label bg-danger">Ditolak</label>
+                                                            @elseif($d->pengujian->status == 2)
+                                                        <label class="label bg-warning">Pending</label>
+                                                            @elseif($d->pengujian->status == 1)
+                                                        <label class="label bg-info">Sedang Diuji</label>
+                                                            @elseif($d->pengujian->status == 3)
+                                                        <label class="label bg-success">Selesai Diuji</label>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                         <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                                                    </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Rp. 8.000.000</td>
-                                                        <td>15 Juli 2018</td>
-                                                        <td>28 Juli 2018</td>
-                                                        <td>3 Bulan</td>
-                                                        <td class="text-center"><span class="label label-success">Selesai</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Rp. 2.000.000</td>
-                                                        <td>15 September 2016</td>
-                                                        <td>18 September 2016</td>
-                                                        <td>1 Bulan</td>
-                                                        <td class="text-center"><span class="label label-danger">Gagal Uji</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                                 <!-- end of table -->
