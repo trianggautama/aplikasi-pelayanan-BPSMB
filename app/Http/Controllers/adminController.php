@@ -611,13 +611,12 @@ class adminController extends Controller
        public function sertifikat_kalibrasi($id){
 
         $id = IDCrypt::Decrypt($id);
-        $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
-        dd($hasil);
-        // dd($hasil);
+        $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+        $kalibrasi = Kalibrasi::findOrFail($id);
         // dd($data);
-        $tgl= Carbon::now()->format('d-m-Y');
+        $tgl= Carbon::now()->format('d F Y');
 
-        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan hasil pengujian.pdf');
        }//mencetak  hasil pengujian

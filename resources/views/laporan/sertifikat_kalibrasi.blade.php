@@ -109,15 +109,15 @@
             </tr>
             <tr style="padding:2px;">
             <td style="width:30%; text-decoration:underline;">NAMA</td>
-            <td>: {{ $hasil->kalibrasi->retribusi->nama }}</td>
+            <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
             </tr style="padding:2px;">
             <tr>
             <td style="width:30%; text-decoration:underline;">MERK PABRIK</td>
-            <td>: TFA</td>
+            <td>: {{$kalibrasi->permohonan_kalibrasi->merk}}</td>
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">TYPE/ NOMOR SERI</td>
-            <td>: 123/12.001</td>
+            <td>: {{$kalibrasi->permohonan_kalibrasi->no_seri}}</td>
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">Lain-lain </td>
@@ -131,11 +131,11 @@
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">NAMA</td>
-            <td>: Laboratorium Badan Lingkungan Hidup Kabupaten Barito Kuala kalimantan Tengah</td>
+            <td>:{{$kalibrasi->user->name}}</td>
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">ALAMAT</td>
-            <td><p>: Jalan Simpang Pramuka I  Muara Teweh Kalimantan Tengah</p></td>
+            <td><p>:{{$kalibrasi->user->perusahaan->alamat}}</p></td>
             </tr>
             <br>
             </table>
@@ -153,7 +153,7 @@
             </td>
             <td>
             <div class="ttd">
-                        <h5> <p>Diterbitkan Tanggal, 1 Agustus 2019</p></h5>
+                        <h5> <p>Diterbitkan Tanggal, {{$tgl}}</p></h5>
                       <h5>Deputi Manager Teknik</h5>
                       <br>
                       <br>
@@ -183,27 +183,27 @@
            <table style="width:80%;margin-left:20px; margin-top:10px;">
            <tr>
            <td>Nama Alat</td>
-           <td>:Termometer</td>
+           <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
            </tr>
            <tr>
            <td>Merk</td>
-           <td>:TFA</td>
+           <td>:{{$kalibrasi->permohonan_kalibrasi->merk}}</td>
            </tr>
            <tr>
            <td>No. Seri</td>
-           <td>:123/12.001</td>
+           <td>:{{$kalibrasi->permohonan_kalibrasi->no_seri}}</td>
            </tr>
            <tr>
            <td>Lain-lain / Kapasitas</td>
-           <td>:0-50 Celcius</td>
+           <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->rentang_ukur}}</td>
            </tr>
            <tr>
            <td>Tempat Kalibrasi</td>
-           <td>:Lab Lingkungan BLH Kab.Barito Kuala Utara</td>
+           <td>:Kantor BPSMB Prov.Kalsel</td>
            </tr>
            <tr>
            <td>Tanggal Kalibrasi</td>
-           <td>:2-08-2019</td>
+           <td>:{{$kalibrasi->tanggal}}</td>
            </tr>
            </table>
            <table style="width:80%;margin-left:310px; margin-top:20px;">
@@ -230,24 +230,14 @@
                         <td style="border: 1px solid #708090; text-align:center;">k</td>
                         <td style="border: 1px solid #708090; text-align:center;">U95 ('C)</td>
                     </tr>
+                    @foreach($hasil as $d)
                     <tr>
-                        <td style="border: 1px solid #708090; text-align:center;">20</td>
-                        <td style="border: 1px solid #708090; text-align:center;">19,1</td>
-                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
-                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{$d->alat}}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{$d->standard}}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{$d->k}}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{$d->u}}</td>
                     </tr>
-                    <tr>
-                        <td style="border: 1px solid #708090; text-align:center;">23</td>
-                        <td style="border: 1px solid #708090; text-align:center;">22,4</td>
-                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
-                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #708090; text-align:center;">25</td>
-                        <td style="border: 1px solid #708090; text-align:center;">24,6</td>
-                        <td style="border: 1px solid #708090; text-align:center;">1990</td>
-                        <td style="border: 1px solid #708090; text-align:center;">0,3</td>
-                    </tr>
+                    @endforeach
                     </tfoot>
             </table>
             <h5 style="margin-left:70 px;"><b>Catatan: Alat Tersebut di Kalibrasi Dengan Standard : Thermometer Fluke <br>
