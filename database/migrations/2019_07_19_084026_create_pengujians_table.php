@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermohonanPengujiansTable extends Migration
+class CreatePengujiansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreatePermohonanPengujiansTable extends Migration
      */
     public function up()
     {
-        Schema::create('permohonan_pengujians', function (Blueprint $table) {
+        Schema::create('pengujians', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('user_id');
-            $table->unsignedbigInteger('perusahaan_id');
-            $table->unsignedbigInteger('retribusi_pengujian_id');
-            $table->string('keterangan')->length(100);
+            $table->unsignedbigInteger('permohonan_pengujian_id');
+            $table->date('tanggal_verifikasi');
+            $table->date('tanggal')->nullable();
+            $table->string('estimasi')->length(100)->nullable();
             $table->tinyInteger('status')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('perusahaan_id')->references('id')->on('perusahaans')->onDelete('cascade');
-            $table->foreign('retribusi_pengujian_id')->references('id')->on('retribusi_pengujians')->onDelete('cascade');
+            $table->foreign('permohonan_pengujian_id')->references('id')->on('permohonan_pengujians')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreatePermohonanPengujiansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permohonan_pengujians');
+        Schema::dropIfExists('pengujians');
     }
 }
