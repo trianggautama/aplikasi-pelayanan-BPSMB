@@ -33,20 +33,34 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $no = 0 ?>
+                            @foreach ($kalibrasi as $d)
                         <tr>
-                            <?php $no = 0 ?>                                
                             <td>{{$no = $no + 1}}</td>
-                            <td>cv.abdi jaya plus</td>
-                            <td>kalibrasi alat ukur beras</td>
-                            <td>Rp.1.500.000</td>
-                            <td>15 juli 2019</td>
-                            <td>-</td>
-                            <td>2 Bulan</td>
-                            <td> <label for="" class="text-success">Lulus Uji</label></td>
+                            <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
+                            <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
+                            <td>Rp. {{ $d->permohonan_kalibrasi->retribusi->biaya }}</td>
+                            <td>{{ $d->tanggal_verifikasi }}</td>
+                            <td>{{ $d->tanggal }}</td>
+                            <td>{{ $d->estimasi }}</td>
+                            <td>
+                                @if($d->status == 0)
+                                <label class="label bg-danger">Ditolak</label>
+                                    @elseif($d->status == 2)
+                                <label class="label bg-warning">Pending</label>
+                                    @elseif($d->status == 1)
+                                <label class="label bg-info">Sedang Diuji</label>
+                                    @elseif($d->status == 3)
+                                <label class="label bg-success">Selesai Diuji</label>
+                                @endif
+                            </td>
+                            </td>
                             <td class="text-center">
-                            <a href="{{Route('kalibrasi_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
+
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
