@@ -54,9 +54,9 @@
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
-                            </td>
                             <td class="text-center">
-                            <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                                    {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
+                            <a href="{{Route('kalibrasi_detail',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
 
                         </tr>
