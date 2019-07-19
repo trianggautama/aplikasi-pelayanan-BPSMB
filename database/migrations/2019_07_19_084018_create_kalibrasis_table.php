@@ -18,8 +18,11 @@ class CreateKalibrasisTable extends Migration
             $table->unsignedbigInteger('user_id');
             $table->unsignedbigInteger('permohonan_kalibrasi_id');
             $table->date('tanggal')->nullable();
+            $table->tinyInteger('metode_pembayaran')->default(0);
             $table->string('estimasi')->length(100)->nullable();
             $table->tinyInteger('status')->default(1);
+            $table->string('lainnya')->length(100)->nullable();
+            $table->text('keterangan')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('permohonan_kalibrasi_id')->references('id')->on('permohonan_kalibrasis')->onDelete('cascade');
             $table->timestamps();

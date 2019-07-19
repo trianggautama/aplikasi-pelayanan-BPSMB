@@ -80,10 +80,12 @@ Route::get('/permohonan_perngujian/cetak','adminController@permohonan_pengujian_
 //Data Kalibrasi
 Route::get('/kalibrasi','adminController@kalibrasi_index')
 ->name('kalibrasi_index');
-Route::get('/kalibrasi_detail','adminController@kalibrasi_detail')
+Route::get('/kalibrasi_detail/{id}','adminController@kalibrasi_detail')
 ->name('kalibrasi_detail');
-Route::get('/kalibrasi_edit','adminController@kalibrasi_edit')
+Route::get('/kalibrasi_edit/{id}','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
+Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
+->name('kalibrasi_update');
 Route::get('/cetak/sertifikat_kalibrasi','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
 Route::get('/hasil_kalibrasi/tambah','adminController@hasil_kalibrasi_tambah')
@@ -92,7 +94,7 @@ Route::get('/hasil_kalibrasi/tambah','adminController@hasil_kalibrasi_tambah')
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
 ->name('pengujian_index');
-Route::get('/pengujian_detail','adminController@pengujian_detail')
+Route::get('/pengujian_detail/{id}','adminController@pengujian_detail')
 ->name('pengujian_detail');
 Route::get('/pengujian_edit','adminController@pengujian_edit')
 ->name('pengujian_edit');
