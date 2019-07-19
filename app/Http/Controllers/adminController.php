@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Inbox;
+use App\Kalibrasi;
+use App\Pengujian;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
@@ -47,19 +50,21 @@ class adminController extends Controller
         $User->email    = $request->email;
         $Password       = Hash::make($request->password);
         $User->password = $Password;
+        $User->status    = $request->status;
+        if($request->foto != null){
+            $FotoExt  = $request->foto->getClientOriginalExtension();
+            $FotoName = $request->user_id.' - '.$request->name;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/perusahaan', $foto);
+            $User->foto       = $foto;
+            }
 
         $User->save();
         $user_id = $User->id;
 
         $Perusahaan = new Perusahaan;
 
-        if($request->gambar != null){
-        $FotoExt  = $request->gambar->getClientOriginalExtension();
-        $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
-        $gambar   = $FotoName.'.'.$FotoExt;
-        $request->gambar->move('images/perusahaan', $gambar);
-        $Perusahaan->gambar       = $gambar;
-        }
+
 
         $Perusahaan->alamat       = $request->alamat;
         $Perusahaan->telepon      = $request->telepon;
@@ -67,23 +72,24 @@ class adminController extends Controller
         $Perusahaan->user_id      = $user_id;
 
         $Perusahaan->save();
-        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->name.' Berhasil di ubah');
+        return redirect(route('admin_perusahaan_index'))->with('success', 'Data Perusahaan '.$request->name.' Berhasil di tambah');
     }
 
     public function status_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
-        $perusahaan = perusahaan::findOrFail($id);
+        $user = user::findOrFail($id);
 
 
-        $perusahaan->status       = $request->status;
+        $user->status       = $request->status;
 
-        $perusahaan->update();
+        $user->update();
         return redirect(route('admin_perusahaan_index'))->with('success', 'Data status '.$request->name.' Berhasil di ubah');
          }
 
     public function perusahaan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
+        // dd($Perusahaan);
         return view('admin.perusahaan_detail',compact('Perusahaan'));
     }
 
@@ -99,15 +105,17 @@ class adminController extends Controller
         // ]);
         $User->name     = $request->name;
         $User->email    = $request->email;
+        if($request->password != null){
         $Password       = Hash::make($request->password);
         $User->password = $Password;
+        }
 
-        if($request->gambar != null){
-        $FotoExt  = $request->gambar->getClientOriginalExtension();
-        $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
-        $gambar   = $FotoName.'.'.$FotoExt;
-        $request->gambar->move('images/perusahaan', $gambar);
-        $Perusahaan->gambar       = $gambar;
+        if($request->foto != null){
+        $FotoExt  = $request->foto->getClientOriginalExtension();
+        $FotoName = $request->user_id.' - '.$request->name;
+        $foto   = $FotoName.'.'.$FotoExt;
+        $request->foto->move('images/perusahaan', $foto);
+        $User->foto       = $foto;
         }
 
         $Perusahaan->alamat       = $request->alamat;
@@ -252,6 +260,55 @@ class adminController extends Controller
     return view('admin.permohonan_kalibrasi_edit');
     }
 
+    //verifikasi kalibrasi
+    public function halaman_verifikasi_kalibrasi(){
+        return view('admin.halaman_verifikasi_kalibrasi');
+       }
+
+       public function halaman_verifikasi_kalibrasi_store(Request $request, $id){
+       $id = IDCrypt::Decrypt($id);
+       $status = permohonan_kalibrasi::findOrFail($id);
+           $this->validate(request(),[
+               'subjek'=>'required',
+               'status'=>'required',
+               'tanggal'=>'required',
+               'keterangan'=>'required'
+           ]);
+       // dd($status->user_id);
+       $status->status = $request->status;
+       $status->update();
+       // dd($request);
+       $user_id = $status->user_id;
+       // dd($user_id);
+       $inbox = new inbox;
+
+       $inbox->user_id           = $user_id;
+       $inbox->permohonan_kalibrasi_id           = $id;
+       $inbox->subjek           = $request->subjek;
+       $inbox->tanggal        = $request->tanggal;
+       $inbox->keterangan      = $request->keterangan;
+       $inbox->save();
+
+       $kalibrasi = new kalibrasi;
+
+       $kalibrasi->user_id = $user_id;
+       $kalibrasi->permohonan_kalibrasi_id           = $id;
+       $kalibrasi->tanggal_verifikasi = $inbox->tanggal;
+       $kalibrasi->status = $status->status;
+       $kalibrasi->save();
+
+
+       return redirect(route('permohonan_kalibrasi_index'));
+          }
+
+    public function permohonan_kalibrasi_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi=permohonan_kalibrasi::findOrFail($id);
+        $Kalibrasi->delete();
+
+        return redirect(route('permohonan_kalibrasi_index'))->with('success', 'Data permohonan kalibrasi berhasil di hapus');
+    }//fungsi menghapus data retribusi kalibrasi
+
      //permohonan pengujian
    public function permohonan_pengujian_index(){
     $pengujian = permohonan_pengujian::all();
@@ -263,15 +320,60 @@ class adminController extends Controller
     return view('admin.permohonan_kalibrasi_edit');
     }
 
-    public function halaman_verifikasi(){
+    public function permohonan_pengujian_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Pengujian=permohonan_pengujian::findOrFail($id);
+        $Pengujian->delete();
 
+        return redirect(route('permohonan_pengujian_index'))->with('success', 'Data permohonan pengujian berhasil di hapus');
+    }//fungsi menghapus data retribusi pengujian
+
+    //verifikasi pengujian
+    public function halaman_verifikasi(){
      return view('admin.halaman_verifikasi');
     }
 
+    public function halaman_verifikasi_store(Request $request, $id){
+    $id = IDCrypt::Decrypt($id);
+    $status = permohonan_pengujian::findOrFail($id);
+        $this->validate(request(),[
+            'subjek'=>'required',
+            'status'=>'required',
+            'tanggal'=>'required',
+            'keterangan'=>'required'
+        ]);
+    // dd($status->user_id);
+    $status->status = $request->status;
+    $status->update();
+    // dd($request);
+    $user_id = $status->user_id;
+    // dd($user_id);
+    $inbox = new inbox;
+
+    $inbox->user_id           = $user_id;
+    $inbox->permohonan_pengujian_id           = $id;
+    $inbox->subjek           = $request->subjek;
+    $inbox->tanggal        = $request->tanggal;
+    $inbox->keterangan      = $request->keterangan;
+    $inbox->save();
+
+    $pengujian = new pengujian;
+
+    $pengujian->user_id = $user_id;
+    $pengujian->permohonan_pengujian_id           = $id;
+    $pengujian->tanggal_verifikasi = $inbox->tanggal;
+    $pengujian->status = $status->status;
+    $pengujian->save();
+
+
+    return redirect(route('permohonan_pengujian_index'));
+       }
+
     //fungsi kalibrasi data
     public function kalibrasi_index(){
+    $kalibrasi=kalibrasi::all();
 
-    return view('admin.kalibrasi_data');
+    return view('admin.kalibrasi_data',compact('kalibrasi'));
     }
 
     public function kalibrasi_detail(){
@@ -286,8 +388,9 @@ class adminController extends Controller
 
     //fungsi pengujian data
     public function pengujian_index(){
+    $pengujian=pengujian::all();
 
-    return view('admin.pengujian_data');
+    return view('admin.pengujian_data',compact('pengujian'));
     }
 
     public function pengujian_detail(){
@@ -320,7 +423,9 @@ class adminController extends Controller
     public function laporan_perusahaan_status(Request $Request){
 
         $status = $Request->status;
-        $perusahaan = perusahaan::where('status', $status)->get();
+
+        $user = user::where('status', $status)->get();
+        // dd($user);
         // dd($perusahaan);
         // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
         if($status==0){
@@ -331,7 +436,7 @@ class adminController extends Controller
         // dd($data);
         $tgl= Carbon::now()->format('d-m-Y');
 
-        $pdf =PDF::loadView('laporan.perusahaan_status', ['perusahaan' => $perusahaan,'tgl'=>$tgl,'data'=>$data]);
+        $pdf =PDF::loadView('laporan.perusahaan_status', ['user' => $user,'tgl'=>$tgl,'data'=>$data]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan perusahaan berdasarkan status.pdf');
     }//cetak perusahaan berdasarkan status
@@ -371,6 +476,6 @@ class adminController extends Controller
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan retribusi pengujian.pdf');
        }//mencetak  retribusi pengujian
-    
+
 
 }
