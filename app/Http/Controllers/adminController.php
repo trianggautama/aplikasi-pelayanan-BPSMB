@@ -43,7 +43,7 @@ class adminController extends Controller
 
         //  $this->validate(request(),[
         //     'kode_rambu'=>'required',
-        //     'nama_rambu'=>'required',
+        //     'name_rambu'=>'required',
         //     'keterangan'=>'required'
         // ]);
         $User->name     = $request->name;
@@ -402,6 +402,75 @@ class adminController extends Controller
 
     return view('admin.pengujian_edit');
     }
+
+    //user
+    public function user_index(){
+        $user = user::where('status',3)->get();
+        // dd($user);
+        return view('admin.user_data',compact('user'));
+
+        // return view('admin.user_data');
+    }
+
+    public function user_store(Request $request){
+
+        $this->validate(request(),[
+            'name'=>'required',
+            'email'=>'required'
+            // 'status'=>'required'
+        ]);
+        $user = new user;
+        if($request->foto != null){
+            $FotoExt  = $request->foto->getClientOriginalExtension();
+            $FotoName = $request->user_id.' - '.$request->name;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/admin', $foto);
+            $user->foto       = $foto;
+            }
+        $user->name            = $request->name;
+        $user->email    = $request->email;
+        $Password       = Hash::make($request->password);
+        $user->password = $Password;
+        $user->status           = 3;
+        $user->save();
+          return redirect(route('admin_user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data user
+     //user
+     public function user_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $user = user::findOrFail($id);
+        // dd($user);
+
+        return view('admin.user_edit',compact('user'));
+    }//menampilkan halaman edit user
+
+    public function user_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $user = user::findOrFail($id);
+
+        $this->validate(request(),[
+           'name'=>'required',
+           'email'=>'required',
+           'biaya'=>'required',
+           'keterangan'=>'required'
+       ]);
+
+       $user->name         = $request->name;
+       $user->email = $request->email;
+       $user->biaya        = $request->biaya;
+       $user->keterangan   = $request->keterangan;
+
+       $user->update();
+       return redirect(route('user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Ubah');
+      }//fungsi mengubah data user
+
+      public function user_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $user=user::findOrFail($id);
+        $user->delete();
+
+        return redirect(route('user_index'))->with('success', 'Data user berhasil di hapus');
+    }//fungsi menghapus data user
 
 //laporan
     public function laporan_perusahaan_keseluruhan(){
