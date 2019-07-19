@@ -45,12 +45,21 @@
                             <label for="file" class="col-md-2 col-form-label form-control-label">Gambar/Logo</label>
                             <div class="col-md-9">
                                 <label for="file" class="custom-file">
-                                    <input type="file" name="gambar" id="file" class="custom-file-input">
+                                    <input type="file" name="foto" id="file" class="custom-file-input">
                                     <span class="custom-file-control"></span>
                                 </label>
                             </div>
                             {{ csrf_field() }}
                         </div>
+                <div class="form-group row">
+                <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status Perusahan</label></div>
+                <div class="col-md-10">
+                    <select class="form-control" id="exampleSelect1" name="status">
+                        <option value="0" >Banned/Belum Aktif</option>
+                        <option value="1" >Aktif/Sudah Terverifikasi</option>
+                    </select>
+                </div>
+                </div>
                 {{-- <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username"></div>
