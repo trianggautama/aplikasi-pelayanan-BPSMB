@@ -15,37 +15,57 @@
                 {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Verifikasi</label></div>
-                <div class="col-md-10"><input type="date" name="nama" class="form-control" id="InputNormal"  placeholder="Nama Barang" value=""></div>
-                </div>
-                <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Kalibrasi</label></div>
-                    <div class="col-md-10"><input type="date" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Rentang Ukur" value=""></div>
+                    <div class="col-md-10"><input type="date" name="tanggal" class="form-control" id="InputNormal"  placeholder="Rentang Ukur" value="{{ $kalibrasi->tanggal }}"></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Metode pembayaran</label></div>
-                    <div class="col-md-10"><select class="form-control" id="exampleSelect1">
-                        <option>Cash</option>
-                        <option>Transfer</option>
+                    <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="metode_pembayaran">
+                            <option value="0" {{  $kalibrasi->metode_pembayaran == 0 ? 'selected' : ''}}>
+                                    Belum dibayar
+                            </option>
+                            <option value="1" {{  $kalibrasi->metode_pembayaran == 1 ? 'selected' : ''}}>
+                                    Cash
+                            </option>
+                            <option value="2" {{  $kalibrasi->metode_pembayaran == 2 ? 'selected' : ''}}>
+                                    Transfer
+                            </option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status Proses</label></div>
-                    <div class="col-md-10"><select class="form-control" id="exampleSelect1">
-                        <option>Tahap Pengujian</option>
-                        <option>Lulus Uji</option>
-                        <option>Gagal Uji</option>
-                        </select>
-                    </div>
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status kalibrasi</label></div>
+                        <div class="col-md-10">
+                            <select class="form-control" id="exampleSelect1" name="status">
+                                {{-- @foreach ($kalibrasi as $d) --}}
+                                        <option value="0" {{  $kalibrasi->status == 0 ? 'selected' : ''}}>
+                                                Ditolak
+                                        </option>
+                                        <option value="1" {{  $kalibrasi->status == 1 ? 'selected' : ''}}>
+                                                Tahap Uji
+                                        </option>
+                                        <option value="2" {{  $kalibrasi->status == 2 ? 'selected' : ''}}>
+                                                Pending
+                                        </option>
+                                        <option value="3" {{  $kalibrasi->status == 3 ? 'selected' : ''}}>
+                                                Selesai diuji
+                                        </option>
+
+                                {{-- @endforeach --}}
+                            </select>
+                        </div>
+                        </div>
+                <div class="form-group row">
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Estimasi</label></div>
+                    <div class="col-md-10"><input type="text" name="estimasi" class="form-control" id="InputNormal"  placeholder="Estimasi" value="{{ $kalibrasi->estimasi }}"></div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">lain-lain</label></div>
-                    <div class="col-md-10"><input type="text" name="lain-lain" class="form-control" id="InputNormal"  placeholder="kada tahu jua ini apa" value=""></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Lain-lain</label></div>
+                    <div class="col-md-10"><input type="text" name="lainnya" class="form-control" id="InputNormal"  placeholder="Lainnya" value="{{ $kalibrasi->lainnya }}"></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>
-                    <div class="col-md-10"> <textarea name="keterangan" class="form-control" id="" cols="30" rows="10"></textarea></div>
+                    <div class="col-md-10"> <textarea name="keterangan" class="form-control" id="" cols="30" rows="10">{{ $kalibrasi->keterangan }}</textarea></div>
                 </div>
                 {{-- {{ csrf_field() }} --}}
             </div>
