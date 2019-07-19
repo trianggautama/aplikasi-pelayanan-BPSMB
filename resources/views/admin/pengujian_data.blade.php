@@ -56,7 +56,7 @@
                             </td>
                             </td>
                             <td class="text-center">
-                            <a href="{{Route('pengujian_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
+                            <a href="{{Route('pengujian_detail',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
 
                         </tr>
