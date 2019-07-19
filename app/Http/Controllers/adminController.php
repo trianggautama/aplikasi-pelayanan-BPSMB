@@ -386,6 +386,11 @@ class adminController extends Controller
     return view('admin.kalibrasi_edit');
     }
 
+    public function hasil_kalibrasi_tambah(){
+
+    return view('admin.tambah_hasil_kalibrasi');
+    }
+
     //fungsi pengujian data
     public function pengujian_index(){
     $pengujian=pengujian::all();
@@ -396,6 +401,11 @@ class adminController extends Controller
     public function pengujian_detail(){
 
     return view('admin.pengujian_detail');
+    }
+
+    public function hasil_pengujian_tambah(){
+
+    return view('admin.tambah_hasil_uji');
     }
 
     public function pengujian_edit(){
