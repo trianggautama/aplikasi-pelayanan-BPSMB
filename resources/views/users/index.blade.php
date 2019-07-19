@@ -63,22 +63,22 @@
 
                                     @if($perusahaans==0)
                                     <p>Silahkan Lengkapi Profil Anda Terlebih Dahulu</p>
-                                    @else
+                                    {{-- @else --}}
                                     <p>Selamat datang di dashboard perusahaan, silahkan tunggu verifikasi dari admin</p>
-                                    @endif
+                                    {{-- @endif --}}
                                     <p>Anda tidak bisa melakukan permohonan pengujian ataupun kalibrasi sebelum akun anda diverifikasi oleh admin </p>
                                 @else
                                 <h5>PENGUMUMAN !!! </h5>
                                 @endif
                             </div>
-                            @if(Auth::user()->status==0)
+                            {{-- @if(Auth::user()->status==0) --}}
                             <div class="card-block">
                             </div>
-                            @else
+                            {{-- @else --}}
                             <div class="card-block">
                             <a href="{{ route('perusahaan_tambah')}}" class="btn btn-primary">Klik Disini Untuk Melengkapi/mengubah Profil Anda</a>
                             </div>
-                            @endif
+                            {{-- @endif --}}
                         </div>
                     </div>
             </div>
