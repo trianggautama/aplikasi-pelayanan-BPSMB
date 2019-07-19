@@ -61,12 +61,14 @@
                                 <h5>PENGUMUMAN !!! <label class="label bg-danger">Akun Anda Belum Terverifikasi</label></h5>
                                     <br>
 
-                                    @if($perusahaans==0)
-                                    <p>Silahkan Lengkapi Profil Anda Terlebih Dahulu</p>
-                                    {{-- @else --}}
+                                    {{-- @if($perusahaans==0) --}}
                                     <p>Selamat datang di dashboard perusahaan, silahkan tunggu verifikasi dari admin</p>
+
+                                    {{-- @else --}}
+
                                     {{-- @endif --}}
                                     <p>Anda tidak bisa melakukan permohonan pengujian ataupun kalibrasi sebelum akun anda diverifikasi oleh admin </p>
+                                    <p>Silahkan Lengkapi Profil Anda Terlebih Dahulu</p>
                                 @else
                                 <h5>PENGUMUMAN !!! </h5>
                                 @endif
