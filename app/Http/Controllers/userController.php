@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use App\Inbox;
 use App\Perusahaan;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
@@ -25,7 +26,7 @@ class userController extends Controller
         public function index(){
             $user = User::findOrFail(Auth::user()->id);
             $perusahaan = $user->perusahaan;
-            // $perusahaan = count($perusahaan);
+            // dd($perusahaan->user->status);
             if(isset($perusahaan)){
                 $perusahaans = 1;
             }else{
@@ -41,14 +42,26 @@ class userController extends Controller
             return view('users.index',compact('perusahaans'));
         }
 
-        public function inbox(){
+    public function inbox(){
+        $id = Auth::user()->id;
+        // dd($id);
+        $inbox_pengujian = inbox::first();
+        // dd($inbox->permohonan_pengujian->user_id);
+        $inbox = inbox::where('user_id',$id)->get();
+        // dd($inbox);
 
-          return view('users.inbox');
+          return view('users.inbox',compact('inbox'));
       }
 
-      public function show_message(){
+      public function show_message($id){
+        $id = IDCrypt::Decrypt($id);
+        // dd($id);
+        $inbox = inbox::find($id);
+        $date = carbon::parse($inbox->created_at);
+        // dd($date);
+        // dd($inbox);
 
-        return view('users.show_message');
+        return view('users.show_message',compact('inbox','date'));
     }
 
         public function perusahaan_tambah(){
@@ -72,18 +85,19 @@ class userController extends Controller
 
         public function perusahaan_tambah_store(Request $request){
             $user_id = Auth::user()->id;
-            $perusahaan = new perusahaan;
 
-            if ($request->gambar) {
-                $FotoExt  = $request->gambar->getClientOriginalExtension();
-                $FotoName = 'perusahaan'.$request->user_id.'-'. $request->name;
-                $gambar     = $FotoName.'.'.$FotoExt;
-                $request->gambar->move('images/perusahaan', $gambar);
-                $perusahaan->gambar= $gambar;
+            $user = new User;
+
+            if ($request->foto!=null) {
+                $FotoExt  = $request->foto->getClientOriginalExtension();
+                $FotoName = 'perusahaan'.$request->user_id;
+                $foto     = $FotoName.'.'.$FotoExt;
+                $request->foto->move('images/perusahaan', $foto);
+                $user->foto= $foto;
             }else {
-                $perusahaan->gambar = 'default.jpg';
+                $user->foto = 'default.jpg';
               }
-
+            $perusahaan = new perusahaan;
 
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
@@ -105,8 +119,9 @@ class userController extends Controller
         }//menampilkan halaman detail perusahaan
 
         public function perusahaan_update(Request $request, $id){
-            $id = IDCrypt::Decrypt($id);
-            $perusahaan = Perusahaan::findOrFail($id);
+            $user_id = Auth::user()->id;
+            $user = user::findOrFail($user_id);
+            // dd($user_id);
             // $user = User::find($perusahaan->user_id);
 
             // //  $this->validate(request(),[
@@ -120,13 +135,16 @@ class userController extends Controller
             // $password       = Hash::make($request->password);
             // $user->password = $password;
 
-            if($request->gambar != null){
-            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            if($request->foto != null){
+            $FotoExt  = $request->foto->getClientOriginalExtension();
             $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
-            $gambar   = $FotoName.'.'.$FotoExt;
-            $request->gambar->move('images/perusahaan', $gambar);
-            $perusahaan->gambar       = $gambar;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/perusahaan', $foto);
+            $user->foto       = $foto;
             }
+
+            $id = IDCrypt::Decrypt($id);
+            $perusahaan = Perusahaan::findOrFail($id);
 
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
