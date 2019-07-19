@@ -93,6 +93,19 @@ Route::get('/pengujian_edit','adminController@pengujian_edit')
 Route::get('/sertifikat_pengujian','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
 
+
+//user atau admin
+Route::get('/admin/user','adminController@user_index')
+->name('admin_user_index');
+Route::POST('/admin/user','adminController@user_store')
+->name('admin_user_store');
+Route::get('/admin/user/edit/{id}','adminController@user_edit')
+->name('admin_user_edit');
+Route::put('/admin/user/edit/{id}','adminController@user_update')
+->name('admin_user_update');
+Route::get('/admin/user/hapus/{id}','adminController@user_hapus')
+->name('admin_user_hapus');
+
 //laporan perusahaan keseluruhan
 Route::get('/admin/perusahaan/laporan/perusahaan-keseluruhan','adminController@laporan_perusahaan_keseluruhan')
 ->name('laporan_perusahaan_keseluruhan');
