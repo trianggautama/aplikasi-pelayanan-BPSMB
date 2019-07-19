@@ -54,14 +54,24 @@ Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_index');
 Route::get('/permohonan_kalibrasi_edit','adminController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_edit');
+Route::get('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi')
+->name('halaman_verifikasi_kalibrasi');
+Route::put('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi_store')
+->name('halaman_verifikasi_kalibrasi_store');
+Route::get('/permohonan-kalibrasi/hapus/{id}','adminController@permohonan_kalibrasi_hapus')
+->name('permohonan_kalibrasi_hapus');
 
 //Permohonan pengujian
 Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 ->name('permohonan_pengujian_index');
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_edit');
-Route::get('/halaman_verifikasi','adminController@halaman_verifikasi')
+Route::get('/halaman_verifikasi/{id}','adminController@halaman_verifikasi')
 ->name('halaman_verifikasi');
+Route::put('/halaman_verifikasi/{id}','adminController@halaman_verifikasi_store')
+->name('halaman_verifikasi_store');
+Route::get('/permohonan-pengujian/hapus/{id}','adminController@permohonan_pengujian_hapus')
+->name('permohonan_pengujian_hapus');
 
 //Data Kalibrasi
 Route::get('/kalibrasi','adminController@kalibrasi_index')
@@ -113,7 +123,7 @@ Route::get('/user','userController@index')
 
 Route::get('/inbox','userController@inbox')
 ->name('inbox');
-Route::get('/show_message','userController@show_message')
+Route::get('/inbox/{id}','userController@show_message')
 ->name('show_message');
 
 Route::get('/perusahaan/tambah','userController@perusahaan_tambah')
