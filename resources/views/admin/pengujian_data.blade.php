@@ -33,20 +33,34 @@
                         </tr>
                         </thead>
                         <tbody>
+                             <?php $no = 0 ?>
+                            @foreach ($pengujian as $d)
                         <tr>
-                            <?php $no = 0 ?>                                
                             <td>{{$no = $no + 1}}</td>
-                            <td>cv.abdi jaya plus</td>
-                            <td>Pengujian kadar abu</td>
-                            <td>Rp.2.500.000</td>
-                            <td>16 juli 2019</td>
-                            <td>-</td>
-                            <td>1 Bulan</td>
-                            <td> <label for="" class="text-warning">dalam proses uji</label></td>
+                            <td>{{ $d->permohonan_pengujian->user->name }}</td>
+                            <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
+                            <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
+                            <td>{{ $d->tanggal_verifikasi }}</td>
+                            <td>{{ $d->tanggal }}</td>
+                            <td>{{ $d->estimasi }}</td>
+                            <td>
+                                @if($d->status == 0)
+                                <label class="label bg-danger">Ditolak</label>
+                                    @elseif($d->status == 2)
+                                <label class="label bg-warning">Pending</label>
+                                    @elseif($d->status == 1)
+                                <label class="label bg-info">Sedang Diuji</label>
+                                    @elseif($d->status == 3)
+                                <label class="label bg-success">Selesai Diuji</label>
+                                @endif
+                            </td>
+                            </td>
                             <td class="text-center">
                             <a href="{{Route('pengujian_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a>
                         </td>
+
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
