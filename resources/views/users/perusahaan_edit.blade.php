@@ -33,7 +33,7 @@
                             <label for="file" class="col-md-2 col-form-label form-control-label">Gambar/Logo</label>
                             <div class="col-md-9">
                                 <label for="file" class="custom-file">
-                                    <input type="file" name="gambar" id="file" class="custom-file-input">
+                                    <input type="file" name="foto" id="file" class="custom-file-input">
                                     <span class="custom-file-control"></span>
                                 </label>
                             </div>
