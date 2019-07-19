@@ -373,15 +373,34 @@ class adminController extends Controller
     return view('admin.kalibrasi_data',compact('kalibrasi'));
     }
 
-    public function kalibrasi_detail(){
+    public function kalibrasi_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::find($id);
 
-    return view('admin.kalibrasi_detail');
+    return view('admin.kalibrasi_detail',compact('kalibrasi'));
     }
 
-    public function kalibrasi_edit(){
+    public function kalibrasi_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::find($id);
 
-    return view('admin.kalibrasi_edit');
+    return view('admin.kalibrasi_edit',compact('kalibrasi'));
     }
+
+    public function kalibrasi_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::findOrFail($id);
+        $kalibrasi->status   = $request->status;
+        $kalibrasi->metode_pembayaran     = $request->metode_pembayaran;
+        $kalibrasi->tanggal     = $request->tanggal;
+        $kalibrasi->estimasi        = $request->estimasi;
+        $kalibrasi->lainnya   = $request->lainnya;
+        $kalibrasi->keterangan   = $request->keterangan;
+    //    dd($request);
+
+        $kalibrasi->update();
+       return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data kalibrasi
 
     //fungsi pengujian data
     public function pengujian_index(){
