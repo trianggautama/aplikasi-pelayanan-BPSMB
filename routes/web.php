@@ -60,6 +60,8 @@ Route::put('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifik
 ->name('halaman_verifikasi_kalibrasi_store');
 Route::get('/permohonan-kalibrasi/hapus/{id}','adminController@permohonan_kalibrasi_hapus')
 ->name('permohonan_kalibrasi_hapus');
+Route::get('/permohonan_kalibrasi/cetak','adminController@permohonan_kalibrasi_cetak')
+->name('permohonan_kalibrasi_cetak');
 
 //Permohonan pengujian
 Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
@@ -72,6 +74,8 @@ Route::put('/halaman_verifikasi/{id}','adminController@halaman_verifikasi_store'
 ->name('halaman_verifikasi_store');
 Route::get('/permohonan-pengujian/hapus/{id}','adminController@permohonan_pengujian_hapus')
 ->name('permohonan_pengujian_hapus');
+Route::get('/permohonan_perngujian/cetak','adminController@permohonan_pengujian_cetak')
+->name('permohonan_pengujian_cetak');
 
 //Data Kalibrasi
 Route::get('/kalibrasi','adminController@kalibrasi_index')
