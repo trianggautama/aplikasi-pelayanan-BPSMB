@@ -88,6 +88,8 @@ Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
 ->name('kalibrasi_update');
 Route::get('/cetak/sertifikat_kalibrasi','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
+Route::get('/hasil_kalibrasi/tambah','adminController@hasil_kalibrasi_tambah')
+->name('hasil_kalibrasi_tambah');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
@@ -98,6 +100,8 @@ Route::get('/pengujian_edit','adminController@pengujian_edit')
 ->name('pengujian_edit');
 Route::get('/sertifikat_pengujian','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
+Route::get('/hasil_pengujian/tambah','adminController@hasil_pengujian_tambah')
+->name('hasil_pengujian_tambah');
 
 
 //user atau admin

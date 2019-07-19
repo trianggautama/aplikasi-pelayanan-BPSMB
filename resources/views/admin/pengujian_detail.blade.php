@@ -75,7 +75,8 @@
         <div class="card-footer text-right">
             <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
             <a href="{{Route('pengujian_edit')}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
-            <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
+            <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak tanda Terima</a>
+            <a href="{{Route('hasil_pengujian_tambah')}}" class="btn btn-success">Input Hasil Pengujian</a>
             <a href="{{Route('sertifikat_pengujian')}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Sertifikat</a>
 
         </div>
