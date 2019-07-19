@@ -611,8 +611,8 @@ class adminController extends Controller
        public function sertifikat_kalibrasi($id){
 
         $id = IDCrypt::Decrypt($id);
-        $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
-        // dd($hasil);
+        $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
+        dd($hasil);
         // dd($hasil);
         // dd($data);
         $tgl= Carbon::now()->format('d-m-Y');
