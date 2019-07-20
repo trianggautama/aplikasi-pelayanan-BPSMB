@@ -37,7 +37,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Kalibrasi</th>
-                                            <td>{{ $kalibrasi->tanggal }}</td>
+                                            <td>{{ carbon\carbon::parse($kalibrasi->tanggal)->format('d M Y') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Estimasi</th>
@@ -94,9 +94,15 @@
         <div class="card-footer text-right">
             <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
             <a href="{{Route('kalibrasi_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
-            <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
+            @if(isset($kalibrasi->tanggal))
+            <a href="{{Route('nota_permohonan_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Tanda Terima</a>
             <a href="{{Route('hasil_kalibrasi_tambah',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil Kalibrasi</a>
+            @else
+            @endif
+            @if(isset($kalibrasi->hasil_kalibrasi->id))
             <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
+            @else
+            @endif
         </div>
     </div>
     <!--input sizes ends-->
