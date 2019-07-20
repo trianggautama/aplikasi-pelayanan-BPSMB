@@ -529,7 +529,7 @@ class adminController extends Controller
 
     //user
     public function user_index(){
-        $user = user::where('status',3)->get();
+        $user = user::where('role',2)->get();
         // dd($user);
         return view('admin.user_data',compact('user'));
 
@@ -575,19 +575,30 @@ class adminController extends Controller
         $user = user::findOrFail($id);
 
         $this->validate(request(),[
-           'name'=>'required',
-           'email'=>'required',
-           'biaya'=>'required',
-           'keterangan'=>'required'
-       ]);
+            'name'=>'required',
+            'email'=>'required'
+            // 'status'=>'required'
+        ]);
+        if($request->foto != null){
+            $FotoExt  = $request->foto->getClientOriginalExtension();
+            $FotoName = $request->user_id.' - '.$request->name;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/admin', $foto);
+            $user->foto       = $foto;
+            }else {
+                $user->foto  = $user->foto;
+            }
+        $user->name            = $request->name;
+        $user->email    = $request->email;
+        if($request->password != null){
+        $Password       = Hash::make($request->password);
+        $user->password = $Password;
+        }else{
 
-       $user->name         = $request->name;
-       $user->email = $request->email;
-       $user->biaya        = $request->biaya;
-       $user->keterangan   = $request->keterangan;
+        }
 
        $user->update();
-       return redirect(route('user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Ubah');
+       return redirect(route('admin_user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Ubah');
       }//fungsi mengubah data user
 
       public function user_hapus($id){
@@ -595,7 +606,7 @@ class adminController extends Controller
         $user=user::findOrFail($id);
         $user->delete();
 
-        return redirect(route('user_index'))->with('success', 'Data user berhasil di hapus');
+        return redirect(route('admin_user_index'))->with('success', 'Data user berhasil di hapus');
     }//fungsi menghapus data user
 
 //laporan
