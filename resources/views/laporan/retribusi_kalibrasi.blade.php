@@ -116,12 +116,12 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                        <h6>Mengetahui</h6>
-                        <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
-                        <br>
-                        <br>
-                        <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
-                        <h5>NIP. 19580726 1984 03 1 007</h5>
+                        <h5> <p>Mengetahui</p></h5>
+                      <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                      <h5 style="margin-top:1px;">NIP.19580726 198403 1 007</h5>
                       </div>
                     </div>
              </div>
