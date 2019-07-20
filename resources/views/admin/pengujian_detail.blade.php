@@ -93,9 +93,15 @@
         <div class="card-footer text-right">
             <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
             <a href="{{Route('pengujian_edit',['id'=>IDCrypt::Encrypt($pengujian->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
-            <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
-            <a href="{{Route('hasil_pengujian_tambah',['id'=>IDCrypt::Encrypt($pengujian->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil Pengujian</a>
+            @if(isset($pengujian->tanggal))
+            <a href="{{Route('nota_permohonan_pengujian',['id'=>IDCrypt::Encrypt($pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Tanda Terima</a>
+            <a href="{{Route('hasil_pengujian_tambah',['id'=>IDCrypt::Encrypt($pengujian->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil pengujian</a>
+            @else
+            @endif
+            @if(isset($pengujian->hasil_pengujian->id))
             <a href="{{Route('sertifikat_pengujian',['id'=>IDCrypt::Encrypt($pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
+            @else
+            @endif
 
         </div>
     </div>
