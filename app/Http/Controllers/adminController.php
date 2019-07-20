@@ -10,6 +10,7 @@ use App\Kalibrasi;
 use App\Pengujian;
 use App\Perusahaan;
 use App\Hasil_kalibrasi;
+use App\Hasil_pengujian;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
@@ -462,20 +463,69 @@ class adminController extends Controller
     return view('admin.pengujian_data',compact('pengujian'));
     }
 
-    public function pengujian_detail(){
-
-    return view('admin.pengujian_detail');
+    public function pengujian_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::find($id);
+    return view('admin.pengujian_detail',compact('pengujian'));
     }
+
+    public function pengujian_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::find($id);
+
+    return view('admin.pengujian_edit',compact('pengujian'));
+    }
+
+    public function pengujian_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::findOrFail($id);
+        $pengujian->status   = $request->status;
+        $pengujian->metode_pembayaran     = $request->metode_pembayaran;
+        $pengujian->tanggal     = $request->tanggal;
+        $pengujian->estimasi        = $request->estimasi;
+        $pengujian->lainnya   = $request->lainnya;
+        $pengujian->keterangan   = $request->keterangan;
+    //    dd($request);
+
+        $pengujian->update();
+       return redirect(route('pengujian_index'))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data pengujian
 
     public function hasil_pengujian_tambah(){
 
     return view('admin.tambah_hasil_uji');
     }
 
-    public function pengujian_edit(){
+    public function hasil_pengujian_store(Request $request, $id){
 
-    return view('admin.pengujian_edit');
-    }
+        // dd($request);
+        $id = IDCrypt::Decrypt($id);
+            $this->validate(request(),[
+                'kode'=>'required',
+                'no_bpsmb'=>'required',
+                'kadar_air'=>'required',
+                'kadar_abu'=>'required',
+                'kadar_protein'=>'required',
+                'kadar_lemak'=>'required',
+                'kadar_serat'=>'required',
+                'energi_metabolisme'=>'required'
+            ]);
+        $hasil = new hasil_pengujian;
+
+        $hasil->pengujian_id  = $id;
+
+        $hasil->kode                = $request->kode;
+        $hasil->no_bpsmb            = $request->no_bpsmb;
+        $hasil->kadar_air           = $request->kadar_air;
+        $hasil->kadar_abu           = $request->kadar_abu;
+        $hasil->kadar_protein       = $request->kadar_protein;
+        $hasil->kadar_lemak         = $request->kadar_lemak;
+        $hasil->kadar_serat         = $request->kadar_serat;
+        $hasil->energi_metabolisme  = $request->energi_metabolisme;
+        $hasil->save();
+
+        return redirect(route('pengujian_index'));
+           }
 
     //user
     public function user_index(){
@@ -618,15 +668,24 @@ class adminController extends Controller
 
         $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
-        return $pdf->stream('Laporan hasil pengujian.pdf');
+        return $pdf->stream('Laporan hasil kalibrasi.pdf');
        }//mencetak  hasil pengujian
 
-       public function sertifikat_pengujian(){
+       public function sertifikat_pengujian($id){
+        $id = IDCrypt::Decrypt($id);
+        $hasil=hasil_pengujian::where('pengujian_id',$id)->get();
+        // dd($hasil);
+        $count=hasil_pengujian::where('pengujian_id',$id)->get()->count();
+        // dd($count);
+        $kode_contoh=hasil_pengujian::where('pengujian_id',$id)->first();
+        $pengujian = pengujian::findOrFail($id);
+        // dd($data);
+        $tgl= Carbon::now()->format('d F Y');
 
-        $pdf =PDF::loadView('laporan.sertifikat_pengujian');
+        $pdf =PDF::loadView('laporan.sertifikat_pengujian', ['hasil' => $hasil,'count' => $count,'kode_contoh' => $kode_contoh,'pengujian' => $pengujian,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
-        return $pdf->stream('Laporan retribusi pengujian.pdf');
-       }//mencetak  retribusi pengujian
+        return $pdf->stream('Laporan hasil pengujian.pdf');
+       }//mencetak  hasil pengujian
 
        public function permohonan_kalibrasi_cetak(){
         $permohonan_kalibrasi=permohonan_kalibrasi::all();
