@@ -8,7 +8,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-                <h4>Data Tarif Retribusi Kalibrasi</h4>
+                <h4>Data Admin</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href=""  data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
                         {{-- <a class="btn btn-inverse-success" href="{{ route('laporan_user') }}"><i class="icofont icofont-printer"></i> cetak data</a> --}}
