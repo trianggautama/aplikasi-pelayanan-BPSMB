@@ -94,6 +94,8 @@ Route::put('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_store
 ->name('hasil_kalibrasi_store');
 Route::get('/kalibrasi/cetak','adminController@kalibrasi_cetak')
 ->name('kalibrasi_cetak');
+Route::get('/kalibrasi/perusahaan/cetak/{id}','adminController@kalibrasi_perusahaan_cetak')
+->name('kalibrasi_perusahaan_cetak');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')

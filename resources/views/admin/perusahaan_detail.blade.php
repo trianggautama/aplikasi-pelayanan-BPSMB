@@ -190,9 +190,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT KALIBRASI</h5>
                                     <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
+                                    <a href="{{Route('kalibrasi_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
@@ -239,7 +237,7 @@
                                             <!-- end of table responsive -->
                                         </div>
                                         <!-- end of project table -->
-                                    </div>
+                                    </div> 
                                     <!-- end of col-lg-12 -->
                                 </div>
                                 <!-- end of row -->
