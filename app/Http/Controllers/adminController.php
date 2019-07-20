@@ -718,4 +718,13 @@ class adminController extends Controller
             return $pdf->stream('Nota terima kalibrasi.pdf');
         }
 
+        public function nota_permohonan_pengujian($id){
+            $id = IDCrypt::Decrypt($id);
+            $pengujian = pengujian::findOrFail($id);
+            $tgl= Carbon::now()->format('d F Y');
+            $pdf =PDF::loadView('laporan.nota_permohonan_pengujian', ['pengujian' => $pengujian,'tgl'=>$tgl]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('Nota terima pengujian.pdf');
+        }
+
 }
