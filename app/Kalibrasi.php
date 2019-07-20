@@ -14,6 +14,6 @@ class Kalibrasi extends Model
         return $this->belongsTo('App\permohonan_kalibrasi','permohonan_kalibrasi_id');
       }
       public function hasil_kalibrasi(){
-        return $this->hasMany('App\Hasil_kalibrasi','kalibrasi_id');
+        return $this->hasOne('App\Hasil_kalibrasi');
       }
 }
