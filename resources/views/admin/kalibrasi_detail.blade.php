@@ -96,7 +96,7 @@
             <a href="{{Route('kalibrasi_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
             <a href="" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Detail Data</a>
             <a href="{{Route('hasil_kalibrasi_tambah',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil Kalibrasi</a>
-            <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Input Hasil Uji</a>
+            <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
         </div>
     </div>
     <!--input sizes ends-->
