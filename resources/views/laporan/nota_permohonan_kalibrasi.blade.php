@@ -91,7 +91,7 @@
     <div class="container">
         <div class="isi">
             <h2 style="text-align:center;" style="margin:0px;">Tanda Terima Kalibrasi</h2>
-            <p class="text-right" style="margin-right:20px; margin-top:0px;">Nomor:......................</p>
+            <p class="text-right" style="margin-right:20px; margin-top:0px;">Nomor: &nbsp; &nbsp; &nbsp; &nbsp;     /BPSMB/TU/VIII/2019</p>
             <table>
             <tr>
             <td style="width:30%;">Nama Perusahaan</td>
@@ -143,10 +143,10 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                      <h5>pimpinan</h5>
-                      <br>
-                      <br>
-                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
+                        <h5>Bendahara Penerimaan</h5>
+                        <br>
+                        <br>
+                        <h5 style="text-decoration:underline;">Heru Gustiawan</h5>
                       </div>
                     </div>
              </div>
