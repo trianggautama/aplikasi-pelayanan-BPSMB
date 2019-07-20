@@ -5,7 +5,7 @@
     <!--input sizes starts-->
     <div class="col-lg-12">
         <div class="card" style="margin-top:20px;">
-            <div class="card-header"><h5 class="card-header-text">Edit Data</h5>
+            <div class="card-header"><h5 class="card-header-text">Edit Data {{ $user->name }}</h5>
                 <div class="f-right">
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
