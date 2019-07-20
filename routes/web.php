@@ -92,6 +92,8 @@ Route::get('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_tamba
 ->name('hasil_kalibrasi_tambah');
 Route::put('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_store')
 ->name('hasil_kalibrasi_store');
+Route::get('/kalibrasi/cetak','adminController@kalibrasi_cetak')
+->name('kalibrasi_cetak');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
@@ -108,6 +110,8 @@ Route::get('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_tamba
 ->name('hasil_pengujian_tambah');
 Route::put('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_store')
 ->name('hasil_pengujian_store');
+Route::get('/pengujian/cetak','adminController@pengujian_cetak')
+->name('pengujian_cetak');
 
 
 //user atau admin
