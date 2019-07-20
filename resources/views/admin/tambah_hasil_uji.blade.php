@@ -11,41 +11,43 @@
                 </div>
             </div>
             <form  method="post" action="" enctype="multipart/form-data">
+                {{method_field('PUT') }}
+                {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kode Contoh</label></div>
-                <div class="col-md-10"><input type="number" name="nama" class="form-control" id="InputNormal"  placeholder="kode Contoh" value=""></div>
+                <div class="col-md-10"><input type="text" name="kode" class="form-control" id="InputNormal"  placeholder="kode Contoh" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">No BPSMB</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="No BPSMB" value=""></div>
+                    <div class="col-md-10"><input type="text" name="no_bpsmb" class="form-control" id="InputNormal"  placeholder="No BPSMB" ></div>
                 </div>
                 <br>
               <P><b>Kandungan</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kadar Air</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Kadar Air" value=""></div>
+                    <div class="col-md-10"><input type="number" name="kadar_air" class="form-control" id="InputNormal"  placeholder="Kadar Air" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kadar Abu</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Kadar Abu" value=""></div>
+                    <div class="col-md-10"><input type="number" name="kadar_abu" class="form-control" id="InputNormal"  placeholder="Kadar Abu" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kadar Protein</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="kadar Protein" value=""></div>
+                    <div class="col-md-10"><input type="number" name="kadar_protein" class="form-control" id="InputNormal"  placeholder="kadar Protein" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kadar Lemak</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Kadar Lemak" value=""></div>
+                    <div class="col-md-10"><input type="number" name="kadar_lemak" class="form-control" id="InputNormal"  placeholder="Kadar Lemak" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kadar Serat</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="kadar Serat" value=""></div>
+                    <div class="col-md-10"><input type="number" name="kadar_serat" class="form-control" id="InputNormal"  placeholder="kadar Serat" ></div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Energi Metabolisma</label></div>
-                    <div class="col-md-10"><input type="number" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Energi Metabolisme" value=""></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Energi Metabolisme</label></div>
+                    <div class="col-md-10"><input type="number" name="energi_metabolisme" class="form-control" id="InputNormal"  placeholder="Energi Metabolisme" ></div>
                 </div>
                 {{-- {{ csrf_field() }} --}}
             </div>
