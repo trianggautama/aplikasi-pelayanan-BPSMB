@@ -749,6 +749,17 @@ class adminController extends Controller
         return $pdf->stream('Laporan Permohonan pengujian Keseluruhan.pdf');
        }
 
+
+       public function pengujian_perusahaan_cetak($id){
+        $id = IDCrypt::Decrypt($id);
+        $Perusahaan = Perusahaan::find($id);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
+       }
+
        public function nota_permohonan_kalibrasi($id){
             $id = IDCrypt::Decrypt($id);
             $kalibrasi = kalibrasi::findOrFail($id);

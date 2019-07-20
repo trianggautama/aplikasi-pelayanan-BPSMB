@@ -114,6 +114,8 @@ Route::put('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_store
 ->name('hasil_pengujian_store');
 Route::get('/pengujian/cetak','adminController@pengujian_cetak')
 ->name('pengujian_cetak');
+Route::get('/pengujian/perusahaan/cetak/{id}','adminController@pengujian_perusahaan_cetak')
+->name('pengujian_perusahaan_cetak');
 
 
 //user atau admin

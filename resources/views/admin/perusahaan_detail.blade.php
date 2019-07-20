@@ -64,11 +64,6 @@
                         <div class="tab-pane active" id="personal" role="tabpanel">
                             <div class="card">
                                 <div class="card-header"><h5 class="card-header-text">BIODATA</h5>
-                                <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
-                                    </div>
                                 </div>
                                 <div class="card-block">
                                     <div class="view-info">
@@ -252,9 +247,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT PENGUJIAN</h5>
                                     <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
+                                    <a href="{{Route('pengujian_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
