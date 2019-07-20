@@ -98,12 +98,16 @@ Route::get('/pengujian','adminController@pengujian_index')
 ->name('pengujian_index');
 Route::get('/pengujian_detail/{id}','adminController@pengujian_detail')
 ->name('pengujian_detail');
-Route::get('/pengujian_edit','adminController@pengujian_edit')
+Route::get('/pengujian_edit/{id}','adminController@pengujian_edit')
 ->name('pengujian_edit');
-Route::get('/sertifikat_pengujian','adminController@sertifikat_pengujian')
+Route::put('/pengujian_edit/{id}','adminController@pengujian_update')
+->name('pengujian_update');
+Route::get('/cetak/sertifikat_pengujian/{id}','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
-Route::get('/hasil_pengujian/tambah','adminController@hasil_pengujian_tambah')
+Route::get('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_tambah')
 ->name('hasil_pengujian_tambah');
+Route::put('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_store')
+->name('hasil_pengujian_store');
 
 
 //user atau admin
