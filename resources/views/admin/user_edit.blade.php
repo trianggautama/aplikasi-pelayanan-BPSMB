@@ -42,7 +42,7 @@
                 {{-- {{ csrf_field() }} --}}
             </div>
             <div class="card-footer text-right">
-                <a href="{{route('retribusi_kalibrasi_index')}}" class="btn btn-inverse-danger">Batal</a>
+                <a href="{{route('admin_user_index')}}" class="btn btn-inverse-danger">Batal</a>
                 {{-- <button type="submit" class="btn btn-inverse-primary">Ubah Data</button> --}}
                 <button type="submit" name="submit" class="btn btn-inverse-primary">Ubah</button>
             </div>
