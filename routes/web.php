@@ -122,6 +122,10 @@ Route::put('/admin/user/edit/{id}','adminController@user_update')
 Route::get('/admin/user/hapus/{id}','adminController@user_hapus')
 ->name('admin_user_hapus');
 
+// laporan nota
+Route::get('/nota_permohonan_kalibrasi/{id}','adminController@nota_permohonan_kalibrasi')
+->name('nota_permohonan_kalibrasi');
+
 //laporan perusahaan keseluruhan
 Route::get('/admin/perusahaan/laporan/perusahaan-keseluruhan','adminController@laporan_perusahaan_keseluruhan')
 ->name('laporan_perusahaan_keseluruhan');
@@ -187,9 +191,7 @@ Route::get('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujia
 Route::put('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujian_update')
 ->name('permohonan_pengujian_user_update');
 
-//LAPORAN
-Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalibrasi')
-->name('nota_permohonan_kalibrasi');
+
 
 //riwayat Kalibrasi
 Route::get('/user/kalibrasi','userController@kalibrasi_index')
