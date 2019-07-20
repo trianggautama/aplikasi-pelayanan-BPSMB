@@ -109,7 +109,7 @@
             </tr>
             <tr style="padding:2px;">
             <td style="width:30%; text-decoration:underline;">NAMA</td>
-            <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
+            <td>: {{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
             </tr style="padding:2px;">
             <tr>
             <td style="width:30%; text-decoration:underline;">MERK PABRIK</td>
@@ -131,11 +131,11 @@
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">NAMA</td>
-            <td>:{{$kalibrasi->user->name}}</td>
+            <td>: {{$kalibrasi->user->name}}</td>
             </tr>
             <tr>
             <td style="width:30%; text-decoration:underline;">ALAMAT</td>
-            <td><p>:{{$kalibrasi->user->perusahaan->alamat}}</p></td>
+            <td><p>: {{$kalibrasi->user->perusahaan->alamat}}</p></td>
             </tr>
             <br>
             </table>
@@ -153,7 +153,7 @@
             </td>
             <td>
             <div class="ttd">
-                        <h5> <p>Diterbitkan Tanggal, {{$tgl}}</p></h5>
+                        <h5> <p>Diterbitkan Tanggal, {{ $tgl }}</p></h5>
                       <h5>Deputi Manager Teknik</h5>
                       <br>
                       <br>
@@ -183,27 +183,27 @@
            <table style="width:80%;margin-left:20px; margin-top:10px;">
            <tr>
            <td>Nama Alat</td>
-           <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
+           <td>: {{$kalibrasi->permohonan_kalibrasi->retribusi->nama}}</td>
            </tr>
            <tr>
            <td>Merk</td>
-           <td>:{{$kalibrasi->permohonan_kalibrasi->merk}}</td>
+           <td>: {{$kalibrasi->permohonan_kalibrasi->merk}}</td>
            </tr>
            <tr>
            <td>No. Seri</td>
-           <td>:{{$kalibrasi->permohonan_kalibrasi->no_seri}}</td>
+           <td>: {{$kalibrasi->permohonan_kalibrasi->no_seri}}</td>
            </tr>
            <tr>
            <td>Lain-lain / Kapasitas</td>
-           <td>:{{$kalibrasi->permohonan_kalibrasi->retribusi->rentang_ukur}}</td>
+           <td>: {{$kalibrasi->permohonan_kalibrasi->retribusi->rentang_ukur}}</td>
            </tr>
            <tr>
            <td>Tempat Kalibrasi</td>
-           <td>:Kantor BPSMB Prov.Kalsel</td>
+           <td>: Kantor BPSMB Prov.Kalsel</td>
            </tr>
            <tr>
            <td>Tanggal Kalibrasi</td>
-           <td>:{{$kalibrasi->tanggal}}</td>
+           <td>: {{$kalibrasi->tanggal}}</td>
            </tr>
            </table>
            <table style="width:80%;margin-left:310px; margin-top:20px;">
