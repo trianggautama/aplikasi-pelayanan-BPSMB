@@ -16,20 +16,29 @@
             <div class="card-block">
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama</label></div>
-                <div class="col-md-10"><input type="text" name="nama" class="form-control" id="InputNormal"  placeholder="Nama Barang" value="{{ $Kalibrasi->nama }}"></div>
+                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Nama Barang" value="{{ $user->name }}"></div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Rentang Ukur</label></div>
-                    <div class="col-md-10"><input type="text" name="rentang_ukur" class="form-control" id="InputNormal"  placeholder="Rentang Ukur" value="{{ $Kalibrasi->rentang_ukur }}"></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
+                    <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Rentang Ukur" value="{{ $user->email }}"></div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Biaya</label></div>
-                    <div class="col-md-10"><input type="text" name="biaya" class="form-control" id="InputNormal"  placeholder="Biaya" value="{{ $Kalibrasi->biaya }}"></div>
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
+                    <div class="col-md-10"><input type="password" name="password" class="form-control" id="InputNormal"  placeholder="Isi Jika Ingin Mengganti Password" ></div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>
-                    <div class="col-md-10"> <textarea name="keterangan" class="form-control" id="" cols="30" rows="10">{{ $Kalibrasi->keterangan }}</textarea></div>
-                </div>
+                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Foto</label></div>
+                        <div class="col-md-10">
+                            <label for="file" class="custom-file">
+                                <input type="file" name="foto" id="file" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                            <p>Isi Jika Ingin Mengubah Gambar</p>
+                        </div>
+
+                    </div>
+
+                        {{csrf_field() }}
                 {{-- {{ csrf_field() }} --}}
             </div>
             <div class="card-footer text-right">
