@@ -12,7 +12,7 @@
         <div class="card-header ">
                 <h4>Data  Kalibrasi</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        {{-- <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a> --}}
                     </div>
         </div>
         <div class="card-block">
@@ -54,6 +54,11 @@
                             </td>
                             </td>
                             <td class="text-center">
+                            @if($d->kalibrasi->status== 3)
+                            <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
+                            @else
+                            <a href="#" class="btn btn-danger"> Belum Dapat Dicetak</a>
+                            @endif
                             {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
                         </td>
 

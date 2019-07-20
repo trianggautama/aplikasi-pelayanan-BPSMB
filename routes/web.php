@@ -199,10 +199,14 @@ Route::put('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujia
 //riwayat Kalibrasi
 Route::get('/user/kalibrasi','userController@kalibrasi_index')
 ->name('kalibrasi_user_index');
+Route::get('/user/cetak/sertifikat_kalibrasi/{id}','userController@sertifikat_kalibrasi')
+->name('sertifikat_kalibrasi_user');
 
 //riwayat pengujian
 Route::get('/user/pengujian','userController@pengujian_index')
 ->name('pengujian_user_index');
+Route::get('/user/cetak/sertifikat_pengujian/{id}','userController@sertifikat_pengujian')
+->name('sertifikat_pengujian_user');
 
 //MIDLEWARE USER
 

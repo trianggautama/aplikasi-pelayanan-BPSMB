@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\Inbox;
+use App\Kalibrasi;
+use App\Pengujian;
 use App\Perusahaan;
+use App\Hasil_kalibrasi;
+use App\Hasil_pengujian;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
@@ -18,6 +22,7 @@ use Carbon\Carbon;
 use IDCrypt;
 use Hash;
 Use File;
+Use PDF;
 
 class userController extends Controller
 {
@@ -318,6 +323,35 @@ class userController extends Controller
         // $kalibrasi->dd();
         return view('users.kalibrasi_data',compact('permohonan_kalibrasi','perusahaan','status'));
         }
+
+        public function sertifikat_kalibrasi($id){
+
+            $id = IDCrypt::Decrypt($id);
+            $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+            $kalibrasi = Kalibrasi::findOrFail($id);
+            // dd($data);
+            $tgl= Carbon::now()->format('d F Y');
+
+            $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('Laporan hasil kalibrasi.pdf');
+           }//mencetak  hasil pengujian
+
+           public function sertifikat_pengujian($id){
+            $id = IDCrypt::Decrypt($id);
+            $hasil=hasil_pengujian::where('pengujian_id',$id)->get();
+            // dd($hasil);
+            $count=hasil_pengujian::where('pengujian_id',$id)->get()->count();
+            // dd($count);
+            $kode_contoh=hasil_pengujian::where('pengujian_id',$id)->first();
+            $pengujian = pengujian::findOrFail($id);
+            // dd($data);
+            $tgl= Carbon::now()->format('d F Y');
+
+            $pdf =PDF::loadView('laporan.sertifikat_pengujian', ['hasil' => $hasil,'count' => $count,'kode_contoh' => $kode_contoh,'pengujian' => $pengujian,'tgl'=>$tgl]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('Laporan hasil pengujian.pdf');
+           }//mencetak  hasil pengujian
 
         public function pengujian_index(){
             $id = auth::id();
