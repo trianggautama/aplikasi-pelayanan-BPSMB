@@ -16,6 +16,8 @@ class CreateHasilKalibrasisTable extends Migration
         Schema::create('hasil_kalibrasis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('kalibrasi_id');
+            $table->string('no_seri')->length(100)->nullable();
+            $table->string('no_order')->length(100)->nullable();
             $table->double('alat');
             $table->double('standard');
             $table->double('k');
