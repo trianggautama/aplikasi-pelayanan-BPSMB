@@ -30,57 +30,57 @@
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="alat1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
+                    <div class="col-md-10"><input type="text" name="alat1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="alat2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
+                    <div class="col-md-10"><input type="text" name="alat2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="alat3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
+                    <div class="col-md-10"><input type="text" name="alat3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>Standard</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="standard1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
+                    <div class="col-md-10"><input type="text" name="standard1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="standard2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
+                    <div class="col-md-10"><input type="text" name="standard2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="standard3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
+                    <div class="col-md-10"><input type="text" name="standard3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>K</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="k1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
+                    <div class="col-md-10"><input type="text" name="k1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="k2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
+                    <div class="col-md-10"><input type="text" name="k2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="k3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
+                    <div class="col-md-10"><input type="text" name="k3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 <P><b>U95</b></P>
               <hr>
               <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="u1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
+                    <div class="col-md-10"><input type="text" name="u1" class="form-control" id="InputNormal"  placeholder="Pengambilan 1" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="u2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
+                    <div class="col-md-10"><input type="text" name="u2" class="form-control" id="InputNormal"  placeholder="Pengambilan 2" ></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10"><input type="number" name="u3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
+                    <div class="col-md-10"><input type="text" name="u3" class="form-control" id="InputNormal"  placeholder="Pengambilan 3" ></div>
                 </div>
                 {{-- {{ csrf_field() }} --}}
             </div>
