@@ -328,11 +328,13 @@ class userController extends Controller
 
             $id = IDCrypt::Decrypt($id);
             $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+            $no_seri=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
+            $no_order=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
             $kalibrasi = Kalibrasi::findOrFail($id);
             // dd($data);
             $tgl= Carbon::now()->format('d F Y');
 
-            $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+            $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl,'no_seri'=>$no_seri,'no_order'=>$no_order]);
             $pdf->setPaper('a4', 'potrait');
             return $pdf->stream('Laporan hasil kalibrasi.pdf');
            }//mencetak  hasil pengujian
