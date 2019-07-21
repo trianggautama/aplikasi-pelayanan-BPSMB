@@ -88,15 +88,19 @@
         <div class="isi" style="margin-top:5px;">
             <h2 style="text-align:center; margin-bottom:1px; margin-top:5px;" style="text-decoration:underline"><b>SERTIFIKAT KALIBRASI</b></h2>
             <p style="text-align:center; margin:0px;">CALIBRATION CERTIFICATE</p>
-            <P style="text-align:center; margin:0px;">SERI NOMOR :1778/BPSMB/VIII/2019</P>
+            @if(Auth::user()->role==2)
+            <P style="text-align:center; margin:0px;">SERI NOMOR : {{ $no_seri->no_seri }}</P>
+            @else
+            <P style="text-align:center; margin:0px;">SERI NOMOR : </P>
+            @endif
            <table style="width:30%;margin-left:350px; margin-top:20px;">
            <tr>
            <td>No.Order</td>
-           <td>:</td>
+           <td>: {{ $no_order->no_order }}</td>
            </tr>
            <tr>
            <td>Halaman</td>
-           <td>:</td>
+           <td>: 1 dari 2</td>
            </tr>
            <tr>
            <td>Page</td>
@@ -168,11 +172,15 @@
         <table style="width:40%;margin-left:310px; margin-top:20px;">
            <tr>
            <td>Seri</td>
-           <td>:1773/BPSMB/VIII/2019</td>
+           @if(Auth::user()->role==2)
+           <td>: {{ $no_seri->no_seri }}</td>
+           @else
+           <td>:</td>
+           @endif
            </tr>
            <tr>
            <td>No.Order</td>
-           <td>:NA.390</td>
+           <td>: {{ $no_order->no_order }}</td>
            </tr>
            <tr>
            <td>Halaman</td>
