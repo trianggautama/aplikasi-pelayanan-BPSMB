@@ -14,6 +14,18 @@
                 {{method_field('PUT') }}
                 {{ csrf_field() }}
             <div class="card-block">
+                    <P><b>No Seri</b></P>
+                <div class="form-group row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10"><input type="text" name="no_seri" class="form-control" id="InputNormal"  placeholder="No Seri" ></div>
+                </div>
+                <hr>
+                <P><b>No Order</b></P>
+                <div class="form-group row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10"><input type="text" name="no_order" class="form-control" id="InputNormal"  placeholder="No Order" ></div>
+                </div>
+                <hr>
               <P><b>Alat</b></P>
               <hr>
               <div class="form-group row">
