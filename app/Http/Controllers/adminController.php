@@ -414,6 +414,8 @@ class adminController extends Controller
         // dd($request);
         $id = IDCrypt::Decrypt($id);
             $this->validate(request(),[
+                'no_seri'=>'required',
+                'no_order'=>'required',
                 'alat1'=>'required',
                 'alat2'=>'required',
                 'alat3'=>'required',
@@ -431,6 +433,8 @@ class adminController extends Controller
 
         $hasil->kalibrasi_id  = $id;
 
+        $hasil->no_seri     = $request->no_seri;
+        $hasil->no_order    = $request->no_order;
         $hasil->alat        = $request->alat1;
         $hasil->standard    = $request->standard1;
         $hasil->k           = $request->k1;
@@ -439,6 +443,8 @@ class adminController extends Controller
 
         $hasil2 = new hasil_kalibrasi;
         $hasil2->kalibrasi_id  = $id;
+        $hasil->no_seri      = $request->no_seri;
+        $hasil->no_order     = $request->no_order;
         $hasil2->alat        = $request->alat2;
         $hasil2->standard    = $request->standard2;
         $hasil2->k           = $request->k2;
@@ -447,6 +453,8 @@ class adminController extends Controller
 
         $hasil3 = new hasil_kalibrasi;
         $hasil3->kalibrasi_id  = $id;
+        $hasil->no_seri      = $request->no_seri;
+        $hasil->no_order     = $request->no_order;
         $hasil3->alat        = $request->alat3;
         $hasil3->standard    = $request->standard3;
         $hasil3->k           = $request->k3;
@@ -673,11 +681,13 @@ class adminController extends Controller
 
         $id = IDCrypt::Decrypt($id);
         $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+        $no_seri=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
+        $no_order=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
         $kalibrasi = Kalibrasi::findOrFail($id);
         // dd($data);
         $tgl= Carbon::now()->format('d F Y');
 
-        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl,'no_seri'=>$no_seri,'no_order'=>$no_order]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan hasil kalibrasi.pdf');
        }//mencetak  hasil pengujian
