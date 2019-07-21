@@ -93,7 +93,7 @@
             @else
             <P style="text-align:center; margin:0px;">SERI NOMOR : </P>
             @endif
-           <table style="width:30%;margin-left:350px; margin-top:20px;">
+           <table style="width:100%;margin-left:300px; margin-top:20px;">
            <tr>
            <td>No.Order</td>
            <td>: {{ $no_order->no_order }}</td>
@@ -169,7 +169,7 @@
             </table>
                       <br>
                       <br>
-        <table style="width:40%;margin-left:310px; margin-top:20px;">
+        <table style="width:100%;margin-left:310px; margin-top:20px;">
            <tr>
            <td>Seri</td>
            @if(Auth::user()->role==2)
