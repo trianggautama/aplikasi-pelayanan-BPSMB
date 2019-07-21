@@ -404,6 +404,7 @@ class adminController extends Controller
        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data kalibrasi
 
+
     public function hasil_kalibrasi_tambah($id){
 
     return view('admin.tambah_hasil_kalibrasi');
@@ -729,6 +730,45 @@ class adminController extends Controller
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan Permohonan pengujian Keseluruhan.pdf');
        }//mencetak  perusahaan
+
+       public function kalibrasi_cetak(){
+        $kalibrasi = kalibrasi::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.kalibrasi_keseluruhan', ['kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan Kalibrasi Keseluruhan.pdf');
+       }
+
+       public function kalibrasi_perusahaan_cetak($id){
+        $id = IDCrypt::Decrypt($id);
+        $Perusahaan = Perusahaan::find($id);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
+       }
+
+       public function pengujian_cetak(){
+        $pengujian = pengujian::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.pengujian_keseluruhan', ['pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan pengujian Keseluruhan.pdf');
+       }
+
+
+       public function pengujian_perusahaan_cetak($id){
+        $id = IDCrypt::Decrypt($id);
+        $Perusahaan = Perusahaan::find($id);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
+       }
 
        public function nota_permohonan_kalibrasi($id){
             $id = IDCrypt::Decrypt($id);
