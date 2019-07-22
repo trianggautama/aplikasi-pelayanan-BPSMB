@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Aplikai Pelayanan BPSMB Kalsel</title>
+    <title>Aplikasi Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,7 +83,7 @@
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="{{asset('assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{{ asset('/images/admin/'.Auth::user()->foto) }}" style="width:40px;" alt="User Image"></span>
                                 <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
@@ -167,7 +167,7 @@
             <section class="sidebar" id="sidebar-scroll">
 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="{{asset('assets/images/avatar-1.png')}} " alt="User Image" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{ asset('/images/admin/'.Auth::user()->foto) }}" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
                         <p>{{ Auth::user()->name }}</p>
                         <p class="designation">Admin <i class="icofont icofont-caret-down m-l-5"></i></p>
@@ -223,13 +223,13 @@
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Klaibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
                     </li>
 
                     <li class="treeview">
-                        <a class="waves-effect waves-dark" href="basic-table.html">
+                        <a class="waves-effect waves-dark" href="{{route('admin_user_index')}}">
                             <i class="icon-list"></i><span> Kelola Admin</span>
                         </a>
                     </li>

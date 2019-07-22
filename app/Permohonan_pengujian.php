@@ -17,4 +17,11 @@ class Permohonan_pengujian extends Model
     public function retribusi(){
         return $this->belongsTo('App\Retribusi_pengujian','retribusi_pengujian_id');
       }
+
+    public function inbox(){
+        return $this->belongsToMany('App\Inbox');
+      }
+      public function pengujian(){
+        return $this->hasOne('App\Pengujian');
+      }
 }

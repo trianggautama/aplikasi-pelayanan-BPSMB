@@ -103,12 +103,12 @@
                         </thead>
                         <tbody>
                                 <?php $no = 0 ?>
-                                @foreach ($perusahaan as $p)
+                                @foreach ($user as $p)
                                 <tr>
                                 <td>{{ $no + 1 }}</td>
-                                <td>{{ $p->user->name }}</td>
-                                <td>{{ $p->alamat }}</td>
-                                <td>{{ $p->telepon }}</td>
+                                <td>{{ $p->name }}</td>
+                                <td>{{ $p->perusahaan->alamat }}</td>
+                                <td>{{ $p->perusahaan->telepon }}</td>
                                 <td>
                                 @if($p->status == 0)
                                     <label class="label bg-warning">Tidak Aktif/Banned</label>
@@ -124,10 +124,12 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                      <h5>pimpinan</h5>
-                      <br>
-                      <br>
-                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
+                        <h6>Mengetahui</h6>
+                        <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
+                        <br>
+                        <br>
+                        <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                        <h5>NIP. 19580726 1984 03 1 007</h5>
                       </div>
                     </div>
              </div>

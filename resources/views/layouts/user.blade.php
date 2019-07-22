@@ -53,23 +53,10 @@
             <ul class="top-nav">
                 <!--Notification Menu-->
                 <li class="dropdown notification-menu">
-                    <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
-                        <i class="icon-bell"></i>
-                        <span class="badge badge-danger header-badge">9</span>
+                    <a href="{{ Route('inbox') }}" >
+                        <i class="icon-bubbles"></i>
+                        <span class="badge badge-danger header-badge">1</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
-                        <li class="bell-notification">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <img class="img-circle" src="assets/images/avatar-1.png" alt="User Image">
-                                </span>
-                                <div class="media-body"><span class="block">Lisa sent you a mail</span><span class="text-muted block-time">2min ago</span></div></a>
-                            </li>
-                                <li class="not-footer">
-                                    <a href="#!">See all notifications.</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="pc-rheader-submenu">
                             <a href="#!" class="drop icon-circle" onclick="javascript:toggleFullScreen()">
@@ -80,7 +67,7 @@
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="{{asset('/assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{{ asset('/images/perusahaan/'.Auth::user()->foto) }}" style="width:40px;" alt="User Image"></span>
                                 <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
@@ -164,7 +151,7 @@
             <section class="sidebar" id="sidebar-scroll">
 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="{{asset('/assets/images/avatar-1.png')}}" alt="User Image" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{ asset('/images/perusahaan/'.Auth::user()->foto) }}" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
                         <p>Dashboard</p>
                         <p class="designation">Perusahaan <i class="icofont icofont-caret-down m-l-5"></i></p>
@@ -203,6 +190,7 @@
                         </a>
                     </li>
                     <li class="nav-level"> Data</li>
+                    @if(auth::user()->status==1)
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                             {{-- @if(Auth::user()->perusahaan->status==0) --}}
@@ -216,10 +204,14 @@
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Riwayat Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Riwayat pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('kalibrasi_user_index')}}"><i class="icon-arrow-right"></i> Riwayat Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('pengujian_user_index')}}"><i class="icon-arrow-right"></i> Riwayat pengujian</a></li>
                         </ul>
                     </li>
+                    @else
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Akun anda belum aktif</span><i class="icon-arrow-down"></i></a>
+                    </li>
+                    @endif
                 </ul>
             </section>
         </aside>

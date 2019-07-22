@@ -107,7 +107,7 @@
                                 <td>{{ $no= $no+1 }}</td>
                                 <td>{{ $r->nama }}</td>
                                 <td>{{ $r->rentang_ukur }}</td>
-                                <td>{{ $r->biaya }}</td>
+                                <td>Rp.{{ $r->biaya }},-</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -116,10 +116,12 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                      <h5>pimpinan</h5>
+                        <h5> <p>Mengetahui</p></h5>
+                      <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
                       <br>
                       <br>
-                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
+                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                      <h5 style="margin-top:1px;">NIP.19580726 198403 1 007</h5>
                       </div>
                     </div>
              </div>

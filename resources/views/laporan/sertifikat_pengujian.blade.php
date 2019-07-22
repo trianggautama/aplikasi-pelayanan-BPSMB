@@ -14,7 +14,7 @@
         width:100%;
       }
          table, th, td{
-            
+
       }
       th{
         text-align: center;
@@ -93,23 +93,23 @@
             <table style="width:90%; margin:auto;">
             <tr>
             <td>1. Nama Komoditi</td>
-            <td>: Pakan Itik Fermentasi</td>
+            <td>: {{$pengujian->permohonan_pengujian->retribusi->komoditi}}</td>
             </tr>
             <tr>
             <td>2. Pemilik Contoh</td>
-            <td>: Lasti Priani</td>
+            <td>: {{ $pengujian->user->name }}</td>
             </tr>
             <tr>
             <td>3. Alamat</td>
-            <td>: Jl.A.yani km 5 pelaihari</td>
+            <td>: {{$pengujian->user->perusahaan->alamat}}</td>
             </tr>
             <tr>
             <td>4. Tanggal terima Contoh</td>
-            <td>: 5 Agustusn2019</td>
+            <td>: {{$pengujian->tanggal}}</td>
             </tr>
             <tr>
             <td>5. Tanggal Pengujian</td>
-            <td>: 8 Agustus sd/ 12 Agustus 2019</td>
+            <td>: {{$pengujian->tanggal}}</td>
             </tr>
             <tr>
             <td>6. Metode uji</td>
@@ -117,11 +117,11 @@
             </tr>
             <tr>
             <td>7. Jumlah Contoh</td>
-            <td>: 1 Contoh</td>
+            <td>: {{ $count }} Contoh</td>
             </tr>
             <tr>
             <td>8. Kode Contoh</td>
-            <td>: LPI .07</td>
+            <td>: {{ $kode_contoh->kode }}</td>
             </tr>
             </table>
             <br>
@@ -144,17 +144,20 @@
                         <td style="border: 1px solid #708090; text-align:center;">Kadar Serat</td>
                         <td style="border: 1px solid #708090; text-align:center;">Energi Metabolisme</td>
                     </tr>
+                    <?php $no = 0 ?>
+                    @foreach($hasil as $d)
                     <tr>
-                        <td style="border: 1px solid #708090; text-align:center;">1</td>
-                        <td style="border: 1px solid #708090; text-align:center;">4</td>
-                        <td style="border: 1px solid #708090; text-align:center;">LPI.O7</td>
-                        <td style="border: 1px solid #708090; text-align:center;">70,46</td>
-                        <td style="border: 1px solid #708090; text-align:center;">5,19</td>
-                        <td style="border: 1px solid #708090; text-align:center;">14,65</td>
-                        <td style="border: 1px solid #708090; text-align:center;">10,58</td>
-                        <td style="border: 1px solid #708090; text-align:center;">2,78</td>
-                        <td style="border: 1px solid #708090; text-align:center;">164,94</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $no = $no+1 }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kode }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->no_bpsmb }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kadar_air }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kadar_abu }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kadar_protein }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kadar_lemak }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->kadar_serat }}</td>
+                        <td style="border: 1px solid #708090; text-align:center;">{{ $d->energi_metabolisme }}</td>
                     </tr>
+                    @endforeach
                     </tfoot>
             </table>
             <p style="margin-left:35px;">Hasil Pengujian diatsa  berdasarkan kepada contoh uji yang bersangkutan berlaku 90 hari sejak diterbitkan, dan dilarang diperbanyak kecuali atas persetujuan dari laboratorium.</p>
@@ -162,17 +165,17 @@
             <tr>
             <td >
             <div class="ttd">
-                        <h5> <p>Mengetahui</p></h5>
-                      <h5>Kepala Balai Sertifikasi dan Mutu Barang</h5>
-                      <br>
-                      <br>
-                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
-                      <h5 style="margin-top:1px;">NIP.19580726 198403 1 007</h5>
+                    <h5> <p>Mengetahui</p></h5>
+                    <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
+                    <br>
+                    <br>
+                    <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                    <h5 style="margin-top:1px;">NIP.19580726 198403 1 007</h5>
                       </div>
             </td>
             <td>
             <div class="ttd">
-                        <h5> <p>Diterbitkan Tanggal, 1 Agustus 2019</p></h5>
+                        <h5> <p>Diterbitkan Tanggal, {{ $tgl }}</p></h5>
                       <h5>Deputi Manager Teknik</h5>
                       <br>
                       <br>
@@ -182,7 +185,7 @@
             </td>
             </tr>
             </table>
-          
+
                     </div>
              </div>
          </body>

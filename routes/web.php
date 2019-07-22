@@ -54,34 +54,88 @@ Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_index');
 Route::get('/permohonan_kalibrasi_edit','adminController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_edit');
+Route::get('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi')
+->name('halaman_verifikasi_kalibrasi');
+Route::put('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi_store')
+->name('halaman_verifikasi_kalibrasi_store');
+Route::get('/permohonan-kalibrasi/hapus/{id}','adminController@permohonan_kalibrasi_hapus')
+->name('permohonan_kalibrasi_hapus');
+Route::get('/permohonan_kalibrasi/cetak','adminController@permohonan_kalibrasi_cetak')
+->name('permohonan_kalibrasi_cetak');
 
 //Permohonan pengujian
 Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 ->name('permohonan_pengujian_index');
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_edit');
-Route::get('/halaman_verifikasi','adminController@halaman_verifikasi')
+Route::get('/halaman_verifikasi/{id}','adminController@halaman_verifikasi')
 ->name('halaman_verifikasi');
+Route::put('/halaman_verifikasi/{id}','adminController@halaman_verifikasi_store')
+->name('halaman_verifikasi_store');
+Route::get('/permohonan-pengujian/hapus/{id}','adminController@permohonan_pengujian_hapus')
+->name('permohonan_pengujian_hapus');
+Route::get('/permohonan_perngujian/cetak','adminController@permohonan_pengujian_cetak')
+->name('permohonan_pengujian_cetak');
 
 //Data Kalibrasi
 Route::get('/kalibrasi','adminController@kalibrasi_index')
 ->name('kalibrasi_index');
-Route::get('/kalibrasi_detail','adminController@kalibrasi_detail')
+Route::get('/kalibrasi_detail/{id}','adminController@kalibrasi_detail')
 ->name('kalibrasi_detail');
-Route::get('/kalibrasi_edit','adminController@kalibrasi_edit')
+Route::get('/kalibrasi_edit/{id}','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
-Route::get('/cetak/sertifikat_kalibrasi','adminController@sertifikat_kalibrasi')
+Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
+->name('kalibrasi_update');
+Route::get('/cetak/sertifikat_kalibrasi/{id}','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
+Route::get('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_tambah')
+->name('hasil_kalibrasi_tambah');
+Route::put('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_store')
+->name('hasil_kalibrasi_store');
+Route::get('/kalibrasi/cetak','adminController@kalibrasi_cetak')
+->name('kalibrasi_cetak');
+Route::get('/kalibrasi/perusahaan/cetak/{id}','adminController@kalibrasi_perusahaan_cetak')
+->name('kalibrasi_perusahaan_cetak');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
 ->name('pengujian_index');
-Route::get('/pengujian_detail','adminController@pengujian_detail')
+Route::get('/pengujian_detail/{id}','adminController@pengujian_detail')
 ->name('pengujian_detail');
-Route::get('/pengujian_edit','adminController@pengujian_edit')
+Route::get('/pengujian_edit/{id}','adminController@pengujian_edit')
 ->name('pengujian_edit');
-Route::get('/sertifikat_pengujian','adminController@sertifikat_pengujian')
+Route::put('/pengujian_edit/{id}','adminController@pengujian_update')
+->name('pengujian_update');
+Route::get('/cetak/sertifikat_pengujian/{id}','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
+Route::get('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_tambah')
+->name('hasil_pengujian_tambah');
+Route::put('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_store')
+->name('hasil_pengujian_store');
+Route::get('/pengujian/cetak','adminController@pengujian_cetak')
+->name('pengujian_cetak');
+Route::get('/pengujian/perusahaan/cetak/{id}','adminController@pengujian_perusahaan_cetak')
+->name('pengujian_perusahaan_cetak');
+
+
+//user atau admin
+Route::get('/admin/user','adminController@user_index')
+->name('admin_user_index');
+Route::POST('/admin/user','adminController@user_store')
+->name('admin_user_store');
+Route::get('/admin/user/edit/{id}','adminController@user_edit')
+->name('admin_user_edit');
+Route::put('/admin/user/edit/{id}','adminController@user_update')
+->name('admin_user_update');
+Route::get('/admin/user/hapus/{id}','adminController@user_hapus')
+->name('admin_user_hapus');
+
+// laporan nota kalibrasi
+Route::get('/nota_permohonan_kalibrasi/{id}','adminController@nota_permohonan_kalibrasi')
+->name('nota_permohonan_kalibrasi');
+// laporan nota pengujian
+Route::get('/nota_permohonan_pengujian/{id}','adminController@nota_permohonan_pengujian')
+->name('nota_permohonan_pengujian');
 
 //laporan perusahaan keseluruhan
 Route::get('/admin/perusahaan/laporan/perusahaan-keseluruhan','adminController@laporan_perusahaan_keseluruhan')
@@ -113,7 +167,7 @@ Route::get('/user','userController@index')
 
 Route::get('/inbox','userController@inbox')
 ->name('inbox');
-Route::get('/show_message','userController@show_message')
+Route::get('/inbox/{id}','userController@show_message')
 ->name('show_message');
 
 Route::get('/perusahaan/tambah','userController@perusahaan_tambah')
@@ -148,9 +202,20 @@ Route::get('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujia
 Route::put('/permohonan_pengujian_edit/{id}','userController@permohonan_pengujian_update')
 ->name('permohonan_pengujian_user_update');
 
-//LAPORAN
-Route::get('/nota_permohonan_kalibrasi','laporanController@nota_permohonan_kalibrasi')
-->name('nota_permohonan_kalibrasi');
+
+
+//riwayat Kalibrasi
+Route::get('/user/kalibrasi','userController@kalibrasi_index')
+->name('kalibrasi_user_index');
+Route::get('/user/cetak/sertifikat_kalibrasi/{id}','userController@sertifikat_kalibrasi')
+->name('sertifikat_kalibrasi_user');
+
+//riwayat pengujian
+Route::get('/user/pengujian','userController@pengujian_index')
+->name('pengujian_user_index');
+Route::get('/user/cetak/sertifikat_pengujian/{id}','userController@sertifikat_pengujian')
+->name('sertifikat_pengujian_user');
+
 //MIDLEWARE USER
 
 

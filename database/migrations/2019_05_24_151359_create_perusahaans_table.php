@@ -18,8 +18,6 @@ class CreatePerusahaansTable extends Migration
             $table->unsignedbigInteger('user_id');
             $table->string('alamat')->length('255');
             $table->string('telepon')->length('13');
-            $table->tinyInteger('status')->default(0);
-            $table->string('gambar')->length('255')->default('default.jpg');
             $table->string('website')->length('255')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

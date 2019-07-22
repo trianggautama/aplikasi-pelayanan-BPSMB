@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use App\Inbox;
+use App\Kalibrasi;
+use App\Pengujian;
 use App\Perusahaan;
+use App\Hasil_kalibrasi;
+use App\Hasil_pengujian;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
 use App\Permohonan_kalibrasi;
@@ -17,6 +22,7 @@ use Carbon\Carbon;
 use IDCrypt;
 use Hash;
 Use File;
+Use PDF;
 
 class userController extends Controller
 {
@@ -25,7 +31,7 @@ class userController extends Controller
         public function index(){
             $user = User::findOrFail(Auth::user()->id);
             $perusahaan = $user->perusahaan;
-            // $perusahaan = count($perusahaan);
+            // dd($perusahaan->user->status);
             if(isset($perusahaan)){
                 $perusahaans = 1;
             }else{
@@ -41,14 +47,26 @@ class userController extends Controller
             return view('users.index',compact('perusahaans'));
         }
 
-        public function inbox(){
+    public function inbox(){
+        $id = Auth::user()->id;
+        // dd($id);
+        $inbox_pengujian = inbox::first();
+        // dd($inbox->permohonan_pengujian->user_id);
+        $inbox = inbox::where('user_id',$id)->get();
+        // dd($inbox);
 
-          return view('users.inbox');
+          return view('users.inbox',compact('inbox'));
       }
 
-      public function show_message(){
+      public function show_message($id){
+        $id = IDCrypt::Decrypt($id);
+        // dd($id);
+        $inbox = inbox::find($id);
+        $date = carbon::parse($inbox->created_at);
+        // dd($date);
+        // dd($inbox);
 
-        return view('users.show_message');
+        return view('users.show_message',compact('inbox','date'));
     }
 
         public function perusahaan_tambah(){
@@ -72,18 +90,19 @@ class userController extends Controller
 
         public function perusahaan_tambah_store(Request $request){
             $user_id = Auth::user()->id;
-            $perusahaan = new perusahaan;
 
-            if ($request->gambar) {
-                $FotoExt  = $request->gambar->getClientOriginalExtension();
-                $FotoName = 'perusahaan'.$request->user_id.'-'. $request->name;
-                $gambar     = $FotoName.'.'.$FotoExt;
-                $request->gambar->move('images/perusahaan', $gambar);
-                $perusahaan->gambar= $gambar;
+            $user = new User;
+
+            if ($request->foto!=null) {
+                $FotoExt  = $request->foto->getClientOriginalExtension();
+                $FotoName = 'perusahaan'.$request->user_id;
+                $foto     = $FotoName.'.'.$FotoExt;
+                $request->foto->move('images/perusahaan', $foto);
+                $user->foto= $foto;
             }else {
-                $perusahaan->gambar = 'default.jpg';
+                $user->foto = 'default.jpg';
               }
-
+            $perusahaan = new perusahaan;
 
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
@@ -105,8 +124,9 @@ class userController extends Controller
         }//menampilkan halaman detail perusahaan
 
         public function perusahaan_update(Request $request, $id){
-            $id = IDCrypt::Decrypt($id);
-            $perusahaan = Perusahaan::findOrFail($id);
+            $user_id = Auth::user()->id;
+            $user = user::findOrFail($user_id);
+            // dd($user_id);
             // $user = User::find($perusahaan->user_id);
 
             // //  $this->validate(request(),[
@@ -120,13 +140,16 @@ class userController extends Controller
             // $password       = Hash::make($request->password);
             // $user->password = $password;
 
-            if($request->gambar != null){
-            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            if($request->foto != null){
+            $FotoExt  = $request->foto->getClientOriginalExtension();
             $FotoName = $request->user_id.' - '.$request->nama_perusahaan;
-            $gambar   = $FotoName.'.'.$FotoExt;
-            $request->gambar->move('images/perusahaan', $gambar);
-            $perusahaan->gambar       = $gambar;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/perusahaan', $foto);
+            $user->foto       = $foto;
             }
+
+            $id = IDCrypt::Decrypt($id);
+            $perusahaan = Perusahaan::findOrFail($id);
 
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
@@ -288,7 +311,62 @@ class userController extends Controller
        return redirect(route('permohonan_pengujian_user_index'))->with('success', 'Data retribusi pengujian '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data retribusi pengujian
 
+      public function kalibrasi_index(){
+        $id = auth::id();
+        $perusahaan= perusahaan::where('user_id',$id)->first();
+        if(isset($perusahaan)){
+            $status=1;
+        }else{
+            $status=0;
+        }
+        $permohonan_kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
+        // $kalibrasi->dd();
+        return view('users.kalibrasi_data',compact('permohonan_kalibrasi','perusahaan','status'));
+        }
 
+        public function sertifikat_kalibrasi($id){
+
+            $id = IDCrypt::Decrypt($id);
+            $hasil=hasil_kalibrasi::where('kalibrasi_id',$id)->get();
+            $no_seri=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
+            $no_order=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
+            $kalibrasi = Kalibrasi::findOrFail($id);
+            // dd($data);
+            $tgl= Carbon::now()->format('d F Y');
+
+            $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl,'no_seri'=>$no_seri,'no_order'=>$no_order]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('Laporan hasil kalibrasi.pdf');
+           }//mencetak  hasil pengujian
+
+           public function sertifikat_pengujian($id){
+            $id = IDCrypt::Decrypt($id);
+            $hasil=hasil_pengujian::where('pengujian_id',$id)->get();
+            // dd($hasil);
+            $count=hasil_pengujian::where('pengujian_id',$id)->get()->count();
+            // dd($count);
+            $kode_contoh=hasil_pengujian::where('pengujian_id',$id)->first();
+            $pengujian = pengujian::findOrFail($id);
+            // dd($data);
+            $tgl= Carbon::now()->format('d F Y');
+
+            $pdf =PDF::loadView('laporan.sertifikat_pengujian', ['hasil' => $hasil,'count' => $count,'kode_contoh' => $kode_contoh,'pengujian' => $pengujian,'tgl'=>$tgl]);
+            $pdf->setPaper('a4', 'potrait');
+            return $pdf->stream('Laporan hasil pengujian.pdf');
+           }//mencetak  hasil pengujian
+
+        public function pengujian_index(){
+            $id = auth::id();
+            $perusahaan= perusahaan::where('user_id',$id)->first();
+            if(isset($perusahaan)){
+                $status=1;
+            }else{
+                $status=0;
+            }
+            $permohonan_pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
+            // $kalibrasi->dd();
+            return view('users.pengujian_data',compact('permohonan_pengujian','perusahaan','status'));
+            }
 
 
 }

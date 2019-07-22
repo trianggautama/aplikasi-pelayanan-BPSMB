@@ -42,22 +42,22 @@
                             <td>{{$p->user->name}}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
-                            <td>@if($p->status == 0)
+                            <td>@if($p->user->status == 0)
                             <label class="label bg-warning">Banned</label>
                                 @else
                             <label class="label bg-success">Aktif</label>
                                 @endif
                             </td>
                             <td class="text-center">
-                                @if($p->status==0)
-                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                @if($p->user->status == 0)
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->user->id)]) }}" method="POST">
                                         {{method_field('PUT') }}
                                         {{ csrf_field() }}
                                         {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}
                                         <button type="submit" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Aktif" name="status" value="1" ><i class="icofont icofont-check-circled"></i></i></button>
                                     </form>
                                 @else
-                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->id)]) }}" method="POST">
+                                <form action="{{ route('status_update', ['id' => IDCrypt::Encrypt( $p->user->id)]) }}" method="POST">
                                         {{method_field('PUT') }}
                                         {{ csrf_field() }}
                                         {{-- <a href="" class="btn btn-inverse-warning" data-toggle="tooltip" data-placement="top" title="Banned" ><i class="icon-close"></i></i></a> --}}

@@ -80,40 +80,73 @@
                 <h3 style="margin:0px;">DINAS PERDAGANGAN </h3>
                 <h3 style="margin:0px;">UNIT PELAKSANA TEKNIS</h3>
                 <h3 style="margin:0px;">BALAI PENGUJIAN DAN SERTIFIKASI MUTU BARANG</h3>
-                <p style="margin:0px;">JaLan Panglima Batur Banjarbaru, Kode Pos 70711</p>
+                <p style="margin:0px;">Jalan Panglima Batur Banjarbaru, Kode Pos 70711</p>
                 <p style="margin:0px;">Telp.(0511)4772237 Fax.(0511)4772237</p>
             </div>
+            <br>
             <br>
             <hr>
     </div>
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;" style="margin:0px;">KWITANSI</h2>
-            <p class="text-right" style="margin-right:20px; margin-top:0px;">Nomor:......................</p>
+            <h2 style="text-align:center;" style="margin:0px;">Tanda Terima Kalibrasi</h2>
+            <p class="text-right" style="margin-right:20px; margin-top:0px;">Nomor: &nbsp; &nbsp; &nbsp; &nbsp;     /BPSMB/TU/VIII/2019</p>
             <table>
             <tr>
-            <td style="width:30%;">Telah Terima Uang Dari</td>
-            <td>: CV.ABDI JAYA PLUS</td>
+            <td style="width:30%;">Nama Perusahaan</td>
+            <td>: {{ $kalibrasi->user->name }}</td>
             </tr>
             <tr>
-            <td style="width:30%;"> Untuk Keperluan</td>
-            <td>: Kalibrasi alat Ukur Kadar Abu</td>
+            <td style="width:30%;"> Nama Barang</td>
+            <td>: {{ $kalibrasi->permohonan_kalibrasi->retribusi->nama }}</td>
             </tr>
             <br>
             <tr style="height:50px;">
-            <td style="width:30%;">Total</td>
-            <td>: Rp.1.500.000</td>
+            <td style="width:30%;">Biaya Yang Harus Dibayar</td>
+            <td>: Rp.{{ $kalibrasi->permohonan_kalibrasi->retribusi->biaya }},-</td>
+            </tr>
+            <tr>
+            <td style="width:30%;"> Tanggal Verifikasi</td>
+            <td>: {{ $kalibrasi->created_at->format('d M Y') }}</td>
+            </tr>
+            <tr>
+            <td style="width:30%;"> Tanggal Kalibrasi</td>
+            <td>: {{ carbon\carbon::parse($kalibrasi->tanggal)->format('d M Y')}}</td>
+            </tr>
+            <tr>
+            <td style="width:30%;"> Estimasi</td>
+            <td>: {{ $kalibrasi->estimasi }}</td>
+            </tr>
+            <tr>
+            <td style="width:30%;"> Metode Pembayaran</td>
+            <td>: @if($kalibrasi->metode_pembayaran==1)
+                Cash
+                @elseif($kalibrasi->metode_pembayaran==2)
+                Transfer
+                @else
+                Belum Dibayar
+                @endif
+            </td>
+
+            </tr>
+            <tr>
+            <td style="width:30%;"> Lain-lain</td>
+            <td>: {{ $kalibrasi->lainnya }}</td>
+            </tr>
+            <tr>
+            <td style="width:30%;"> Keterangan</td>
+            <td>: {{ $kalibrasi->keterangan }}</td>
             </tr>
             </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
-                      <h5>pimpinan</h5>
-                      <br>
-                      <br>
-                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
+                        <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
+                        <h5>Bendahara Penerimaan</h5>
+                        <br>
+                        <br>
+                        <h5 style="text-decoration:underline;">Heru Gustiawan</h5>
                       </div>
                     </div>
              </div>
