@@ -6,7 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Aplikai Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
-
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -212,7 +211,7 @@
                         </a>
                     </li>
                     <li class="nav-level"> Data</li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Admin</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                         <li><a class="waves-effect waves-dark" href="{{route('admin_perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>

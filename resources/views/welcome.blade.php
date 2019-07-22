@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{asset('vendor/vendors/nice-select/css/nice-select.css')}}" />
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('vendor/css/style.css')}}" />
+    <link href="{{ asset('datatable\datatable.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -153,8 +155,10 @@
             </div>
         </div>
     </div>
-
-
+    <div class="container">
+    <br>
+ 
+    </div>
     <div class="popular_courses" style="margin-top:100px;" id="retribusi">
         <div class="container">
             <div class="row justify-content-center">
@@ -171,36 +175,26 @@
                 <!-- single course -->
 
                 <div class="col-lg-12">
-
-                    <div class="owl-carousel active_course">
-                            @foreach ($retribusi_k as $k)
-                        <div class="single_course">
-
-                            <div class="course_content">
-                                <span class="tag mb-4 d-inline-block">{{ $k->rentang_ukur }}</span>
-                                <h4 class="mb-3">
-                                    <a href="#">{{ $k->nama }}</a>
-                                </h4>
-                                <p>
-                                    {{ $k->keterangan }}
-                                </p>
-                                <div
-                                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
-                                    <div class="authr_meta">
-                                        <img src="vendor/img/courses/author1.png" alt="" />
-                                        <span class="d-inline-block ml-2">IDR {{ $k->biaya }}</span>
-                                    </div>
-                                    {{-- <div class="mt-lg-0 mt-3">
-                                        <span class="meta_info mr-4">
-                                            <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                                        </span>
-                                        <span class="meta_info"><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span>
-                                    </div> --}}
-                                </div>
-                            </div>
-
-                        </div>
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Rentang Ukur</th>
+                        <th scope="col">Biaya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($retribusi_k as $k)
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>{{ $k->nama }}</td>
+                        <td>{{ $k->rentang_ukur }}</td>
+                        <td>IDR {{ $k->biaya }}</td>
+                        </tr>
                         @endforeach
+                    </tbody>
+                    </table>
 
                     </div>
 
@@ -223,37 +217,26 @@
             <div class="row">
                 <!-- single course -->
                 <div class="col-lg-12">
-                    <div class="owl-carousel active_course">
-                        @foreach ($retribusi_p as $k)
-                        <div class="single_course">
-
-                            <div class="course_content">
-                                <span class="tag mb-4 d-inline-block">Pengujian</span>
-                                <h4 class="mb-3">
-                                    <a href="#">{{ $k->komoditi }}</a>
-                                </h4>
-                                <p>
-                                    {{ $k->keterangan }}
-                                </p>
-                                <div
-                                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
-                                    <div class="authr_meta">
-                                        <img src="vendor/img/courses/author1.png" alt="" />
-                                        <span class="d-inline-block ml-2">IDR {{ $k->biaya }}</span>
-                                    </div>
-                                    {{-- <div class="mt-lg-0 mt-3">
-                                        <span class="meta_info mr-4">
-                                            <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                                        </span>
-                                        <span class="meta_info"><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span>
-                                    </div> --}}
-                                </div>
-                            </div>
-
-                        </div>
+                <table class="table table-bordered" id="myTable2">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Rentang Ukur</th>
+                        <th scope="col">Biaya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($retribusi_k as $k)
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>{{ $k->nama }}</td>
+                        <td>{{ $k->rentang_ukur }}</td>
+                        <td>IDR {{ $k->biaya }}</td>
+                        </tr>
                         @endforeach
-
-                    </div>
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -299,6 +282,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{asset('vendor/js/gmaps.min.js')}}"></script>
     <script src="{{asset('vendor/js/theme.js')}}"></script>
+    <script src="{{ asset('datatable/jquerrydatatable.min.js') }}"></script>
+      <script src="{{ asset('datatable/datatable.js') }}"></script>
+      <script>
+            $(document).ready( function () {
+              $('#myTable').DataTable();
+          } );
+          </script>
+           <script>
+            $(document).ready( function () {
+              $('#myTable2').DataTable();
+          } );
+          </script>
 </body>
 
 </html>

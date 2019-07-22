@@ -20,7 +20,7 @@ class adminController extends Controller
 {
     //dashboard admin
     public function index(){
-
+        $perusahaan = Perusahaan::all();
         return view('admin.index');
     }
 
