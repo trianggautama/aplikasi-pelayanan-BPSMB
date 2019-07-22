@@ -26,7 +26,11 @@ class adminController extends Controller
     //dashboard admin
     public function index(){
         $perusahaan = Perusahaan::all();
-        return view('admin.index');
+        $pengujian = Pengujian::all();
+        $kalibrasi = Kalibrasi::all();
+        $permohonan_pengujian= Permohonan_pengujian::all();
+        $permohonan_kalibrasi= Permohonan_kalibrasi::all();
+        return view('admin.index',compact('perusahaan','pengujian','kalibrasi','permohonan_pengujian','permohonan_kalibrasi'));
     }
 
     //function perusahaan
