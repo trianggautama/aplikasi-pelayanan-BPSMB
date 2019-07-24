@@ -221,18 +221,19 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama Barang</th>
-                        <th scope="col">Rentang Ukur</th>
+                        <th scope="col">Komoditi</th>
                         <th scope="col">Biaya</th>
+                        <th scope="col">Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($retribusi_k as $k)
+                    <?php $no = 1 ?>
+                    @foreach ($retribusi_p as $d)
                         <tr>
-                        <th scope="row">1</th>
-                        <td>{{ $k->nama }}</td>
-                        <td>{{ $k->rentang_ukur }}</td>
-                        <td>IDR {{ $k->biaya }}</td>
+                        <td>{{$no++}}</td>
+                        <td>{{$d->komoditi}}</td>
+                        <td>{{$d->biaya}}</td>
+                        <td>{{$d->keterangan}}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -29,10 +29,6 @@
                                                 <a href="inbox.html" class="list-group-item active w-100">
                                                     <i class="icofont icofont-download-alt"></i> Inbox <b class="email-count">(7)</b>
                                                 </a>
-                                                <a href="#" class="list-group-item list-group-item-action">
-                                                    <i class="icofont icofont-ui-delete"></i> Trash
-                                                    <b class="email-count">(290)</b>
-                                                </a>
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-12">

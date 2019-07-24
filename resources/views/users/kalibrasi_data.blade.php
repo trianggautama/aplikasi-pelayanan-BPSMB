@@ -24,6 +24,7 @@
                             <th>No</th>
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
+                            <th>Tanggal Permohonan</th>
                             <th>Tanggal Verifikasi</th>
                             <th>tanggal Kalibrasi</th>
                             <th>Estimasi</th>
@@ -38,6 +39,7 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->retribusi->nama }}</td>
                             <td>Rp.{{ $d->retribusi->biaya }},-</td>
+                            <td>{{ $d->created_at->format('d-m-Y')}}</td>
                             <td>{{ $d->kalibrasi->created_at->format('d-m-Y') }}</td>
                             <td>{{ $d->kalibrasi->tanggal }}</td>
                             <td>{{ $d->kalibrasi->estimasi }}</td>

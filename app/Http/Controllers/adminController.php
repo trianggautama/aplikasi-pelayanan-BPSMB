@@ -26,11 +26,22 @@ class adminController extends Controller
     //dashboard admin
     public function index(){
         $perusahaan = Perusahaan::all();
-        $pengujian = Pengujian::all();
+        $pengujian= Pengujian::all();
+        $pengujian_dalam_proses= Pengujian::where('status',1)->get();
+        $pengujian_selesai= Pengujian::where('status',3)->get();
+
         $kalibrasi = Kalibrasi::all();
+        $kalibrasi_dalam_proses= Kalibrasi::where('status',1);
+        $kalibrasi_selesai= Kalibrasi::where('status',3);
+
         $permohonan_pengujian= Permohonan_pengujian::all();
+        $permohonan_pengujian_diterima= Permohonan_pengujian::where('status',2)->get();
+        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',1)->get();
         $permohonan_kalibrasi= Permohonan_kalibrasi::all();
-        return view('admin.index',compact('perusahaan','pengujian','kalibrasi','permohonan_pengujian','permohonan_kalibrasi'));
+        $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->get();
+        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',1)->get();
+
+        return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak'));
     }
 
     //function perusahaan

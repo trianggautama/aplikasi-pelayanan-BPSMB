@@ -24,6 +24,7 @@
                             <th>No</th>
                             <th>Komoditi</th>
                             <th>Biaya</th>
+                            <th>Tanggal permohonan</th>
                             <th>Tanggal Verifikasi</th>
                             <th>tanggal Pengujian</th>
                             <th>Estimasi</th>
@@ -38,6 +39,7 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->retribusi->komoditi }}</td>
                             <td>Rp. {{ $d->retribusi->biaya }}</td>
+                            <td>{{$d->created_at->format('d-m-Y')}}</td>
                             <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
                             <td>{{ $d->pengujian->tanggal }}</td>
                             <td>{{ $d->pengujian->estimasi }} Minggu</td>
