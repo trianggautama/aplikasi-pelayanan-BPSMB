@@ -55,7 +55,6 @@
                 <li class="dropdown notification-menu">
                     <a href="{{ Route('inbox') }}" >
                         <i class="icon-bubbles"></i>
-                        <span class="badge badge-danger header-badge">1</span>
                     </a>
                         </li>
                         <li class="pc-rheader-submenu">

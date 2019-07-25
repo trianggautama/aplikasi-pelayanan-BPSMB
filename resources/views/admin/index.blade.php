@@ -15,27 +15,27 @@
                                     <thead>
                                     <tr class="text-uppercase">
                                         <th>Jenis Permohonan</th>
-                                        <th>Jumlah</th>
-                                        <th>Ditolak</th>
-                                        <th>Diterima</th>
+                                        <th class="text-center">Jumlah</th>
+                                        <th class="text-center">Ditolak</th>
+                                        <th class="text-center">Diterima</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td> Permohonan Pengujian
                                         </td>
-                                        <td class="">
+                                        <td class="text-center">
                                             {{$permohonan_pengujian->count()}}
                                         </td>
-                                        <td>{{$permohonan_pengujian_ditolak->count()}}</td>
-                                        <td>{{$permohonan_pengujian_diterima->count()}}</td>
+                                        <td class="text-center">{{$permohonan_pengujian_ditolak->count()}}</td>
+                                        <td class="text-center">{{$permohonan_pengujian_diterima->count()}}</td>
                                     </tr>
                                     <tr>
                                         <td>permohonan Kalibrasi
                                         </td>
-                                        <td class="">{{$permohonan_kalibrasi->count()}}</td>
-                                        <td>{{$permohonan_kalibrasi_ditolak->count()}}</td>
-                                        <td>{{$permohonan_kalibrasi_diterima->count()}}</td>
+                                        <td class="text-center">{{$permohonan_kalibrasi->count()}}</td>
+                                        <td class="text-center">{{$permohonan_kalibrasi_ditolak->count()}}</td>
+                                        <td class="text-center">{{$permohonan_kalibrasi_diterima->count()}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -54,29 +54,29 @@
                                     <thead>
                                     <tr class="text-uppercase">
                                         <th>Jenis pelayanan</th>
-                                        <th>Jumlah</th>
-                                        <th>Dalam Proses</th>
-                                        <th>Selesai Proses</th>
+                                        <th class="text-center">Jumlah</th>
+                                        <th class="text-center">Dalam Proses</th>
+                                        <th class="text-center">Selesai Proses</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>  Pengujian
                                         </td>
-                                        <td class="">
+                                        <td class="text-center">
                                             {{$pengujian->count()}}
                                         </td>
-                                        <td> {{$pengujian_dalam_proses->count()}}</td>
-                                        <td>{{$pengujian_selesai->count()}}</td>
+                                        <td class="text-center"> {{$pengujian_dalam_proses->count()}}</td>
+                                        <td class="text-center">{{$pengujian_selesai->count()}}</td>
                                     </tr>
                                     <tr>
                                         <td> Kalibrasi
                                         </td>
-                                        <td class="">
+                                        <td class="text-center">
                                             {{$kalibrasi->count()}}
                                         </td>
-                                        <td>{{$kalibrasi_dalam_proses->count()}}</td>
-                                        <td>{{$kalibrasi_selesai->count()}}</td>
+                                        <td class="text-center">{{$kalibrasi_dalam_proses->count()}}</td>
+                                        <td class="text-center">{{$kalibrasi_selesai->count()}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -96,7 +96,7 @@
                                     <tr class="text-uppercase">
                                         <th>-</th>
                                         <th>Perusahaan</th>
-                                        <th>Jumlah</th>
+                                        <th class="text-center">Jumlah</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -106,7 +106,7 @@
                                         </th>
                                         <td>  Perusahaan
                                         </td>
-                                        <td class="">
+                                        <td class="text-center">
                                             {{$perusahaan->count()}}
                                         </td>
                                     </tr>

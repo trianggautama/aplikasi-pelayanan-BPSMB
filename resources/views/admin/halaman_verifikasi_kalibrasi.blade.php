@@ -6,8 +6,8 @@
     <div class="col-lg-12">
         <div class="card" style="margin-top:20px;">
             <div class="card-header">
-                <div class="f2htDiproses href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                     <div class="f2htDiproses href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofon3-cSelesai-alt"></i></a>
+                    <H4>Verifikasi Permohonan Kalibrasi dari {{$permohonan_kalibrasi->user->name   }}</H4>
                 </div>
             </div>
             <form  method="post" action="" enctype="multipart/form-data">
@@ -42,7 +42,6 @@
                 {{-- {{ csrf_field() }} --}}
         </div>
             <div class="card-footer text-right">
-            waktu mengirim sekalian merubah status permohonan
                 <a href="{{route('permohonan_kalibrasi_index')}}" class="btn btn-danger">Batal</a>
                 <button type="submit" name="submit" class="btn btn-primary">Kirim Pesan</button>
             </div>

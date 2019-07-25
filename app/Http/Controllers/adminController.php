@@ -278,8 +278,11 @@ class adminController extends Controller
     }
 
     //verifikasi kalibrasi
-    public function halaman_verifikasi_kalibrasi(){
-        return view('admin.halaman_verifikasi_kalibrasi');
+    public function halaman_verifikasi_kalibrasi($id)
+    {
+        $id = IDCrypt::Decrypt($id);
+        $permohonan_kalibrasi = Permohonan_kalibrasi::findOrFail($id);
+        return view('admin.halaman_verifikasi_kalibrasi',compact('permohonan_kalibrasi'));
        }
 
        public function halaman_verifikasi_kalibrasi_store(Request $request, $id){
@@ -344,8 +347,10 @@ class adminController extends Controller
     }//fungsi menghapus data retribusi pengujian
 
     //verifikasi pengujian
-    public function halaman_verifikasi(){
-     return view('admin.halaman_verifikasi');
+    public function halaman_verifikasi($id){
+    $id = IDCrypt::Decrypt($id);
+    $permohonan_pengujian=permohonan_pengujian::findOrFail($id);
+     return view('admin.halaman_verifikasi',compact('permohonan_pengujian'));
     }
 
     public function halaman_verifikasi_store(Request $request, $id){
