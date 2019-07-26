@@ -11,11 +11,10 @@
                 <h4>Data Permohonan Pengujian</h4>
                 <div class="text-right">
                 @if($status == 1)
-                    <a class="btn btn-inverse-primary" href="{{route('permohonan_pengujian_user_tambah')}}"><i class="icon-arrow-add"></i>BuaT Permohonan</a>
+                    <a class="btn btn-inverse-primary" href="{{route('permohonan_pengujian_user_tambah')}}"><i class="icon-arrow-add"></i>+ BuaT Permohonan</a>
                 @else
                     <a class="btn btn-disable btn-danger" href="{{ route('perusahaan_tambah')}}"><i class="icon-arrow-add"></i>Data Anda Belum terverifikasi / belum lengkap</a>
                 @endif
-                    <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -30,6 +29,7 @@
                             <th>Biaya</th>
                             <th>Tanggal</th>
                             <th>Keterangan</th>
+                            <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -43,6 +43,15 @@
                             <td>{{$d->retribusi->biaya}}</td>
                             <td>{{$d->created_at->format('d-m-Y')}}</td>
                             <td>{{$d->keterangan}}</td>
+                            <td>
+                                @if($d->status == 0)
+                                <label class="label bg-danger">Ditolak</label>
+                                    @elseif($d->status == 1)
+                                <label class="label bg-warning">Pending</label>
+                                    @elseif($d->status == 2)
+                                <label class="label bg-info">Diterima</label>
+                                    @endif
+                            </td>
                             <td class="text-center">
                             <a href="{{ route('permohonan_pengujian_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
                             {{-- <a href="{{ route('permohonan_pengujian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-edit-alt"></i></a> --}}

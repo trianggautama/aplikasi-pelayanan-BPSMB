@@ -1,66 +1,139 @@
 @extends('layouts.admin')
 @section('content')
-
+<br>
 <div class="container-fluid">
-    <div class="row">
-        <div class="main-header">
-            <h4>Beranda</h4>
-        </div>
-    </div>
-    <!-- 4-blocks row start -->
-    <div class="row m-b-30 dashboard-header">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="col-sm-12 card dashboard-product">
-                        <span>Perusahaan</span>
-                        <h2 class="dashboard-total-products counter">12</h2>
-                        <span class="label label-warning">Perusahaan </span>Terdaftar
-                        <div class="side-box bg-warning">
-                            <i class="icon-social-soundcloud"></i>
+       <!-- 2-1 block start -->
+       <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                    <div class="card-header">
+                    <h4> Permohonan</h4>
+                    </div>
+                        <div class="card-block">
+                            <div class="table-responsive">
+                                <table class="table m-b-0 photo-table">
+                                    <thead>
+                                    <tr class="text-uppercase">
+                                        <th>Jenis Permohonan</th>
+                                        <th class="text-center">Jumlah</th>
+                                        <th class="text-center">Ditolak</th>
+                                        <th class="text-center">Diterima</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> Permohonan Pengujian
+                                        </td>
+                                        <td class="text-center">
+                                            {{$permohonan_pengujian->count()}}
+                                        </td>
+                                        <td class="text-center">{{$permohonan_pengujian_ditolak->count()}}</td>
+                                        <td class="text-center">{{$permohonan_pengujian_diterima->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>permohonan Kalibrasi
+                                        </td>
+                                        <td class="text-center">{{$permohonan_kalibrasi->count()}}</td>
+                                        <td class="text-center">{{$permohonan_kalibrasi_ditolak->count()}}</td>
+                                        <td class="text-center">{{$permohonan_kalibrasi_diterima->count()}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="col-sm-12 card dashboard-product">
-                        <span>kalibrasi</span>
-                        <h2 class="dashboard-total-products counter">120</h2>
-                        <span class="label label-primary">Riwayat</span>Kalibrasi
-                        <div class="side-box bg-primary">
-                            <i class="icon-social-soundcloud"></i>
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                    <div class="card-header">
+                    <h4> Pelayanan</h4>
+                    </div>
+                        <div class="card-block">
+                            <div class="table-responsive">
+                                <table class="table m-b-0 photo-table">
+                                    <thead>
+                                    <tr class="text-uppercase">
+                                        <th>Jenis pelayanan</th>
+                                        <th class="text-center">Jumlah</th>
+                                        <th class="text-center">Dalam Proses</th>
+                                        <th class="text-center">Selesai Proses</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>  Pengujian
+                                        </td>
+                                        <td class="text-center">
+                                            {{$pengujian->count()}}
+                                        </td>
+                                        <td class="text-center"> {{$pengujian_dalam_proses->count()}}</td>
+                                        <td class="text-center">{{$pengujian_selesai->count()}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Kalibrasi
+                                        </td>
+                                        <td class="text-center">
+                                            {{$kalibrasi->count()}}
+                                        </td>
+                                        <td class="text-center">{{$kalibrasi_dalam_proses->count()}}</td>
+                                        <td class="text-center">{{$kalibrasi_selesai->count()}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="col-sm-12 card dashboard-product">
-                        <span>Pengujian</span>
-                        <h2 class="dashboard-total-products"><span class="counter">102</span></h2>
-                        <span class="label label-success">Riwayat</span>Pengujian
-                        <div class="side-box bg-success">
-                            <i class="icon-bubbles"></i>
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                    <div class="card-header">
+                    <h4>Perusahaan</h4>
+                    </div>
+                        <div class="card-block">
+                            <div class="table-responsive">
+                                <table class="table m-b-0 photo-table">
+                                    <thead>
+                                    <tr class="text-uppercase">
+                                        <th>-</th>
+                                        <th>Perusahaan</th>
+                                        <th class="text-center">Jumlah</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>
+                                            <img class="img-fluid rounded-circle" src="assets/images/avatar-3.png" alt="User">
+                                        </th>
+                                        <td>  Perusahaan
+                                        </td>
+                                        <td class="text-center">
+                                            {{$perusahaan->count()}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="col-sm-12 card dashboard-product">
-                        <span>Permohonan</span>
-                        <h2 class="dashboard-total-products"><span class="counter">4</span></h2>
-                        <span class="label label-danger">Permohonan</span>Kalibrasi
-                        <div class="side-box bg-danger">
-                            <i class="icon-bubbles"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="col-sm-12 card dashboard-product">
-                        <span>Permohonan</span>
-                        <h2 class="dashboard-total-products"><span class="counter">4</span></h2>
-                        <span class="label label-info">perm   ohonan</span>pengujian
-                        <div class="side-box bg-info">
-                            <i class="icon-bubbles"></i>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            <!-- 2-1 block end -->
         </div>
-        <!-- 1-3-block row end -->
-@endsection
+        <!-- Main content ends -->
+
+
+
+        <!-- Container-fluid ends -->
+   
+   
+   
+   
+   
+   
+    </div>
+    
+
+
+
+
+<div class="container-fluid">@endsection

@@ -14,11 +14,10 @@
                 <h4>Data Permohonan Kalibrasi</h4>
                 <div class="text-right">
                 @if($status == 1)
-                        <a class="btn btn-inverse-primary" href="{{route('permohonan_kalibrasi_user_tambah')}}"><i class="icon-arrow-add"></i>Buat Permohonan</a>
+                        <a class="btn btn-inverse-primary" href="{{route('permohonan_kalibrasi_user_tambah')}}"><i class="icon-arrow-add"></i>+ Buat Permohonan</a>
                 @else
                 <a class="btn btn-disable btn-danger" href="{{ route('perusahaan_tambah')}}"><i class="icon-arrow-add"></i>Data Anda Belum terverifikasi / belum lengkap</a>
                 @endif
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -34,6 +33,7 @@
                             <th>Tanggal</th>
                             <th>Merk</th>
                             <th>No Seri</th>
+                            <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -48,6 +48,15 @@
                             <td>{{$d->tanggal}}</td>
                             <td>{{$d->merk}}</td>
                             <td>{{$d->no_seri}}</td>
+                            <td>
+                            @if($d->status == 0)
+                            <label class="label bg-danger">Ditolak</label>
+                                @elseif($d->status == 1)
+                            <label class="label bg-warning">Pending</label>
+                                @elseif($d->status == 2)
+                            <label class="label bg-info">Diterima</label>
+                                @endif
+                            </td>
                             <td class="text-center">
                             <a href="{{ route('permohonan_kalibrasi_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
                             {{-- <a href="{{ route('permohonan_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-edit-alt"></i></a> --}}

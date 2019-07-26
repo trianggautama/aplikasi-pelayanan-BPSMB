@@ -21,6 +21,7 @@ class CreatePermohonanKalibrasisTable extends Migration
             $table->date('tanggal');
             $table->string('merk')->length(100);
             $table->string('no_seri')->length(100);
+            $table->tinyInteger('status')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('perusahaan_id')->references('id')->on('perusahaans')->onDelete('cascade');
             $table->foreign('retribusi_kalibrasi_id')->references('id')->on('retribusi_kalibrasis')->onDelete('cascade');

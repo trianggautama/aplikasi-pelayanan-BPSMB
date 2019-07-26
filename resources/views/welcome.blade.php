@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{asset('vendor/vendors/nice-select/css/nice-select.css')}}" />
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('vendor/css/style.css')}}" />
+    <link href="{{ asset('datatable\datatable.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -45,21 +47,6 @@
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="#retribusi">Info Retribusi</a>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ Route('login') }}">Login</a>
@@ -101,15 +88,9 @@
               <div class="h_blog_text_inner left right">
                 <h4>Tentang BPSMB</h4>
                 <p>
-                  Subdue whales void god which living don't midst lesser
-                  yielding over lights whose. Cattle greater brought sixth fly
-                  den dry good tree isn't seed stars were.
+                BPSMB Prov.Kalsel Menjadi Laboratorium yang profesional, Handal dalam pengelolaan kesesuaian mutu, Terpercaya dan diakui secara Nasional maupun Internasional.
                 </p>
-                <p>
-                  Subdue whales void god which living don't midst lesser yieldi
-                  over lights whose. Cattle greater brought sixth fly den dry
-                  good tree isn't seed stars were the boring.
-                </p>
+                <a href="{{Route('login')}}" class="primary-btn rounded-0 mt-3">Mulai</a>
               </div>
             </div>
           </div>
@@ -143,14 +124,13 @@
                             <p>
                                 Melaksanakan Pelayanan Teknis Pengujian Komoditi.
                             </p>
-                            <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="single_event position-relative">
                         <div class="event_thumb">
-                            <img src="vendor/img/event/Kalibrasi.jpg" alt="" />
+                            <img src="vendor/img/event/Kalibrasi.jpg" alt="" width="675"/>
                         </div>
                         <div class="event_details">
                             <div class="d-flex mb-4">
@@ -159,7 +139,6 @@
                             <p>
                                 Melaksanakan Pelayanan Teknis Kalibrasi Alat Ukur
                             </p>
-                            <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -174,28 +153,10 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-  </section>
-  <!-- Call to Action -->
-  <section class="call-to-action text-white text-center">
-    <div class="overlay"></div>
     <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-        </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              </div>
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-              </div>
-=======
-
-
+    <br>
+ 
+    </div>
     <div class="popular_courses" style="margin-top:100px;" id="retribusi">
         <div class="container">
             <div class="row justify-content-center">
@@ -212,46 +173,35 @@
                 <!-- single course -->
 
                 <div class="col-lg-12">
-
-                    <div class="owl-carousel active_course">
-                            @foreach ($retribusi_k as $k)
-                        <div class="single_course">
-
-                            <div class="course_content">
-                                <span class="tag mb-4 d-inline-block">{{ $k->rentang_ukur }}</span>
-                                <h4 class="mb-3">
-                                    <a href="#">{{ $k->nama }}</a>
-                                </h4>
-                                <p>
-                                    {{ $k->keterangan }}
-                                </p>
-                                <div
-                                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
-                                    <div class="authr_meta">
-                                        <img src="vendor/img/courses/author1.png" alt="" />
-                                        <span class="d-inline-block ml-2">IDR {{ $k->biaya }}</span>
-                                    </div>
-                                    {{-- <div class="mt-lg-0 mt-3">
-                                        <span class="meta_info mr-4">
-                                            <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                                        </span>
-                                        <span class="meta_info"><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span>
-                                    </div> --}}
-                                </div>
-                            </div>
-
-                        </div>
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Rentang Ukur</th>
+                        <th scope="col">Biaya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($retribusi_k as $k)
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>{{ $k->nama }}</td>
+                        <td>{{ $k->rentang_ukur }}</td>
+                        <td>IDR {{ $k->biaya }}</td>
+                        </tr>
                         @endforeach
+                    </tbody>
+                    </table>
 
                     </div>
 
                 </div>
->>>>>>> 467b361c9cc32add68bb8f0a661ce5b73f417cee
             </div>
         </div>
     </div>
 {{-- </div> --}}
-        <div class="container" style="margin-top:50px">
+        <div class="container" style="margin-top:10px">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="main_title">
@@ -265,43 +215,34 @@
             <div class="row">
                 <!-- single course -->
                 <div class="col-lg-12">
-                    <div class="owl-carousel active_course">
-                        @foreach ($retribusi_p as $k)
-                        <div class="single_course">
-
-                            <div class="course_content">
-                                <span class="tag mb-4 d-inline-block">Pengujian</span>
-                                <h4 class="mb-3">
-                                    <a href="#">{{ $k->komoditi }}</a>
-                                </h4>
-                                <p>
-                                    {{ $k->keterangan }}
-                                </p>
-                                <div
-                                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
-                                    <div class="authr_meta">
-                                        <img src="vendor/img/courses/author1.png" alt="" />
-                                        <span class="d-inline-block ml-2">IDR {{ $k->biaya }}</span>
-                                    </div>
-                                    {{-- <div class="mt-lg-0 mt-3">
-                                        <span class="meta_info mr-4">
-                                            <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                                        </span>
-                                        <span class="meta_info"><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span>
-                                    </div> --}}
-                                </div>
-                            </div>
-
-                        </div>
+                <table class="table table-bordered" id="myTable2">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Komoditi</th>
+                        <th scope="col">Biaya</th>
+                        <th scope="col">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php $no = 1 ?>
+                    @foreach ($retribusi_p as $d)
+                        <tr>
+                        <td>{{$no++}}</td>
+                        <td>{{$d->komoditi}}</td>
+                        <td>{{$d->biaya}}</td>
+                        <td>{{$d->keterangan}}</td>
+                        </tr>
                         @endforeach
-
-                    </div>
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <!--================ End Popular Courses Area =================-->
-
+                                        <br>
+                                        <br>
     <!--================ Start footer Area  =================-->
     <footer class="footer-area section_gap">
         <div class="container">
@@ -340,6 +281,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{asset('vendor/js/gmaps.min.js')}}"></script>
     <script src="{{asset('vendor/js/theme.js')}}"></script>
+    <script src="{{ asset('datatable/jquerrydatatable.min.js') }}"></script>
+      <script src="{{ asset('datatable/datatable.js') }}"></script>
+      <script>
+            $(document).ready( function () {
+              $('#myTable').DataTable();
+          } );
+          </script>
+           <script>
+            $(document).ready( function () {
+              $('#myTable2').DataTable();
+          } );
+          </script>
 </body>
 
 </html>

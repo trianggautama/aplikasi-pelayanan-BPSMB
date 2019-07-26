@@ -57,17 +57,30 @@
                     <div class="col-md-12" style="margin-top:20px;">
                         <div class="card">
                             <div class="card-header">
-                                @if($perusahaans==0)
+                                @if(Auth::user()->status==0)
                                 <h5>PENGUMUMAN !!! <label class="label bg-danger">Akun Anda Belum Terverifikasi</label></h5>
                                     <br>
-                                    <p>Anda Tidak Bisa Melakukan Permohonan Pengujian Ataupun Kalibrasi Sebelum Akun Anda Diverifikasi Oleh Admin </p>
+
+                                    {{-- @if($perusahaans==0) --}}
+                                    <p>Selamat datang di dashboard perusahaan, silahkan tunggu verifikasi dari admin</p>
+
+                                    {{-- @else --}}
+
+                                    {{-- @endif --}}
+                                    <p>Anda tidak bisa melakukan permohonan pengujian ataupun kalibrasi sebelum akun anda diverifikasi oleh admin </p>
+                                    <p>Silahkan Lengkapi Profil Anda Terlebih Dahulu</p>
                                 @else
                                 <h5>PENGUMUMAN !!! </h5>
                                 @endif
                             </div>
+                            {{-- @if(Auth::user()->status==0) --}}
+                            <div class="card-block">
+                            </div>
+                            {{-- @else --}}
                             <div class="card-block">
                             <a href="{{ route('perusahaan_tambah')}}" class="btn btn-primary">Klik Disini Untuk Melengkapi/mengubah Profil Anda</a>
                             </div>
+                            {{-- @endif --}}
                         </div>
                     </div>
             </div>

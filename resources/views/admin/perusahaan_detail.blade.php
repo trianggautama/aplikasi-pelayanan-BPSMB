@@ -22,7 +22,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="card faq-left">
                         <div class="social-profile">
-                            <img class="img-fluid" src="{{asset('/images/perusahaan/'.$Perusahaan->gambar)}}" alt="">
+                            <img class="img-fluid" src="{{asset('/images/admin/'.$Perusahaan->user->foto)}}" alt="">
                             <div class="profile-hvr m-t-15">
                                 <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                             </div>
@@ -64,11 +64,6 @@
                         <div class="tab-pane active" id="personal" role="tabpanel">
                             <div class="card">
                                 <div class="card-header"><h5 class="card-header-text">BIODATA</h5>
-                                <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
-                                    </div>
                                 </div>
                                 <div class="card-block">
                                     <div class="view-info">
@@ -93,10 +88,10 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Status</th>
-                                                                    @if($Perusahaan->status==0)
-                                                                    <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
-                                                                    @else
+                                                                    @if($Perusahaan->user->status == 0)
                                                                     <td>    <label class="label bg-danger">Belum Terverifikasi / Banned</label></td>
+                                                                    @else
+                                                                    <td>    <label class="label bg-success">Sudah Terverifikasi</label></td>
                                                                     @endif
                                                                 </tr>
                                                                 <tr>
@@ -157,13 +152,13 @@
                                                 <div class="col-md-10"><input type="text" name="telepon" class="form-control" id="InputNormal"  placeholder="No.Tlp" value="{{ $Perusahaan->telepon }}"></div>
                                             </div>
                                             <div class="form-group row">
+                                                <div class="col-md-2"><label for="InputNormal" class="form-control-label">Website</label></div>
+                                                <div class="col-md-10"><input type="text" name="website" class="form-control" id="InputNormal"  placeholder="Website" value="{{ $Perusahaan->website }}"></div>
+                                            </div>
+                                            <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
                                                     <div class="col-md-10"><input type="email" name="email" class="form-control" id="InputNormal"  placeholder="Email" value="{{ $Perusahaan->user->email }}"></div>
                                                 </div>
-                                            <div class="form-group row">
-                                                <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                <div class="col-md-10"><input type="text" name="name" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username" value="{{ $Perusahaan->user->name }}"></div>
-                                            </div>
                                             <div class="form-group row">
                                                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
                                                 <div class="col-md-10"><input type="password" name="password" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
@@ -190,9 +185,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT KALIBRASI</h5>
                                     <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
+                                    <a href="{{Route('kalibrasi_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
@@ -204,7 +197,6 @@
                                                     <thead>
                                                     <tr>
                                                         <th class="text-center txt-primary">TARIF KALIBRASI</th>
-                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
                                                         <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
                                                         <th class="text-center txt-primary">ESTIMASI</th>
                                                         <th class="text-center txt-primary">STATUS</th>
@@ -212,32 +204,27 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
+                                                    @foreach($Perusahaan->permohonan_kalibrasi as $p)
                                                     <tr>
-                                                        <td>Rp. 5.000.000</td>
-                                                        <td>1 April  2019</td>
-                                                        <td>12 April 2019</td>
-                                                        <td>1 bulan</td>
-                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
+                                                    <td>Rp.{{ $p->retribusi->biaya }}</td>
+                                                    <td>{{ $p->kalibrasi->tanggal }}</td>
+                                                    <td>{{ $p->kalibrasi->estimasi }}</td>
+                                                    <td>
+                                                        @if($p->kalibrasi->status == 0)
+                                                        <label class="label bg-danger">Ditolak</label>
+                                                            @elseif($p->kalibrasi->status == 2)
+                                                        <label class="label bg-warning">Pending</label>
+                                                            @elseif($p->kalibrasi->status == 1)
+                                                        <label class="label bg-info">Sedang Diuji</label>
+                                                            @elseif($p->kalibrasi->status == 3)
+                                                        <label class="label bg-success">Selesai Diuji</label>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                         {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
+                                                    </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Rp. 8.000.000</td>
-                                                        <td>15 Juli 2018</td>
-                                                        <td>28 Juli 2018</td>
-                                                        <td>3 Bulan</td>
-                                                        <td class="text-center"><span class="label label-success">Selesai</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                                 <!-- end of table -->
@@ -245,7 +232,7 @@
                                             <!-- end of table responsive -->
                                         </div>
                                         <!-- end of project table -->
-                                    </div>
+                                    </div> 
                                     <!-- end of col-lg-12 -->
                                 </div>
                                 <!-- end of row -->
@@ -260,9 +247,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT PENGUJIAN</h5>
                                     <div class="f-right">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                            Cetak Data  <i class="icofont icofont-print"></i>
-                                    </button>
+                                    <a href="{{Route('pengujian_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
@@ -273,54 +258,35 @@
                                                 <table class="table">
                                                     <thead>
                                                     <tr>
-                                                    <th class="text-center txt-primary">TARIF KALIBRASI</th>
-                                                        <th class="text-center txt-primary">TANGGAL MASUK</th>
-                                                        <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
-                                                        <th class="text-center txt-primary">ESTIMASI</th>
+                                                    <th class="text-center txt-primary">KOMODITI</th>
+                                                        <th class="text-center txt-primary">TARIF</th>
+                                                        <th class="text-center txt-primary">TANGGAL PENGUJIAN</th>
                                                         <th class="text-center txt-primary">STATUS</th>
                                                         <th class="text-center txt-primary">Aksi</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
+                                                    @foreach($Perusahaan->permohonan_pengujian as $d)
                                                     <tr>
-                                                        <td>Rp. 5.000.000</td>
-                                                        <td>1 April  2019</td>
-                                                        <td>12 April 2019</td>
-                                                        <td>1 bulan</td>
-                                                        <td class="text-center"><span class="label label-warning m-t-20"> dalam Prosses</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
+                                                    <td>{{ $d->retribusi->komoditi }}</td>
+                                                    <td>Rp. {{ $d->retribusi->biaya }}</td>
+                                                    <td>{{ $d->tanggal }}</td>
+                                                    <td>
+                                                        @if($d->pengujian->status == 0)
+                                                        <label class="label bg-danger">Ditolak</label>
+                                                            @elseif($d->pengujian->status == 2)
+                                                        <label class="label bg-warning">Pending</label>
+                                                            @elseif($d->pengujian->status == 1)
+                                                        <label class="label bg-info">Sedang Diuji</label>
+                                                            @elseif($d->pengujian->status == 3)
+                                                        <label class="label bg-success">Selesai Diuji</label>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                         {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
+                                                    </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Rp. 8.000.000</td>
-                                                        <td>15 Juli 2018</td>
-                                                        <td>28 Juli 2018</td>
-                                                        <td>3 Bulan</td>
-                                                        <td class="text-center"><span class="label label-success">Selesai</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Rp. 2.000.000</td>
-                                                        <td>15 September 2016</td>
-                                                        <td>18 September 2016</td>
-                                                        <td>1 Bulan</td>
-                                                        <td class="text-center"><span class="label label-danger">Gagal Uji</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat Detail">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                                 <!-- end of table -->

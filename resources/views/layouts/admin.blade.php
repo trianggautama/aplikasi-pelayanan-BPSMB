@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Aplikai Pelayanan BPSMB Kalsel</title>
+    <title>Aplikasi Pelayanan BPSMB Kalsel</title>
     <title>BPSMB KALSEL</title>
-
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -56,12 +55,8 @@
         <!-- Navbar Right Menu-->
         <div class="navbar-custom-menu f-right">
             <ul class="top-nav">
-                <!--Notification Menu-->
-                <li class="dropdown notification-menu">
-                    <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
-                        <i class="icon-bell"></i>
-                        <span class="badge badge-danger header-badge">9</span>
-                    </a>
+                  <!--Notification Menu-->
+                  <li class="dropdown notification-menu">
                     <ul class="dropdown-menu">
                         <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
                         <li class="bell-notification">
@@ -81,21 +76,14 @@
                                 <i class="icon-size-fullscreen"></i>
                             </a>
                         </li>
-                        <!-- User Menu-->
+
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="{{asset('assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{{ asset('/images/admin/'.Auth::user()->foto) }}" style="width:40px;" alt="User Image"></span>
                                 <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
-                                <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                                <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
-                                <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
-                                <li class="p-0">
-                                    <div class="dropdown-divider m-0"></div>
-                                </li>
-                                <li><a href="lock-screen.html"><i class="icon-lock"></i> Lock Screen</a></li>
                                 <li><a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -109,58 +97,6 @@
 
                             </ul>
                         </li>
-                    </ul>
-
-                    <!-- search -->
-                    <div id="morphsearch" class="morphsearch">
-                        <form class="morphsearch-form">
-
-                            <input class="morphsearch-input" type="search" placeholder="Search..."/>
-
-                            <button class="morphsearch-submit" type="submit">Search</button>
-
-                        </form>
-                        <div class="morphsearch-content">
-                            <div class="dummy-column">
-                                <h2>People</h2>
-                                <a class="dummy-media-object" href="#!">
-                                    <img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="Sara Soueidan"/>
-                                    <h3>Sara Soueidan</h3>
-                                </a>
-
-                                <a class="dummy-media-object" href="#!">
-                                    <img class="round" src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&d=identicon&r=G" alt="Shaun Dona"/>
-                                    <h3>Shaun Dona</h3>
-                                </a>
-                            </div>
-                            <div class="dummy-column">
-                                <h2>Popular</h2>
-                                <a class="dummy-media-object" href="#!">
-                                    <img src="assets/images/avatar-1.png" alt="PagePreloadingEffect"/>
-                                    <h3>Page Preloading Effect</h3>
-                                </a>
-
-                                <a class="dummy-media-object" href="#!">
-                                    <img src="assets/images/avatar-1.png" alt="DraggableDualViewSlideshow"/>
-                                    <h3>Draggable Dual-View Slideshow</h3>
-                                </a>
-                            </div>
-                            <div class="dummy-column">
-                                <h2>Recent</h2>
-                                <a class="dummy-media-object" href="#!">
-                                    <img src="assets/images/avatar-1.png" alt="TooltipStylesInspiration"/>
-                                    <h3>Tooltip Styles Inspiration</h3>
-                                </a>
-                                <a class="dummy-media-object" href="#!">
-                                    <img src="assets/images/avatar-1.png" alt="NotificationStyles"/>
-                                    <h3>Notification Styles Inspiration</h3>
-                                </a>
-                            </div>
-                        </div><!-- /morphsearch-content -->
-                        <span class="morphsearch-close"><i class="icofont icofont-search-alt-1"></i></span>
-                    </div>
-                    <!-- search end -->
-                </div>
             </nav>
         </header>
         <!-- Side-Nav-->
@@ -168,7 +104,7 @@
             <section class="sidebar" id="sidebar-scroll">
 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="{{asset('assets/images/avatar-1.png')}} " alt="User Image" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{ asset('/images/admin/'.Auth::user()->foto) }}" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
                         <p>{{ Auth::user()->name }}</p>
                         <p class="designation">Admin <i class="icofont icofont-caret-down m-l-5"></i></p>
@@ -212,27 +148,26 @@
                         </a>
                     </li>
                     <li class="nav-level"> Data</li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Admin</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                         <li><a class="waves-effect waves-dark" href="{{route('admin_perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('admin_user_index')}}"><i class="icon-list"></i><span> Kelola Admin</span></a></li>
                       </ul>
 
                     </li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Transaksi</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Permohonan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Klaibrasi</a></li>
+                           </ul>
+                    </li>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a class="waves-effect waves-dark" href="basic-table.html">
-                            <i class="icon-list"></i><span> Kelola Admin</span>
-                        </a>
                     </li>
                 </ul>
             </section>
