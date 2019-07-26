@@ -124,14 +124,13 @@
                             <p>
                                 Melaksanakan Pelayanan Teknis Pengujian Komoditi.
                             </p>
-                            <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="single_event position-relative">
                         <div class="event_thumb">
-                            <img src="vendor/img/event/Kalibrasi.jpg" alt="" />
+                            <img src="vendor/img/event/Kalibrasi.jpg" alt="" width="675"/>
                         </div>
                         <div class="event_details">
                             <div class="d-flex mb-4">
@@ -140,7 +139,6 @@
                             <p>
                                 Melaksanakan Pelayanan Teknis Kalibrasi Alat Ukur
                             </p>
-                            <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
                         </div>
                     </div>
                 </div>
