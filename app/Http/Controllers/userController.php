@@ -346,7 +346,8 @@ class userController extends Controller
         $file = Kalibrasi::where('id',$id)->first();
         // dd($file);
         // if (Auth::user()->id == $file->user_id || Auth::user()->id == $file->artist_id) {
-        return response()->download(storage_path('sertifikat/kalibrasi' . $file->sertifikat));
+        return response()->download('sertifikat/kalibrasi/' . $file->sertifikat);
+        // return response()->file('sertifikat/kalibrasi/' . $file->sertifikat);
             // }
         }
 
@@ -365,6 +366,18 @@ class userController extends Controller
             $pdf->setPaper('a4', 'potrait');
             return $pdf->stream('Laporan hasil pengujian.pdf');
            }//mencetak  hasil pengujian
+
+        public function download_sertifikat_pengujian($id) {
+        // $file = CommUploads::where('id', $fileID)->first();
+        // dd($id);
+        $id = IDCrypt::Decrypt($id);
+        $file = pengujian::where('id',$id)->first();
+        // dd($file);
+        // if (Auth::user()->id == $file->user_id || Auth::user()->id == $file->artist_id) {
+        return response()->download('sertifikat/pengujian/' . $file->sertifikat);
+        // return response()->file('sertifikat/kalibrasi/' . $file->sertifikat);
+            // }
+        }
 
         public function pengujian_index(){
             $id = auth::id();

@@ -56,11 +56,11 @@
                             </td>
                             </td>
                             <td class="text-center">
-                            @if($d->kalibrasi->status== 3)
+                            @if(isset($d->kalibrasi->sertifikat))
                             <a href="{{Route('download_sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($d->kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Download Sertifikat</a>
                             {{-- <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a> --}}
                             @else
-                            <a href="#" class="btn btn-danger"> Belum Dapat Dicetak</a>
+                            <a href="#" class="btn btn-danger"> Belum Dapat didownload</a>
                             @endif
                             {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
                         </td>

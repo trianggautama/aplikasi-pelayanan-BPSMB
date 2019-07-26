@@ -435,9 +435,10 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $kalibrasi = kalibrasi::findOrFail($id);
 
+        $file = $request->file('file');
         if($request->sertifikat != null){
             $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
-            $sertifikatName = $request->sertifikat;
+            $sertifikatName = $request->sertifikat->getClientOriginalName();;
             // dd($sertifikatName);
             $sertifikat   = $sertifikatName.'.'.$sertifikatExt;
             $request->sertifikat->move('sertifikat/kalibrasi', $sertifikat);
@@ -543,6 +544,32 @@ class adminController extends Controller
 
         $pengujian->update();
        return redirect(route('pengujian_index'))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data pengujian
+
+      public function pengujian_sertifikat_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::find($id);
+
+    return view('admin.pengujian_sertifikat_edit',compact('pengujian'));
+    }
+
+    public function pengujian_sertifikat_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::findOrFail($id);
+
+        $file = $request->file('file');
+        if($request->sertifikat != null){
+            $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
+            $sertifikatName = $request->sertifikat->getClientOriginalName();;
+            // dd($sertifikatName);
+            $sertifikat   = $sertifikatName.'.'.$sertifikatExt;
+            $request->sertifikat->move('sertifikat/pengujian', $sertifikat);
+            $pengujian->sertifikat       = $sertifikat;
+            $pengujian->update();
+            }else {
+                return redirect(route('pengujian_index'));
+            }
+       return redirect(route('pengujian_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
       }//fungsi mengubah data pengujian
 
     public function hasil_pengujian_tambah(){

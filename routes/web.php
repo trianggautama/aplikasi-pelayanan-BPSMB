@@ -110,6 +110,10 @@ Route::get('/pengujian_edit/{id}','adminController@pengujian_edit')
 ->name('pengujian_edit');
 Route::put('/pengujian_edit/{id}','adminController@pengujian_update')
 ->name('pengujian_update');
+Route::get('/pengujian/sertifikat/{id}','adminController@pengujian_sertifikat_edit')
+->name('pengujian_sertifikat_edit');
+Route::put('/pengujian/sertifikat/{id}','adminController@pengujian_sertifikat_update')
+->name('pengujian_sertifikat_update');
 Route::get('/cetak/sertifikat_pengujian/{id}','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
 Route::get('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_tambah')
@@ -221,6 +225,8 @@ Route::get('/user/pengujian','userController@pengujian_index')
 ->name('pengujian_user_index');
 Route::get('/user/cetak/sertifikat_pengujian/{id}','userController@sertifikat_pengujian')
 ->name('sertifikat_pengujian_user');
+Route::get('/user/pengujian/download/sertifikat_pengujian/{id}','userController@download_sertifikat_pengujian')
+->name('download_sertifikat_pengujian');
 
 //MIDLEWARE USER
 
