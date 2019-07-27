@@ -86,6 +86,10 @@ Route::get('/kalibrasi_edit/{id}','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
 Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
 ->name('kalibrasi_update');
+Route::get('/kalibrasi/sertifikat/{id}','adminController@kalibrasi_sertifikat_edit')
+->name('kalibrasi_sertifikat_edit');
+Route::put('/kalibrasi/sertifikat/{id}','adminController@kalibrasi_sertifikat_update')
+->name('kalibrasi_sertifikat_update');
 Route::get('/cetak/sertifikat_kalibrasi/{id}','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
 Route::get('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_tambah')
@@ -209,6 +213,8 @@ Route::get('/user/kalibrasi','userController@kalibrasi_index')
 ->name('kalibrasi_user_index');
 Route::get('/user/cetak/sertifikat_kalibrasi/{id}','userController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi_user');
+Route::get('/user/kalibrasi/download/sertifikat_kalibrasi/{id}','userController@download_sertifikat_kalibrasi')
+->name('download_sertifikat_kalibrasi');
 
 //riwayat pengujian
 Route::get('/user/pengujian','userController@pengujian_index')

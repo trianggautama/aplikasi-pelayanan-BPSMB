@@ -424,6 +424,31 @@ class adminController extends Controller
        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data kalibrasi
 
+    public function kalibrasi_sertifikat_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::find($id);
+
+    return view('admin.kalibrasi_sertifikat_edit',compact('kalibrasi'));
+    }
+
+    public function kalibrasi_sertifikat_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::findOrFail($id);
+
+        if($request->sertifikat != null){
+            $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
+            $sertifikatName = $request->sertifikat;
+            // dd($sertifikatName);
+            $sertifikat   = $sertifikatName.'.'.$sertifikatExt;
+            $request->sertifikat->move('sertifikat/kalibrasi', $sertifikat);
+            $kalibrasi->sertifikat       = $sertifikat;
+            $kalibrasi->update();
+            }else {
+                return redirect(route('kalibrasi_index'));
+            }
+       return redirect(route('kalibrasi_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
+      }//fungsi mengubah data kalibrasi
+
 
     public function hasil_kalibrasi_tambah($id){
 

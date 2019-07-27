@@ -339,6 +339,17 @@ class userController extends Controller
             return $pdf->stream('Laporan hasil kalibrasi.pdf');
            }//mencetak  hasil pengujian
 
+        public function download_sertifikat_kalibrasi($id) {
+        // $file = CommUploads::where('id', $fileID)->first();
+        // dd($id);
+        $id = IDCrypt::Decrypt($id);
+        $file = Kalibrasi::where('id',$id)->first();
+        // dd($file);
+        // if (Auth::user()->id == $file->user_id || Auth::user()->id == $file->artist_id) {
+        return response()->download(storage_path('sertifikat/kalibrasi' . $file->sertifikat));
+            // }
+        }
+
            public function sertifikat_pengujian($id){
             $id = IDCrypt::Decrypt($id);
             $hasil=hasil_pengujian::where('pengujian_id',$id)->get();

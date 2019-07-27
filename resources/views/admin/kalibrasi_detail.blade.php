@@ -101,6 +101,7 @@
             @endif
             @if(isset($kalibrasi->hasil_kalibrasi->id))
             <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
+            <a href="{{Route('kalibrasi_sertifikat_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Upload Sertifikat</a>
             @else
             @endif
         </div>
