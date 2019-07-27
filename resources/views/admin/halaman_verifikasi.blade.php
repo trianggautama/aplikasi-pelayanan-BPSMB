@@ -18,7 +18,7 @@
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Subjek</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="subjek">
                         <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option>
-                        <option value="Hasil pengujian">Hasil Pengujian</option>
+                        {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
                         </select>
                     </div>
                 </div>
