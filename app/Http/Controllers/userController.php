@@ -29,6 +29,8 @@ class userController extends Controller
 
         //dashboard admin
         public function index(){
+            $id= Auth::user()->id;
+            // dd($id);
             $user = User::findOrFail(Auth::user()->id);
             $perusahaan = $user->perusahaan;
             // dd($perusahaan->user->status);
@@ -43,8 +45,25 @@ class userController extends Controller
             //   $perusahaans = 'Sudah Terverifikasi';
             //   }
             //   $perusahaans = 'Belum Terverifikasi';
+            $perusahaan_count = Perusahaan::all();
+        $pengujian= Pengujian::where('user_id',$id);
+        $pengujian_dalam_proses= Pengujian::where('status',1)->where('user_id',$id)->get();
+        $pengujian_selesai= Pengujian::where('status',3)->where('user_id',$id)->get();
 
-            return view('users.index',compact('perusahaans'));
+        $kalibrasi = Kalibrasi::where('user_id',$id);
+        $kalibrasi_dalam_proses= Kalibrasi::where('status',1)->where('user_id',$id);
+        $kalibrasi_selesai= Kalibrasi::where('status',3)->where('user_id',$id);
+
+        $permohonan_pengujian= Permohonan_pengujian::where('user_id',$id);
+        $permohonan_pengujian_diterima= Permohonan_pengujian::where('status',2)->where('user_id',$id)->get();
+        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',1)->where('user_id',$id)->get();
+        $permohonan_kalibrasi= Permohonan_kalibrasi::where('user_id',$id);
+        $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->where('user_id',$id)->get();
+        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',1)->where('user_id',$id)->get();
+
+        return view('users.index',compact('perusahaan','perusahaan_count','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak'));
+
+            // return view('users.index',compact('perusahaans'));
         }
 
         public function user_edit($id){
