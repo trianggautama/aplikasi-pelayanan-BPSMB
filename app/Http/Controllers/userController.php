@@ -47,6 +47,45 @@ class userController extends Controller
             return view('users.index',compact('perusahaans'));
         }
 
+        public function user_edit($id){
+            $id = IDCrypt::Decrypt($id);
+            $user = user::findOrFail($id);
+            // dd($user);
+
+            return view('users.user_edit',compact('user'));
+        }//menampilkan halaman edit user
+
+        public function user_update(Request $request, $id){
+            $id = IDCrypt::Decrypt($id);
+            $user = user::findOrFail($id);
+
+            $this->validate(request(),[
+                'name'=>'required',
+                'email'=>'required'
+                // 'status'=>'required'
+            ]);
+            if($request->foto != null){
+                $FotoExt  = $request->foto->getClientOriginalExtension();
+                $FotoName = $request->user_id.' - '.$request->name;
+                $foto   = $FotoName.'.'.$FotoExt;
+                $request->foto->move('images/perusahaan', $foto);
+                $user->foto       = $foto;
+                }else {
+                    $user->foto  = $user->foto;
+                }
+            $user->name            = $request->name;
+            $user->email    = $request->email;
+            if($request->password != null){
+            $Password       = Hash::make($request->password);
+            $user->password = $Password;
+            }else{
+
+            }
+
+           $user->update();
+           return redirect(route('user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Ubah');
+          }//fungsi mengubah data user
+
     public function inbox(){
         $id = Auth::user()->id;
         // dd($id);

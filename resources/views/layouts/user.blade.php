@@ -71,13 +71,6 @@
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
-                                <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                                <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
-                                <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
-                                <li class="p-0">
-                                    <div class="dropdown-divider m-0"></div>
-                                </li>
-                                <li><a href="lock-screen.html"><i class="icon-lock"></i> Lock Screen</a></li>
                                 <li><a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -159,23 +152,9 @@
                 <!-- sidebar profile Menu-->
                 <ul class="nav sidebar-menu extra-profile-list">
                     <li>
-                        <a class="waves-effect waves-dark" href="profile.html">
+                            <a class="waves-effect waves-dark" href="{{ route('user_edit', ['id' => IDCrypt::Encrypt(Auth::user()->id)])}}">
                             <i class="icon-user"></i>
                             <span class="menu-text">View Profile</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="waves-effect waves-dark" href="javascript:void(0)">
-                            <i class="icon-settings"></i>
-                            <span class="menu-text">Settings</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="waves-effect waves-dark" href="javascript:void(0)">
-                            <i class="icon-logout"></i>
-                            <span class="menu-text">Logout</span>
                             <span class="selected"></span>
                         </a>
                     </li>

@@ -172,6 +172,10 @@ Route::get('/admin/retribusi_pengujian/laporan/retribusi-pengujian','adminContro
 //dashboard user
 Route::get('/user','userController@index')
 ->name('user_index');
+Route::get('/user/edit/{id}','userController@user_edit')
+->name('user_edit');
+Route::put('/user/edit/{id}','userController@user_update')
+->name('user_update');
 
 Route::get('/inbox','userController@inbox')
 ->name('inbox');
