@@ -56,6 +56,7 @@
                                      <tr class="text-uppercase">
                                          <th>Jenis pelayanan</th>
                                          <th class="text-center">Jumlah</th>
+                                         <th class="text-center">Pending</th>
                                          <th class="text-center">Dalam Proses</th>
                                          <th class="text-center">Selesai Proses</th>
                                      </tr>
@@ -67,6 +68,7 @@
                                          <td class="text-center">
                                              {{$pengujian->count()}}
                                          </td>
+                                         <td class="text-center"> {{$pengujian_pending->count()}}</td>
                                          <td class="text-center"> {{$pengujian_dalam_proses->count()}}</td>
                                          <td class="text-center">{{$pengujian_selesai->count()}}</td>
                                      </tr>
@@ -76,6 +78,7 @@
                                          <td class="text-center">
                                              {{$kalibrasi->count()}}
                                          </td>
+                                         <td class="text-center"> {{$kalibrasi_pending->count()}}</td>
                                          <td class="text-center">{{$kalibrasi_dalam_proses->count()}}</td>
                                          <td class="text-center">{{$kalibrasi_selesai->count()}}</td>
                                      </tr>

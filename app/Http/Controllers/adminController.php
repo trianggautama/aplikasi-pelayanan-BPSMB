@@ -36,10 +36,10 @@ class adminController extends Controller
 
         $permohonan_pengujian= Permohonan_pengujian::all();
         $permohonan_pengujian_diterima= Permohonan_pengujian::where('status',2)->get();
-        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',1)->get();
+        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',0)->get();
         $permohonan_kalibrasi= Permohonan_kalibrasi::all();
         $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->get();
-        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',1)->get();
+        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',0)->get();
 
         return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak'));
     }
