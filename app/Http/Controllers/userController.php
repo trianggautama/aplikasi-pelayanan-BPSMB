@@ -52,7 +52,7 @@ class userController extends Controller
         // dd($id);
         $inbox_pengujian = inbox::first();
         // dd($inbox->permohonan_pengujian->user_id);
-        $inbox = inbox::where('user_id',$id)->get();
+        $inbox = inbox::where('user_id',$id)->get()->sortByDesc('id');
         // $date = carbon::parse($inbox->created_at);
         // dd($inbox);
 
