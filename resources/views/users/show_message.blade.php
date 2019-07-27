@@ -62,6 +62,10 @@
                                                                 <p class="email-content">
                                                                     {{ $inbox->keterangan }}
                                                                 </p>
+
+                                                                <p>note : untuk pembayaran bisa melalui cash atau via transfer</p>
+                                                                <p>no rekening : 901.03.14.00.186.2 (BANK KALSEL)</p>
+                                                                <p>ttd : bendahara penerimaan BPSMB Prov. Kalsel</p>
                                                             </div>
                                                         </div>
                                                     </div>
