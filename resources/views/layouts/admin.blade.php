@@ -113,7 +113,8 @@
                 <!-- sidebar profile Menu-->
                 <ul class="nav sidebar-menu extra-profile-list">
                     <li>
-                        <a class="waves-effect waves-dark" href="profile.html">
+                            {{-- <a href="{{ route('admin_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a> --}}
+                        <a class="waves-effect waves-dark" href="{{ route('admin_user_edit', ['id' => IDCrypt::Encrypt(Auth::user()->id)])}}">
                             <i class="icon-user"></i>
                             <span class="menu-text">View Profile</span>
                             <span class="selected"></span>
