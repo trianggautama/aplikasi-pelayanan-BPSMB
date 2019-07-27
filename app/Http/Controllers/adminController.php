@@ -426,6 +426,14 @@ class adminController extends Controller
        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data kalibrasi
 
+      public function kalibrasi_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi=kalibrasi::findOrFail($id);
+        $Kalibrasi->delete();
+
+        return redirect(route('kalibrasi_index'))->with('success', 'Data retribusi kalibrasi berhasil di hapus');
+    }//fungsi menghapus data retribusi kalibrasi
+
     public function kalibrasi_sertifikat_edit($id){
         $id = IDCrypt::Decrypt($id);
         $kalibrasi = kalibrasi::find($id);
@@ -547,6 +555,14 @@ class adminController extends Controller
         $pengujian->update();
        return redirect(route('pengujian_index'))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data pengujian
+
+      public function pengujian_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian=pengujian::findOrFail($id);
+        $pengujian->delete();
+
+        return redirect(route('pengujian_index'))->with('success', 'Data pengujian berhasil di hapus');
+    }//fungsi menghapus data pengujian
 
       public function pengujian_sertifikat_edit($id){
         $id = IDCrypt::Decrypt($id);

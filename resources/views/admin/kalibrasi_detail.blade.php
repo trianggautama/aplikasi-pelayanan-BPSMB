@@ -92,7 +92,8 @@
             </div>
         </div>
         <div class="card-footer text-right">
-            <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a>
+            <a href="{{ route('kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $kalibrasi->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i>Hapus Data</a>
+            {{-- <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a> --}}
             <a href="{{Route('kalibrasi_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
             @if(isset($kalibrasi->tanggal))
             <a href="{{Route('nota_permohonan_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Tanda Terima</a>

@@ -100,6 +100,8 @@ Route::get('/kalibrasi/cetak','adminController@kalibrasi_cetak')
 ->name('kalibrasi_cetak');
 Route::get('/kalibrasi/perusahaan/cetak/{id}','adminController@kalibrasi_perusahaan_cetak')
 ->name('kalibrasi_perusahaan_cetak');
+Route::get('/kalibrasi_detail/hapus/{id}','adminController@kalibrasi_hapus')
+->name('kalibrasi_hapus');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
@@ -124,6 +126,8 @@ Route::get('/pengujian/cetak','adminController@pengujian_cetak')
 ->name('pengujian_cetak');
 Route::get('/pengujian/perusahaan/cetak/{id}','adminController@pengujian_perusahaan_cetak')
 ->name('pengujian_perusahaan_cetak');
+Route::get('/pengujian_detail/hapus/{id}','adminController@pengujian_hapus')
+->name('pengujian_hapus');
 
 
 //user atau admin
