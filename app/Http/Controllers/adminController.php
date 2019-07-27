@@ -28,10 +28,12 @@ class adminController extends Controller
         $perusahaan = Perusahaan::all();
         $pengujian= Pengujian::all();
         $pengujian_dalam_proses= Pengujian::where('status',1)->get();
+        $pengujian_pending= Pengujian::where('status',2)->get();
         $pengujian_selesai= Pengujian::where('status',3)->get();
 
         $kalibrasi = Kalibrasi::all();
         $kalibrasi_dalam_proses= Kalibrasi::where('status',1);
+        $kalibrasi_pending= Kalibrasi::where('status',2);
         $kalibrasi_selesai= Kalibrasi::where('status',3);
 
         $permohonan_pengujian= Permohonan_pengujian::all();
@@ -41,7 +43,7 @@ class adminController extends Controller
         $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->get();
         $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',0)->get();
 
-        return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak'));
+        return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak','kalibrasi_pending','pengujian_pending'));
     }
 
     //function perusahaan
