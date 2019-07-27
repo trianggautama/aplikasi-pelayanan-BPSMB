@@ -40,7 +40,7 @@
                                                         <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->subjek }}</a></td>
                                                         <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->keterangan }}</a></td>
                                                         <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
-                                                        <td class="email-time">08:01 AM</td>
+                                                        <td class="email-time">{{ carbon\carbon::parse($d->created_at)->format('g:i A') }} </td>
 
                                                     </tr>
                                                     @endforeach

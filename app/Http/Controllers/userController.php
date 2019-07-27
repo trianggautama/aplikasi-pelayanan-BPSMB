@@ -53,6 +53,7 @@ class userController extends Controller
         $inbox_pengujian = inbox::first();
         // dd($inbox->permohonan_pengujian->user_id);
         $inbox = inbox::where('user_id',$id)->get();
+        // $date = carbon::parse($inbox->created_at);
         // dd($inbox);
 
           return view('users.inbox',compact('inbox'));
@@ -62,11 +63,13 @@ class userController extends Controller
         $id = IDCrypt::Decrypt($id);
         // dd($id);
         $inbox = inbox::find($id);
+        $user_id = Auth::user()->id;
+        $inbox_count = Inbox::where('user_id',$user_id)->get();
         $date = carbon::parse($inbox->created_at);
         // dd($date);
         // dd($inbox);
 
-        return view('users.show_message',compact('inbox','date'));
+        return view('users.show_message',compact('inbox','inbox_count','date'));
     }
 
         public function perusahaan_tambah(){
