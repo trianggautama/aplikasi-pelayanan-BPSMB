@@ -37,7 +37,11 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Pengujian</th>
-                                            <td>{{ $pengujian->tanggal }}</td>
+                                            @if(isset($pengujian->tanggal))
+                                            <td>{{ carbon\carbon::parse($pengujian->tanggal)->format('d M Y') }}</td>
+                                            @else
+                                            <td></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">Estimasi</th>
