@@ -385,13 +385,16 @@ class adminController extends Controller
     $inbox->keterangan      = $request->keterangan;
     $inbox->save();
 
+    if($request->status==2){
     $pengujian = new pengujian;
 
     $pengujian->user_id = $user_id;
     $pengujian->permohonan_pengujian_id           = $id;
     $pengujian->status = $status->status;
     $pengujian->save();
+    }else{
 
+    }
 
     return redirect(route('permohonan_pengujian_index'));
        }
