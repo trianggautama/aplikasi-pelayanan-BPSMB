@@ -25,7 +25,6 @@
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="status">
-                        <option>Pilih Status</option>
                         <option value="0">Ditolak</option>
                         <option value="2">Diterima</option>
                         </select>
@@ -33,7 +32,7 @@
                 </div>
                 <div class="form-group row">
                 <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Antar Barang</label></div>
-                <div class="col-md-10"><input type="date" name="tanggal" class="form-control" id="InputNormal"> </div>
+                <div class="col-md-10"><input type="date" name="tanggal" class="form-control" id="InputNormal" value="{{ carbon\carbon::now()->addDay(3)->toDateString() }}"> </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>

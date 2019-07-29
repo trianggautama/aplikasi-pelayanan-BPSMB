@@ -311,11 +311,17 @@ class adminController extends Controller
        $inbox->keterangan      = $request->keterangan;
        $inbox->save();
 
-       $kalibrasi = new kalibrasi;
-       $kalibrasi->user_id = $user_id;
-       $kalibrasi->permohonan_kalibrasi_id           = $id;
-       $kalibrasi->status = $status->status;
-       $kalibrasi->save();
+       if($request->status==2){
+        $kalibrasi = new kalibrasi;
+        $kalibrasi->user_id = $user_id;
+        $kalibrasi->permohonan_kalibrasi_id           = $id;
+        $kalibrasi->status = $status->status;
+        $kalibrasi->save();
+       }else{
+
+       }
+
+
 
 
        return redirect(route('permohonan_kalibrasi_index'));
