@@ -28,9 +28,6 @@
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Metode pembayaran</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="metode_pembayaran">
                             @if($pengujian->metode_pembayaran == 0)
-                            <option value="0" {{  $pengujian->metode_pembayaran == 0 ? 'selected' : ''}}>
-                                    Belum dibayar
-                            </option>
                             <option value="1" {{  $pengujian->metode_pembayaran == 1 ? 'selected' : ''}}>
                                     Cash
                             </option>
@@ -55,9 +52,6 @@
                             <select class="form-control" id="exampleSelect1" name="status">
                                 {{-- @foreach ($pengujian as $d) --}}
                                         @if($pengujian->status == 0 || $pengujian->status == 2)
-                                        <option value="0" {{  $pengujian->status == 0 ? 'selected' : ''}}>
-                                                Ditolak
-                                        </option>
                                         <option value="1" {{  $pengujian->status == 1 ? 'selected' : ''}}>
                                                 Tahap Uji
                                         </option>

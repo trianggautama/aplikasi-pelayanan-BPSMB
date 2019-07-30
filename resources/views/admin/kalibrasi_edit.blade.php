@@ -28,9 +28,6 @@
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Metode pembayaran</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="metode_pembayaran">
                             @if($kalibrasi->metode_pembayaran == 0)
-                            <option value="0" {{  $kalibrasi->metode_pembayaran == 0 ? 'selected' : ''}}>
-                                    Belum dibayar
-                            </option>
                             <option value="1" {{  $kalibrasi->metode_pembayaran == 1 ? 'selected' : ''}}>
                                     Cash
                             </option>

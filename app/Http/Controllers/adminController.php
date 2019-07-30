@@ -430,11 +430,8 @@ class adminController extends Controller
         $kalibrasi->lainnya   = $request->lainnya;
         $kalibrasi->keterangan   = $request->keterangan;
 
-        if($request->metode_pembayaran==0){
-        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' gagal di Ubah');
-        }else{
-            $kalibrasi->update();
-        }
+        $kalibrasi->update();
+
     //    dd($request);
 
 

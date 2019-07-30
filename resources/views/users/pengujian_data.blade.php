@@ -44,9 +44,7 @@
                             <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->pengujian->estimasi }}</td>
                             <td>
-                                @if($d->pengujian->status == 0)
-                                <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->pengujian->status == 2)
+                                @if($d->pengujian->status == 0 || $d->pengujian->status == 2)
                                 <label class="label bg-warning">Pending</label>
                                     @elseif($d->pengujian->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
