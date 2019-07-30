@@ -41,7 +41,7 @@
                             <td>Rp.{{ $d->retribusi->biaya }},-</td>
                             <td>{{ $d->created_at->format('d-m-Y')}}</td>
                             <td>{{ $d->kalibrasi->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->kalibrasi->tanggal }}</td>
+                            <td>{{ carbon\carbon::parse($d->kalibrasi->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->kalibrasi->estimasi }}</td>
                             <td>
                                 @if($d->kalibrasi->status == 0)
