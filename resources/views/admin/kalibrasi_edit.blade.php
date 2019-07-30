@@ -55,9 +55,6 @@
                             <select class="form-control" id="exampleSelect1" name="status">
                                 {{-- @foreach ($kalibrasi as $d) --}}
                                         @if($kalibrasi->status == 0 || $kalibrasi->status == 2)
-                                        <option value="0" {{  $kalibrasi->status == 0 ? 'selected' : ''}}>
-                                                Ditolak
-                                        </option>
                                         <option value="1" {{  $kalibrasi->status == 1 ? 'selected' : ''}}>
                                                 Tahap Uji
                                         </option>
