@@ -21,4 +21,8 @@ class Permohonan_kalibrasi extends Model
       public function kalibrasi(){
         return $this->hasOne('App\Kalibrasi');
       }
+
+    public function inbox(){
+        return $this->hasOne('App\inbox');
+      }
 }

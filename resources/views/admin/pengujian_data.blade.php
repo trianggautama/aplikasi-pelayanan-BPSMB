@@ -26,6 +26,7 @@
                             <th>Komoditi</th>
                             <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
+                            <th>Tanggal Antar Barang</th>
                             <th>tanggal Pengujian</th>
                             <th>Estimasi</th>
                             <th>Status</th>
@@ -41,6 +42,7 @@
                             <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
                             <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_pengujian->inbox->tanggal)->format('d-m-Y') }}</td>
                             @if(isset($d->tanggal))
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             @else

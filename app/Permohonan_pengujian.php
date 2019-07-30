@@ -18,10 +18,12 @@ class Permohonan_pengujian extends Model
         return $this->belongsTo('App\Retribusi_pengujian','retribusi_pengujian_id');
       }
 
-    public function inbox(){
-        return $this->belongsToMany('App\Inbox');
-      }
+
       public function pengujian(){
         return $this->hasOne('App\Pengujian');
+      }
+
+      public function inbox(){
+        return $this->hasOne('App\inbox');
       }
 }

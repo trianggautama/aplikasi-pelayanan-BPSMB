@@ -26,7 +26,8 @@
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
-                            <th>tanggal Kalibrasi</th>
+                            <th>Tanggal Antar Barang</th>
+                            <th>Tanggal Kalibrasi</th>
                             <th>Estimasi</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
@@ -41,6 +42,7 @@
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
                             @if(isset($d->tanggal))
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             @else
