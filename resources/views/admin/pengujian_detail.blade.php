@@ -36,6 +36,10 @@
                                             <td> {{ $pengujian->created_at->format('d M Y') }}</td>
                                         </tr>
                                         <tr>
+                                            <th scope="row">Tanggal Antar Barang</th>
+                                            <td>{{ carbon\carbon::parse($pengujian->permohonan_pengujian->inbox->tanggal)->format('d M Y') }}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Tanggal Pengujian</th>
                                             @if(isset($pengujian->tanggal))
                                             <td>{{ carbon\carbon::parse($pengujian->tanggal)->format('d M Y') }}</td>

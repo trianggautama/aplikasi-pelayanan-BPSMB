@@ -36,6 +36,10 @@
                                             <td> {{ $kalibrasi->created_at->format('d M Y') }}</td>
                                         </tr>
                                         <tr>
+                                            <th scope="row">Tanggal Antar Barang</th>
+                                            <td>{{ carbon\carbon::parse($kalibrasi->permohonan_kalibrasi->inbox->tanggal)->format('d M Y') }}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Tanggal Kalibrasi</th>
                                             @if(isset($kalibrasi->tanggal))
                                             <td>{{ carbon\carbon::parse($kalibrasi->tanggal)->format('d M Y') }}</td>
