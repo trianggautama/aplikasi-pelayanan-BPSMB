@@ -41,8 +41,8 @@
                             <td>Rp. {{ $d->retribusi->biaya }}</td>
                             <td>{{$d->created_at->format('d-m-Y')}}</td>
                             <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->pengujian->tanggal }}</td>
-                            <td>{{ $d->pengujian->estimasi }} Minggu</td>
+                            <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ $d->pengujian->estimasi }}</td>
                             <td>
                                 @if($d->pengujian->status == 0)
                                 <label class="label bg-danger">Ditolak</label>
