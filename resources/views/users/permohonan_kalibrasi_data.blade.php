@@ -45,7 +45,7 @@
                             <td>{{$d->perusahaan->user->name}}</td>
                             <td>{{$d->retribusi->nama}}</td>
                             <td>{{$d->retribusi->biaya}}</td>
-                            <td>{{$d->tanggal}}</td>
+                            <td>{{$d->tanggal->format('d F Y')}}</td>
                             <td>{{$d->merk}}</td>
                             <td>{{$d->no_seri}}</td>
                             <td>
