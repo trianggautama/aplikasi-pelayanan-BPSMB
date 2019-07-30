@@ -25,8 +25,8 @@
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="status">
-                        <option value="0">Ditolak</option>
                         <option value="2">Diterima</option>
+                        <option value="0">Ditolak</option>
                         </select>
                     </div>
                 </div>
