@@ -15,6 +15,16 @@
                 {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
+                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Terima Barang</label></div>
+                    <div class="col-md-10"><input type="date" name="tanggal_terima" class="form-control" id="InputNormal"  placeholder="Rentang Ukur"
+                        @if(isset($kalibrasi->tanggal_terima))
+                        value="{{ $kalibrasi->tanggal_terima }}"
+                        @else
+                        value="{{ carbon\carbon::now()->toDateString() }}"
+                        @endif
+                        ></div>
+                </div>
+                <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Kalibrasi</label></div>
                     <div class="col-md-10"><input type="date" name="tanggal" class="form-control" id="InputNormal"  placeholder="Rentang Ukur"
                         @if(isset($kalibrasi->tanggal))
@@ -55,9 +65,6 @@
                                         <option value="1" {{  $kalibrasi->status == 1 ? 'selected' : ''}}>
                                                 Tahap Uji
                                         </option>
-                                        <option value="2" {{  $kalibrasi->status == 2 ? 'selected' : ''}}>
-                                                Pending
-                                        </option>
                                         <option value="3" {{  $kalibrasi->status == 3 ? 'selected' : ''}}>
                                                 Selesai diuji
                                         </option>
@@ -94,7 +101,7 @@
             </div>
             <div class="card-footer text-right">
                 <a href="{{route('retribusi_kalibrasi_index')}}" class="btn btn-danger">Batal</a>
-                <button type="submit" name="submit" class="btn btn-primary">Ubah</button>
+                <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
             </div>
             {{-- </form> --}}
         </div>
