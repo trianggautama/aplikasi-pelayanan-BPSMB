@@ -7,13 +7,49 @@
         <div class="card" style="margin-top:20px;">
             <div class="card-header">
                     <div class="f2htDiproses href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofon3-cSelesai-alt"></i></a>
-                    <H4>Verifikasi Permohonan Kalibrasi {{$permohonan_kalibrasi->retribusi->nama   }} dari {{$permohonan_kalibrasi->user->name   }}</H4>
+                    <H4>Verifikasi Permohonan Kalibrasi</H4>
                 </div>
             </div>
             <form  method="post" action="" enctype="multipart/form-data">
                 {{method_field('PUT') }}
                 {{ csrf_field() }}
             <div class="card-block">
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_kalibrasi->user->name }}</label>
+                        {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                        {{-- <option value="Verifikasi permohonan kalibrasi">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil kalibrasi">Hasil Kalibrasi</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Alamat Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_kalibrasi->perusahaan->alamat }}</label>
+                        {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                        {{-- <option value="Verifikasi permohonan kalibrasi">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil kalibrasi">Hasil Kalibrasi</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nomor Telepon</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_kalibrasi->perusahaan->telepon }}</label>
+                        {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                        {{-- <option value="Verifikasi permohonan kalibrasi">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil kalibrasi">Hasil Kalibrasi</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Barang Uji</label></div>
+                        <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$permohonan_kalibrasi->retribusi->nama   }}</label>
+                            {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                            {{-- <option value="Verifikasi permohonan kalibrasi">Verifikasi Permohonan</option> --}}
+                            {{-- <option value="Hasil kalibrasi">Hasil Kalibrasi</option> --}}
+                            {{-- </select> --}}
+                        </div>
+                    </div>
             <div class="form-group row">
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Subjek</label></div>
                     <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">Verifikasi Permohonan</label>
