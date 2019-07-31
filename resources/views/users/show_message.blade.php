@@ -28,8 +28,8 @@
                                 <div class="row">
                                     <div class="col-xl-2 col-lg-12">
                                         <div class="list-group compose-list-group">
-                                            <a href="inbox.html" class="list-group-item active">
-                                                <i class="icofont icofont-download-alt"></i> Inbox <b class="m-l-5">{{$inbox_count->count()}}</b>
+                                            <a href="{{ Route('inbox') }}" class="list-group-item active">
+                                                <i class="icofont icofont-arrow-left"></i> Kembali 
                                             </a>
                                         </div>
                                     </div>

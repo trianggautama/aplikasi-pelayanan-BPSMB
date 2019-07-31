@@ -54,7 +54,11 @@
                 <!--Notification Menu-->
                 <li class="dropdown notification-menu">
                     <a href="{{ Route('inbox') }}" >
+                    @if(Auth::user()->inbox->where('status',0)->count() != 0)
+                        <i class="icon-bubbles"></i><span class="badge badge-danger header-badge">{{ Auth::user()->inbox->where('status',0)->count() }} </span>
+                        @else
                         <i class="icon-bubbles"></i>
+                    @endif
                     </a>
                         </li>
                         <li class="pc-rheader-submenu">

@@ -113,16 +113,19 @@ class userController extends Controller
         $inbox_pengujian = inbox::first();
         // dd($inbox->permohonan_pengujian->user_id);
         $inbox = inbox::where('user_id',$id)->get()->sortByDesc('id');
+        $inbox_unread = inbox::where('user_id',$id)->where('status',0)->get()->sortByDesc('id');
         // $date = carbon::parse($inbox->created_at);
-        // dd($inbox);
+         //dd($inbox_unread);
 
-          return view('users.inbox',compact('inbox'));
+          return view('users.inbox',compact('inbox','inbox_unread'));
       }
 
       public function show_message($id){
         $id = IDCrypt::Decrypt($id);
         // dd($id);
-        $inbox = inbox::find($id);
+        $inbox = inbox::findOrFail($id);
+        $inbox->status = 1;
+        $inbox->update();
         $user_id = Auth::user()->id;
         $inbox_count = Inbox::where('user_id',$user_id)->get();
         $date = carbon::parse($inbox->created_at);

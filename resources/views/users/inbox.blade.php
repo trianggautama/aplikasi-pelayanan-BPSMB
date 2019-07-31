@@ -20,7 +20,6 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-12">
-
                                             <div class="table-responsive" style="margin-top:10px !important;">
                                                 <table class="table table-hover email-table">
                                                     <tbody class="email-body">
@@ -34,7 +33,12 @@
                                                         </td>
                                                         {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
                                                         <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->subjek }}</a></td>
-                                                        <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->keterangan }}</a></td>
+                                                        <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">@if($d->status == 0)
+                                                        <label class="label bg-primary">pesan baru</label> 
+                                                        @else
+                                                            <p>Sudah di baca</p>
+                                                        @endif
+                                                         </a></td>
                                                         <td class="email-time">{{ carbon\carbon::parse($d->created_at)->format('g:i A') }} </td>
 
                                                     </tr>

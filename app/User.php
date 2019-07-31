@@ -54,4 +54,8 @@ class User extends Authenticatable
         dd($user);
       }
 
+      public function inbox(){
+        return $this->hasMany('App\Inbox');
+      }
+
 }
