@@ -6,7 +6,7 @@
     <div class="col-lg-12">
         <div class="card" style="margin-top:20px;">
             <div class="card-header">
-                    <h4>Verifikasi Permohonan Perngujian {{$permohonan_pengujian->retribusi->komoditi}} dari {{$permohonan_pengujian->user->name}}</h4>
+                    <h4>Verifikasi Permohonan Pengujian</h4>
                     <div class="f2htDiproses href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofon3-cSelesai-alt"></i></a>
                 </div>
             </div>
@@ -14,6 +14,42 @@
                 {{method_field('PUT') }}
                 {{ csrf_field() }}
             <div class="card-block">
+                    {{-- {{$permohonan_pengujian->retribusi->komoditi}} --}}
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_pengujian->user->name }}</label>
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Alamat Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_pengujian->perusahaan->alamat }}</label>
+                        {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nomor Telepon</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{ $permohonan_pengujian->perusahaan->telepon }}</label>
+                        {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Barang Uji</label></div>
+                        <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$permohonan_pengujian->retribusi->komoditi   }}</label>
+                            {{-- <select class="form-control" id="exampleSelect1" name="subjek"> --}}
+                            {{-- <option value="Verifikasi permohonan kalibrasi">Verifikasi Permohonan</option> --}}
+                            {{-- <option value="Hasil kalibrasi">Hasil Kalibrasi</option> --}}
+                            {{-- </select> --}}
+                        </div>
+                    </div>
             <div class="form-group row">
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Subjek</label></div>
                     <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">Verifikasi Permohonan</label>
