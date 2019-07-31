@@ -269,7 +269,7 @@ class adminController extends Controller
 
    //permohonan Kalibrasi
    public function permohonan_kalibrasi_index(){
-    $Kalibrasi     = Permohonan_kalibrasi::all();
+    $Kalibrasi     = Permohonan_kalibrasi::all()->sortBy('created_at')->sortBy('status');
 
     return view('admin.permohonan_kalibrasi_data',compact('Kalibrasi'));
     }
@@ -291,7 +291,6 @@ class adminController extends Controller
        $id = IDCrypt::Decrypt($id);
        $status = permohonan_kalibrasi::findOrFail($id);
            $this->validate(request(),[
-               'subjek'=>'required',
                'status'=>'required',
                'tanggal'=>'required',
                'keterangan'=>'required'
@@ -306,7 +305,8 @@ class adminController extends Controller
 
        $inbox->user_id           = $user_id;
        $inbox->permohonan_kalibrasi_id           = $id;
-       $inbox->subjek           = $request->subjek;
+       $subjek = 'Verifikasi permohonan kalibrasi';
+       $inbox->subjek           = $subjek;
        $inbox->tanggal        = $request->tanggal;
        $inbox->keterangan      = $request->keterangan;
        $inbox->save();
@@ -337,7 +337,7 @@ class adminController extends Controller
 
      //permohonan pengujian
    public function permohonan_pengujian_index(){
-    $pengujian = permohonan_pengujian::all();
+    $pengujian = permohonan_pengujian::all()->sortBy('created_at')->sortBy('status');
     return view('admin.permohonan_pengujian_data',compact('pengujian'));
     }
 
@@ -365,7 +365,6 @@ class adminController extends Controller
     $id = IDCrypt::Decrypt($id);
     $status = permohonan_pengujian::findOrFail($id);
         $this->validate(request(),[
-            'subjek'=>'required',
             'status'=>'required',
             'tanggal'=>'required',
             'keterangan'=>'required'
@@ -380,7 +379,8 @@ class adminController extends Controller
 
     $inbox->user_id           = $user_id;
     $inbox->permohonan_pengujian_id           = $id;
-    $inbox->subjek           = $request->subjek;
+    $subjek = 'Verifikasi permohonan pengujian';
+    $inbox->subjek           = $subjek;
     $inbox->tanggal        = $request->tanggal;
     $inbox->keterangan      = $request->keterangan;
     $inbox->save();
@@ -425,6 +425,7 @@ class adminController extends Controller
         $kalibrasi = kalibrasi::findOrFail($id);
         $kalibrasi->status   = $request->status;
         $kalibrasi->metode_pembayaran     = $request->metode_pembayaran;
+        $kalibrasi->tanggal_terima     = $request->tanggal_terima;
         $kalibrasi->tanggal     = $request->tanggal;
         $kalibrasi->estimasi        = $request->estimasi;
         $kalibrasi->lainnya   = $request->lainnya;
@@ -434,8 +435,8 @@ class adminController extends Controller
 
     //    dd($request);
 
-
-       return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
+        $id_kalibrasi = IDCrypt::encrypt($id);
+       return redirect(route('kalibrasi_detail', ['id' => $id_kalibrasi]))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data kalibrasi
 
       public function kalibrasi_hapus($id){
@@ -456,6 +457,7 @@ class adminController extends Controller
     public function kalibrasi_sertifikat_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
         $kalibrasi = kalibrasi::findOrFail($id);
+        $id_kalibrasi = IDCrypt::encrypt($id);
 
         $file = $request->file('file');
         if($request->sertifikat != null){
@@ -467,9 +469,9 @@ class adminController extends Controller
             $kalibrasi->sertifikat       = $sertifikat;
             $kalibrasi->update();
             }else {
-                return redirect(route('kalibrasi_index'));
+                return redirect(route('kalibrasi_detail', ['id' => $id_kalibrasi]));
             }
-       return redirect(route('kalibrasi_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
+       return redirect(route('kalibrasi_detail', ['id' => $id_kalibrasi]))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
       }//fungsi mengubah data kalibrasi
 
 
@@ -530,7 +532,8 @@ class adminController extends Controller
         $hasil3->u           = $request->u3;
         $hasil3->save();
 
-        return redirect(route('kalibrasi_index'));
+        $id_kalibrasi = IDCrypt::encrypt($id);
+        return redirect(route('kalibrasi_detail', ['id' => $id_kalibrasi]));
            }
 
     //fungsi pengujian data
@@ -558,6 +561,7 @@ class adminController extends Controller
         $pengujian = pengujian::findOrFail($id);
         $pengujian->status   = $request->status;
         $pengujian->metode_pembayaran     = $request->metode_pembayaran;
+        $pengujian->tanggal_terima     = $request->tanggal_terima;
         $pengujian->tanggal     = $request->tanggal;
         $pengujian->estimasi        = $request->estimasi;
         $pengujian->lainnya   = $request->lainnya;
@@ -565,7 +569,9 @@ class adminController extends Controller
     //    dd($request);
 
         $pengujian->update();
-       return redirect(route('pengujian_index'))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
+        $id_pengujian = IDCrypt::encrypt($id);
+        // dd($id_pengujian);
+       return redirect(route('pengujian_detail',['id' => $id_pengujian]))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
       }//fungsi mengubah data pengujian
 
       public function pengujian_hapus($id){
@@ -586,7 +592,7 @@ class adminController extends Controller
     public function pengujian_sertifikat_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
         $pengujian = pengujian::findOrFail($id);
-
+        $id_pengujian = IDCrypt::encrypt($id);
         $file = $request->file('file');
         if($request->sertifikat != null){
             $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
@@ -597,9 +603,9 @@ class adminController extends Controller
             $pengujian->sertifikat       = $sertifikat;
             $pengujian->update();
             }else {
-                return redirect(route('pengujian_index'));
+                return redirect(route('pengujian_detail', ['id' => $id_pengujian]));
             }
-       return redirect(route('pengujian_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
+       return redirect(route('pengujian_detail', ['id' => $id_pengujian]))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
       }//fungsi mengubah data pengujian
 
     public function hasil_pengujian_tambah(){
@@ -635,7 +641,8 @@ class adminController extends Controller
         $hasil->energi_metabolisme  = $request->energi_metabolisme;
         $hasil->save();
 
-        return redirect(route('pengujian_index'));
+        $id_pengujian = IDCrypt::encrypt($id);
+        return redirect(route('pengujian_detail', ['id' => $id_pengujian]));
            }
 
     //user
@@ -788,7 +795,7 @@ class adminController extends Controller
         $no_order=hasil_kalibrasi::where('kalibrasi_id',$id)->first();
         $kalibrasi = Kalibrasi::findOrFail($id);
         // dd($data);
-        $tgl= Carbon::now()->format('d F Y');
+        $tgl= Carbon::now()->format('d-m-y');
 
         $pdf =PDF::loadView('laporan.sertifikat_kalibrasi', ['hasil' => $hasil,'kalibrasi' => $kalibrasi,'tgl'=>$tgl,'no_seri'=>$no_seri,'no_order'=>$no_order]);
         $pdf->setPaper('a4', 'potrait');
@@ -804,7 +811,7 @@ class adminController extends Controller
         $kode_contoh=hasil_pengujian::where('pengujian_id',$id)->first();
         $pengujian = pengujian::findOrFail($id);
         // dd($data);
-        $tgl= Carbon::now()->format('d F Y');
+        $tgl= Carbon::now()->format('d-m-y');
 
         $pdf =PDF::loadView('laporan.sertifikat_pengujian', ['hasil' => $hasil,'count' => $count,'kode_contoh' => $kode_contoh,'pengujian' => $pengujian,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
@@ -875,7 +882,7 @@ class adminController extends Controller
        public function nota_permohonan_kalibrasi($id){
             $id = IDCrypt::Decrypt($id);
             $kalibrasi = kalibrasi::findOrFail($id);
-            $tgl= Carbon::now()->format('d F Y');
+            $tgl= Carbon::now()->format('d-m-y');
             $pdf =PDF::loadView('laporan.nota_permohonan_kalibrasi', ['kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
             $pdf->setPaper('a4', 'potrait');
             return $pdf->stream('Nota terima kalibrasi.pdf');
@@ -884,7 +891,7 @@ class adminController extends Controller
         public function nota_permohonan_pengujian($id){
             $id = IDCrypt::Decrypt($id);
             $pengujian = pengujian::findOrFail($id);
-            $tgl= Carbon::now()->format('d F Y');
+            $tgl= Carbon::now()->format('d-m-y');
             $pdf =PDF::loadView('laporan.nota_permohonan_pengujian', ['pengujian' => $pengujian,'tgl'=>$tgl]);
             $pdf->setPaper('a4', 'potrait');
             return $pdf->stream('Nota terima pengujian.pdf');
