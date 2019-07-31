@@ -112,7 +112,7 @@ class userController extends Controller
         // dd($id);
         $inbox_pengujian = inbox::first();
         // dd($inbox->permohonan_pengujian->user_id);
-        $inbox = inbox::where('user_id',$id)->get()->sortByDesc('id');
+        $inbox = inbox::where('user_id',$id)->get()->sortByDesc('id')->sortBy('status');
         $inbox_unread = inbox::where('user_id',$id)->where('status',0)->get()->sortByDesc('id');
         // $date = carbon::parse($inbox->created_at);
          //dd($inbox_unread);
@@ -256,8 +256,9 @@ class userController extends Controller
 
         // $Date = Carbon::now()->toDateString();
         $user_id = auth::id();
+        $perusahaan_id = auth::user()->perusahaan->id;
         $kalibrasi->user_id                 = $user_id;
-        $kalibrasi->perusahaan_id           = $request->perusahaan_id;
+        $kalibrasi->perusahaan_id           = $perusahaan_id;
         $kalibrasi->retribusi_kalibrasi_id  = $request->retribusi_kalibrasi_id;
         // $kalibrasi->tanggal                 = $Date;
         // $kalibrasi->tanggal                    = $request->tanggal;
@@ -293,10 +294,10 @@ class userController extends Controller
     //    ]);
 
 
-        $kalibrasi->perusahaan_id           = $request->perusahaan_id;
+        // $kalibrasi->perusahaan_id           = $request->perusahaan_id;
         $kalibrasi->retribusi_kalibrasi_id  = $request->retribusi_kalibrasi_id;
         // $kalibrasi->tanggal                 = $Date;
-        $kalibrasi->tanggal                    = $request->tanggal;
+        // $kalibrasi->tanggal                    = $request->tanggal;
         $kalibrasi->merk                    = $request->merk;
         $kalibrasi->no_seri                 = $request->no_seri;
 
@@ -334,8 +335,9 @@ class userController extends Controller
         //dd($request);
         //$Date = Carbon::now()->toDateString();
         $user_id = auth::id();
+        $perusahaan_id = auth::user()->perusahaan->id;
         $pengujian->user_id                 = $user_id;
-        $pengujian->perusahaan_id           = $request->perusahaan_id;
+        $pengujian->perusahaan_id           = $perusahaan_id;
         $pengujian->retribusi_pengujian_id  = $request->retribusi_pengujian_id;
         //$pengujian->tanggal              = $Date;
         //$pengujian->tanggal                 = $request->tanggal;
