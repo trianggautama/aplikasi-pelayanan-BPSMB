@@ -21,13 +21,37 @@
 
             <div class="card-block">
                 <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$perusahaan->user->name}}</label>
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Alamat</label></div>
+                        <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$perusahaan->alamat}}</label>
+                            {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                            {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                            {{-- </select> --}}
+                        </div>
+                    </div>
+                <div class="form-group row">
+                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Telepon</label></div>
+                        <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$perusahaan->telepon}}</label>
+                            {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                            {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                            {{-- </select> --}}
+                        </div>
+                    </div>
+                {{-- <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan </label></div>
                 <div class="col-md-10">
                     <select class="form-control" id="exampleSelect1" name="perusahaan_id">
                         <option value="{{$perusahaan->id}}" >{{$perusahaan->user->name}}</option>
                     </select>
                 </div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
                         <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Kalibrasi </label></div>
                         <div class="col-md-10">
@@ -36,10 +60,6 @@
                             </select>
                         </div>
                         </div>
-                <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan</label></div>
-                    <div class="col-md-10"><input name="tanggal" type="date" value="{{ $kalibrasi->tanggal }}" class="form-control" id="InputNormal" ></div>
-                </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Merk</label></div>
                     <div class="col-md-10"><input type="text" name="merk" class="form-control" id="InputNormal"  placeholder="Merk" value=" {{ $kalibrasi->merk }}"></div>
