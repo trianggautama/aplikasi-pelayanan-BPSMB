@@ -455,6 +455,10 @@ class adminController extends Controller
     }
 
     public function kalibrasi_sertifikat_update(Request $request, $id){
+        $this->validate(request(),[
+            'sertifikat' => 'required|mimes:pdf|max:10000'
+            // 'keterangan'=>'required'
+        ]);
         $id = IDCrypt::Decrypt($id);
         $kalibrasi = kalibrasi::findOrFail($id);
         $id_kalibrasi = IDCrypt::encrypt($id);
@@ -590,6 +594,10 @@ class adminController extends Controller
     }
 
     public function pengujian_sertifikat_update(Request $request, $id){
+        $this->validate(request(),[
+            'sertifikat' => 'required|mimes:pdf|max:10000'
+            // 'keterangan'=>'required'
+        ]);
         $id = IDCrypt::Decrypt($id);
         $pengujian = pengujian::findOrFail($id);
         $id_pengujian = IDCrypt::encrypt($id);
