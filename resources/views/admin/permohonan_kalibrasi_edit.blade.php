@@ -29,10 +29,10 @@
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Biaya</label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Biaya"></div>
                 </div>
-                <div class="form-group row">
+                {{-- <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan</label></div>
                     <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" ></div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Merk</label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Merk"></div>
