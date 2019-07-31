@@ -22,10 +22,18 @@
                 {{method_field('PUT') }}
                 {{ csrf_field() }}
             <div class="card-block">
-                <div class="form-group row">
+                 <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$pengujian->perusahaan->user->name}}</label>
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+            </div>
+                {{-- <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Perusahaan </label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama Perusahaan" value="{{$pengujian->user->name}}"></div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Barang Yang Diuji </label></div>
                 <div class="col-md-10">
@@ -47,7 +55,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-            <a href="{{route('permohonan_kalibrasi_index')}}" class="btn btn-inverse-danger">Batal</a>
+            <a href="{{route('permohonan_kalibrasi_user_index')}}" class="btn btn-inverse-danger">Batal</a>
             <input type="submit" class="btn btn-inverse-primary" value="ubah">
             </div>
         </div>
