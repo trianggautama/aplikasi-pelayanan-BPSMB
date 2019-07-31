@@ -70,6 +70,17 @@
                                         </tr>
                                         @else
                                         @endif
+                                        @if($kalibrasi->status==3)
+                                        <tr>
+                                            <th scope="row">Tanggal Upload Sertifikat</th>
+                                            @if(isset($kalibrasi->updated_at))
+                                            <td>{{ carbon\carbon::parse($kalibrasi->updated_at)->format('d-m-Y') }}</td>
+                                            @else
+                                            <td></td>
+                                            @endif
+                                        </tr>
+                                        @else
+                                        @endif
                                         <tr>
                                             <th scope="row">keterangan uji</th>
                                             <td>
@@ -139,8 +150,11 @@
             @endif
             @if(isset($kalibrasi->hasil_kalibrasi->id))
             <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Sertifikat</a>
-            <a href="{{Route('kalibrasi_sertifikat_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-upload"></i> Upload Sertifikat</a>
             @else
+            @endif
+            @if(isset($kalibrasi->sertifikat))
+            @else
+            <a href="{{Route('kalibrasi_sertifikat_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-upload"></i> Upload Sertifikat</a>
             @endif
         </div>
     </div>
