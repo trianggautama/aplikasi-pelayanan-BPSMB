@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->retribusi->komoditi }}</td>
-                            <td>Rp. {{ $d->retribusi->biaya }}</td>
+                            <td>{{ number_format($d->retribusi->biaya)}}</td>
                             <td>{{$d->created_at->format('d-m-Y')}}</td>
                             <td>{{ carbon\carbon::parse($d->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
@@ -57,7 +57,7 @@
                             </td>
                             <td class="text-center">
                                 @if(isset($d->pengujian->sertifikat))
-                                <a href="{{Route('download_sertifikat_pengujian',['id'=>IDCrypt::Encrypt($d->pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Download Sertifikat</a>
+                                <a href="{{Route('download_sertifikat_pengujian',['id'=>IDCrypt::Encrypt($d->pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-download"></i></a>
                                 {{-- <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a> --}}
                                 @else
                                 <a href="" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Belum dapat di download" ><i class="icon-close"></i></i></a>                                 @endif
