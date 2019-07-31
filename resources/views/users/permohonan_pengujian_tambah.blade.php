@@ -22,13 +22,21 @@
                 {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
+                    <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan</label></div>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">{{$perusahaan->user->name}}</label>
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
+                        {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
+                        {{-- </select> --}}
+                    </div>
+            </div>
+                {{-- <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Perusahaan </label></div>
                 <div class="col-md-10">
                     <select class="form-control" id="exampleSelect1" name="perusahaan_id">
                         <option value="{{$perusahaan->id}}" >{{$perusahaan->user->name}}</option>
                     </select>
                 </div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Barang Yang Diuji </label></div>
                 <div class="col-md-10">
@@ -38,10 +46,6 @@
                         @endforeach
                     </select>
                 </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Permohonan</label></div>
-                    <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" value="{{ $Date->toDateString() }}" disabled></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>
