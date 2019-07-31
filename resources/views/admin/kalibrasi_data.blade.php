@@ -26,7 +26,8 @@
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
-                            <th>tanggal Kalibrasi</th>
+                            <th>Tanggal Antar Barang</th>
+                            <th>Tanggal Kalibrasi</th>
                             <th>Estimasi</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
@@ -39,14 +40,18 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
-                            <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
+                            {{-- <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td> --}}
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->tanggal }}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
+                            @if(isset($d->tanggal))
+                            <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
+                            @else
+                            <td></td>
+                            @endif
                             <td>{{ $d->estimasi }}</td>
                             <td>
-                                @if($d->status == 0)
-                                <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->status == 2)
+                                @if($d->status == 0 || $d->status == 2)
                                 <label class="label bg-warning">Pending</label>
                                     @elseif($d->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>

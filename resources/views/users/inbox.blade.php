@@ -24,23 +24,18 @@
                                             <div class="table-responsive" style="margin-top:10px !important;">
                                                 <table class="table table-hover email-table">
                                                     <tbody class="email-body">
+                                                        @php
+                                                            $no = 0
+                                                        @endphp
                                                     @foreach ($inbox as $d)
                                                     <tr class="unread">
                                                         <td>
-                                                            <div class="checkbox-fade fade-in-primary checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" value="">
-                                                                    <span class="cr"><i class="cr-icon icofont icofont-verification-check txt-primary"></i></span>
-                                                                </label>
-                                                            </div>
-                                                            <i class="icofont icofont-star txt-muted"></i>
-                                                            <i class="icofont icofont-disc txt-warning"></i>
+                                                            {{ $no =$no + 1 }}
                                                         </td>
                                                         {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
                                                         <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->subjek }}</a></td>
                                                         <td><a href="{{Route('show_message', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="email-name">{{ $d->keterangan }}</a></td>
-                                                        <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
-                                                        <td class="email-time">08:01 AM</td>
+                                                        <td class="email-time">{{ carbon\carbon::parse($d->created_at)->format('g:i A') }} </td>
 
                                                     </tr>
                                                     @endforeach

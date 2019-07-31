@@ -28,20 +28,22 @@ class adminController extends Controller
         $perusahaan = Perusahaan::all();
         $pengujian= Pengujian::all();
         $pengujian_dalam_proses= Pengujian::where('status',1)->get();
+        $pengujian_pending= Pengujian::where('status',2)->get();
         $pengujian_selesai= Pengujian::where('status',3)->get();
 
         $kalibrasi = Kalibrasi::all();
         $kalibrasi_dalam_proses= Kalibrasi::where('status',1);
+        $kalibrasi_pending= Kalibrasi::where('status',2);
         $kalibrasi_selesai= Kalibrasi::where('status',3);
 
         $permohonan_pengujian= Permohonan_pengujian::all();
         $permohonan_pengujian_diterima= Permohonan_pengujian::where('status',2)->get();
-        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',1)->get();
+        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',0)->get();
         $permohonan_kalibrasi= Permohonan_kalibrasi::all();
         $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->get();
-        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',1)->get();
+        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',0)->get();
 
-        return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak'));
+        return view('admin.index',compact('perusahaan','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak','kalibrasi_pending','pengujian_pending'));
     }
 
     //function perusahaan
@@ -309,11 +311,17 @@ class adminController extends Controller
        $inbox->keterangan      = $request->keterangan;
        $inbox->save();
 
-       $kalibrasi = new kalibrasi;
-       $kalibrasi->user_id = $user_id;
-       $kalibrasi->permohonan_kalibrasi_id           = $id;
-       $kalibrasi->status = $status->status;
-       $kalibrasi->save();
+       if($request->status==2){
+        $kalibrasi = new kalibrasi;
+        $kalibrasi->user_id = $user_id;
+        $kalibrasi->permohonan_kalibrasi_id           = $id;
+        $kalibrasi->status = $status->status;
+        $kalibrasi->save();
+       }else{
+
+       }
+
+
 
 
        return redirect(route('permohonan_kalibrasi_index'));
@@ -377,13 +385,16 @@ class adminController extends Controller
     $inbox->keterangan      = $request->keterangan;
     $inbox->save();
 
+    if($request->status==2){
     $pengujian = new pengujian;
 
     $pengujian->user_id = $user_id;
     $pengujian->permohonan_pengujian_id           = $id;
     $pengujian->status = $status->status;
     $pengujian->save();
+    }else{
 
+    }
 
     return redirect(route('permohonan_pengujian_index'));
        }
@@ -418,10 +429,47 @@ class adminController extends Controller
         $kalibrasi->estimasi        = $request->estimasi;
         $kalibrasi->lainnya   = $request->lainnya;
         $kalibrasi->keterangan   = $request->keterangan;
-    //    dd($request);
 
         $kalibrasi->update();
+
+    //    dd($request);
+
+
        return redirect(route('kalibrasi_index'))->with('success', 'Data kalibrasi '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data kalibrasi
+
+      public function kalibrasi_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kalibrasi=kalibrasi::findOrFail($id);
+        $Kalibrasi->delete();
+
+        return redirect(route('kalibrasi_index'))->with('success', 'Data retribusi kalibrasi berhasil di hapus');
+    }//fungsi menghapus data retribusi kalibrasi
+
+    public function kalibrasi_sertifikat_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::find($id);
+
+    return view('admin.kalibrasi_sertifikat_edit',compact('kalibrasi'));
+    }
+
+    public function kalibrasi_sertifikat_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $kalibrasi = kalibrasi::findOrFail($id);
+
+        $file = $request->file('file');
+        if($request->sertifikat != null){
+            $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
+            $sertifikatName = $request->sertifikat->getClientOriginalName();;
+            // dd($sertifikatName);
+            $sertifikat   = $sertifikatName.'.'.$sertifikatExt;
+            $request->sertifikat->move('sertifikat/kalibrasi', $sertifikat);
+            $kalibrasi->sertifikat       = $sertifikat;
+            $kalibrasi->update();
+            }else {
+                return redirect(route('kalibrasi_index'));
+            }
+       return redirect(route('kalibrasi_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
       }//fungsi mengubah data kalibrasi
 
 
@@ -518,6 +566,40 @@ class adminController extends Controller
 
         $pengujian->update();
        return redirect(route('pengujian_index'))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
+      }//fungsi mengubah data pengujian
+
+      public function pengujian_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian=pengujian::findOrFail($id);
+        $pengujian->delete();
+
+        return redirect(route('pengujian_index'))->with('success', 'Data pengujian berhasil di hapus');
+    }//fungsi menghapus data pengujian
+
+      public function pengujian_sertifikat_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::find($id);
+
+    return view('admin.pengujian_sertifikat_edit',compact('pengujian'));
+    }
+
+    public function pengujian_sertifikat_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $pengujian = pengujian::findOrFail($id);
+
+        $file = $request->file('file');
+        if($request->sertifikat != null){
+            $sertifikatExt  = $request->sertifikat->getClientOriginalExtension();
+            $sertifikatName = $request->sertifikat->getClientOriginalName();;
+            // dd($sertifikatName);
+            $sertifikat   = $sertifikatName.'.'.$sertifikatExt;
+            $request->sertifikat->move('sertifikat/pengujian', $sertifikat);
+            $pengujian->sertifikat       = $sertifikat;
+            $pengujian->update();
+            }else {
+                return redirect(route('pengujian_index'));
+            }
+       return redirect(route('pengujian_index'))->with('success', 'Data Sertifikat '.$request->$sertifikat.' Berhasil di Upload');
       }//fungsi mengubah data pengujian
 
     public function hasil_pengujian_tambah(){

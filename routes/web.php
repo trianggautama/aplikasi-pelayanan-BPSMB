@@ -86,6 +86,10 @@ Route::get('/kalibrasi_edit/{id}','adminController@kalibrasi_edit')
 ->name('kalibrasi_edit');
 Route::put('/kalibrasi_edit/{id}','adminController@kalibrasi_update')
 ->name('kalibrasi_update');
+Route::get('/kalibrasi/sertifikat/{id}','adminController@kalibrasi_sertifikat_edit')
+->name('kalibrasi_sertifikat_edit');
+Route::put('/kalibrasi/sertifikat/{id}','adminController@kalibrasi_sertifikat_update')
+->name('kalibrasi_sertifikat_update');
 Route::get('/cetak/sertifikat_kalibrasi/{id}','adminController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi');
 Route::get('/hasil_kalibrasi/tambah/{id}','adminController@hasil_kalibrasi_tambah')
@@ -96,6 +100,8 @@ Route::get('/kalibrasi/cetak','adminController@kalibrasi_cetak')
 ->name('kalibrasi_cetak');
 Route::get('/kalibrasi/perusahaan/cetak/{id}','adminController@kalibrasi_perusahaan_cetak')
 ->name('kalibrasi_perusahaan_cetak');
+Route::get('/kalibrasi_detail/hapus/{id}','adminController@kalibrasi_hapus')
+->name('kalibrasi_hapus');
 
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
@@ -106,6 +112,10 @@ Route::get('/pengujian_edit/{id}','adminController@pengujian_edit')
 ->name('pengujian_edit');
 Route::put('/pengujian_edit/{id}','adminController@pengujian_update')
 ->name('pengujian_update');
+Route::get('/pengujian/sertifikat/{id}','adminController@pengujian_sertifikat_edit')
+->name('pengujian_sertifikat_edit');
+Route::put('/pengujian/sertifikat/{id}','adminController@pengujian_sertifikat_update')
+->name('pengujian_sertifikat_update');
 Route::get('/cetak/sertifikat_pengujian/{id}','adminController@sertifikat_pengujian')
 ->name('sertifikat_pengujian');
 Route::get('/hasil_pengujian/tambah/{id}','adminController@hasil_pengujian_tambah')
@@ -116,6 +126,8 @@ Route::get('/pengujian/cetak','adminController@pengujian_cetak')
 ->name('pengujian_cetak');
 Route::get('/pengujian/perusahaan/cetak/{id}','adminController@pengujian_perusahaan_cetak')
 ->name('pengujian_perusahaan_cetak');
+Route::get('/pengujian_detail/hapus/{id}','adminController@pengujian_hapus')
+->name('pengujian_hapus');
 
 
 //user atau admin
@@ -164,6 +176,10 @@ Route::get('/admin/retribusi_pengujian/laporan/retribusi-pengujian','adminContro
 //dashboard user
 Route::get('/user','userController@index')
 ->name('user_index');
+Route::get('/user/edit/{id}','userController@user_edit')
+->name('user_edit');
+Route::put('/user/edit/{id}','userController@user_update')
+->name('user_update');
 
 Route::get('/inbox','userController@inbox')
 ->name('inbox');
@@ -209,12 +225,16 @@ Route::get('/user/kalibrasi','userController@kalibrasi_index')
 ->name('kalibrasi_user_index');
 Route::get('/user/cetak/sertifikat_kalibrasi/{id}','userController@sertifikat_kalibrasi')
 ->name('sertifikat_kalibrasi_user');
+Route::get('/user/kalibrasi/download/sertifikat_kalibrasi/{id}','userController@download_sertifikat_kalibrasi')
+->name('download_sertifikat_kalibrasi');
 
 //riwayat pengujian
 Route::get('/user/pengujian','userController@pengujian_index')
 ->name('pengujian_user_index');
 Route::get('/user/cetak/sertifikat_pengujian/{id}','userController@sertifikat_pengujian')
 ->name('sertifikat_pengujian_user');
+Route::get('/user/pengujian/download/sertifikat_pengujian/{id}','userController@download_sertifikat_pengujian')
+->name('download_sertifikat_pengujian');
 
 //MIDLEWARE USER
 

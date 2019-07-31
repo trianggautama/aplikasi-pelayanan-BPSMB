@@ -18,7 +18,6 @@ class CreatePermohonanKalibrasisTable extends Migration
             $table->unsignedbigInteger('user_id');
             $table->unsignedbigInteger('perusahaan_id');
             $table->unsignedbigInteger('retribusi_kalibrasi_id');
-            $table->date('tanggal');
             $table->string('merk')->length(100);
             $table->string('no_seri')->length(100);
             $table->tinyInteger('status')->default(1);

@@ -33,7 +33,7 @@
                                 @foreach ($Pengujian as $d)
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->komoditi}}</td>
-                                <td>{{$d->biaya}}</td>
+                                <td>{{ number_format($d->biaya)}}</td>
                                 <td>{{$d->keterangan}}</td>
                                 <td class="text-center">
                                         <a href="{{ route('retribusi_pengujian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>

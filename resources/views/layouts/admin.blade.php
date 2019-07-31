@@ -113,7 +113,8 @@
                 <!-- sidebar profile Menu-->
                 <ul class="nav sidebar-menu extra-profile-list">
                     <li>
-                        <a class="waves-effect waves-dark" href="profile.html">
+                            {{-- <a href="{{ route('admin_user_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a> --}}
+                        <a class="waves-effect waves-dark" href="{{ route('admin_user_edit', ['id' => IDCrypt::Encrypt(Auth::user()->id)])}}">
                             <i class="icon-user"></i>
                             <span class="menu-text">View Profile</span>
                             <span class="selected"></span>
@@ -153,8 +154,7 @@
                         <li><a class="waves-effect waves-dark" href="{{route('admin_perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
-                            <li> <a class="waves-effect waves-dark" href="{{route('admin_user_index')}}"><i class="icon-list"></i><span> Kelola Admin</span> </a></li>
-
+                            <li><a class="waves-effect waves-dark" href="{{route('admin_user_index')}}"><i class="icon-list"></i><span> Kelola Admin</span></a></li>
                       </ul>
 
                     </li>
@@ -162,12 +162,11 @@
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_kalibrasi_index')}}"><i class="icon-arrow-right"></i> Permohonan Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('permohonan_pengujian_index')}}"><i class="icon-arrow-right"></i> Permohonan pengujian</a></li>
-                          
-                        </ul>
+                           </ul>
                     </li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span>Data Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Riwayat Transaksi</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Kalibrasi</a></li>
+                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_index')}}"><i class="icon-arrow-right"></i> Data Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
                     </li>

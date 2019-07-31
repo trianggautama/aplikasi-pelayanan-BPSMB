@@ -29,44 +29,12 @@
                                     <div class="col-xl-2 col-lg-12">
                                         <div class="list-group compose-list-group">
                                             <a href="inbox.html" class="list-group-item active">
-                                                <i class="icofont icofont-download-alt"></i> Inbox <b class="m-l-5">(7)</b>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <i class="icofont icofont-ui-delete"></i> Trash
-                                                <b class="m-l-5">(290)</b>
+                                                <i class="icofont icofont-download-alt"></i> Inbox <b class="m-l-5">{{$inbox_count->count()}}</b>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-10 col-lg-12">
-                                        <div class="email-icon">
-                                            <div class="btn-group waves-effect waves-light" role="group" >
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light"><i class="icofont icofont-inbox"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light"><i class="icofont icofont-exclamation-circle"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light"><i class="icofont icofont-ui-delete"></i>
-                                                </button>
-                                            </div>
-                                            <div class="dropdown-primary dropdown m-r-10">
-                                                <button class="btn btn-primary dropdown-shadow dropdown-toggle waves-effect waves-light text-capitalize" type="button" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icofont icofont-ui-folder"></i>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdown1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Action</a>
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Another action</a>
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Something else here</a>
-                                                </div>
-                                            </div>
 
-                                            <div class="dropdown-primary dropdown">
-                                                <button class="btn btn-primary dropdown-shadow dropdown-toggle waves-effect waves-light text-capitalize" type="button" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">More
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdown1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Action</a>
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Another action</a>
-                                                    <a class="dropdown-item waves-light waves-effect" href="#">Something else here</a>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <br>
                                         <div>
                                             <div class="card email-card">
@@ -94,6 +62,10 @@
                                                                 <p class="email-content">
                                                                     {{ $inbox->keterangan }}
                                                                 </p>
+
+                                                                <p>note : untuk pembayaran bisa melalui cash atau via transfer</p>
+                                                                <p>no rekening : 901.03.14.00.186.2 (BANK KALSEL)</p>
+                                                                <p>ttd : bendahara penerimaan BPSMB Prov. Kalsel</p>
                                                             </div>
                                                         </div>
                                                     </div>

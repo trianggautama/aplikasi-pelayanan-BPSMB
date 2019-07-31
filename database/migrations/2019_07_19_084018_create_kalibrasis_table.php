@@ -23,6 +23,7 @@ class CreateKalibrasisTable extends Migration
             $table->tinyInteger('status')->default(1);
             $table->string('lainnya')->length(100)->nullable();
             $table->text('keterangan')->nullable();
+            $table->string('sertifikat')->length(100)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('permohonan_kalibrasi_id')->references('id')->on('permohonan_kalibrasis')->onDelete('cascade');
             $table->timestamps();

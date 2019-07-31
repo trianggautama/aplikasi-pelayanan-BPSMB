@@ -26,6 +26,7 @@
                             <th>Biaya</th>
                             <th>Tanggal permohonan</th>
                             <th>Tanggal Verifikasi</th>
+                            <th>Tanggal Antar Barang</th>
                             <th>tanggal Pengujian</th>
                             <th>Estimasi</th>
                             <th>Status</th>
@@ -40,13 +41,12 @@
                             <td>{{ $d->retribusi->komoditi }}</td>
                             <td>Rp. {{ $d->retribusi->biaya }}</td>
                             <td>{{$d->created_at->format('d-m-Y')}}</td>
+                            <td>{{ carbon\carbon::parse($d->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->pengujian->tanggal }}</td>
-                            <td>{{ $d->pengujian->estimasi }} Minggu</td>
+                            <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ $d->pengujian->estimasi }}</td>
                             <td>
-                                @if($d->pengujian->status == 0)
-                                <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->pengujian->status == 2)
+                                @if($d->pengujian->status == 0 || $d->pengujian->status == 2)
                                 <label class="label bg-warning">Pending</label>
                                     @elseif($d->pengujian->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
@@ -56,11 +56,11 @@
                             </td>
                             </td>
                             <td class="text-center">
-                            @if($d->pengujian->status== 3)
-                            <a href="{{Route('sertifikat_pengujian_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
-                            @else
-                            <a href="#" class="btn btn-danger"> Belum Dapat Dicetak</a>
-                            @endif
+                                @if(isset($d->pengujian->sertifikat))
+                                <a href="{{Route('download_sertifikat_pengujian',['id'=>IDCrypt::Encrypt($d->pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Download Sertifikat</a>
+                                {{-- <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a> --}}
+                                @else
+                                <a href="" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Belum dapat di download" ><i class="icon-close"></i></i></a>                                 @endif
                             {{-- <a href="{{Route('pengujian_user_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
                         </td>
 

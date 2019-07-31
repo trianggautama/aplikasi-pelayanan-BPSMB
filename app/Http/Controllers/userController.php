@@ -29,6 +29,8 @@ class userController extends Controller
 
         //dashboard admin
         public function index(){
+            $id= Auth::user()->id;
+            // dd($id);
             $user = User::findOrFail(Auth::user()->id);
             $perusahaan = $user->perusahaan;
             // dd($perusahaan->user->status);
@@ -43,16 +45,75 @@ class userController extends Controller
             //   $perusahaans = 'Sudah Terverifikasi';
             //   }
             //   $perusahaans = 'Belum Terverifikasi';
+            $perusahaan_count = Perusahaan::all();
+        $pengujian= Pengujian::where('user_id',$id);
+        $pengujian_dalam_proses= Pengujian::where('status',1)->where('user_id',$id)->get();
+        $pengujian_pending= Pengujian::where('status',1)->where('user_id',$id)->get();
+        $pengujian_selesai= Pengujian::where('status',3)->where('user_id',$id)->get();
 
-            return view('users.index',compact('perusahaans'));
+        $kalibrasi = Kalibrasi::where('user_id',$id);
+        $kalibrasi_dalam_proses= Kalibrasi::where('status',1)->where('user_id',$id)->get();
+        $kalibrasi_pending= Kalibrasi::where('status',2)->where('user_id',$id)->get();
+        $kalibrasi_selesai= Kalibrasi::where('status',3)->where('user_id',$id)->get();
+
+        $permohonan_pengujian= Permohonan_pengujian::where('user_id',$id);
+        $permohonan_pengujian_diterima= Permohonan_pengujian::where('status',2)->where('user_id',$id)->get();
+        $permohonan_pengujian_ditolak= Permohonan_pengujian::where('status',0)->where('user_id',$id)->get();
+        $permohonan_kalibrasi= Permohonan_kalibrasi::where('user_id',$id);
+        $permohonan_kalibrasi_diterima= Permohonan_kalibrasi::where('status',2)->where('user_id',$id)->get();
+        $permohonan_kalibrasi_ditolak= Permohonan_kalibrasi::where('status',0)->where('user_id',$id)->get();
+
+        return view('users.index',compact('perusahaan','perusahaan_count','pengujian','pengujian_dalam_proses','pengujian_selesai','kalibrasi','kalibrasi_dalam_proses','kalibrasi_selesai','permohonan_pengujian','permohonan_pengujian_diterima','permohonan_pengujian_ditolak','permohonan_kalibrasi','permohonan_kalibrasi_diterima','permohonan_kalibrasi_ditolak','kalibrasi_pending','pengujian_pending'));
+
+            // return view('users.index',compact('perusahaans'));
         }
+
+        public function user_edit($id){
+            $id = IDCrypt::Decrypt($id);
+            $user = user::findOrFail($id);
+            // dd($user);
+
+            return view('users.user_edit',compact('user'));
+        }//menampilkan halaman edit user
+
+        public function user_update(Request $request, $id){
+            $id = IDCrypt::Decrypt($id);
+            $user = user::findOrFail($id);
+
+            $this->validate(request(),[
+                'name'=>'required',
+                'email'=>'required'
+                // 'status'=>'required'
+            ]);
+            if($request->foto != null){
+                $FotoExt  = $request->foto->getClientOriginalExtension();
+                $FotoName = $request->user_id.' - '.$request->name;
+                $foto   = $FotoName.'.'.$FotoExt;
+                $request->foto->move('images/perusahaan', $foto);
+                $user->foto       = $foto;
+                }else {
+                    $user->foto  = $user->foto;
+                }
+            $user->name            = $request->name;
+            $user->email    = $request->email;
+            if($request->password != null){
+            $Password       = Hash::make($request->password);
+            $user->password = $Password;
+            }else{
+
+            }
+
+           $user->update();
+           return redirect(route('user_index'))->with('success', 'Data user '.$request->name.' Berhasil di Ubah');
+          }//fungsi mengubah data user
 
     public function inbox(){
         $id = Auth::user()->id;
         // dd($id);
         $inbox_pengujian = inbox::first();
         // dd($inbox->permohonan_pengujian->user_id);
-        $inbox = inbox::where('user_id',$id)->get();
+        $inbox = inbox::where('user_id',$id)->get()->sortByDesc('id');
+        // $date = carbon::parse($inbox->created_at);
         // dd($inbox);
 
           return view('users.inbox',compact('inbox'));
@@ -62,11 +123,13 @@ class userController extends Controller
         $id = IDCrypt::Decrypt($id);
         // dd($id);
         $inbox = inbox::find($id);
+        $user_id = Auth::user()->id;
+        $inbox_count = Inbox::where('user_id',$user_id)->get();
         $date = carbon::parse($inbox->created_at);
         // dd($date);
         // dd($inbox);
 
-        return view('users.show_message',compact('inbox','date'));
+        return view('users.show_message',compact('inbox','inbox_count','date'));
     }
 
         public function perusahaan_tambah(){
@@ -339,6 +402,18 @@ class userController extends Controller
             return $pdf->stream('Laporan hasil kalibrasi.pdf');
            }//mencetak  hasil pengujian
 
+        public function download_sertifikat_kalibrasi($id) {
+        // $file = CommUploads::where('id', $fileID)->first();
+        // dd($id);
+        $id = IDCrypt::Decrypt($id);
+        $file = Kalibrasi::where('id',$id)->first();
+        // dd($file);
+        // if (Auth::user()->id == $file->user_id || Auth::user()->id == $file->artist_id) {
+        return response()->download('sertifikat/kalibrasi/' . $file->sertifikat);
+        // return response()->file('sertifikat/kalibrasi/' . $file->sertifikat);
+            // }
+        }
+
            public function sertifikat_pengujian($id){
             $id = IDCrypt::Decrypt($id);
             $hasil=hasil_pengujian::where('pengujian_id',$id)->get();
@@ -354,6 +429,18 @@ class userController extends Controller
             $pdf->setPaper('a4', 'potrait');
             return $pdf->stream('Laporan hasil pengujian.pdf');
            }//mencetak  hasil pengujian
+
+        public function download_sertifikat_pengujian($id) {
+        // $file = CommUploads::where('id', $fileID)->first();
+        // dd($id);
+        $id = IDCrypt::Decrypt($id);
+        $file = pengujian::where('id',$id)->first();
+        // dd($file);
+        // if (Auth::user()->id == $file->user_id || Auth::user()->id == $file->artist_id) {
+        return response()->download('sertifikat/pengujian/' . $file->sertifikat);
+        // return response()->file('sertifikat/kalibrasi/' . $file->sertifikat);
+            // }
+        }
 
         public function pengujian_index(){
             $id = auth::id();

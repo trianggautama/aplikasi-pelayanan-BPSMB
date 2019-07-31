@@ -130,7 +130,11 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single_event position-relative">
                         <div class="event_thumb">
+<<<<<<< HEAD
                             <img src="vendor/img/event/Kalibrasi.jpg" alt=""  width="675" />
+=======
+                            <img src="vendor/img/event/Kalibrasi.jpg" alt="" width="675"/>
+>>>>>>> e302f8040d5963a6baf96bb383c0b91239f34a4e
                         </div>
                         <div class="event_details">
                             <div class="d-flex mb-4">

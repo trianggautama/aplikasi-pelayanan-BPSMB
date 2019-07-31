@@ -37,7 +37,7 @@
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->komoditi}}</td>
-                                <td>Rp. {{$d->retribusi->biaya}}</td>
+                                <td>{{ number_format($d->retribusi->biaya)}}</td>
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->keterangan}}</td>
                                 <td>
@@ -52,7 +52,10 @@
                                 <td class="text-center">
                                         {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
                                 {{-- <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"> <i class="icon-eye"></i></i></a> --}}
+                                @if($d->status == 2)
+                                @else
                                 <a href="{{Route('halaman_verifikasi', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
+                                @endif
                                 <a href="{{ route('permohonan_pengujian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                             </tr>
