@@ -33,16 +33,24 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Verifikasi</th>
-                                            <td> {{ $kalibrasi->created_at->format('d M Y') }}</td>
+                                            <td> {{ $kalibrasi->created_at->format('d-m-Y') }}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Antar Barang</th>
-                                            <td>{{ carbon\carbon::parse($kalibrasi->permohonan_kalibrasi->inbox->tanggal)->format('d M Y') }}</td>
+                                            <td>{{ carbon\carbon::parse($kalibrasi->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Tanggal Terima Barang</th>
+                                            @if(isset($kalibrasi->tanggal_terima))
+                                            <td>{{ carbon\carbon::parse($kalibrasi->tanggal_terima)->format('d-m-Y') }}</td>
+                                            @else
+                                            <td></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">Tanggal Kalibrasi</th>
                                             @if(isset($kalibrasi->tanggal))
-                                            <td>{{ carbon\carbon::parse($kalibrasi->tanggal)->format('d M Y') }}</td>
+                                            <td>{{ carbon\carbon::parse($kalibrasi->tanggal)->format('d-m-Y') }}</td>
                                             @else
                                             <td></td>
                                             @endif
@@ -51,9 +59,23 @@
                                             <th scope="row">Estimasi</th>
                                             <td>{{ $kalibrasi->estimasi }}</td>
                                         </tr>
+                                        @if($kalibrasi->status==3)
+                                        <tr>
+                                            <th scope="row">Tanggal Selesai</th>
+                                            @if(isset($kalibrasi->updated_at))
+                                            <td>{{ carbon\carbon::parse($kalibrasi->updated_at)->format('d-m-Y') }}</td>
+                                            @else
+                                            <td></td>
+                                            @endif
+                                        </tr>
+                                        @else
+                                        @endif
                                         <tr>
                                             <th scope="row">keterangan uji</th>
                                             <td>
+                                                    @if(isset($kalibrasi->sertifikat))
+                                                    <label class="label bg-success">Terverifikasi</label>
+                                                    @else
                                                     @if($kalibrasi->status == 0)
                                                     <label class="label bg-danger">Gagal Uji</label>
                                                         @elseif($kalibrasi->status == 2)
@@ -62,6 +84,7 @@
                                                     <label class="label bg-info">Sedang Diuji</label>
                                                         @elseif($kalibrasi->status == 3)
                                                     <label class="label bg-success">Selesai Diuji</label>
+                                                    @endif
                                                     @endif
                                                 </td>
                                         </tr>
@@ -101,16 +124,22 @@
         </div>
         <div class="card-footer text-right">
             <a href="{{ route('kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $kalibrasi->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i>Hapus Data</a>
+            @if($kalibrasi->status==3)
             {{-- <a href="" class="btn btn-danger"><i class="icofont icofont-ui-delete"></i> Hapus Data</a> --}}
+            @else
             <a href="{{Route('kalibrasi_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-info"><i class="icofont icofont-edit-alt"></i> Edit Data</a>
+            @endif
             @if(isset($kalibrasi->tanggal))
             <a href="{{Route('nota_permohonan_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Tanda Terima</a>
-            <a href="{{Route('hasil_kalibrasi_tambah',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil Kalibrasi</a>
             @else
             @endif
             @if(isset($kalibrasi->hasil_kalibrasi->id))
-            <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a>
-            <a href="{{Route('kalibrasi_sertifikat_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Upload Sertifikat</a>
+            @elseif($kalibrasi->status==3)
+            <a href="{{Route('hasil_kalibrasi_tambah',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-success"> <i class="icofont "></i> input Hasil Kalibrasi</a>
+            @endif
+            @if(isset($kalibrasi->hasil_kalibrasi->id))
+            <a href="{{Route('sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-printer"></i> Cetak Sertifikat</a>
+            <a href="{{Route('kalibrasi_sertifikat_edit',['id'=>IDCrypt::Encrypt($kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-upload"></i> Upload Sertifikat</a>
             @else
             @endif
         </div>
