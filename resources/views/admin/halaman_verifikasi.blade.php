@@ -6,7 +6,7 @@
     <div class="col-lg-12">
         <div class="card" style="margin-top:20px;">
             <div class="card-header">
-                    <h4>Verifikasi Permohonan Perngujian dari {{$permohonan_pengujian->user->name}}</h4>
+                    <h4>Verifikasi Permohonan Perngujian {{$permohonan_pengujian->retribusi->komoditi}} dari {{$permohonan_pengujian->user->name}}</h4>
                     <div class="f2htDiproses href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofon3-cSelesai-alt"></i></a>
                 </div>
             </div>
@@ -16,17 +16,17 @@
             <div class="card-block">
             <div class="form-group row">
                     <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Subjek</label></div>
-                    <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="subjek">
-                        <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option>
+                    <div class="col-md-10"><label for="exampleSelect1" class="form-control-label">Verifikasi Permohonan</label>
+                        {{-- <option value="Verifikasi permohonan pengujian">Verifikasi Permohonan</option> --}}
                         {{-- <option value="Hasil pengujian">Hasil Pengujian</option> --}}
-                        </select>
+                        {{-- </select> --}}
                     </div>
                 </div>
                 <div class="form-group row">
                 <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Status</label></div>
                     <div class="col-md-10"><select class="form-control" id="exampleSelect1" name="status">
                         <option value="2">Diterima</option>
-                        <option value="0">Ditolak</option>
+                        <option value="3">Ditolak</option>
                         </select>
                     </div>
                 </div>

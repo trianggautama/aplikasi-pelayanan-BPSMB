@@ -17,6 +17,7 @@ class CreatePengujiansTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedbigInteger('user_id');
             $table->unsignedbigInteger('permohonan_pengujian_id');
+            $table->date('tanggal_terima')->nullable();
             $table->date('tanggal')->nullable();
             $table->tinyInteger('metode_pembayaran')->default(0);
             $table->string('estimasi')->length(100)->nullable();

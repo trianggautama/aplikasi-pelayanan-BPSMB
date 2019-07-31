@@ -24,7 +24,7 @@
                             <th>No</th>
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
-                            <th>Tanggal Permohonan</th>                            
+                            <th>Tanggal Permohonan</th>
                             <th>Tanggal Verifikasi</th>
                             <th>Tanggal Antar Barang</th>
                             <th>tanggal Kalibrasi</th>
@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->retribusi->nama }}</td>
-                            <td>Rp.{{ $d->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->retribusi->biaya)}}</td>
                             <td>{{ $d->created_at->format('d-m-Y')}}</td>
                             <td>{{ carbon\carbon::parse($d->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->kalibrasi->created_at->format('d-m-Y') }}</td>
@@ -59,7 +59,7 @@
                             </td>
                             <td class="text-center">
                             @if(isset($d->kalibrasi->sertifikat))
-                            <a href="{{Route('download_sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($d->kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Download Sertifikat</a>
+                            <a href="{{Route('download_sertifikat_kalibrasi',['id'=>IDCrypt::Encrypt($d->kalibrasi->id)])}}" class="btn btn-primary"> <i class="icofont icofont-download"></i></a>
                             {{-- <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a> --}}
                             @else
                             <a href="" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Belum dapat di download" ><i class="icon-close"></i></i></a>                            @endif

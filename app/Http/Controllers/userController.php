@@ -232,9 +232,9 @@ class userController extends Controller
         }else{
             $status=0;
         }
-
-        $kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
-        // $kalibrasi->dd();
+        // User::orderBy('created_at', 'desc')->orderBy('something', 'asc');
+        $kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get()->sortBy('created_at')->sortBy('status');
+        // dd($kalibrasi);
         return view('users.permohonan_kalibrasi_data',compact('kalibrasi','perusahaan','status'));
         }
 
@@ -257,7 +257,7 @@ class userController extends Controller
         $kalibrasi->perusahaan_id           = $request->perusahaan_id;
         $kalibrasi->retribusi_kalibrasi_id  = $request->retribusi_kalibrasi_id;
         // $kalibrasi->tanggal                 = $Date;
-        $kalibrasi->tanggal                    = $request->tanggal;
+        // $kalibrasi->tanggal                    = $request->tanggal;
         $kalibrasi->merk                    = $request->merk;
         $kalibrasi->no_seri                 = $request->no_seri;
     // dd($request);
@@ -305,7 +305,7 @@ class userController extends Controller
       //permohonan pengujian user
       public function permohonan_pengujian_index(){
         $id = auth::id();
-        $pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
+        $pengujian     = Permohonan_pengujian::where('user_id', $id)->get()->sortBy('created_at')->sortBy('status');
         $perusahaan= perusahaan::where('user_id',$id)->first();
         if(isset($perusahaan)){
             $status=1;

@@ -43,7 +43,7 @@
                                 <td>{{$d->merk}}</td>
                                 <td>{{$d->no_seri}}</td>
                                 <td>
-                                @if($d->status == 0)
+                                @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
                                 @elseif($d->status == 1)
                                 <label class="label bg-warning">Pending</label>
@@ -52,7 +52,7 @@
                                 @endif
                                 </td>
                                 <td class="text-center">
-                                @if($d->status == 2)
+                                @if($d->status == 2 ||$d->status == 3)
                                 @else
                                 <a href="{{Route('halaman_verifikasi_kalibrasi', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
                                 @endif

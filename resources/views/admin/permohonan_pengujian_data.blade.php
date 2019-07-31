@@ -41,7 +41,7 @@
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->keterangan}}</td>
                                 <td>
-                                @if($d->status == 0)
+                                @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
                                     @elseif($d->status == 1)
                                 <label class="label bg-warning">Pending</label>
@@ -52,7 +52,7 @@
                                 <td class="text-center">
                                         {{-- <a href="{{ route('admin_perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a> --}}
                                 {{-- <a href="" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"> <i class="icon-eye"></i></i></a> --}}
-                                @if($d->status == 2)
+                                @if($d->status == 2 ||$d->status == 3)
                                 @else
                                 <a href="{{Route('halaman_verifikasi', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-success" data-toggle="tooltip" data-placement="top" title="Verifikasi" ><i class="icon-check"></i></a>
                                 @endif
