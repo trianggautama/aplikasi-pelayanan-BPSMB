@@ -40,7 +40,8 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
-                            <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
+                            {{-- <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td> --}}
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
                             <td>{{ carbon\carbon::parse($d->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
                             @if(isset($d->tanggal))

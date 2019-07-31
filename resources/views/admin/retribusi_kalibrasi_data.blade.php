@@ -36,7 +36,7 @@
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->nama}}</td>
                                 <td>{{$d->rentang_ukur}}</td>
-                                <td>Rp.{{$d->biaya}},-</td>
+                                <td>{{ number_format($d->biaya)}}</td>
                                 <td class="text-center">
                                         <a href="{{ route('retribusi_kalibrasi_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icofont icofont-edit-alt"></i></a>
                                         <a href="{{ route('retribusi_kalibrasi_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>

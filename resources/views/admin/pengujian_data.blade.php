@@ -40,7 +40,7 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_pengujian->user->name }}</td>
                             <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
-                            <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
+                            <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya)}}</td>
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
                             <td>{{ carbon\carbon::parse($d->permohonan_pengujian->inbox->tanggal)->format('d-m-Y') }}</td>
                             @if(isset($d->tanggal))

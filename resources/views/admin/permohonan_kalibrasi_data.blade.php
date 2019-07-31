@@ -38,7 +38,7 @@
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
-                                <td>{{$d->retribusi->biaya}}</td>
+                                <td>{{ number_format($d->retribusi->biaya)}}</td>
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->merk}}</td>
                                 <td>{{$d->no_seri}}</td>
