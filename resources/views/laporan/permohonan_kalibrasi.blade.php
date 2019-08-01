@@ -105,9 +105,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
                                 <?php $no = 0 ?>
                                 @foreach ($permohonan_kalibrasi as $d)
+                            <tr>
                                 <td>{{ $no=$no + 1 }}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
