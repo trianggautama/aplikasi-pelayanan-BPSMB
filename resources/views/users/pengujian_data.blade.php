@@ -41,8 +41,8 @@
                             <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
                             <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya)}}</td>
                             <td>{{$d->permohonan_pengujian->created_at->format('d-m-Y')}}</td>
-                            <td>{{ carbon\carbon::parse($d->permohonan_pengujian->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_pengujian->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->estimasi }}</td>
                             <td>

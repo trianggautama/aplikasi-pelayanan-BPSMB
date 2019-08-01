@@ -41,8 +41,8 @@
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
                             <td>{{ $d->permohonan_kalibrasi->created_at->format('d-m-Y')}}</td>
-                            <td>{{ carbon\carbon::parse($d->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_kalibrasi->inbox->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->estimasi }}</td>
                             <td>
