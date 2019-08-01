@@ -19,7 +19,7 @@ class Permohonan_kalibrasi extends Model
         return $this->belongsTo('App\Retribusi_kalibrasi','retribusi_kalibrasi_id');
       }
       public function kalibrasi(){
-        return $this->hasOne('App\Kalibrasi');
+        return $this->HasOne('App\Kalibrasi');
       }
 
     public function inbox(){

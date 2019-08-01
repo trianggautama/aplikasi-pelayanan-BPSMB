@@ -387,7 +387,8 @@ class userController extends Controller
         }else{
             $status=0;
         }
-        $permohonan_kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
+        // $permohonan_kalibrasi     = Permohonan_kalibrasi::where('user_id', $id)->get();
+        $permohonan_kalibrasi     = Kalibrasi::where('user_id', $id)->get();
         // $kalibrasi->dd();
         return view('users.kalibrasi_data',compact('permohonan_kalibrasi','perusahaan','status'));
         }
@@ -455,7 +456,7 @@ class userController extends Controller
             }else{
                 $status=0;
             }
-            $permohonan_pengujian     = Permohonan_pengujian::where('user_id', $id)->get();
+            $permohonan_pengujian     = Pengujian::where('user_id', $id)->get();
             // $kalibrasi->dd();
             return view('users.pengujian_data',compact('permohonan_pengujian','perusahaan','status'));
             }

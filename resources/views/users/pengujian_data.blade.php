@@ -38,26 +38,26 @@
                             @foreach ($permohonan_pengujian as $d)
                         <tr>
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{ $d->retribusi->komoditi }}</td>
-                            <td>{{ number_format($d->retribusi->biaya)}}</td>
-                            <td>{{$d->created_at->format('d-m-Y')}}</td>
-                            <td>{{ carbon\carbon::parse($d->inbox->tanggal)->format('d-m-Y') }}</td>
-                            <td>{{ $d->pengujian->created_at->format('d-m-Y') }}</td>
-                            <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
-                            <td>{{ $d->pengujian->estimasi }}</td>
+                            <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
+                            <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya)}}</td>
+                            <td>{{$d->permohonan_pengujian->created_at->format('d-m-Y')}}</td>
+                            <td>{{ carbon\carbon::parse($d->permohonan_pengujian->inbox->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ $d->estimasi }}</td>
                             <td>
-                                @if($d->pengujian->status == 0 || $d->pengujian->status == 2)
+                                @if($d->status == 0 || $d->status == 2)
                                 <label class="label bg-warning">Pending</label>
-                                    @elseif($d->pengujian->status == 1)
+                                    @elseif($d->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
-                                    @elseif($d->pengujian->status == 3)
+                                    @elseif($d->status == 3)
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
                             </td>
                             <td class="text-center">
-                                @if(isset($d->pengujian->sertifikat))
-                                <a href="{{Route('download_sertifikat_pengujian',['id'=>IDCrypt::Encrypt($d->pengujian->id)])}}" class="btn btn-primary"> <i class="icofont icofont-download"></i></a>
+                                @if(isset($d->sertifikat))
+                                <a href="{{Route('download_sertifikat_pengujian',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-download"></i></a>
                                 {{-- <a href="{{Route('sertifikat_kalibrasi_user',['id'=>IDCrypt::Encrypt($d->id)])}}" class="btn btn-primary"> <i class="icofont icofont-edit-alt"></i> Cetak Sertifikat</a> --}}
                                 @else
                                 <a href="" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Belum dapat di download" ><i class="icon-close"></i></i></a>                                 @endif
