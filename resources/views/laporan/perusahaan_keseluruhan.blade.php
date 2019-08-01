@@ -102,9 +102,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
                                 <?php $no = 0 ?>
                                 @foreach ($perusahaan as $p)
+                            <tr>
                                 <td>{{ $no=$no + 1 }}</td>
                                 <td>{{ $p->user->name }}</td>
                                 <td>{{ $p->alamat }}</td>

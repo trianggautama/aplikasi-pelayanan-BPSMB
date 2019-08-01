@@ -105,7 +105,7 @@
                                 <?php $no = 0 ?>
                                 @foreach ($user as $p)
                                 <tr>
-                                <td>{{ $no + 1 }}</td>
+                                <td>{{ $no =$no + 1 }}</td>
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->perusahaan->alamat }}</td>
                                 <td>{{ $p->perusahaan->telepon }}</td>
