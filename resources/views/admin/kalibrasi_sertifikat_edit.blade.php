@@ -10,6 +10,7 @@
                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                 </div>
             </div>
+            @include('layouts.alert')
             <form  method="post" action="" enctype="multipart/form-data">
                 {{method_field('PUT') }}
                 {{ csrf_field() }}
