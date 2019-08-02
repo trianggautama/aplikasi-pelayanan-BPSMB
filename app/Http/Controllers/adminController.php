@@ -406,9 +406,75 @@ class adminController extends Controller
     return view('admin.permohonan_pengujian_data',compact('pengujian'));
     }
 
+
+    public function permohonan_pengujian_filter_bulan(){
+
+        return view('admin.permohonan_pengujian_filter_bulan');
+        }
+
+    public function laporan_pengujian_filter_bulan(Request $Request){
+
+        $bulan = carbon::parse($Request->bulan)->format('m-Y');
+        // $bulan = $Request->tgl_berangkat;
+        $id =carbon::parse($Request->bulan);
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = Permohonan_pengujian::get();
+        $pengujian =Permohonan_pengujian::whereMonth('created_at', $id)->get();
+        // dd($pengujian);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.permohonan_pengujian_filter_bulan', ['bulan'=> $bulan,'pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan pengujian filter bulan.pdf');
+    }
+
+    public function permohonan_pengujian_filter_tahun(){
+
+        return view('admin.permohonan_pengujian_filter_tahun');
+        }
+
+    public function laporan_pengujian_filter_tahun(Request $Request){
+
+        $tahun = carbon::parse($Request->tahun)->format('Y');
+        // $tahun = $Request->tgl_berangkat;
+        $id =carbon::parse($Request->tahun);
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = Permohonan_pengujian::get();
+        $pengujian =Permohonan_pengujian::whereYear('created_at', $id)->get();
+        // dd($pengujian);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.permohonan_pengujian_filter_tahun', ['tahun'=> $tahun,'pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan pengujian filter tahun.pdf');
+    }
+
+    public function permohonan_pengujian_filter_status(){
+
+        return view('admin.permohonan_pengujian_filter_status');
+        }
+
+    public function laporan_pengujian_filter_status(Request $Request){
+
+        $status = $Request->tgl_berangkat;
+        $id =$Request->status;
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = Permohonan_pengujian::get();
+        $pengujian =Permohonan_pengujian::where('status', $id)->get();
+        // dd($pengujian);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.permohonan_pengujian_filter_status', ['status'=> $status,'pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan pengujian filter status.pdf');
+    }
+
     public function permohonan_pengujian_edit(){
 
-    return view('admin.permohonan_kalibrasi_edit');
+    return view('admin.permohonan_pengujian_edit');
     }
 
     public function permohonan_pengujian_hapus($id){
