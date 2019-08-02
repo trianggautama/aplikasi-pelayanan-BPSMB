@@ -24,7 +24,7 @@
                             <th>Nama Perusahaan</th>
                             <th>Barang Pengujian</th>
                             <th>Biaya</th>
-                            <th>Tanggal</th>
+                            <th>Tanggal Permohonan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>

@@ -52,6 +52,10 @@ Route::get('/retribusi-pengujian/hapus/{id}','adminController@retribusi_pengujia
 //Permohonan Kalibrasi
 Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_index');
+Route::get('/permohonan_kalibrasi/filter/bulan','adminController@permohonan_kalibrasi_filter_bulan')
+->name('permohonan_kalibrasi_filter_bulan');
+Route::post('/permohonan_kalibrasi/filter/bulan','adminController@laporan_kalibrasi_filter_bulan')
+->name('laporan_kalibrasi_filter_bulan');
 Route::get('/permohonan_kalibrasi_edit','adminController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_edit');
 Route::get('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi')

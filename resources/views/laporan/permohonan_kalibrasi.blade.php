@@ -98,7 +98,7 @@
                                 <th>Nama Perusahaan</th>
                                 <th>Barang</th>
                                 <th>biaya</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Permohonan</th>
                                 <th>Merk</th>
                                 <th>No Seri</th>
                                 <th>Status</th>
@@ -112,11 +112,11 @@
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
                                 <td>{{$d->retribusi->biaya}}</td>
-                                <td>{{$d->tanggal}}</td>
+                                <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->merk}}</td>
                                 <td>{{$d->no_seri}}</td>
                                 <td>
-                                @if($d->status == 0)
+                                @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
                                 @elseif($d->status == 1)
                                 <label class="label bg-warning">Pending</label>

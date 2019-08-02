@@ -12,6 +12,9 @@
                 <h4>Data Permohonan Kalibrasi</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-success" href="{{Route('permohonan_kalibrasi_cetak')}}"><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_kalibrasi_filter_bulan')}}"><i class="icofont icofont-printer"></i> cetak data berdasarkan bulan</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_kalibrasi_filter_tahun')}}"><i class="icofont icofont-printer"></i> cetak data berdasarkan tahun</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_kalibrasi_filter_status')}}"><i class="icofont icofont-printer"></i> cetak data berdasarkan status</a>
                     </div>
         </div>
         <div class="card-block">
