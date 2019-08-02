@@ -318,6 +318,27 @@ class adminController extends Controller
         return $pdf->stream('Laporan kalibrasi filter tahun.pdf');
     }
 
+    public function permohonan_kalibrasi_filter_status(){
+
+        return view('admin.permohonan_kalibrasi_filter_status');
+        }
+
+    public function laporan_kalibrasi_filter_status(Request $Request){
+
+        $status = $Request->tgl_berangkat;
+        $id =$Request->status;
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = Permohonan_kalibrasi::get();
+        $kalibrasi =Permohonan_kalibrasi::where('status', $id)->get();
+        // dd($kalibrasi);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.permohonan_kalibrasi_filter_status', ['status'=> $status,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan kalibrasi filter status.pdf');
+    }
+
     public function permohonan_kalibrasi_edit(){
 
     return view('admin.permohonan_kalibrasi_edit');
