@@ -170,6 +170,11 @@
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i> Data pengujian</a></li>
                         </ul>
                     </li>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Laporan</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                             <li><a class="waves-effect waves-dark" href="{{Route('pendapatan_index')}}"><i class="icon-arrow-right"></i> Pendapatan</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
         </aside>
