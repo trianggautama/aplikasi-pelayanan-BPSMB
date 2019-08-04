@@ -52,6 +52,21 @@ Route::get('/retribusi-pengujian/hapus/{id}','adminController@retribusi_pengujia
 //Permohonan Kalibrasi
 Route::get('/permohonan_kalibrasi','adminController@permohonan_kalibrasi_index')
 ->name('permohonan_kalibrasi_index');
+//laporan bulan
+Route::get('/permohonan_kalibrasi/filter/bulan','adminController@permohonan_kalibrasi_filter_bulan')
+->name('permohonan_kalibrasi_filter_bulan');
+Route::post('/permohonan_kalibrasi/filter/bulan','adminController@laporan_kalibrasi_filter_bulan')
+->name('laporan_kalibrasi_filter_bulan');
+//laporan tahun
+Route::get('/permohonan_kalibrasi/filter/tahun','adminController@permohonan_kalibrasi_filter_tahun')
+->name('permohonan_kalibrasi_filter_tahun');
+Route::post('/permohonan_kalibrasi/filter/tahun','adminController@laporan_kalibrasi_filter_tahun')
+->name('laporan_kalibrasi_filter_tahun');
+//laporan status
+Route::get('/permohonan_kalibrasi/filter/status','adminController@permohonan_kalibrasi_filter_status')
+->name('permohonan_kalibrasi_filter_status');
+Route::post('/permohonan_kalibrasi/filter/status','adminController@laporan_kalibrasi_filter_status')
+->name('laporan_kalibrasi_filter_status');
 Route::get('/permohonan_kalibrasi_edit','adminController@permohonan_kalibrasi_edit')
 ->name('permohonan_kalibrasi_edit');
 Route::get('/halaman_verifikasi_kalibrasi/{id}','adminController@halaman_verifikasi_kalibrasi')
@@ -66,6 +81,20 @@ Route::get('/permohonan_kalibrasi/cetak','adminController@permohonan_kalibrasi_c
 //Permohonan pengujian
 Route::get('/permohonan_pengujian','adminController@permohonan_pengujian_index')
 ->name('permohonan_pengujian_index');
+Route::get('/permohonan_pengujian/filter/bulan','adminController@permohonan_pengujian_filter_bulan')
+->name('permohonan_pengujian_filter_bulan');
+Route::post('/permohonan_pengujian/filter/bulan','adminController@laporan_pengujian_filter_bulan')
+->name('laporan_pengujian_filter_bulan');
+//laporan tahun
+Route::get('/permohonan_pengujian/filter/tahun','adminController@permohonan_pengujian_filter_tahun')
+->name('permohonan_pengujian_filter_tahun');
+Route::post('/permohonan_pengujian/filter/tahun','adminController@laporan_pengujian_filter_tahun')
+->name('laporan_pengujian_filter_tahun');
+//laporan status
+Route::get('/permohonan_pengujian/filter/status','adminController@permohonan_pengujian_filter_status')
+->name('permohonan_pengujian_filter_status');
+Route::post('/permohonan_pengujian/filter/status','adminController@laporan_pengujian_filter_status')
+->name('laporan_pengujian_filter_status');
 Route::get('/permohonan_pengujian_edit','adminController@permohonan_pengujian_edit')
 ->name('permohonan_pengujian_edit');
 Route::get('/halaman_verifikasi/{id}','adminController@halaman_verifikasi')

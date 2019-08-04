@@ -90,37 +90,43 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PERMOHONAN PENGUJIAN</h2>
+            @if($status==1)
+            <h2 style="text-align:center;">DATA PERMOHONAN KALIBRASI STATUS PENDING</h2>
+            @else
+            <h2 style="text-align:center;">DATA PERMOHONAN KALIBRASI STATUS DITERIMA</h2>
+            @endif
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
-                            <th>Barang Pengujian</th>
-                            <th>Biaya</th>
-                            <th>Tanggal</th>
-                            <th>Keterangan</th>
-                            <th>Status</th>
+                                <th>Nama Perusahaan</th>
+                                <th>Barang</th>
+                                <th>biaya</th>
+                                <th>Tanggal Permohonan</th>
+                                <th>Merk</th>
+                                <th>No Seri</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
-                        @foreach ($permohonan_pengujian as $d)
-                        <tr>
-                                <td>{{$no = $no + 1}}</td>
+                                <?php $no = 0 ?>
+                                @foreach ($kalibrasi as $d)
+                            <tr>
+                                <td>{{ $no=$no + 1 }}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
-                                <td>{{$d->retribusi->komoditi}}</td>
+                                <td>{{$d->retribusi->nama}}</td>
                                 <td>{{$d->retribusi->biaya}}</td>
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
-                                <td>{{$d->keterangan}}</td>
+                                <td>{{$d->merk}}</td>
+                                <td>{{$d->no_seri}}</td>
                                 <td>
                                 @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
-                                    @elseif($d->status == 1)
+                                @elseif($d->status == 1)
                                 <label class="label bg-warning">Pending</label>
-                                    @elseif($d->status == 2)
+                                @elseif($d->status == 2)
                                 <label class="label bg-info">Diterima</label>
-                                    @endif
+                                @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -130,12 +136,12 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                        <h6>Mengetahui</h6>
-                        <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
-                        <br>
-                        <br>
-                        <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
-                        <h5>NIP. 19580726 1984 03 1 007</h5>
+                       <h6>Mengetahui</h6>
+                      <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                      <h5>NIP. 19580726 1984 03 1 007</h5>
                       </div>
                     </div>
              </div>

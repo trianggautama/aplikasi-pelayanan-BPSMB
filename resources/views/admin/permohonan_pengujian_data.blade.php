@@ -11,7 +11,10 @@
         <div class="card-header ">
                 <h4>Data Permohonan Pengujian</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_cetak')}}" target="_blank"><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_cetak')}}"><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_filter_bulan')}} "target="_blank"><i class="icofont icofont-printer"></i> cetak data berdasarkan bulan</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_filter_tahun')}} "target="_blank"><i class="icofont icofont-printer"></i> cetak data berdasarkan tahun</a>
+                        <a class="btn btn-inverse-success" href="{{Route('permohonan_pengujian_filter_status')}} "target="_blank"><i class="icofont icofont-printer"></i> cetak data berdasarkan status</a>
                     </div>
         </div>
         <div class="card-block">
@@ -24,7 +27,7 @@
                             <th>Nama Perusahaan</th>
                             <th>Barang Pengujian</th>
                             <th>Biaya</th>
-                            <th>Tanggal</th>
+                            <th>Tanggal Permohonan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>

@@ -172,11 +172,12 @@
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Laporan</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                             <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_keseluruhan') }}"><i class="icon-arrow-right"></i>  Perusahaans</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_cetak')}}"><i class="icon-arrow-right"></i>  Permohonan Kalisbrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_cetak')}}"><i class="icon-arrow-right"></i>  Permohonan Pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_cetak')}}"><i class="icon-arrow-right"></i>  Riwayat Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('pengujian_index')}}"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>
+                             <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_keseluruhan') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans</a></li>
+                             <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_filter_status') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans Filter</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>
 
                         </ul>
                     </li>

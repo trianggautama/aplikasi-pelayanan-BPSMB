@@ -30,7 +30,10 @@
                             <th>Nama Perusahaan</th>
                             <th>Barang Kalibrasi</th>
                             <th>Biaya</th>
-                            <th>Tanggal</th>
+                            <th>Tanggal Permohonan</th>
+                            {{-- <th>Tanggal Terima</th>
+                            <th>Tanggal Kalibrasi</th>
+                            <th>Tanggal Selesai</th> --}}
                             <th>Merk</th>
                             <th>No Seri</th>
                             <th>Status</th>
@@ -45,9 +48,10 @@
                             <td>{{$d->perusahaan->user->name}}</td>
                             <td>{{$d->retribusi->nama}}</td>
                             <td>{{ number_format($d->retribusi->biaya)}}</td>
-                            {{-- \Carbon\Carbon::setLocale('id'); --}}
-                            {{-- <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y')}}</td> --}}
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
+                            {{-- <td>{{$d->kalibrasi->tanggal_terima}}</td>
+                            <td>{{$d->kalibrasi->tanggal}}</td>
+                            <td>{{$d->kalibrasi->updated_at}}</td> --}}
                             <td>{{$d->merk}}</td>
                             <td>{{$d->no_seri}}</td>
                             <td>

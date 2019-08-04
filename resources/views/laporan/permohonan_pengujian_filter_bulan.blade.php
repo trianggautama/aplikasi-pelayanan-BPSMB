@@ -90,7 +90,7 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PERMOHONAN PENGUJIAN</h2>
+            <h2 style="text-align:center;">DATA PERMOHONAN PENGUJIAN PADA BULAN {{ $bulan }}</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
@@ -105,7 +105,7 @@
                         </thead>
                         <tbody>
                         <?php $no = 0 ?>
-                        @foreach ($permohonan_pengujian as $d)
+                        @foreach ($pengujian as $d)
                         <tr>
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
@@ -130,12 +130,12 @@
                       <br>
                       <div class="ttd">
                         <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
-                        <h6>Mengetahui</h6>
-                        <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
-                        <br>
-                        <br>
-                        <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
-                        <h5>NIP. 19580726 1984 03 1 007</h5>
+                       <h6>Mengetahui</h6>
+                      <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
+                      <h5>NIP. 19580726 1984 03 1 007</h5>
                       </div>
                     </div>
              </div>

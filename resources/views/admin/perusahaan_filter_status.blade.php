@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluid">
+<br>
     <!-- Row end -->
  <div class="row">
     <div class="col-lg-12">
