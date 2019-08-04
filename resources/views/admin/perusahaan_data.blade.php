@@ -16,7 +16,7 @@
                 <h4>Data Perusahaan</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-primary" href="{{ route('admin_perusahaan_tambah') }}"><i class="icofont icon-arrow-add"></i>+ Tambah Data</a>
-                        <a class="btn btn-inverse-success" href="{{ route('laporan_perusahaan_keseluruhan') }}"><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-success" href="{{ route('laporan_perusahaan_keseluruhan') }}" target="_blank"><i class="icofont icofont-printer"></i> cetak data</a>
                         <a class="btn btn-inverse-success" href="{{ route('laporan_perusahaan_filter_status') }}"><i class="icofont icofont-printer"></i> cetak data berdasarkan status</a>
                     </div>
         </div>

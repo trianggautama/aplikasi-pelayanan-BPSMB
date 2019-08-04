@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluid">
+<br>
     <!-- Row end -->
  <div class="row">
     <div class="col-lg-12">
@@ -26,7 +27,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <a href="{{Route('admin_perusahaan_index')}}" class="btn btn-danger">Batal</a>
-                                <input class="btn btn-primary" type="submit" name="submit" value="Cetak Data">
+                                <input class="btn btn-primary" type="submit" name="submit" value="Cetak Data" target="_blank">
                                 {{csrf_field() }}
                             </div>
                         </div>
