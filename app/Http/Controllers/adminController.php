@@ -1036,4 +1036,20 @@ class adminController extends Controller
             return $pdf->stream('Nota terima pengujian.pdf');
         }
 
+        public function pendapatan(){
+            $pendapatan = Kalibrasi::all()->sortByDesc('id');
+
+            return view('admin.pendapatan',compact('pendapatan'));
+        }//fungsi pemenang lelang
+
+        public function pendapatan_cetak(){
+            // $permohonan_kalibrasi=permohonan_kalibrasi::all();
+                // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+                $pendapatan = Kalibrasi::all();
+                $tgl= Carbon::now()->format('d-m-Y');
+                $pdf =PDF::loadView('laporan.pendapatan_keseluruhan', ['tgl'=>$tgl,'pendapatan'=>$pendapatan]);
+                $pdf->setPaper('a4', 'potrait');
+                return $pdf->stream('Data pendapatan Keseluruhan.pdf');
+            }//mencetak  data karyawan}
+
 }
