@@ -13,6 +13,8 @@ use App\Hasil_kalibrasi;
 use App\Hasil_pengujian;
 use App\Retribusi_kalibrasi;
 use App\Retribusi_pengujian;
+use App\Pendapatan_kalibrasi;
+use App\Pendapatan_pengujian;
 use App\Permohonan_kalibrasi;
 use App\Permohonan_pengujian;
 
@@ -564,6 +566,15 @@ class adminController extends Controller
 
         $kalibrasi->update();
 
+        if($request->status==3){
+            $pendapatan = new Pendapatan_kalibrasi;
+            $pendapatan->kalibrasi_id = $id;
+            $biaya = $kalibrasi->permohonan_kalibrasi->retribusi->biaya;
+            $pendapatan->pendapatan = $biaya;
+
+            $pendapatan->save();
+        }
+
     //    dd($request);
 
         $id_kalibrasi = IDCrypt::encrypt($id);
@@ -704,6 +715,16 @@ class adminController extends Controller
     //    dd($request);
 
         $pengujian->update();
+
+        if($request->status==3){
+            $pendapatan = new Pendapatan_pengujian;
+            $pendapatan->pengujian_id = $id;
+            $biaya = $pengujian->permohonan_pengujian->retribusi->biaya;
+            $pendapatan->pendapatan = $biaya;
+
+            $pendapatan->save();
+        }
+
         $id_pengujian = IDCrypt::encrypt($id);
         // dd($id_pengujian);
        return redirect(route('pengujian_detail',['id' => $id_pengujian]))->with('success', 'Data pengujian '.$request->komoditi.' Berhasil di Ubah');
@@ -1036,18 +1057,26 @@ class adminController extends Controller
             return $pdf->stream('Nota terima pengujian.pdf');
         }
 
-        public function pendapatan(){
-            $pendapatan = Kalibrasi::all()->sortByDesc('id');
+        public function pendapatan_index(){
+            $pendapatan_k = pendapatan_kalibrasi::all();
+            $pendapatan_p = pendapatan_pengujian::all();
 
-            return view('admin.pendapatan',compact('pendapatan'));
+            $total_pendapatan_k = pendapatan_kalibrasi::all()->sum('pendapatan');
+            $total_pendapatan_p = pendapatan_pengujian::all()->sum('pendapatan');
+            // dd($kalibrasi);
+            // $pendapatan_k = Kalibrasi::where('status',3);
+            return view('admin.pendapatan_data',compact('pendapatan_k','pendapatan_p','total_pendapatan_k','total_pendapatan_p'));
         }//fungsi pemenang lelang
 
         public function pendapatan_cetak(){
             // $permohonan_kalibrasi=permohonan_kalibrasi::all();
                 // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
-                $pendapatan = Kalibrasi::all();
+                $pendapatan_k = pendapatan_kalibrasi::all();
+                $pendapatan_p = pendapatan_pengujian::all();
+
+                // dd($total_pendapatan_k);
                 $tgl= Carbon::now()->format('d-m-Y');
-                $pdf =PDF::loadView('laporan.pendapatan_keseluruhan', ['tgl'=>$tgl,'pendapatan'=>$pendapatan]);
+                $pdf =PDF::loadView('laporan.pendapatan_keseluruhan', ['tgl'=>$tgl,'pendapatan_k'=>$pendapatan_k,'pendapatan_p'=>$pendapatan_p]);
                 $pdf->setPaper('a4', 'potrait');
                 return $pdf->stream('Data pendapatan Keseluruhan.pdf');
             }//mencetak  data karyawan}

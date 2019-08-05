@@ -38,7 +38,7 @@
                             <tr>
                              <?php $no = 0 ?>
                                 @foreach ($Kalibrasi as $d)
-                                <td>{{$no = $no + 1}}</td>
+                                <td>{{$no = $no +1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
                                 <td>{{ number_format($d->retribusi->biaya)}}</td>

@@ -196,6 +196,11 @@ Route::get('/admin/retribusi-kalibrasi/laporan/retribusi-kalibrasi','adminContro
 Route::get('/admin/retribusi_pengujian/laporan/retribusi-pengujian','adminController@laporan_retribusi_pengujian')
 ->name('laporan_retribusi_pengujian');
 
+Route::get('/admin/pendapatan/','adminController@pendapatan_index')
+->name('pendapatan_index');
+Route::get('/admin/pendapatan/laporan','adminController@pendapatan_cetak')
+->name('pendapatan_cetak');
+
 //MIDLEWARE ADMIN
 });
 //-------------------------------------------------------------------------------------------------------------------------------//
