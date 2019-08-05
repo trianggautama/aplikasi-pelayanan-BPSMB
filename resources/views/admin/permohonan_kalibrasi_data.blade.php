@@ -27,7 +27,7 @@
                                 <th>Nama Perusahaan</th>
                                 <th>Barang Kalibrasi</th>
                                 <th>Biaya</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Permohonan</th>
                                 <th>Merk</th>
                                 <th>No Seri</th>
                                 <th>Status</th>
