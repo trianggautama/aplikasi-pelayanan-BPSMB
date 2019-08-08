@@ -96,6 +96,7 @@
                         <thead>
                         <tr>
                         <th class="text-center txt-primary">NO</th>
+                        <th class="text-center txt-primary">NAMA BARANG</th>
                         <th class="text-center txt-primary">TANGGAL KALIBRASI</th>
                         <th class="text-center txt-primary">TANGGAL SELESAI</th>
                         <th class="text-center txt-primary">ESTIMASI</th>
@@ -111,6 +112,7 @@
                         <tr>
                         @if(isset($p->kalibrasi))
                         <td>{{ $no=$no+1 }}</td>
+                        <td>{{ $p->retribusi->nama }}</td>
                         <td>{{ carbon\carbon::parse($p->kalibrasi->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ $p->kalibrasi->updated_at->format('d-m-Y') }}</td>
                         <td>{{ $p->kalibrasi->estimasi }}</td>

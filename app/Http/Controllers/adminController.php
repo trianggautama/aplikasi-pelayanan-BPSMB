@@ -1047,7 +1047,7 @@ class adminController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.pengujian_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
        }
 

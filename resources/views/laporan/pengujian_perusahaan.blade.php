@@ -96,6 +96,7 @@
                         <thead>
                         <tr>
                         <th class="text-center txt-primary">NO</th>
+                        <th class="text-center txt-primary">KOMODITI</th>
                         <th class="text-center txt-primary">TANGGAL PENGUJIAN</th>
                         <th class="text-center txt-primary">TANGGAL SELESAI</th>
                         <th class="text-center txt-primary">ESTIMASI</th>
@@ -111,6 +112,7 @@
                         <tr>
                         @if(isset($p->pengujian))
                         <td>{{ $no=$no+1 }}</td>
+                        <td>{{ $p->retribusi->komoditi }}</td>
                         <td>{{ carbon\carbon::parse($p->pengujian->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ $p->pengujian->updated_at->format('d-m-Y') }}</td>
                         <td>{{ $p->pengujian->estimasi }}</td>
