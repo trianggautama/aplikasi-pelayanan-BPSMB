@@ -189,7 +189,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT KALIBRASI</h5>
                                     <div class="f-right">
-                                    <a href="{{Route('kalibrasi_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
+                                    <a  target="_blank" href="{{Route('kalibrasi_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
@@ -255,7 +255,7 @@
                                 <div class="card-header">
                                     <h5 class="card-header-text">RIWAYAT PENGUJIAN</h5>
                                     <div class="f-right">
-                                    <a href="{{Route('pengujian_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
+                                    <a target="_blank" href="{{Route('pengujian_perusahaan_cetak',['id'=>IDCrypt::Encrypt($Perusahaan->id)])}}" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Cetak Data"><i class="icofont icofont-print"></i></a>
                                     </div>
                                 </div>
                                 <!-- end of card-header  -->
