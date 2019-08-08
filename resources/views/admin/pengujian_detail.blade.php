@@ -94,7 +94,7 @@
                                                 @if($pengujian->status == 0)
                                                     <label class="label bg-danger">Gagal Uji</label>
                                                         @elseif($pengujian->status == 2)
-                                                    <label class="label bg-warning">Pending</label>
+                                                    <label class="label bg-warning">Verifikasi</label>
                                                         @elseif($pengujian->status == 1)
                                                     <label class="label bg-info">Sedang Diuji</label>
                                                         @elseif($pengujian->status == 3)

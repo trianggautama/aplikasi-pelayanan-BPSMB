@@ -52,7 +52,7 @@
                             <td>{{ $d->estimasi }}</td>
                             <td>
                                 @if($d->status == 0 || $d->status == 2)
-                                <label class="label bg-warning">Pending</label>
+                                <label class="label bg-warning">Verifikasi</label>
                                     @elseif($d->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
                                     @elseif($d->status == 3)

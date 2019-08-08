@@ -170,6 +170,7 @@ class userController extends Controller
               }
             $perusahaan = new perusahaan;
 
+            $perusahaan->nama_pj       = $request->nama_pj;
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
             $perusahaan->website      = $request->website;
@@ -217,6 +218,7 @@ class userController extends Controller
             $id = IDCrypt::Decrypt($id);
             $perusahaan = Perusahaan::findOrFail($id);
 
+            $perusahaan->nama_pj       = $request->nama_pj;
             $perusahaan->alamat       = $request->alamat;
             $perusahaan->telepon      = $request->telepon;
             $perusahaan->website      = $request->website;

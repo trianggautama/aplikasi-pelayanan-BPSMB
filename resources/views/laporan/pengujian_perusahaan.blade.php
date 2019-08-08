@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -94,30 +95,66 @@
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                        <th class="text-center txt-primary">KOMODITI</th>
-                        <th class="text-center txt-primary">TARIF</th>
+                        <th class="text-center txt-primary">NO</th>
                         <th class="text-center txt-primary">TANGGAL PENGUJIAN</th>
+                        <th class="text-center txt-primary">TANGGAL SELESAI</th>
+                        <th class="text-center txt-primary">ESTIMASI</th>
+                        <th class="text-center txt-primary">LAMA UJI</th>
+                        <th class="text-center txt-primary">NO SERI</th>
                         <th class="text-center txt-primary">STATUS</th>
+                        <th class="text-center txt-primary">TARIF PENGUJIAN</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php $no = 0 ?>
-                        @foreach($Perusahaan->permohonan_pengujian as $d)
+                        @foreach($Perusahaan->permohonan_pengujian as $p)
                         <tr>
-                        <td>{{ $d->retribusi->komoditi }}</td>
-                        <td>Rp. {{ $d->retribusi->biaya }}</td>
-                        <td>{{ $d->tanggal }}</td>
-                        <td>
-                            @if($d->pengujian->status == 0)
-                            <label class="label bg-danger">Ditolak</label>
-                                @elseif($d->pengujian->status == 2)
-                            <label class="label bg-warning">Pending</label>
-                                @elseif($d->pengujian->status == 1)
-                            <label class="label bg-info">Sedang Diuji</label>
-                                @elseif($d->pengujian->status == 3)
-                            <label class="label bg-success">Selesai Diuji</label>
+                        @if(isset($p->pengujian))
+                        <td>{{ $no=$no+1 }}</td>
+                        <td>{{ carbon\carbon::parse($p->pengujian->tanggal)->format('d-m-Y') }}</td>
+                        <td>{{ $p->pengujian->updated_at->format('d-m-Y') }}</td>
+                        <td>{{ $p->pengujian->estimasi }}</td>
+                        @if($p->pengujian->status == 3)
+
+                            @php
+                            $fdate = $p->pengujian->tanggal;
+                            $tdate = $p->pengujian->updated_at;
+                            $datetime1 = new DateTime($fdate);
+                            $datetime2 = new DateTime($tdate);
+                            $interval = $datetime1->diff($datetime2);
+                            $days = $interval->format('%a');
+
+                            @endphp
+                            <td>{{ $days }} Hari</td>
+                            @else
+                            <td></td>
                             @endif
-                        </td>
+
+                            @if(isset($p->pengujian->hasil_pengujian))
+                            <td>{{ $p->pengujian->hasil_pengujian->no_bpsmb }}</td>
+                            @else
+
+                            @endif
+                        <td>
+                                @if($p->pengujian->status == 0)
+                                <label class="label bg-danger">Ditolak</label>
+                                    @elseif($p->pengujian->status == 2)
+                                <label class="label bg-warning">Pending</label>
+                                    @elseif($p->pengujian->status == 1)
+                                <label class="label bg-info">Sedang Diuji</label>
+                                    @elseif($p->pengujian->status == 3)
+                                <label class="label bg-success">Selesai Diuji</label>
+                                @endif
+                            </td>
+                        <td>Rp.{{ $p->retribusi->biaya }}</td>
+                        @else
+                        <td></td>
+
+                        @endif
+
+
+
+
                         </tr>
                         @endforeach
                         </tbody>

@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -96,6 +97,7 @@
                         <tr>
                             <th>No</th>
                                 <th>Nama Perusahaan</th>
+                                <th>Nama Penanggung Jawab</th>
                                 <th>Alamat</th>
                                 <th>No Telepon</th>
                                 <th>Status</th>
@@ -108,6 +110,7 @@
                                 <td>{{ $no =$no + 1 }}</td>
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->perusahaan->alamat }}</td>
+                                <td>{{ $p->nama_pj }}</td>
                                 <td>{{ $p->perusahaan->telepon }}</td>
                                 <td>
                                 @if($p->status == 0)

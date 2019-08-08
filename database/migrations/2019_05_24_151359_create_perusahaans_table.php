@@ -16,6 +16,7 @@ class CreatePerusahaansTable extends Migration
         Schema::create('perusahaans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('user_id');
+            $table->string('nama_perusahaan')->length('100');
             $table->string('alamat')->length('255');
             $table->string('telepon')->length('13');
             $table->string('website')->length('255')->nullable();

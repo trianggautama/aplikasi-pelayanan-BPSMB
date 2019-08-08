@@ -13,8 +13,7 @@ class Pengujian extends Model
     public function permohonan_pengujian(){
         return $this->belongsTo('App\permohonan_pengujian','permohonan_pengujian_id');
       }
-
-    public function hasil_pengujian(){
-        return $this->HasOne('App\Hasil_pengujian');
+      public function hasil_pengujian(){
+        return $this->hasOne('App\Hasil_pengujian');
       }
 }

@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;

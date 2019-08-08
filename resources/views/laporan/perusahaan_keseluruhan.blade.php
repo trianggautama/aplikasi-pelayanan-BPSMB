@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -96,9 +97,10 @@
                         <tr>
                             <th>No</th>
                                 <th>Nama Perusahaan</th>
+                                <th>Nama Penanggung Jawab</th>
                                 <th>Alamat</th>
                                 <th>No Telepon</th>
-                                <th>status</th>
+                                {{-- <th>status</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -107,15 +109,16 @@
                             <tr>
                                 <td>{{ $no=$no + 1 }}</td>
                                 <td>{{ $p->user->name }}</td>
+                                <td>{{ $p->nama_pj }}</td>
                                 <td>{{ $p->alamat }}</td>
                                 <td>{{ $p->telepon }}</td>
-                                <td>
+                                {{-- <td>
                                 @if($p->status == 0)
                                     <label class="label bg-warning">Tidak Aktif/Banned</label>
                                         @else
                                     <label class="label bg-success">Aktif</label>
                                 @endif
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

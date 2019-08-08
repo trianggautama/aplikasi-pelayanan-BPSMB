@@ -86,7 +86,7 @@ class adminController extends Controller
         $Perusahaan = new Perusahaan;
 
 
-
+        $Perusahaan->nama_pj       = $request->nama_pj;
         $Perusahaan->alamat       = $request->alamat;
         $Perusahaan->telepon      = $request->telepon;
         $Perusahaan->website      = $request->website;
@@ -110,8 +110,17 @@ class adminController extends Controller
     public function perusahaan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
+        // dd($Perusahaan->permohonan_pengujian->pengujian->status);
+        $permohonan_pengujian = Permohonan_pengujian::where('perusahaan_id',$id)->get();
+        // dd($permohonan_pengujian);
+        // foreach($permohonan_pengujian as $p){
+        //     dd($p->pengujian->status);
+        // }
+        // $id_kalibrasi =  $permohonan_pengujian->id
+
+        // dd($permohonan_pengujian->pengujian->status);
         // dd($Perusahaan);
-        return view('admin.perusahaan_detail',compact('Perusahaan'));
+        return view('admin.perusahaan_detail',compact('Perusahaan','permohonan_pengujian'));
     }
 
     public function perusahaan_update(Request $request, $id){
@@ -139,6 +148,7 @@ class adminController extends Controller
         $User->foto       = $foto;
         }
 
+        $Perusahaan->nama_pj       = $request->nama_pj;
         $Perusahaan->alamat       = $request->alamat;
         $Perusahaan->telepon      = $request->telepon;
         $Perusahaan->website      = $request->website;
@@ -895,7 +905,7 @@ class adminController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.perusahaan_keseluruhan', ['perusahaan' => $perusahaan,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Perusahaan Keseluruhan.pdf');
        }//mencetak  perusahaan
 
@@ -921,7 +931,7 @@ class adminController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.perusahaan_status', ['user' => $user,'tgl'=>$tgl,'data'=>$data]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan perusahaan berdasarkan status.pdf');
     }//cetak perusahaan berdasarkan status
 
@@ -1005,17 +1015,19 @@ class adminController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.kalibrasi_keseluruhan', ['kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Permohonan Kalibrasi Keseluruhan.pdf');
        }
 
        public function kalibrasi_perusahaan_cetak($id){
         $id = IDCrypt::Decrypt($id);
         $Perusahaan = Perusahaan::find($id);
+        $permohonan_kalibrasi = permohonan_kalibrasi::where('perusahaan_id',$id)->get();
+        // dd($permohonan_kalibrasi->kalibrasi);
         $tgl= Carbon::now()->format('d-m-Y');
 
-        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'permohonan_kalibrasi' => $permohonan_kalibrasi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
        }
 
@@ -1024,7 +1036,7 @@ class adminController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.pengujian_keseluruhan', ['pengujian' => $pengujian,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'potrait');
+        $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Permohonan pengujian Keseluruhan.pdf');
        }
 
@@ -1034,7 +1046,7 @@ class adminController extends Controller
         $Perusahaan = Perusahaan::find($id);
         $tgl= Carbon::now()->format('d-m-Y');
 
-        $pdf =PDF::loadView('laporan.kalibrasi_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.pengujian_perusahaan', ['Perusahaan' => $Perusahaan,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan Permohonan Kalibrasi Perusahaan.pdf');
        }

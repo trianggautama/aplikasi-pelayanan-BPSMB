@@ -79,6 +79,10 @@
                                                                     <td>{{ $Perusahaan->user->name }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th scope="row">Nama Penanggung Jawab</th>
+                                                                    <td> {{ $Perusahaan->nama_pj }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th scope="row">Alamat</th>
                                                                     <td> {{ $Perusahaan->alamat }}</td>
                                                                 </tr>
@@ -207,6 +211,7 @@
                                                     @foreach($Perusahaan->permohonan_kalibrasi as $p)
                                                     <tr>
                                                     <td>Rp.{{ $p->retribusi->biaya }}</td>
+                                                    @if(isset($p->kalibrasi->tanggal))
                                                     <td>{{ $p->kalibrasi->tanggal }}</td>
                                                     <td>{{ $p->kalibrasi->estimasi }}</td>
                                                     <td>
@@ -220,6 +225,9 @@
                                                         <label class="label bg-success">Selesai Diuji</label>
                                                         @endif
                                                     </td>
+                                                    @else
+                                                    <td></td>
+                                                    @endif
                                                     <td class="text-center">
                                                          {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
                                                     </td>
@@ -232,7 +240,7 @@
                                             <!-- end of table responsive -->
                                         </div>
                                         <!-- end of project table -->
-                                    </div> 
+                                    </div>
                                     <!-- end of col-lg-12 -->
                                 </div>
                                 <!-- end of row -->
@@ -266,22 +274,27 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody class="text-center">
-                                                    @foreach($Perusahaan->permohonan_pengujian as $d)
+                                                    @foreach($permohonan_pengujian as $p)
+                                                    {{-- @foreach($Perusahaan->permohonan_pengujian as $p) --}}
                                                     <tr>
-                                                    <td>{{ $d->retribusi->komoditi }}</td>
-                                                    <td>Rp. {{ $d->retribusi->biaya }}</td>
-                                                    <td>{{ $d->tanggal }}</td>
+                                                    <td>{{ $p->retribusi->komoditi }}</td>
+                                                    <td>Rp. {{ $p->retribusi->biaya }}</td>
+                                                    @if(isset($p->pengujian))
+                                                    <td>{{ $p->pengujian->tanggal }}</td>
                                                     <td>
-                                                        @if($d->pengujian->status == 0)
+                                                        @if($p->pengujian->status == 0)
                                                         <label class="label bg-danger">Ditolak</label>
-                                                            @elseif($d->pengujian->status == 2)
+                                                            @elseif($p->pengujian->status == 2)
                                                         <label class="label bg-warning">Pending</label>
-                                                            @elseif($d->pengujian->status == 1)
+                                                            @elseif($p->pengujian->status == 1)
                                                         <label class="label bg-info">Sedang Diuji</label>
-                                                            @elseif($d->pengujian->status == 3)
+                                                            @elseif($p->pengujian->status == 3)
                                                         <label class="label bg-success">Selesai Diuji</label>
                                                         @endif
                                                     </td>
+                                                    @else
+                                                    <td></td>
+                                                    @endif
                                                     <td class="text-center">
                                                          {{-- <a href="{{Route('kalibrasi_detail')}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icon-info"></i></a> --}}
                                                     </td>

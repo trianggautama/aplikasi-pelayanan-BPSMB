@@ -22,6 +22,10 @@
                         <div class="col-md-10"><input name="name" type="text" class="form-control" id="InputNormal"  placeholder="Nama Perusahaan"></div>
                 </div>
                 <div class="form-group row">
+                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Penanggung Jawab</label></div>
+                        <div class="col-md-10"><input name="nama_pj" type="text" class="form-control" id="InputNormal"  placeholder="Nama Penanggung Jawab"></div>
+                </div>
+                <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
                         <div class="col-md-10"><input name="email" type="email" class="form-control" id="InputNormal"  placeholder="Email"></div>
                 </div>

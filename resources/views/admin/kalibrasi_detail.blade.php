@@ -90,7 +90,7 @@
                                                     @if($kalibrasi->status == 0)
                                                     <label class="label bg-danger">Gagal Uji</label>
                                                         @elseif($kalibrasi->status == 2)
-                                                    <label class="label bg-warning">Pending</label>
+                                                    <label class="label bg-warning">Verifikasi</label>
                                                         @elseif($kalibrasi->status == 1)
                                                     <label class="label bg-info">Sedang Diuji</label>
                                                         @elseif($kalibrasi->status == 3)

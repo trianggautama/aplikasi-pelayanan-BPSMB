@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -97,11 +98,11 @@
                             <th>No</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Barang</th>
-                                <th>biaya</th>
                                 <th>Tanggal Permohonan</th>
                                 <th>Merk</th>
                                 <th>No Seri</th>
                                 <th>Status</th>
+                                <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,7 +112,6 @@
                                 <td>{{ $no=$no + 1 }}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
-                                <td>{{$d->retribusi->biaya}}</td>
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->merk}}</td>
                                 <td>{{$d->no_seri}}</td>
@@ -124,6 +124,7 @@
                                 <label class="label bg-info">Diterima</label>
                                 @endif
                                 </td>
+                                <td>Rp.{{$d->retribusi->biaya}},-</td>
                             </tr>
                             @endforeach
                         </tbody>

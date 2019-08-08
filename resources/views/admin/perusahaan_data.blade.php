@@ -28,6 +28,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Perusahaan</th>
+                            <th>Nama Penanggung Jawab</th>
                             <th>Alamat Perusahaan</th>
                             <th>No Tlp</th>
                             <th>status</th>
@@ -40,6 +41,7 @@
                             @foreach ($Perusahaan as $p)
                             <td>{{$no = $no + 1}}</td>
                             <td>{{$p->user->name}}</td>
+                            <td>{{$p->nama_pj}}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
                             <td>@if($p->user->status == 0)

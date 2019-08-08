@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -96,12 +97,14 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Perusahaan</th>
+                            <th>Nama Penanggung Jawab</th>
                             <th>Barang Kalibrasi</th>
-                            <th>Biaya</th>
-                            <th>Tanggal Verifikasi</th>
-                            <th>tanggal Kalibrasi</th>
+                            <th>Tanggal Kalibrasi</th>
+                            <th>Tanggal Selesai</th>
                             <th>Estimasi</th>
+                            <th>Lama Uji</th>
                             <th>Status</th>
+                            <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,22 +113,42 @@
                         <tr>
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
+                            <td>{{ $d->permohonan_kalibrasi->perusahaan->nama_pj }}</td>
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
-                            <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
-                            <td>{{ $d->created_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->tanggal }}</td>
+                            <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ $d->updated_at->format('d-m-Y') }}</td>
                             <td>{{ $d->estimasi }}</td>
+                            @if($d->status == 3)
+
+                            @php
+                            $fdate = $d->tanggal;
+                            $tdate = $d->updated_at;
+                            $datetime1 = new DateTime($fdate);
+                            $datetime2 = new DateTime($tdate);
+                            $interval = $datetime1->diff($datetime2);
+                            $days = $interval->format('%a');
+
+                            @endphp
+                            <td>{{ $days }} Hari</td>
+                            @else
+                            <td></td>
+                            @endif
                             <td>
                                 @if($d->status == 0)
                                 <label class="label bg-danger">Ditolak</label>
                                     @elseif($d->status == 2)
-                                <label class="label bg-warning">Pending</label>
+                                <label class="label bg-warning">Verifikasi</label>
                                     @elseif($d->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
                                     @elseif($d->status == 3)
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
+                            @if($d->status == 3)
+                            <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
+                            @else
+                            <td></td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>

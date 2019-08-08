@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -97,11 +98,11 @@
                             <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Komoditi</th>
-                            <th>Biaya</th>
                             <th>Tanggal Verifikasi</th>
                             <th>tanggal Pengujian</th>
                             <th>Estimasi</th>
                             <th>Status</th>
+                            <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,7 +112,7 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_pengujian->user->name }}</td>
                             <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
-                            <td>Rp. {{ $d->permohonan_pengujian->retribusi->biaya }}</td>
+
                             <td>{{ $d->created_at->format('d-m-Y') }}</td>
                             <td>{{ $d->tanggal }}</td>
                             <td>{{ $d->estimasi }}</td>
@@ -119,14 +120,14 @@
                                 @if($d->status == 0)
                                 <label class="label bg-danger">Ditolak</label>
                                     @elseif($d->status == 2)
-                                <label class="label bg-warning">Pending</label>
+                                <label class="label bg-warning">Verifikasi</label>
                                     @elseif($d->status == 1)
                                 <label class="label bg-info">Sedang Diuji</label>
                                     @elseif($d->status == 3)
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
-                            </td>
+                            <td>Rp.{{ $d->permohonan_pengujian->retribusi->biaya }},-</td>
                         </tr>
                         @endforeach
                         </tbody>

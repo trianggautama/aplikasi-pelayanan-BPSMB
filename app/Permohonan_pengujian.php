@@ -17,13 +17,11 @@ class Permohonan_pengujian extends Model
     public function retribusi(){
         return $this->belongsTo('App\Retribusi_pengujian','retribusi_pengujian_id');
       }
-
-
       public function pengujian(){
-        return $this->hasOne('App\Pengujian');
+        return $this->HasOne('App\Pengujian');
       }
 
-      public function inbox(){
+    public function inbox(){
         return $this->hasOne('App\inbox');
       }
 }

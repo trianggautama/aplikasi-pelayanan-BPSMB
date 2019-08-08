@@ -22,7 +22,8 @@
         color: white;
       }
       td{
-        text-align: center;
+        text-align: left;
+        margin-left: 10px !important;
       }
       br{
           margin-bottom: 5px !important;
@@ -97,8 +98,8 @@
                             <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Kalibrasi</th>
+                            <th>Tanggal Kalibrasi</th>
                             <th>Biaya</th>
-                            <th>tanggal Kalibrasi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,8 +109,8 @@
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->user->name }}</td>
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->nama }}</td>
-                            <td>Rp.{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->biaya }},-</td>
                             <td>{{ carbon\carbon::parse($d->kalibrasi->tanggal)->format('d-m-Y') }}</td>
+                            <td>Rp.{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->biaya }},-</td>
                             @php
                             $total =  0;
                             $total = $d->sum('pendapatan');

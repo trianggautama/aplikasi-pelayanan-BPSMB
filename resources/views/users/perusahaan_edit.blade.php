@@ -18,6 +18,10 @@
                 {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
+                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Penanggung Jawab</label></div>
+                        <div class="col-md-10"><input name="nama_pj" id="" class="form-control" value="{{$perusahaan_data->nama_pj}}"></div>
+                </div>
+                <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
                         <div class="col-md-10"><textarea name="alamat" id="" class="form-control">{{$perusahaan_data->alamat}}</textarea></div>
                 </div>
