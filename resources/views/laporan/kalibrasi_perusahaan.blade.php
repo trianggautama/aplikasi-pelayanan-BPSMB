@@ -148,7 +148,7 @@
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
-                        <td>Rp.{{ $p->retribusi->biaya }}</td>
+                            <td>{{ number_format($p->retribusi->biaya)}}</td>
                         @else
                         <td></td>
 

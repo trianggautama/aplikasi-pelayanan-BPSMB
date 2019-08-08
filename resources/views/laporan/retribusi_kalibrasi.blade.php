@@ -108,7 +108,7 @@
                                 <td>{{ $no= $no+1 }}</td>
                                 <td>{{ $r->nama }}</td>
                                 <td>{{ $r->rentang_ukur }}</td>
-                                <td>Rp.{{ $r->biaya }},-</td>
+                                <td>{{ number_format($r->biaya) }}</td>
                             </tr>
                             @endforeach
                         </tbody>

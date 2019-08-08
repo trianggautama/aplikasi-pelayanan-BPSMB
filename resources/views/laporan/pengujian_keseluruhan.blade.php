@@ -127,7 +127,7 @@
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
-                            <td>Rp.{{ $d->permohonan_pengujian->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya) }}</td>
                         </tr>
                         @endforeach
                         </tbody>

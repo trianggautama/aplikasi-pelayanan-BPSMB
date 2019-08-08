@@ -145,7 +145,7 @@
                                 @endif
                             </td>
                             @if($d->status == 3)
-                            <td>Rp.{{ $d->permohonan_kalibrasi->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
                             @else
                             <td></td>
                             @endif

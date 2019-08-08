@@ -122,7 +122,7 @@
                                 <label class="label bg-info">Diterima</label>
                                     @endif
                                 </td>
-                                <td>Rp.{{$d->retribusi->biaya}},-</td>
+                                <td>{{ number_format($d->retribusi->biaya) }}</td>
                             </tr>
                             @endforeach
                         </tbody>

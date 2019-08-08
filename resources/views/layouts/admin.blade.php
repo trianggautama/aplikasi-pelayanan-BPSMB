@@ -185,6 +185,7 @@
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian status</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('admin_perusahaan_index')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Perusahaan</a></li>
 
                         </ul>
                     </li>
