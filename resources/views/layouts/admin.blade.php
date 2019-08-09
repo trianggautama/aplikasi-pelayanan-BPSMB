@@ -28,12 +28,16 @@
      <link rel="stylesheet" type="text/css" href="{{asset('assets/icon/simple-line-icons/css/simple-line-icons.css')}}">
      <!-- Required Fremwork -->
      <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}">
+     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.min.css')}}">
      <!-- Style.css -->
      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
      <!-- Responsive.css-->
      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
      <!--color css-->
      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/color/color-1.min.css')}}" id="color">
+
+
+
     <!-- datatable-->
     <link href="{{ asset('datatable\datatable.min.css') }}" rel="stylesheet">
     </head>
@@ -176,15 +180,17 @@
                              <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_keseluruhan') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans</a></li>
                              <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_filter_status') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans Filter</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi / bulan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi / tahun</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi Filter</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi / tahun</a></li> --}}
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi status</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian / bulan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian / tahun</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian Filter</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian / tahun</a></li> --}}
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian status</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Kalibrasi</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Kalibrasi Filter</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian Filter</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('admin_perusahaan_index')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Perusahaan</a></li>
 
                         </ul>
@@ -216,11 +222,14 @@
 </div>
 </body>
   <!-- Required Jqurey -->
+  <script src="{{asset('assets/plugins/tether/dist/js/tether.min.js')}}"></script>
   <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
+     <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
       <script src="{{asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-      <script src="{{asset('assets/plugins/tether/dist/js/tether.min.js')}}"></script>
+      <script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
+      <script src="{{ asset('js/locales/bootstrap-datetimepicker.id.js') }}" charset="UTF-8"></script>
       <!-- Required Fremwork -->
-      <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
       <!-- waves effects.js -->
       <script src="{{asset('assets/plugins/Waves/waves.min.js')}}"></script>
 
@@ -253,6 +262,21 @@
              nav.removeClass('active');
          }
      });
+
+     $('.form_date').datetimepicker({
+    //     format: "mm-yyyy",
+    // viewMode: "months",
+    // minViewMode: "months"
+        // format:  'mm-yyyy',
+        language:  'id',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
     </script>
         @stack('scripts')
 </html>

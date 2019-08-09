@@ -293,19 +293,69 @@ class adminController extends Controller
 
     public function laporan_kalibrasi_filter_bulan(Request $Request){
 
-        $bulan = carbon::parse($Request->bulan)->format('m-Y');
-        // $bulan = $Request->tgl_berangkat;
-        $id =carbon::parse($Request->bulan);
+        // dd($Request->filter_bulan);
+        // $bulan = carbon::parse($Request->filter_bulan);
+        // dd($bulan);
+        $bulan = $Request->bulan;
+        // $id =carbon::parse($Request->filter_bulan);
         // dd($id);
         // $month = $post->created_at->month;
         // $permohonan = Permohonan_kalibrasi::get();
-        $kalibrasi =Permohonan_kalibrasi::whereMonth('created_at', $id)->get();
+        $kalibrasi =Permohonan_kalibrasi::whereMonth('created_at', $Request->filter_bulan)->get();
         // dd($kalibrasi);
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.permohonan_kalibrasi_filter_bulan', ['bulan'=> $bulan,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan kalibrasi filter bulan.pdf');
+    }
+
+    public function kalibrasi_filter_bulan(){
+
+        return view('admin.kalibrasi_filter_bulan');
+        }
+
+    public function laporan_kalibrasi_filter_bulan_tahun(Request $Request){
+
+        // dd($Request->filter_bulan);
+        // $bulan = carbon::parse($Request->filter_bulan);
+        // dd($bulan);
+        $bulan = $Request->bulan;
+        // $id =carbon::parse($Request->filter_bulan);
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = kalibrasi::get();
+        $kalibrasi =kalibrasi::whereMonth('created_at', $Request->filter_bulan)->get();
+        // dd($kalibrasi);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.kalibrasi_filter_bulan', ['bulan'=> $bulan,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan kalibrasi filter bulan.pdf');
+    }
+
+    public function pengujian_filter_bulan(){
+
+        return view('admin.pengujian_filter_bulan');
+        }
+
+    public function laporan_pengujian_filter_bulan_tahun(Request $Request){
+
+        // dd($Request->filter_bulan);
+        // $bulan = carbon::parse($Request->filter_bulan);
+        // dd($bulan);
+        $bulan = $Request->bulan;
+        // $id =carbon::parse($Request->filter_bulan);
+        // dd($id);
+        // $month = $post->created_at->month;
+        // $permohonan = pengujian::get();
+        $pengujian =pengujian::whereMonth('created_at', $Request->filter_bulan)->get();
+        // dd($pengujian);
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.pengujian_filter_bulan', ['bulan'=> $bulan,'pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan pengujian filter bulan.pdf');
     }
 
     public function permohonan_kalibrasi_filter_tahun(){
@@ -426,13 +476,14 @@ class adminController extends Controller
 
     public function laporan_pengujian_filter_bulan(Request $Request){
 
-        $bulan = carbon::parse($Request->bulan)->format('m-Y');
+        // $bulan = carbon::parse($Request->bulan)->format('m-Y');
         // $bulan = $Request->tgl_berangkat;
-        $id =carbon::parse($Request->bulan);
+        // $id =carbon::parse($Request->bulan);
+        $bulan = $Request->bulan;
         // dd($id);
         // $month = $post->created_at->month;
         // $permohonan = Permohonan_pengujian::get();
-        $pengujian =Permohonan_pengujian::whereMonth('created_at', $id)->get();
+        $pengujian =Permohonan_pengujian::whereMonth('created_at', $Request->filter_bulan)->get();
         // dd($pengujian);
         $tgl= Carbon::now()->format('d-m-Y');
 
@@ -1011,7 +1062,7 @@ class adminController extends Controller
        }//mencetak  perusahaan
 
        public function kalibrasi_cetak(){
-        $kalibrasi = kalibrasi::all();
+        $kalibrasi = kalibrasi::where('status',3)->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.kalibrasi_keseluruhan', ['kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
@@ -1032,7 +1083,7 @@ class adminController extends Controller
        }
 
        public function pengujian_cetak(){
-        $pengujian = pengujian::all();
+        $pengujian = pengujian::where('status',3)->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
         $pdf =PDF::loadView('laporan.pengujian_keseluruhan', ['pengujian' => $pengujian,'tgl'=>$tgl]);

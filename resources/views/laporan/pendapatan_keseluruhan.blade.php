@@ -110,7 +110,7 @@
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->user->name }}</td>
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>{{ carbon\carbon::parse($d->kalibrasi->tanggal)->format('d-m-Y') }}</td>
-                            <td>Rp.{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->biaya }},-</td>
+                            <td>{{ number_format($d->kalibrasi->permohonan_kalibrasi->retribusi->biaya) }}</td>
                             @php
                             $total =  0;
                             $total = $d->sum('pendapatan');
@@ -118,9 +118,12 @@
 
                         </tr>
                         @endforeach
+                        <tr>
+                            <td colspan="4">Total Pendapatan Kalibrasi </td>
+                            <td>Rp.{{ number_format($total)}},-</td>
+                        </tr>
                         </tbody>
                     </table>
-                        <p>Total Pendapatan Kalibrasi Rp.{{ number_format($total)}},-</p>
                         <h2 style="text-align:center;">DATA PENDAPATAN PENGUJIAN KESELURUHAN</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
@@ -128,8 +131,8 @@
                             <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Pengujian</th>
-                            <th>Biaya</th>
                             <th>tanggal Pengujian</th>
+                            <th>Biaya</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,20 +141,29 @@
                         <tr>
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->pengujian->permohonan_pengujian->user->name }}</td>
-                            <td>{{ $d->pengujian->permohonan_pengujian->retribusi->komoditi }}</td>
-                            <td>Rp.{{ $d->pengujian->permohonan_pengujian->retribusi->biaya }},-</td>
+                            <td>{{ $d->pengujian->permohonan_pengujian->retribusi->komoditi }}</td>\
                             <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ number_format($d->pengujian->permohonan_pengujian->retribusi->biaya) }}</td>
                             @php
                             $total_p =  0;
                             $total_p = $d->sum('pendapatan');
                             @endphp
 
-                        </tr>
+
                         @endforeach
+                    </tr>
+                        <tr>
+                                <td colspan="4">Total Pendapatan Pengujian </td>
+                                <td>Rp.{{ number_format($total_p)}},-</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Total Pendapatan Keseluruhan </td>
+                                <td>Rp.{{ number_format($total_p+$total)}},-</td>
+                            </tr>
                         </tbody>
                     </table>
-                    <p>Total Pendapatan Pengujian Rp.{{ number_format($total_p)}},-</p>
-                    <p>Total Pendapatan Keseluruhan Rp.{{ number_format($total_p+$total)}},-</p>
+                    {{-- <p>Total Pendapatan Pengujian Rp.{{ number_format($total_p)}},-</p>
+                    <p>Total Pendapatan Keseluruhan Rp.{{ number_format($total_p+$total)}},-</p> --}}
                       <br>
                       <br>
                       <div class="ttd">

@@ -91,7 +91,7 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PENGUJIAN KESELURUHAN</h2>
+            <h2 style="text-align:center;">DATA PENGUJIAN BULAN {{ $bulan }}</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>

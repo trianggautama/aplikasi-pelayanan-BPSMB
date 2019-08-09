@@ -91,14 +91,14 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PENGUJIAN KESELURUHAN</h2>
+            <h2 style="text-align:center;">DATA KALIBRASI BULAN {{ $bulan }}</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama Perusahaan</th>
-                            <th>Komoditi</th>
-                            <th>Tanggal Pengujian</th>
+                            <th>Barang Kalibrasi</th>
+                            <th>Tanggal Kalibrasi</th>
                             <th>Tanggal Selesai</th>
                             <th>Lama Uji</th>
                             <th>Status</th>
@@ -107,11 +107,11 @@
                         </thead>
                         <tbody>
                         <?php $no = 0 ?>
-                        @foreach ($pengujian as $d)
+                            @foreach ($kalibrasi as $d)
                         <tr>
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{ $d->permohonan_pengujian->user->name }}</td>
-                            <td>{{ $d->permohonan_pengujian->retribusi->komoditi }}</td>
+                            <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
+                            <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->updated_at->format('d-m-Y') }}</td>
                             @if($d->status == 3)
@@ -140,7 +140,11 @@
                                 <label class="label bg-success">Selesai Diuji</label>
                                 @endif
                             </td>
-                            <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya) }}</td>
+                            @if($d->status == 3)
+                            <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
+                            @else
+                            <td></td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>

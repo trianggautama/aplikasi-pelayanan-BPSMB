@@ -116,7 +116,7 @@
                         <td>{{ carbon\carbon::parse($p->pengujian->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ $p->pengujian->updated_at->format('d-m-Y') }}</td>
                         <td>{{ $p->pengujian->estimasi }}</td>
-                        @if($p->pengujian->status == 3)
+                            @if($p->pengujian->status == 3)
 
                             @php
                             $fdate = $p->pengujian->tanggal;

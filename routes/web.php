@@ -132,6 +132,11 @@ Route::get('/kalibrasi/perusahaan/cetak/{id}','adminController@kalibrasi_perusah
 Route::get('/kalibrasi_detail/hapus/{id}','adminController@kalibrasi_hapus')
 ->name('kalibrasi_hapus');
 
+Route::get('/kalibrasi/filter/bulan','adminController@kalibrasi_filter_bulan')
+->name('kalibrasi_filter_bulan');
+Route::post('/kalibrasi/filter/bulan','adminController@laporan_kalibrasi_filter_bulan_tahun')
+->name('laporan_kalibrasi_filter_bulan_tahun');
+
 //Data Pengujian
 Route::get('/pengujian','adminController@pengujian_index')
 ->name('pengujian_index');
@@ -157,6 +162,11 @@ Route::get('/pengujian/perusahaan/cetak/{id}','adminController@pengujian_perusah
 ->name('pengujian_perusahaan_cetak');
 Route::get('/pengujian_detail/hapus/{id}','adminController@pengujian_hapus')
 ->name('pengujian_hapus');
+
+Route::get('/pengujian/filter/bulan','adminController@pengujian_filter_bulan')
+->name('pengujian_filter_bulan');
+Route::post('/pengujian/filter/bulan','adminController@laporan_pengujian_filter_bulan_tahun')
+->name('laporan_pengujian_filter_bulan_tahun');
 
 
 //user atau admin

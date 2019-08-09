@@ -97,11 +97,9 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Perusahaan</th>
-                            <th>Nama Penanggung Jawab</th>
                             <th>Barang Kalibrasi</th>
                             <th>Tanggal Kalibrasi</th>
                             <th>Tanggal Selesai</th>
-                            <th>Estimasi</th>
                             <th>Lama Uji</th>
                             <th>Status</th>
                             <th>Biaya</th>
@@ -113,11 +111,9 @@
                         <tr>
                             <td>{{$no = $no + 1}}</td>
                             <td>{{ $d->permohonan_kalibrasi->user->name }}</td>
-                            <td>{{ $d->permohonan_kalibrasi->perusahaan->nama_pj }}</td>
                             <td>{{ $d->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>{{ carbon\carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $d->updated_at->format('d-m-Y') }}</td>
-                            <td>{{ $d->estimasi }}</td>
                             @if($d->status == 3)
 
                             @php
