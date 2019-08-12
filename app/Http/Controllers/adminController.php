@@ -1061,6 +1061,17 @@ class adminController extends Controller
         return $pdf->stream('Laporan retribusi pengujian.pdf');
        }//mencetak  retribusi pengujian
 
+       public function laporan_laboratorium(){
+        $laboratorium=laboratorium::all();
+        // $pejabat =pejabat::where('jabatan','Kepala Dinas')->get();
+
+        $tgl= Carbon::now()->format('d-m-Y');
+
+        $pdf =PDF::loadView('laporan.laboratorium', ['laboratorium' => $laboratorium,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan laboratorium .pdf');
+       }//mencetak  laboratorium
+
        public function sertifikat_kalibrasi($id){
 
         $id = IDCrypt::Decrypt($id);

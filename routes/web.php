@@ -206,6 +206,10 @@ Route::get('/admin/retribusi-kalibrasi/laporan/retribusi-kalibrasi','adminContro
 Route::get('/admin/retribusi_pengujian/laporan/retribusi-pengujian','adminController@laporan_retribusi_pengujian')
 ->name('laporan_retribusi_pengujian');
 
+//laporan
+Route::get('/admin/laboratorium/laporan','adminController@laporan_laboratorium')
+->name('laporan_laboratorium');
+
 Route::get('/admin/pendapatan/','adminController@pendapatan_index')
 ->name('pendapatan_index');
 Route::get('/admin/pendapatan/laporan','adminController@pendapatan_cetak')
