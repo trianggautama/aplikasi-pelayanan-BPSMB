@@ -9,6 +9,7 @@ use App\Inbox;
 use App\Kalibrasi;
 use App\Pengujian;
 use App\Perusahaan;
+use App\Laboratorium;
 use App\Hasil_kalibrasi;
 use App\Hasil_pengujian;
 use App\Retribusi_kalibrasi;
@@ -278,6 +279,58 @@ class adminController extends Controller
 
         return redirect(route('retribusi_pengujian_index'))->with('success', 'Data retribusi pengujian berhasil di hapus');
     }//fungsi menghapus data retribusi pengujian
+
+    //laboratorium
+    public function laboratorium_index(){
+        $laboratorium = laboratorium::all();
+        // dd($laboratorium);
+        return view('admin.laboratorium_data',compact('laboratorium'));
+
+        // return view('admin.laboratorium_data');
+    }
+
+    public function laboratorium_store(Request $request){
+
+        $this->validate(request(),[
+            'nama_laboratorium'=>'required',
+            'nama_pj'=>'required',
+            'keterangan'=>'required'
+        ]);
+        $laboratorium = new laboratorium;
+        $laboratorium->nama_laboratorium            = $request->nama_laboratorium;
+        $laboratorium->nama_pj    = $request->nama_pj;
+        $laboratorium->keterangan      = $request->keterangan;
+        $laboratorium->save();
+          return redirect(route('laboratorium_index'))->with('success', 'Data laboratorium '.$request->nama_laboratorium.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data laboratorium
+     //laboratorium
+     public function laboratorium_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $laboratorium = laboratorium::findOrFail($id);
+        // dd($laboratorium);
+
+        return view('admin.laboratorium_edit',compact('laboratorium'));
+    }//menampilkan halaman edit laboratorium
+
+    public function laboratorium_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $laboratorium = laboratorium::findOrFail($id);
+
+        $laboratorium->nama_laboratorium            = $request->nama_laboratorium;
+        $laboratorium->nama_pj    = $request->nama_pj;
+        $laboratorium->keterangan      = $request->keterangan;
+
+       $laboratorium->update();
+       return redirect(route('laboratorium_index'))->with('success', 'Data laboratorium '.$request->nama_laboratorium.' Berhasil di Ubah');
+      }//fungsi mengubah data laboratorium
+
+      public function laboratorium_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $laboratorium=laboratorium::findOrFail($id);
+        $laboratorium->delete();
+
+        return redirect(route('laboratorium_index'))->with('success', 'Data laboratorium berhasil di hapus');
+    }//fungsi menghapus data laboratorium
 
    //permohonan Kalibrasi
    public function permohonan_kalibrasi_index(){

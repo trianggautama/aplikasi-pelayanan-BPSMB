@@ -211,6 +211,18 @@ Route::get('/admin/pendapatan/','adminController@pendapatan_index')
 Route::get('/admin/pendapatan/laporan','adminController@pendapatan_cetak')
 ->name('pendapatan_cetak');
 
+//laboratorium
+Route::get('/admin/laboratorium','adminController@laboratorium_index')
+->name('laboratorium_index');
+Route::POST('/admin/laboratorium','adminController@laboratorium_store')
+->name('laboratorium_store');
+Route::get('/admin/laboratorium/edit/{id}','adminController@laboratorium_edit')
+->name('laboratorium_edit');
+Route::put('/admin/laboratorium/edit/{id}','adminController@laboratorium_update')
+->name('laboratorium_update');
+Route::get('/admin/laboratorium/hapus/{id}','adminController@laboratorium_hapus')
+->name('laboratorium_hapus');
+
 //MIDLEWARE ADMIN
 });
 //-------------------------------------------------------------------------------------------------------------------------------//

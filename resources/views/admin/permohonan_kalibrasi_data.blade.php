@@ -26,7 +26,7 @@
                                 <th>No</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Barang Kalibrasi</th>
-                                <th>Biaya</th>
+                                {{-- <th>Biaya</th> --}}
                                 <th>Tanggal Permohonan</th>
                                 <th>Merk</th>
                                 <th>No Seri</th>
@@ -41,7 +41,7 @@
                                 <td>{{$no = $no +1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->nama}}</td>
-                                <td>{{ number_format($d->retribusi->biaya)}}</td>
+                                {{-- <td>{{ number_format($d->retribusi->biaya)}}</td> --}}
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->merk}}</td>
                                 <td>{{$d->no_seri}}</td>

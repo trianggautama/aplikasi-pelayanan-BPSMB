@@ -102,7 +102,7 @@
                                 <th>Merk</th>
                                 <th>No Seri</th>
                                 <th>Status</th>
-                                <th>Biaya</th>
+                                {{-- <th>Biaya</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -121,10 +121,10 @@
                                 @elseif($d->status == 1)
                                 <label class="label bg-warning">Pending</label>
                                 @elseif($d->status == 2)
-                                <label class="label bg-info">Diterima</label>
+                                <label class="label bg-info">Verifikasi</label>
                                 @endif
                                 </td>
-                                <td>{{ number_format($d->retribusi->biaya) }}</td>
+                                {{-- <td>{{ number_format($d->retribusi->biaya) }}</td> --}}
                             </tr>
                             @endforeach
                         </tbody>

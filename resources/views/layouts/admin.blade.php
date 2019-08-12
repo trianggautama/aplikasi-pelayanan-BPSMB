@@ -158,6 +158,7 @@
                         <li><a class="waves-effect waves-dark" href="{{route('admin_perusahaan_index')}}"><i class="icon-arrow-right"></i> Data Perusahaan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_kalibrasi_index')}}"><i class="icon-arrow-right"></i>  Data Retribusi Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('retribusi_pengujian_index')}}"><i class="icon-arrow-right"></i> Data Retribusi Pengujian</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('laboratorium_index')}}"><i class="icon-arrow-right"></i>  Data Laboratorium</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('admin_user_index')}}"><i class="icon-list"></i><span> Kelola Admin</span></a></li>
                       </ul>
 
@@ -178,15 +179,15 @@
                         <ul class="treeview-menu">
                              <li><a class="waves-effect waves-dark" href="{{Route('pendapatan_index')}}"><i class="icon-arrow-right"></i> Pendapatan</a></li>
                              <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_keseluruhan') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans</a></li>
-                             <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_filter_status') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans Filter</a></li>
+                             {{-- <li><a class="waves-effect waves-dark" href="{{ route('laporan_perusahaan_filter_status') }}" target="_blank"><i class="icon-arrow-right"></i>  Perusahaans Filter</a></li> --}}
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Kalibrasi</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi Filter</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi Filter</a></li> --}}
                             {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi / tahun</a></li> --}}
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi status</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_kalibrasi_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan Kalibrasi status</a></li> --}}
                             <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Permohonan Pengujian</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian Filter</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian Filter</a></li> --}}
                             {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_tahun')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian / tahun</a></li> --}}
-                            <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian status</a></li>
+                            {{-- <li><a class="waves-effect waves-dark" href="{{Route('permohonan_pengujian_filter_status')}}" target="_blank"><i class="icon-arrow-right"></i> Permohonan pengujian status</a></li> --}}
                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Kalibrasi</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Kalibrasi Filter</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>

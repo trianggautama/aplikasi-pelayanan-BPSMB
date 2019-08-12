@@ -110,7 +110,7 @@
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->user->name }}</td>
                             <td>{{ $d->kalibrasi->permohonan_kalibrasi->retribusi->nama }}</td>
                             <td>{{ carbon\carbon::parse($d->kalibrasi->tanggal)->format('d-m-Y') }}</td>
-                            <td>{{ number_format($d->kalibrasi->permohonan_kalibrasi->retribusi->biaya) }}</td>
+                            <td style="text-align:right;">{{ number_format($d->kalibrasi->permohonan_kalibrasi->retribusi->biaya) }}</td>
                             @php
                             $total =  0;
                             $total = $d->sum('pendapatan');
@@ -120,7 +120,7 @@
                         @endforeach
                         <tr>
                             <td colspan="4">Total Pendapatan Kalibrasi </td>
-                            <td>Rp.{{ number_format($total)}},-</td>
+                            <td style="text-align:right;">Rp.{{ number_format($total)}},-</td>
                         </tr>
                         </tbody>
                     </table>
@@ -143,7 +143,7 @@
                             <td>{{ $d->pengujian->permohonan_pengujian->user->name }}</td>
                             <td>{{ $d->pengujian->permohonan_pengujian->retribusi->komoditi }}</td>\
                             <td>{{ carbon\carbon::parse($d->pengujian->tanggal)->format('d-m-Y') }}</td>
-                            <td>{{ number_format($d->pengujian->permohonan_pengujian->retribusi->biaya) }}</td>
+                            <td style="text-align:right;">{{ number_format($d->pengujian->permohonan_pengujian->retribusi->biaya) }}</td>
                             @php
                             $total_p =  0;
                             $total_p = $d->sum('pendapatan');
@@ -154,11 +154,11 @@
                     </tr>
                         <tr>
                                 <td colspan="4">Total Pendapatan Pengujian </td>
-                                <td>Rp.{{ number_format($total_p)}},-</td>
+                                <td style="text-align:right;">Rp.{{ number_format($total_p)}},-</td>
                             </tr>
                             <tr>
                                 <td colspan="4">Total Pendapatan Keseluruhan </td>
-                                <td>Rp.{{ number_format($total_p+$total)}},-</td>
+                                <td style="text-align:right;">Rp.{{ number_format($total_p+$total)}},-</td>
                             </tr>
                         </tbody>
                     </table>

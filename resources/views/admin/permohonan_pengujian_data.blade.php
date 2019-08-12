@@ -26,7 +26,7 @@
                             <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Barang Pengujian</th>
-                            <th>Biaya</th>
+                            {{-- <th>Biaya</th> --}}
                             <th>Tanggal Permohonan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
@@ -47,7 +47,7 @@
                                 @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
                                     @elseif($d->status == 1)
-                                <label class="label bg-warning">Pending</label>
+                                {{-- <label class="label bg-warning">Pending</label> --}}
                                     @elseif($d->status == 2)
                                 <label class="label bg-info">Verifikasi</label>
                                     @endif

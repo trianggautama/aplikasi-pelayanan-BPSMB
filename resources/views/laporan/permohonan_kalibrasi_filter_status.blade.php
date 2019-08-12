@@ -94,7 +94,7 @@
             @if($status==1)
             <h2 style="text-align:center;">DATA PERMOHONAN KALIBRASI STATUS PENDING</h2>
             @else
-            <h2 style="text-align:center;">DATA PERMOHONAN KALIBRASI STATUS DITERIMA</h2>
+            <h2 style="text-align:center;">DATA PERMOHONAN KALIBRASI STATUS VERIFIKASI</h2>
             @endif
             <table class="table table-hover" id="myTable">
                         <thead>
@@ -106,7 +106,7 @@
                                 <th>Merk</th>
                                 <th>No Seri</th>
                                 <th>Status</th>
-                                <th>Biaya</th>
+                                {{-- <th>Biaya</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +128,7 @@
                                 <label class="label bg-info">Verifikasi</label>
                                 @endif
                                 </td>
-                                <td>{{ number_format($d->retribusi->biaya) }}</td>
+                                {{-- <td>{{ number_format($d->retribusi->biaya) }}</td> --}}
                             </tr>
                             @endforeach
                         </tbody>
