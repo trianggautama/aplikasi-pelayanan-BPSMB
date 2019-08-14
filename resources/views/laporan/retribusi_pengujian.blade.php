@@ -116,15 +116,20 @@
                     </table>
                       <br>
                       <br>
-                      <div class="ttd">
-                        <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
+                      <table style="border:none;">
+                      <tr style="border:none;">
+                      <td style="width:70%; border:none;"></td>
+                      <td style="text-align:center; border:none;">
+                      <h5> <p>Banjarbaru, {{ $tgl }}</p></h5>
                         <h6>Mengetahui</h6>
                         <h5>Kepala Balai Pengujian dan Sertifikasi Mutu Barang</h5>
                         <br>
                         <br>
                         <h5 style="text-decoration:underline;">Drs.Anang Aliansyah</h5>
                         <h5>NIP. 19580726 1984 03 1 007</h5>
-                      </div>
+                      </td>
+                      </tr>
+                      </table>
                     </div>
              </div>
          </body>
