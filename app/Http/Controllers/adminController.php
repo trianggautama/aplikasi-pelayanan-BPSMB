@@ -678,16 +678,20 @@ class adminController extends Controller
         $kalibrasi->lainnya   = $request->lainnya;
         $kalibrasi->keterangan   = $request->keterangan;
 
-        $kalibrasi->update();
+
 
         if($request->status==3){
+            $biaya = $kalibrasi->permohonan_kalibrasi->retribusi->biaya;
+
+            $kalibrasi->biaya   = $biaya;
+
             $pendapatan = new Pendapatan_kalibrasi;
             $pendapatan->kalibrasi_id = $id;
-            $biaya = $kalibrasi->permohonan_kalibrasi->retribusi->biaya;
             $pendapatan->pendapatan = $biaya;
 
             $pendapatan->save();
-        }
+       }
+       $kalibrasi->update();
 
     //    dd($request);
 
