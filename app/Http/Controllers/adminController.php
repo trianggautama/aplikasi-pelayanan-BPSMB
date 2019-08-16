@@ -832,16 +832,20 @@ class adminController extends Controller
         $pengujian->keterangan   = $request->keterangan;
     //    dd($request);
 
-        $pengujian->update();
 
         if($request->status==3){
+            $biaya = $pengujian->permohonan_pengujian->retribusi->biaya;
+
+            $pengujian->biaya   = $biaya;
+
             $pendapatan = new Pendapatan_pengujian;
             $pendapatan->pengujian_id = $id;
-            $biaya = $pengujian->permohonan_pengujian->retribusi->biaya;
             $pendapatan->pendapatan = $biaya;
 
             $pendapatan->save();
         }
+
+        $pengujian->update();
 
         $id_pengujian = IDCrypt::encrypt($id);
         // dd($id_pengujian);
