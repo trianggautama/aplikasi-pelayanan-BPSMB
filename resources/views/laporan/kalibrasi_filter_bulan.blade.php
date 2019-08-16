@@ -145,8 +145,16 @@
                             @else
                             <td></td>
                             @endif
+                            @php
+                            $total_p =  0;
+                            $total_p = $d->sum('biaya');
+                            @endphp
                         </tr>
                         @endforeach
+                        <tr>
+                            <td colspan="7">Total Pendapatan Kalibrasi </td>
+                            <td style="text-align:right;">Rp.{{ number_format($total_p)}},-</td>
+                        </tr>
                         </tbody>
                     </table>
                       <br>

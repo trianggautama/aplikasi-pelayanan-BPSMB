@@ -142,7 +142,15 @@
                             </td>
                             <td>{{ number_format($d->permohonan_pengujian->retribusi->biaya) }}</td>
                         </tr>
+                            @php
+                            $total_p =  0;
+                            $total_p = $d->sum('biaya');
+                            @endphp
                         @endforeach
+                        <tr>
+                            <td colspan="7">Total Pendapatan Pengujian </td>
+                            <td style="text-align:right;">Rp.{{ number_format($total_p)}},-</td>
+                        </tr>
                         </tbody>
                     </table>
                       <br>
