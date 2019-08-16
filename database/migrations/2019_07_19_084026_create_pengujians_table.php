@@ -25,6 +25,7 @@ class CreatePengujiansTable extends Migration
             $table->string('lainnya')->length(100)->nullable();
             $table->text('keterangan')->nullable();
             $table->string('sertifikat')->length(100)->nullable();
+            $table->string('biaya')->length(100)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('permohonan_pengujian_id')->references('id')->on('permohonan_pengujians')->onDelete('cascade');
             $table->timestamps();
