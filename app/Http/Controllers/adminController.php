@@ -55,6 +55,12 @@ class adminController extends Controller
         return view('admin.perusahaan_data',compact('Perusahaan'));
     }
 
+    public function riwayat_perusahaan_index(){
+        $Perusahaan = Perusahaan::all();
+        // dd($Perusahaan);
+        return view('admin.riwayat_perusahaan_cetak',compact('Perusahaan'));
+    }
+
     public function perusahaan_tambah(){
         return view('admin.perusahaan_tambah');
     }
