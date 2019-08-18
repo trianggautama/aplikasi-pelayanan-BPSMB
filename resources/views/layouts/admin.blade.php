@@ -192,7 +192,7 @@
                             <li><a class="waves-effect waves-dark" href="{{Route('kalibrasi_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Kalibrasi Filter</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_cetak')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('pengujian_filter_bulan')}}" target="_blank"><i class="icon-arrow-right"></i>  Riwayat Pengujian Filter</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{Route('admin_perusahaan_index')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Perusahaan</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{Route('admin_riwayat_perusahaan_index')}}" target="_blank"><i class="icon-arrow-right"></i> Riwayat Perusahaan</a></li>
 
                         </ul>
                     </li>
