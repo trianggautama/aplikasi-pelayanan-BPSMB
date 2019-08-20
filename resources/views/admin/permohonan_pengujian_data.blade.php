@@ -40,7 +40,7 @@
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$d->perusahaan->user->name}}</td>
                                 <td>{{$d->retribusi->komoditi}}</td>
-                                <td>{{ number_format($d->retribusi->biaya)}}</td>
+                                {{-- <td>{{ number_format($d->retribusi->biaya)}}</td> --}}
                                 <td>{{$d->created_at->format('d-m-Y')}}</td>
                                 <td>{{$d->keterangan}}</td>
                                 <td>
