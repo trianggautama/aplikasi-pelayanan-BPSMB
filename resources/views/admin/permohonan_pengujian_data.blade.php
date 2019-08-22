@@ -47,7 +47,7 @@
                                 @if($d->status == 3)
                                 <label class="label bg-danger">Ditolak</label>
                                     @elseif($d->status == 1)
-                                {{-- <label class="label bg-warning">Pending</label> --}}
+                                <label class="label bg-warning">Pending</label>
                                     @elseif($d->status == 2)
                                 <label class="label bg-info">Verifikasi</label>
                                     @endif
