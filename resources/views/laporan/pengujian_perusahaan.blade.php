@@ -101,7 +101,7 @@
                         <th class="text-center txt-primary">TANGGAL SELESAI</th>
                         <th class="text-center txt-primary">ESTIMASI</th>
                         <th class="text-center txt-primary">LAMA UJI</th>
-                        <th class="text-center txt-primary">NO SERI</th>
+                        {{-- <th class="text-center txt-primary">NO SERI</th> --}}
                         <th class="text-center txt-primary">STATUS</th>
                         <th class="text-center txt-primary">TARIF PENGUJIAN</th>
                         </tr>
