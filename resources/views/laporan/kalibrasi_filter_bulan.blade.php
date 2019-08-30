@@ -142,19 +142,30 @@
                             </td>
                             @if($d->status == 3)
                             <td>{{ number_format($d->permohonan_kalibrasi->retribusi->biaya)}}</td>
+
                             @else
                             <td></td>
                             @endif
+                            @if(isset($d->biaya))
                             @php
-                            $total_p =  0;
-                            $total_p = $d->sum('biaya');
+                            $total= $total_p;
+                            $total= $d->sum('biaya');
                             @endphp
+                            @else
+                            @php
+                            $total= $total_p;
+                            @endphp
+                            @endif
+
                         </tr>
                         @endforeach
+                        @if($total_p != 0)
                         <tr>
                             <td colspan="7">Total Pendapatan Kalibrasi </td>
-                            <td style="text-align:right;">Rp.{{ number_format($total_p)}},-</td>
+                            <td style="text-align:right;">Rp.{{ number_format($total)}},-</td>
                         </tr>
+                        @else
+                        @endif
                         </tbody>
                     </table>
                       <br>

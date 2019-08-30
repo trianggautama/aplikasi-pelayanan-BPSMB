@@ -385,10 +385,11 @@ class adminController extends Controller
         // $month = $post->created_at->month;
         // $permohonan = kalibrasi::get();
         $kalibrasi =kalibrasi::whereMonth('created_at', $Request->filter_bulan)->get();
+        $total_p = 0;
         // dd($kalibrasi);
         $tgl= Carbon::now()->format('d-m-Y');
 
-        $pdf =PDF::loadView('laporan.kalibrasi_filter_bulan', ['bulan'=> $bulan,'kalibrasi' => $kalibrasi,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.kalibrasi_filter_bulan', ['bulan'=> $bulan,'kalibrasi' => $kalibrasi,'tgl'=>$tgl,'total_p'=>$total_p]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan kalibrasi filter bulan.pdf');
     }
@@ -409,10 +410,11 @@ class adminController extends Controller
         // $month = $post->created_at->month;
         // $permohonan = pengujian::get();
         $pengujian =pengujian::whereMonth('created_at', $Request->filter_bulan)->get();
+        $total_p = 0;
         // dd($pengujian);
         $tgl= Carbon::now()->format('d-m-Y');
 
-        $pdf =PDF::loadView('laporan.pengujian_filter_bulan', ['bulan'=> $bulan,'pengujian' => $pengujian,'tgl'=>$tgl]);
+        $pdf =PDF::loadView('laporan.pengujian_filter_bulan', ['bulan'=> $bulan,'pengujian' => $pengujian,'tgl'=>$tgl,'total_p'=>$total_p]);
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('Laporan pengujian filter bulan.pdf');
     }
