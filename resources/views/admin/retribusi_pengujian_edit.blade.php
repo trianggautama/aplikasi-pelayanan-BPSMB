@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Biaya</label></div>
-                    <div class="col-md-10"><input type="text" name="biaya" class="form-control" id="InputNormal" value="{{ $Pengujian->biaya }}" placeholder="Biaya"></div>
+                    <div class="col-md-10"><input type="text" data-type="currency" name="biaya" class="form-control" id="currency-field" pattern="^\Rp.\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ $Pengujian->biaya }}"></div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Keterangan</label></div>
