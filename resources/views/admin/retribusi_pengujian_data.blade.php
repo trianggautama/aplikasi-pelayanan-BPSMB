@@ -68,7 +68,7 @@
                             <label>Komoditi</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" name="biaya" class="md-form-control md-static"/>
+                            <input type="text" data-type="currency" name="biaya" class="md-form-control md-static" id="currency-field" pattern="^\Rp.\d{1,3}(,\d{3})*(\.\d+)?$" />
                             <label>Biaya</label>
                         </div>
                             <div class="md-input-wrapper">
