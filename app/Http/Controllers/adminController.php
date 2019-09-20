@@ -184,7 +184,9 @@ class adminController extends Controller
         $Kalibrasi = new Retribusi_kalibrasi;
         $Kalibrasi->nama            = $request->nama;
         $Kalibrasi->rentang_ukur    = $request->rentang_ukur;
-        $Kalibrasi->biaya           = $request->biaya;
+        $biaya         = preg_replace('/[^0-9]/','',$request->biaya);
+        // dd($biaya);
+        $Kalibrasi->biaya           = $biaya;
         $Kalibrasi->keterangan      = $request->keterangan;
         $Kalibrasi->save();
           return redirect(route('retribusi_kalibrasi_index'))->with('success', 'Data retribusi kalibrasi '.$request->nama.' Berhasil di Tambahkan');
@@ -211,7 +213,9 @@ class adminController extends Controller
 
        $Kalibrasi->nama         = $request->nama;
        $Kalibrasi->rentang_ukur = $request->rentang_ukur;
-       $Kalibrasi->biaya        = $request->biaya;
+       $biaya         = preg_replace('/[^0-9]/','',$request->biaya);
+        // dd($biaya);
+        $Kalibrasi->biaya           = $biaya;
        $Kalibrasi->keterangan   = $request->keterangan;
 
        $Kalibrasi->update();
@@ -245,7 +249,9 @@ class adminController extends Controller
         $Pengujian = new Retribusi_pengujian;
 
         $Pengujian->komoditi        = $request->komoditi;
-        $Pengujian->biaya           = $request->biaya;
+        $biaya         = preg_replace('/[^0-9]/','',$request->biaya);
+        // dd($biaya);
+        $Pengujian->biaya           = $biaya;
         $Pengujian->keterangan      = $request->keterangan;
 
         $Pengujian->save();
@@ -271,7 +277,9 @@ class adminController extends Controller
        ]);
 
        $Pengujian->komoditi     = $request->komoditi;
-       $Pengujian->biaya        = $request->biaya;
+       $biaya         = preg_replace('/[^0-9]/','',$request->biaya);
+        // dd($biaya);
+        $Pengujian->biaya           = $biaya;
        $Pengujian->keterangan   = $request->keterangan;
 
        $Pengujian->update();
