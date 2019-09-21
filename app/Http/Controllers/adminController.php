@@ -26,6 +26,12 @@ use Auth;
 
 class adminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+
     //dashboard admin
     public function index(){
         $perusahaan = Perusahaan::all();

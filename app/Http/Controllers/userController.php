@@ -27,6 +27,11 @@ Use PDF;
 class userController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+
         //dashboard admin
         public function index(){
             $id= Auth::user()->id;

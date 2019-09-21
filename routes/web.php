@@ -6,6 +6,7 @@
 // });
 
 //MIDLEWARE ADMIN
+Auth::routes(['verify' => true]);
 Route::group(['middleware' => 'admin'], function() {
 Route::get('/admin','adminController@index')
 ->name('admin_index');
